@@ -1,0 +1,12 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Practic_1:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Practic_1_jar</output-path>
+    <root id="archive" name="Practic_1.jar">
+      <element id="module-output" name="Practic_1" />
+      <element id="extracted-dir" path="C:/Program Files/Java/Librerias/jgoodies-common-1.8.1/jgoodies-common-1.8.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="C:/Program Files/Java/Librerias/jgoodies-forms-1.9.0/jgoodies-forms-1.9.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="C:/Program Files/Java/Librerias/jcalendar-1.4/lib/jgoodies-looks-2.4.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="C:/Program Files/Java/Librerias/jcalendar-1.4/lib/jcalendar-1.4.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
