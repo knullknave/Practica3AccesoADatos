@@ -1,0 +1,172 @@
+/*
+CREATE DATABASE
+*/
+CREATE DATABASE MedicDB;
+USE MedicDB;
+
+/*
+DROP DATABASE
+*/
+USE master;
+DROP DATABASE MedicDB;
+
+/*
+CREATE TABLES
+*/
+CREATE TABLE IF NOT EXISTS Medic
+(
+	collegiateNumber INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	userName VARCHAR(20) NOT NULL,
+	userPasword VARCHAR(16)	NOT NULL,
+	name VARCHAR(20) NOT NULL,
+	surname VARCHAR(30) NOT NULL,
+	adress VARCHAR(100) NOT NULL,
+	medicalCentre VARCHAR(100) NOT NULL,
+	email VARCHAR(50) NOT NULL,
+	medicalSpeciality VARCHAR(100) NOT NULL,
+	telephone VARCHAR(100) NOT NULL,
+	birthDate DATE NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Patient
+(
+	cias INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	patientUser VARCHAR(20) NOT NULL,
+	patientPassword VARCHAR(16) NOT NULL,
+	name VARCHAR(20) NOT NULL,
+	surname	VARCHAR(30) NOT NULL,
+	sex	CHAR(1)	NOT NULL,
+	adress VARCHAR(100)	NOT NULL,
+	birthDate Date NOT NULL,
+	telephone VARCHAR(100) NOT NULL,
+	bloodType CHAR(2)
+);
+
+CREATE TABLE IF NOT EXISTS Radiography
+(
+	id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	reportDate DATE NOT NULL,
+	receptionDate DATE NOT NULL,
+	radiographyDate	DATE NOT NULL,
+	study VARCHAR(255) NOT NULL,
+	report VARCHAR(255) NOT NULL,
+	controlDone	VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Analysis
+(
+	id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	analysisDate DATE NOT NULL,
+	analysisType VARCHAR(50) NOT NULL,
+	report VARCHAR(255) NOT NULL,
+	reportDate DATE NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Pharmacotherapy
+(
+	id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	descript VARCHAR(255) NOT NULL,
+	dosage VARCHAR(255) NOT NULL,
+	startDate DATE NOT NULL,
+	endDate DATE NOT NULL,
+	initialWeight FLOAT NOT NULL,
+	finalWeight FLOAT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS Medicament
+(
+	id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	name VARCHAR(30) NOT NULL,
+	composition VARCHAR(100) NOT NULL,
+	formatt VARCHAR(50) NOT NULL,
+	laboratory VARCHAR(50) NOT NULL,
+	prize FLOAT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS PharmacotherapyMedicament
+(
+	idPharmacotherapy INT UNSIGNED,
+	INDEX(idPharmacotherapy),
+	FOREIGN KEY(idPharmacotherapy)
+		REFERENCES Pharmacotherapy(id)
+		ON UPDATE CASCADE ON DELETE CASCADE,
+	idMedicament INT UNSIGNED,
+	INDEX(idMedicament),
+	FOREIGN KEY(idMedicament)
+		REFERENCES Medicament(id)
+		ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS Episodes
+(
+	id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	descript VARCHAR(255) NOT NULL,
+	startDate DATE NOT NULL,
+	endDate DATE NOT NULL,
+	evolution VARCHAR(255)
+);
+
+CREATE TABLE IF NOT EXISTS Disease
+(
+	id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	name VARCHAR(30) NOT NULL,
+	descr VARCHAR(255) NOT NULL,
+	evolution VARCHAR(255)	NULL,
+	treatment VARCHAR(255)	NOT NULL,
+	prevention VARCHAR(255)	NULL,
+    diseaseType VARCHAR(100)	NOT NULL,
+	pathogenesis VARCHAR(255) NULL
+);
+
+CREATE TABLE IF NOT EXISTS EpisodeDisease
+(
+	idEpisode INT UNSIGNED,
+	INDEX(idEpisode),
+	FOREIGN KEY(idEpisode)
+		REFERENCES Episodes(id)
+		ON UPDATE CASCADE ON DELETE CASCADE,
+	idDisease INT UNSIGNED,
+	INDEX(idDisease),
+	FOREIGN KEY(idDisease)
+		REFERENCES Disease(id)
+		ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS Visit
+(
+	idVisit INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+	receptionDate DATE NOT NULL,
+	visitDate DATE NOT NULL,
+	medicalCentre VARCHAR(100) NOT NULL,
+	
+	idAnalysis INT UNSIGNED,
+	INDEX(idAnalysis),
+	FOREIGN KEY(idAnalysis)
+		REFERENCES Analysis(id)
+		ON UPDATE CASCADE ON DELETE CASCADE,
+		
+		
+	idEpisode INT UNSIGNED,
+	INDEX(idEpisode),
+	FOREIGN KEY(idEpisode)
+		REFERENCES Episodes(id)
+		ON UPDATE CASCADE ON DELETE CASCADE,
+	
+	idMedic INT UNSIGNED,
+	INDEX(idMedic),
+	FOREIGN KEY(idMedic)
+		REFERENCES Medic(collegiateNumber)
+		ON UPDATE CASCADE ON DELETE CASCADE,
+	
+	idPatient INT UNSIGNED,
+	INDEX(idPatient),
+	FOREIGN KEY(idPatient)
+		REFERENCES Patient(cias)
+		ON UPDATE CASCADE ON DELETE CASCADE,
+	
+	idPharmacotherapy INT UNSIGNED,
+	INDEX(idPharmacotherapy),
+	FOREIGN KEY(idPharmacotherapy)
+		REFERENCES Pharmacotherapy(id)
+		ON UPDATE CASCADE ON DELETE CASCADE
+);

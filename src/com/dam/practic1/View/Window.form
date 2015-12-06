@@ -2,7 +2,7 @@
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.dam.practic1.View.Window">
   <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="BorderLayout" hgap="0" vgap="0">
     <constraints>
-      <xy x="20" y="28" width="661" height="356"/>
+      <xy x="20" y="28" width="661" height="434"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -211,6 +211,20 @@
                   <text value=""/>
                 </properties>
               </component>
+              <scrollpane id="63871">
+                <constraints>
+                  <grid row="20" column="6" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <forms defaultalign-horz="false" defaultalign-vert="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="e8536" class="javax.swing.JTable" binding="table1" default-binding="true">
+                    <constraints/>
+                    <properties/>
+                  </component>
+                </children>
+              </scrollpane>
             </children>
           </grid>
           <grid id="96aa3" layout-manager="FormLayout">
@@ -243,6 +257,8 @@
             <rowspec value="center:max(d;4px):noGrow"/>
             <rowspec value="top:4dlu:noGrow"/>
             <rowspec value="center:max(d;4px):noGrow"/>
+            <rowspec value="top:4dlu:noGrow"/>
+            <rowspec value="center:d:grow"/>
             <colspec value="fill:max(d;4px):noGrow"/>
             <colspec value="left:4dlu:noGrow"/>
             <colspec value="fill:110px:noGrow"/>
@@ -447,6 +463,20 @@
                   <text value="Cancel Modification"/>
                 </properties>
               </component>
+              <scrollpane id="139d0">
+                <constraints>
+                  <grid row="30" column="3" row-span="1" col-span="3" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <forms defaultalign-horz="false" defaultalign-vert="false"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="7662e" class="javax.swing.JTable" binding="table2" default-binding="true">
+                    <constraints/>
+                    <properties/>
+                  </component>
+                </children>
+              </scrollpane>
             </children>
           </grid>
           <grid id="9f5ee" layout-manager="BorderLayout" hgap="0" vgap="0">
@@ -489,6 +519,8 @@
                         <rowspec value="top:4dlu:noGrow"/>
                         <rowspec value="center:31px:noGrow"/>
                         <rowspec value="center:61px:noGrow"/>
+                        <rowspec value="top:4dlu:noGrow"/>
+                        <rowspec value="center:d:grow"/>
                         <colspec value="fill:d:grow"/>
                         <colspec value="left:4dlu:noGrow"/>
                         <colspec value="fill:249px:noGrow"/>
@@ -602,6 +634,34 @@
                               <text value="Add Episodes"/>
                             </properties>
                           </component>
+                          <scrollpane id="c6a05">
+                            <constraints>
+                              <grid row="21" column="2" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                              <forms defaultalign-horz="false" defaultalign-vert="false"/>
+                            </constraints>
+                            <properties/>
+                            <border type="none"/>
+                            <children>
+                              <component id="1789d" class="javax.swing.JTable" binding="table3" default-binding="true">
+                                <constraints/>
+                                <properties/>
+                              </component>
+                            </children>
+                          </scrollpane>
+                          <scrollpane id="d678e">
+                            <constraints>
+                              <grid row="21" column="4" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                              <forms defaultalign-horz="false" defaultalign-vert="false"/>
+                            </constraints>
+                            <properties/>
+                            <border type="none"/>
+                            <children>
+                              <component id="245d4" class="javax.swing.JTable" binding="table4" default-binding="true">
+                                <constraints/>
+                                <properties/>
+                              </component>
+                            </children>
+                          </scrollpane>
                         </children>
                       </grid>
                     </children>
@@ -634,6 +694,8 @@
                         <rowspec value="top:4dlu:noGrow"/>
                         <rowspec value="center:31px:noGrow"/>
                         <rowspec value="center:61px:noGrow"/>
+                        <rowspec value="top:4dlu:noGrow"/>
+                        <rowspec value="center:d:grow"/>
                         <colspec value="fill:d:grow"/>
                         <colspec value="left:4dlu:noGrow"/>
                         <colspec value="fill:249px:noGrow"/>
@@ -745,6 +807,34 @@
                               <text value="Add Analysis"/>
                             </properties>
                           </component>
+                          <scrollpane id="8cf6f">
+                            <constraints>
+                              <grid row="21" column="2" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                              <forms defaultalign-horz="false" defaultalign-vert="false"/>
+                            </constraints>
+                            <properties/>
+                            <border type="none"/>
+                            <children>
+                              <component id="18af6" class="javax.swing.JTable" binding="table6" default-binding="true">
+                                <constraints/>
+                                <properties/>
+                              </component>
+                            </children>
+                          </scrollpane>
+                          <scrollpane id="87ab6">
+                            <constraints>
+                              <grid row="21" column="4" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                              <forms defaultalign-horz="false" defaultalign-vert="false"/>
+                            </constraints>
+                            <properties/>
+                            <border type="none"/>
+                            <children>
+                              <component id="978e4" class="javax.swing.JTable" binding="table5" default-binding="true">
+                                <constraints/>
+                                <properties/>
+                              </component>
+                            </children>
+                          </scrollpane>
                         </children>
                       </grid>
                     </children>
@@ -777,6 +867,8 @@
                         <rowspec value="top:4dlu:noGrow"/>
                         <rowspec value="center:31px:noGrow"/>
                         <rowspec value="center:61px:noGrow"/>
+                        <rowspec value="top:4dlu:noGrow"/>
+                        <rowspec value="center:d:grow"/>
                         <colspec value="fill:d:grow"/>
                         <colspec value="left:4dlu:noGrow"/>
                         <colspec value="fill:249px:noGrow"/>
@@ -888,6 +980,34 @@
                               <text value="Add Radiography"/>
                             </properties>
                           </component>
+                          <scrollpane id="4cb06">
+                            <constraints>
+                              <grid row="21" column="2" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                              <forms defaultalign-horz="false" defaultalign-vert="false"/>
+                            </constraints>
+                            <properties/>
+                            <border type="none"/>
+                            <children>
+                              <component id="c853c" class="javax.swing.JTable" binding="table8" default-binding="true">
+                                <constraints/>
+                                <properties/>
+                              </component>
+                            </children>
+                          </scrollpane>
+                          <scrollpane id="684d">
+                            <constraints>
+                              <grid row="21" column="4" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                              <forms defaultalign-horz="false" defaultalign-vert="false"/>
+                            </constraints>
+                            <properties/>
+                            <border type="none"/>
+                            <children>
+                              <component id="b6360" class="javax.swing.JTable" binding="table7" default-binding="true">
+                                <constraints/>
+                                <properties/>
+                              </component>
+                            </children>
+                          </scrollpane>
                         </children>
                       </grid>
                     </children>
@@ -920,6 +1040,8 @@
                         <rowspec value="top:4dlu:noGrow"/>
                         <rowspec value="center:31px:noGrow"/>
                         <rowspec value="center:61px:noGrow"/>
+                        <rowspec value="top:4dlu:noGrow"/>
+                        <rowspec value="center:d:grow"/>
                         <colspec value="fill:d:grow"/>
                         <colspec value="left:5dlu:noGrow"/>
                         <colspec value="fill:267px:noGrow"/>
@@ -1033,6 +1155,34 @@
                               <text value="Add Pharmacotherapy"/>
                             </properties>
                           </component>
+                          <scrollpane id="d2729">
+                            <constraints>
+                              <grid row="21" column="4" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                              <forms defaultalign-horz="false" defaultalign-vert="false"/>
+                            </constraints>
+                            <properties/>
+                            <border type="none"/>
+                            <children>
+                              <component id="58aa" class="javax.swing.JTable" binding="table9" default-binding="true">
+                                <constraints/>
+                                <properties/>
+                              </component>
+                            </children>
+                          </scrollpane>
+                          <scrollpane id="795ed">
+                            <constraints>
+                              <grid row="21" column="2" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                              <forms defaultalign-horz="false" defaultalign-vert="false"/>
+                            </constraints>
+                            <properties/>
+                            <border type="none"/>
+                            <children>
+                              <component id="71c2a" class="javax.swing.JTable" binding="table10" default-binding="true">
+                                <constraints/>
+                                <properties/>
+                              </component>
+                            </children>
+                          </scrollpane>
                         </children>
                       </grid>
                     </children>

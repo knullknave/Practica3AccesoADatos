@@ -2,6 +2,7 @@ package com.dam.practic1.Controller;
 
 import com.dam.practic1.Model.Methods.Methods;
 import com.dam.practic1.Model.Objects.*;
+import com.dam.practic1.View.JConnection;
 import com.dam.practic1.View.Window;
 import com.toedter.calendar.JDateChooser;
 
@@ -45,6 +46,7 @@ public class Controller implements ActionListener, ListSelectionListener, KeyLis
     private int analysisPosition;
     private int radiographyPosition;
     private int pharmacotherapyPosition;
+    private JConnection c;
 
     /**
      * Este es el constructor de la clase. Aqui se implementan todos los listener de la ventana
@@ -97,6 +99,8 @@ public class Controller implements ActionListener, ListSelectionListener, KeyLis
         this.window.menuItem4.addActionListener(this);
         this.window.menuItem5.addActionListener(this);
         this.window.menuItem6.addActionListener(this);
+        this.window.menuItem7.addActionListener(this);
+        this.window.menuItem8.addActionListener(this);
 
         this.window.listMed.addListSelectionListener(this);
 
@@ -157,6 +161,8 @@ public class Controller implements ActionListener, ListSelectionListener, KeyLis
         disableEpisodesButtons();
         disablePharmacotherapyButtons();
         disableRadiographyButtons();
+
+        dishableALL();
     }
 
     /**
@@ -1143,10 +1149,47 @@ public class Controller implements ActionListener, ListSelectionListener, KeyLis
                 case "Exit":
                     System.exit(0);
                     break;
+                case "Connect":
+                    c = new JConnection(this);
+                    c.mostrar();
+                    break;
+                case "Disconnect":
+                    if(c != null)
+                    {
+                        c.desconectar();
+                        dishableALL();
+                    }
+                    break;
                 default:
                     break;
             }
         }
+    }
+
+    public void dishableALL()
+    {
+        window.tabbedPane1.setEnabled(false);
+        window.jbRegister.setEnabled(false);
+        window.jbEnter.setEnabled(false);
+        window.jbModM.setEnabled(false);
+        window.jbDelM.setEnabled(false);
+        window.tfUser.setEnabled(false);
+        window.tfPassword.setEnabled(false);
+        window.tfSearchM.setEnabled(false);
+        window.listMed.setEnabled(false);
+    }
+
+    public void enableAll()
+    {
+        window.tabbedPane1.setEnabled(true);
+        window.jbRegister.setEnabled(true);
+        window.jbEnter.setEnabled(true);
+        window.jbModM.setEnabled(true);
+        window.jbDelM.setEnabled(true);
+        window.tfUser.setEnabled(true);
+        window.tfPassword.setEnabled(true);
+        window.tfSearchM.setEnabled(true);
+        window.listMed.setEnabled(true);
     }
 
     /**

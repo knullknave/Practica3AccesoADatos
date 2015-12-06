@@ -7,6 +7,7 @@ import com.toedter.calendar.JDateChooser;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
+import java.security.Key;
 
 /**
  * @author Daniel Cano Mainar
@@ -93,10 +94,20 @@ public class Window
     public JTextField tfSearchR;
     public JTextField tfSearchPh;
     public JButton jbCancel;
+    private JTable table1;
+    private JTable table2;
+    private JTable table3;
+    private JTable table4;
+    private JTable table5;
+    private JTable table6;
+    private JTable table7;
+    private JTable table8;
+    private JTable table9;
+    private JTable table10;
 
     public static JMenuBar menuBar;
     public static JMenu menu;
-    public static JMenuItem menuItem, menuItem2, menuItem3, menuItem4, menuItem5, menuItem6;
+    public static JMenuItem menuItem, menuItem2, menuItem3, menuItem4, menuItem5, menuItem6, menuItem7, menuItem8;
 
     Window()
     {
@@ -129,6 +140,22 @@ public class Window
         menuItem6 = new JMenuItem("Exit", KeyEvent.VK_T);
         menuItem6.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_1, ActionEvent.ALT_MASK));
         menuItem6.getAccessibleContext().setAccessibleDescription("Description for sixth item");
+
+        menuItem7 = new JMenuItem("Connect", KeyEvent.VK_T);
+        menuItem7.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_1, ActionEvent.ALT_MASK));
+        menuItem7.getAccessibleContext().setAccessibleDescription("Description for seventh item");
+
+        menuItem8 = new JMenuItem("Disconnect", KeyEvent.VK_T);
+        menuItem8.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_1, ActionEvent.ALT_MASK));
+        menuItem8.getAccessibleContext().setAccessibleDescription("Description for eight item");
+
+        menu.add(menuItem7);
+        menuItem7.setMnemonic(KeyEvent.VK_D);
+        menu.addSeparator();
+
+        menu.add(menuItem8);
+        menuItem8.setMnemonic(KeyEvent.VK_D);
+        menu.addSeparator();
 
         menu.add(menuItem);
         menuItem.setMnemonic(KeyEvent.VK_D);
