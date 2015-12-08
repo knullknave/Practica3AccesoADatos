@@ -7,8 +7,10 @@ import com.dam.practic2.View.JConnection;
 import javax.swing.*;
 import java.io.*;
 import java.sql.*;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
+import java.sql.Date;
 import java.util.Properties;
 import java.util.Random;
 
@@ -210,9 +212,38 @@ public class Methods
         return false;
     }
 
-    public void updateMedic(String name, String surname, String adress, String medCentre, String email, String medSpeciality, String telephone, Date birth)
+    public boolean existsMedic3(int idM)
     {
-        String sql = "UPDATE medic SET name = ?, surname = ?, adress = ?, medicalCentre = ?, email = ?, medicalSpeciality = ?, telephone = ?, birthDate = ? WHERE id = ?";
+        String query = "SELECT COUNT(*) as cuenta FROM medic WHERE collegiateNumber = ?";
+
+        try
+        {
+            PreparedStatement sentencia = null;
+            sentencia = conexion.prepareStatement(query);
+            sentencia.setInt(1, idM);
+
+            ResultSet resultado = sentencia.executeQuery();
+            while (resultado.next())
+            {
+                int id = resultado.getInt("cuenta");
+
+                if(id == 0)
+                    return false;
+                else
+                    return true;
+            }
+        }
+        catch (SQLException e)
+        {
+
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public void updateMedic(String name, String surname, String adress, String medCentre, String email, String medSpeciality, String telephone, java.sql.Date birth, int idM)
+    {
+        String sql = "UPDATE medic SET name = ?, surname = ?, adress = ?, medicalCentre = ?, email = ?, medicalSpeciality = ?, telephone = ?, birthDate = ? WHERE collegiateNumber = ?";
         PreparedStatement sentence = null;
 
         try
@@ -226,11 +257,54 @@ public class Methods
             sentence.setString(6, medSpeciality);
             sentence.setString(7, telephone);
             sentence.setDate(8, birth);
+            sentence.setInt(9, idM);
             sentence.executeUpdate();
         }
         catch (SQLException e)
         {
+            e.printStackTrace();
+        }
+    }
 
+    public void deleteMedic(int idM)
+    {
+        String sql = "DELETE FROM medic WHERE collegiateNumber = ?";
+        PreparedStatement sentencia = null;
+        try
+        {
+            sentencia = conexion.prepareStatement(sql);
+            sentencia.setInt(1, idM);
+            sentencia.executeUpdate();
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public void insertMedic(String uName, String uPass, String name, String surname, String adress, String medCentre, String email, String medSpeciality, String telephone, java.sql.Date birth)
+    {
+        String sql = "INSERT INTO medic(userName, userPasword, name, surname, adress, medicalCentre, email, medicalSpeciality, telephone, birthDate) " +
+                "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        PreparedStatement sentencia = null;
+        try
+        {
+            sentencia = conexion.prepareStatement(sql);
+            sentencia.setString(1, uName);
+            sentencia.setString(2, uPass);
+            sentencia.setString(3, name);
+            sentencia.setString(4, surname);
+            sentencia.setString(5, adress);
+            sentencia.setString(6, medCentre);
+            sentencia.setString(7, email);
+            sentencia.setString(8, medSpeciality);
+            sentencia.setString(9, telephone);
+            sentencia.setDate(10, birth);
+            sentencia.executeUpdate();
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
         }
     }
 
@@ -285,41 +359,6 @@ public class Methods
     }
 
     /**
-     * @return
-     *
-     * Esta función devuelve una cadena con un formato específico generado de manera aleatoria.
-     * Sirve para rellenar los valores de ciasNumber del objeto History y collegiateNumber del objeto Medic.
-     */
-    public static String RandomCias()
-    {
-        Random n = new Random();
-        String value = "";
-
-        /**
-         * Estos primeros 7 valores generados son de tipo numérico.
-         */
-        for (int i = 0; i < 7; i++)
-        {
-            int num = n.nextInt(99);
-            value = value + num;
-        }
-
-        /**
-         * Estos últimos 2 valores generados son de tipo carácter
-         */
-        for (int i = 0; i < 2; i++)
-        {
-            int num = 34;
-            while ((num < 65) || (num > 90))
-            {
-                num = n.nextInt(90);
-            }
-            value = value + (char) num;
-        }
-        return value;
-    }
-
-    /**
      * @param v1
      * @param v2
      * @param v3
@@ -366,7 +405,7 @@ public class Methods
         p.setSurname(v2);
         p.setBirthDate(v3);
         p.setAddress(v4);
-        p.getHistory().setCiasNumber(RandomCias());
+        p.getHistory();
         p.getHistory().setIdPatient(0);
         p.setIdMed(v5);
     }

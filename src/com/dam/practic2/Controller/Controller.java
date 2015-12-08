@@ -12,7 +12,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.Date;
+import java.sql.Date;
 
 /**
  * @author Daniel Cano Mainar
@@ -276,7 +276,6 @@ public class Controller implements ActionListener
                             {
                                 JOptionPane.showMessageDialog(null, "Successul", "Successful", JOptionPane.INFORMATION_MESSAGE);
                                 sw1 = 1;
-                                System.out.println(idMedic);
 
                                 Object[] datos = methods.selectMedic(idMedic);
 
@@ -321,8 +320,9 @@ public class Controller implements ActionListener
                                         else
                                         {
                                             JOptionPane.showMessageDialog(null, "Successul", "Successful", JOptionPane.INFORMATION_MESSAGE);
-                                            methods.updateMedic(field2.getText(), field3.getText(), field4.getText(), field5.getText(), field6.getText(), field7.getText(), field8.getText(), field9.getDate());
+                                            methods.updateMedic(field2.getText(), field3.getText(), field4.getText(), field5.getText(), field6.getText(), field7.getText(), field8.getText(), new Date(field9.getDate().getTime()), idMedic);
                                             sw = 1;
+                                            loadMedic();
                                         }
                                     }
                                 }
@@ -331,7 +331,43 @@ public class Controller implements ActionListener
                     }
                     break;
                 case "Delete Medic":
-                    //TODO DELETE MEDIC
+                    fieldUser = new JTextField();
+                    fieldPassword = new JTextField();
+                    Object[] check2 = {"User", fieldUser, "Password", fieldPassword};
+                    op = JOptionPane.showConfirmDialog(null, check2, "Enter all your values", JOptionPane.OK_CANCEL_OPTION);
+                    sw1 = 0;
+
+                    if(op == JOptionPane.CANCEL_OPTION || op == JOptionPane.CLOSED_OPTION)
+                    {
+                        sw1 = 1;
+                    }
+                    else
+                    {
+                        if (fieldUser.getText().equals("") || fieldPassword.getText().equals(""))
+                        {
+
+                            JOptionPane.showMessageDialog(null, "Please, fill each field", "Error", JOptionPane.ERROR_MESSAGE);
+                        }
+                        else
+                        {
+                            if (methods.existsMedic2(fieldUser.getText(), fieldPassword.getText(), idMedic) == false)
+                            {
+                                JOptionPane.showMessageDialog(null, "You can't modify this user", "Error", JOptionPane.ERROR_MESSAGE);
+                            }
+                            else
+                            {
+                                JOptionPane.showMessageDialog(null, "Successul", "Successful", JOptionPane.INFORMATION_MESSAGE);
+                                methods.deleteMedic(idMedic);
+                                loadMedic();
+
+                                if(methods.existsMedic3(idMedic) == false)
+                                {
+                                    disconect();
+                                    window.jlMedic.setText("You need to log in");
+                                }
+                            }
+                        }
+                    }
                     break;
                 case "ENTER":
                     if(!window.tfUser.getText().equals("") || !window.tfPassword.getText().equals(""))
@@ -341,6 +377,7 @@ public class Controller implements ActionListener
                             connect();
                             loadPatient(window.tfUser.getText(), window.tfPassword.getText());
                             JOptionPane.showMessageDialog(null, "Correct", "Correct", JOptionPane.INFORMATION_MESSAGE);
+                            window.jlMedic.setText(window.tfUser.getText());
                         }
                         else
                         {
@@ -354,7 +391,53 @@ public class Controller implements ActionListener
                     methods.medicConnected = 0;
                     break;
                 case "REGISTER":
-                    //TODO INSERT NEW MEDIC
+                    JTextField field1 = new JTextField();
+                    JTextField field2 = new JTextField();
+                    JTextField field3 = new JTextField();
+                    JTextField field4 = new JTextField();
+                    JTextField field5 = new JTextField();
+                    JTextField field6 = new JTextField();
+                    JTextField field7 = new JTextField();
+                    JTextField field8 = new JTextField();
+                    JTextField field9 = new JTextField();
+                    JDateChooser field10 = new JDateChooser();
+
+                    int sw = 0;
+                    int option = 0;
+
+                    while (sw == 0)
+                    {
+                        Object[] message = {"User Name", field1, "User Password", field2, "Name", field3, "Surname", field4,
+                                "Address", field5, "Medical Centre", field6, "Email", field7, "Medical Speciality", field8, "Telephone", field9, "Birth Date", field10};
+                        option = JOptionPane.showConfirmDialog(null, message, "Enter all your values", JOptionPane.OK_CANCEL_OPTION);
+
+                        if(option == JOptionPane.CANCEL_OPTION || option == JOptionPane.CLOSED_OPTION)
+                        {
+                            sw = 1;
+                        }
+                        else
+                        {
+                            if (field1.getText().equals("") || field2.getText().equals("") || field3.getText().equals("") || field4.getText().equals("") || field5.getText().equals("") || field6.getText().equals("") || field7.getText().equals("") || field8.getText().equals("") || field9.getText().equals(""))
+                            {
+                                JOptionPane.showMessageDialog(null, "Please, fill each field", "Error", JOptionPane.ERROR_MESSAGE);
+                            }
+                            else
+                            {
+                                if(methods.existsMedic(field1.getText(), field2.getText()))
+                                {
+                                    sw = 0;
+                                    JOptionPane.showMessageDialog(null, "This user already exists", "Error", JOptionPane.ERROR_MESSAGE);
+                                }
+                                else
+                                {
+                                    JOptionPane.showMessageDialog(null, "Successul", "Successful", JOptionPane.INFORMATION_MESSAGE);
+                                    sw = 1;
+                                    methods.insertMedic(field1.getText(), field2.getText(), field3.getText(), field4.getText(), field5.getText(), field6.getText(), field7.getText(), field8.getText(), field9.getText(), new Date(field10.getDate().getTime()));
+                                    loadMedic();
+                                }
+                            }
+                        }
+                    }
                     break;
                 case "See Episodes":
                     break;

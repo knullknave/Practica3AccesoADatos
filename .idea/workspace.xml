@@ -34,38 +34,43 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Methods.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Methods.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/dam/practic2/Model/Methods/Methods.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.77272725">
-              <caret line="227" column="32" selection-start-line="227" selection-start-column="32" selection-end-line="227" selection-end-column="32" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="302" column="35" selection-start-line="302" selection-start-column="35" selection-end-line="302" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#9313#9314#0" expanded="true" />
-                <element signature="e#9340#9341#0" expanded="true" />
-                <element signature="e#9455#9456#0" expanded="true" />
-                <element signature="e#9482#9483#0" expanded="true" />
-                <marker date="1449599199882" expanded="true" signature="2723:2742" placeholder="SELECT * FRO..medic..." />
-                <marker date="1449599199882" expanded="true" signature="4056:4203" placeholder="SELECT colle..medic..." />
-                <marker date="1449599199882" expanded="true" signature="5581:5656" placeholder="SELECT COUNT..medic..." />
-                <marker date="1449599199882" expanded="true" signature="6377:6452" placeholder="SELECT COUNT..medic..." />
-                <marker date="1449599199882" expanded="true" signature="6377:6477" placeholder="SELECT COUNT..medic..." />
-                <marker date="1449599199882" expanded="true" signature="7329:7475" placeholder="UPDATE cuart..." />
-                <marker date="1449599199882" expanded="true" signature="8170:8376" placeholder="SELECT colle..medic..." />
-                <marker date="1449599199882" expanded="true" signature="8184:8353" placeholder="SELECT P.cia..patient..." />
-                <marker date="1449599199882" expanded="true" signature="8184:8375" placeholder="SELECT P.cia..patient..." />
-                <marker date="1449599199882" expanded="true" signature="8184:8376" placeholder="SELECT P.cia..patient..." />
+                <element signature="e#11734#11735#0" expanded="true" />
+                <element signature="e#11761#11762#0" expanded="true" />
+                <element signature="e#11876#11877#0" expanded="true" />
+                <element signature="e#11903#11904#0" expanded="true" />
+                <marker date="1449603368132" expanded="true" signature="2790:2809" placeholder="SELECT * FRO..medic..." />
+                <marker date="1449603368132" expanded="true" signature="4123:4270" placeholder="SELECT colle..medic..." />
+                <marker date="1449603368132" expanded="true" signature="5648:5723" placeholder="SELECT COUNT..medic..." />
+                <marker date="1449603368132" expanded="true" signature="6444:6519" placeholder="SELECT COUNT..medic..." />
+                <marker date="1449603368132" expanded="true" signature="6444:6544" placeholder="SELECT COUNT..medic..." />
+                <marker date="1449603368132" expanded="true" signature="7283:7346" placeholder="SELECT COUNT..medic..." />
+                <marker date="1449603368132" expanded="true" signature="8138:8298" placeholder="UPDATE cuart..." />
+                <marker date="1449603368132" expanded="true" signature="9015:9059" placeholder="DELETE FROM ..." />
+                <marker date="1449603368132" expanded="true" signature="9583:9767" placeholder="INSERT INTO ..." />
+                <marker date="1449603368132" expanded="true" signature="10591:10797" placeholder="SELECT colle..medic..." />
+                <marker date="1449603368132" expanded="true" signature="10605:10774" placeholder="SELECT P.cia..patient..." />
+                <marker date="1449603368132" expanded="true" signature="10605:10796" placeholder="SELECT P.cia..patient..." />
+                <marker date="1449603368132" expanded="true" signature="10605:10797" placeholder="SELECT P.cia..patient..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/dam/practic2/Controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="270" column="51" selection-start-line="270" selection-start-column="39" selection-end-line="270" selection-end-column="51" />
-              <folding />
+            <state vertical-scroll-proportion="0.4352518">
+              <caret line="379" column="74" selection-start-line="379" selection-start-column="74" selection-end-line="379" selection-end-column="74" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -141,8 +146,8 @@
         <option value="$PROJECT_DIR$/src/com/dam/practic2/View/Window.java" />
         <option value="$PROJECT_DIR$/src/com/dam/practic2/View/JConnection.java" />
         <option value="$PROJECT_DIR$/src/com/dam/practic2/View/Window.form" />
-        <option value="$PROJECT_DIR$/src/com/dam/practic2/Controller/Controller.java" />
         <option value="$PROJECT_DIR$/src/com/dam/practic2/Model/Methods/Methods.java" />
+        <option value="$PROJECT_DIR$/src/com/dam/practic2/Controller/Controller.java" />
       </list>
     </option>
   </component>
@@ -611,12 +616,12 @@
       <option name="number" value="Default" />
       <updated>1449417157641</updated>
       <workItem from="1449417142141" duration="5451000" />
-      <workItem from="1449572599063" duration="19590000" />
+      <workItem from="1449572599063" duration="24485000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25041000" />
+    <option name="totallyTimeSpent" value="29936000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="953" y="0" width="974" height="1047" extended-state="0" />
@@ -630,10 +635,10 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15191257" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.36174864" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32603937" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42669585" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24886535" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -686,7 +691,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="4" />
+      <option name="time" value="5" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -699,7 +704,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="2045" column="1" selection-start-line="2045" selection-start-column="1" selection-end-line="2045" selection-end-column="1" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -719,20 +726,23 @@
           <caret line="296" column="5" selection-start-line="296" selection-start-column="5" selection-end-line="296" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#9313#9314#0" expanded="true" />
-            <element signature="e#9340#9341#0" expanded="true" />
-            <element signature="e#9455#9456#0" expanded="true" />
-            <element signature="e#9482#9483#0" expanded="true" />
-            <marker date="1449599199882" expanded="true" signature="2723:2742" placeholder="SELECT * FRO..medic..." />
-            <marker date="1449599199882" expanded="true" signature="4056:4203" placeholder="SELECT colle..medic..." />
-            <marker date="1449599199882" expanded="true" signature="5581:5656" placeholder="SELECT COUNT..medic..." />
-            <marker date="1449599199882" expanded="true" signature="6377:6452" placeholder="SELECT COUNT..medic..." />
-            <marker date="1449599199882" expanded="true" signature="6377:6477" placeholder="SELECT COUNT..medic..." />
-            <marker date="1449599199882" expanded="true" signature="7329:7475" placeholder="UPDATE cuart..." />
-            <marker date="1449599199882" expanded="true" signature="8170:8376" placeholder="SELECT colle..medic..." />
-            <marker date="1449599199882" expanded="true" signature="8184:8353" placeholder="SELECT P.cia..patient..." />
-            <marker date="1449599199882" expanded="true" signature="8184:8375" placeholder="SELECT P.cia..patient..." />
-            <marker date="1449599199882" expanded="true" signature="8184:8376" placeholder="SELECT P.cia..patient..." />
+            <element signature="e#11734#11735#0" expanded="true" />
+            <element signature="e#11761#11762#0" expanded="true" />
+            <element signature="e#11876#11877#0" expanded="true" />
+            <element signature="e#11903#11904#0" expanded="true" />
+            <marker date="1449603368132" expanded="true" signature="2790:2809" placeholder="SELECT * FRO..medic..." />
+            <marker date="1449603368132" expanded="true" signature="4123:4270" placeholder="SELECT colle..medic..." />
+            <marker date="1449603368132" expanded="true" signature="5648:5723" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449603368132" expanded="true" signature="6444:6519" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449603368132" expanded="true" signature="6444:6544" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449603368132" expanded="true" signature="7283:7346" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449603368132" expanded="true" signature="8138:8298" placeholder="UPDATE cuart..." />
+            <marker date="1449603368132" expanded="true" signature="9015:9059" placeholder="DELETE FROM ..." />
+            <marker date="1449603368132" expanded="true" signature="9583:9767" placeholder="INSERT INTO ..." />
+            <marker date="1449603368132" expanded="true" signature="10591:10797" placeholder="SELECT colle..medic..." />
+            <marker date="1449603368132" expanded="true" signature="10605:10774" placeholder="SELECT P.cia..patient..." />
+            <marker date="1449603368132" expanded="true" signature="10605:10796" placeholder="SELECT P.cia..patient..." />
+            <marker date="1449603368132" expanded="true" signature="10605:10797" placeholder="SELECT P.cia..patient..." />
           </folding>
         </state>
       </provider>
@@ -741,7 +751,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="1060" column="45" selection-start-line="1060" selection-start-column="45" selection-end-line="1060" selection-end-column="45" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -761,20 +773,23 @@
           <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#9313#9314#0" expanded="true" />
-            <element signature="e#9340#9341#0" expanded="true" />
-            <element signature="e#9455#9456#0" expanded="true" />
-            <element signature="e#9482#9483#0" expanded="true" />
-            <marker date="1449599199882" expanded="true" signature="2723:2742" placeholder="SELECT * FRO..medic..." />
-            <marker date="1449599199882" expanded="true" signature="4056:4203" placeholder="SELECT colle..medic..." />
-            <marker date="1449599199882" expanded="true" signature="5581:5656" placeholder="SELECT COUNT..medic..." />
-            <marker date="1449599199882" expanded="true" signature="6377:6452" placeholder="SELECT COUNT..medic..." />
-            <marker date="1449599199882" expanded="true" signature="6377:6477" placeholder="SELECT COUNT..medic..." />
-            <marker date="1449599199882" expanded="true" signature="7329:7475" placeholder="UPDATE cuart..." />
-            <marker date="1449599199882" expanded="true" signature="8170:8376" placeholder="SELECT colle..medic..." />
-            <marker date="1449599199882" expanded="true" signature="8184:8353" placeholder="SELECT P.cia..patient..." />
-            <marker date="1449599199882" expanded="true" signature="8184:8375" placeholder="SELECT P.cia..patient..." />
-            <marker date="1449599199882" expanded="true" signature="8184:8376" placeholder="SELECT P.cia..patient..." />
+            <element signature="e#11734#11735#0" expanded="true" />
+            <element signature="e#11761#11762#0" expanded="true" />
+            <element signature="e#11876#11877#0" expanded="true" />
+            <element signature="e#11903#11904#0" expanded="true" />
+            <marker date="1449603368132" expanded="true" signature="2790:2809" placeholder="SELECT * FRO..medic..." />
+            <marker date="1449603368132" expanded="true" signature="4123:4270" placeholder="SELECT colle..medic..." />
+            <marker date="1449603368132" expanded="true" signature="5648:5723" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449603368132" expanded="true" signature="6444:6519" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449603368132" expanded="true" signature="6444:6544" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449603368132" expanded="true" signature="7283:7346" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449603368132" expanded="true" signature="8138:8298" placeholder="UPDATE cuart..." />
+            <marker date="1449603368132" expanded="true" signature="9015:9059" placeholder="DELETE FROM ..." />
+            <marker date="1449603368132" expanded="true" signature="9583:9767" placeholder="INSERT INTO ..." />
+            <marker date="1449603368132" expanded="true" signature="10591:10797" placeholder="SELECT colle..medic..." />
+            <marker date="1449603368132" expanded="true" signature="10605:10774" placeholder="SELECT P.cia..patient..." />
+            <marker date="1449603368132" expanded="true" signature="10605:10796" placeholder="SELECT P.cia..patient..." />
+            <marker date="1449603368132" expanded="true" signature="10605:10797" placeholder="SELECT P.cia..patient..." />
           </folding>
         </state>
       </provider>
@@ -783,7 +798,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -793,20 +810,23 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#9313#9314#0" expanded="true" />
-            <element signature="e#9340#9341#0" expanded="true" />
-            <element signature="e#9455#9456#0" expanded="true" />
-            <element signature="e#9482#9483#0" expanded="true" />
-            <marker date="1449599199882" expanded="true" signature="2723:2742" placeholder="SELECT * FRO..medic..." />
-            <marker date="1449599199882" expanded="true" signature="4056:4203" placeholder="SELECT colle..medic..." />
-            <marker date="1449599199882" expanded="true" signature="5581:5656" placeholder="SELECT COUNT..medic..." />
-            <marker date="1449599199882" expanded="true" signature="6377:6452" placeholder="SELECT COUNT..medic..." />
-            <marker date="1449599199882" expanded="true" signature="6377:6477" placeholder="SELECT COUNT..medic..." />
-            <marker date="1449599199882" expanded="true" signature="7329:7475" placeholder="UPDATE cuart..." />
-            <marker date="1449599199882" expanded="true" signature="8170:8376" placeholder="SELECT colle..medic..." />
-            <marker date="1449599199882" expanded="true" signature="8184:8353" placeholder="SELECT P.cia..patient..." />
-            <marker date="1449599199882" expanded="true" signature="8184:8375" placeholder="SELECT P.cia..patient..." />
-            <marker date="1449599199882" expanded="true" signature="8184:8376" placeholder="SELECT P.cia..patient..." />
+            <element signature="e#11734#11735#0" expanded="true" />
+            <element signature="e#11761#11762#0" expanded="true" />
+            <element signature="e#11876#11877#0" expanded="true" />
+            <element signature="e#11903#11904#0" expanded="true" />
+            <marker date="1449603368132" expanded="true" signature="2790:2809" placeholder="SELECT * FRO..medic..." />
+            <marker date="1449603368132" expanded="true" signature="4123:4270" placeholder="SELECT colle..medic..." />
+            <marker date="1449603368132" expanded="true" signature="5648:5723" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449603368132" expanded="true" signature="6444:6519" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449603368132" expanded="true" signature="6444:6544" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449603368132" expanded="true" signature="7283:7346" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449603368132" expanded="true" signature="8138:8298" placeholder="UPDATE cuart..." />
+            <marker date="1449603368132" expanded="true" signature="9015:9059" placeholder="DELETE FROM ..." />
+            <marker date="1449603368132" expanded="true" signature="9583:9767" placeholder="INSERT INTO ..." />
+            <marker date="1449603368132" expanded="true" signature="10591:10797" placeholder="SELECT colle..medic..." />
+            <marker date="1449603368132" expanded="true" signature="10605:10774" placeholder="SELECT P.cia..patient..." />
+            <marker date="1449603368132" expanded="true" signature="10605:10796" placeholder="SELECT P.cia..patient..." />
+            <marker date="1449603368132" expanded="true" signature="10605:10797" placeholder="SELECT P.cia..patient..." />
           </folding>
         </state>
       </provider>
@@ -839,7 +859,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="1091" column="0" selection-start-line="1091" selection-start-column="0" selection-end-line="1091" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -864,20 +886,23 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#9313#9314#0" expanded="true" />
-            <element signature="e#9340#9341#0" expanded="true" />
-            <element signature="e#9455#9456#0" expanded="true" />
-            <element signature="e#9482#9483#0" expanded="true" />
-            <marker date="1449599199882" expanded="true" signature="2723:2742" placeholder="SELECT * FRO..medic..." />
-            <marker date="1449599199882" expanded="true" signature="4056:4203" placeholder="SELECT colle..medic..." />
-            <marker date="1449599199882" expanded="true" signature="5581:5656" placeholder="SELECT COUNT..medic..." />
-            <marker date="1449599199882" expanded="true" signature="6377:6452" placeholder="SELECT COUNT..medic..." />
-            <marker date="1449599199882" expanded="true" signature="6377:6477" placeholder="SELECT COUNT..medic..." />
-            <marker date="1449599199882" expanded="true" signature="7329:7475" placeholder="UPDATE cuart..." />
-            <marker date="1449599199882" expanded="true" signature="8170:8376" placeholder="SELECT colle..medic..." />
-            <marker date="1449599199882" expanded="true" signature="8184:8353" placeholder="SELECT P.cia..patient..." />
-            <marker date="1449599199882" expanded="true" signature="8184:8375" placeholder="SELECT P.cia..patient..." />
-            <marker date="1449599199882" expanded="true" signature="8184:8376" placeholder="SELECT P.cia..patient..." />
+            <element signature="e#11734#11735#0" expanded="true" />
+            <element signature="e#11761#11762#0" expanded="true" />
+            <element signature="e#11876#11877#0" expanded="true" />
+            <element signature="e#11903#11904#0" expanded="true" />
+            <marker date="1449603368132" expanded="true" signature="2790:2809" placeholder="SELECT * FRO..medic..." />
+            <marker date="1449603368132" expanded="true" signature="4123:4270" placeholder="SELECT colle..medic..." />
+            <marker date="1449603368132" expanded="true" signature="5648:5723" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449603368132" expanded="true" signature="6444:6519" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449603368132" expanded="true" signature="6444:6544" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449603368132" expanded="true" signature="7283:7346" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449603368132" expanded="true" signature="8138:8298" placeholder="UPDATE cuart..." />
+            <marker date="1449603368132" expanded="true" signature="9015:9059" placeholder="DELETE FROM ..." />
+            <marker date="1449603368132" expanded="true" signature="9583:9767" placeholder="INSERT INTO ..." />
+            <marker date="1449603368132" expanded="true" signature="10591:10797" placeholder="SELECT colle..medic..." />
+            <marker date="1449603368132" expanded="true" signature="10605:10774" placeholder="SELECT P.cia..patient..." />
+            <marker date="1449603368132" expanded="true" signature="10605:10796" placeholder="SELECT P.cia..patient..." />
+            <marker date="1449603368132" expanded="true" signature="10605:10797" placeholder="SELECT P.cia..patient..." />
           </folding>
         </state>
       </provider>
@@ -910,7 +935,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="1091" column="0" selection-start-line="1091" selection-start-column="0" selection-end-line="1091" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -938,20 +965,23 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#9313#9314#0" expanded="true" />
-            <element signature="e#9340#9341#0" expanded="true" />
-            <element signature="e#9455#9456#0" expanded="true" />
-            <element signature="e#9482#9483#0" expanded="true" />
-            <marker date="1449599199882" expanded="true" signature="2723:2742" placeholder="SELECT * FRO..medic..." />
-            <marker date="1449599199882" expanded="true" signature="4056:4203" placeholder="SELECT colle..medic..." />
-            <marker date="1449599199882" expanded="true" signature="5581:5656" placeholder="SELECT COUNT..medic..." />
-            <marker date="1449599199882" expanded="true" signature="6377:6452" placeholder="SELECT COUNT..medic..." />
-            <marker date="1449599199882" expanded="true" signature="6377:6477" placeholder="SELECT COUNT..medic..." />
-            <marker date="1449599199882" expanded="true" signature="7329:7475" placeholder="UPDATE cuart..." />
-            <marker date="1449599199882" expanded="true" signature="8170:8376" placeholder="SELECT colle..medic..." />
-            <marker date="1449599199882" expanded="true" signature="8184:8353" placeholder="SELECT P.cia..patient..." />
-            <marker date="1449599199882" expanded="true" signature="8184:8375" placeholder="SELECT P.cia..patient..." />
-            <marker date="1449599199882" expanded="true" signature="8184:8376" placeholder="SELECT P.cia..patient..." />
+            <element signature="e#11734#11735#0" expanded="true" />
+            <element signature="e#11761#11762#0" expanded="true" />
+            <element signature="e#11876#11877#0" expanded="true" />
+            <element signature="e#11903#11904#0" expanded="true" />
+            <marker date="1449603368132" expanded="true" signature="2790:2809" placeholder="SELECT * FRO..medic..." />
+            <marker date="1449603368132" expanded="true" signature="4123:4270" placeholder="SELECT colle..medic..." />
+            <marker date="1449603368132" expanded="true" signature="5648:5723" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449603368132" expanded="true" signature="6444:6519" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449603368132" expanded="true" signature="6444:6544" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449603368132" expanded="true" signature="7283:7346" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449603368132" expanded="true" signature="8138:8298" placeholder="UPDATE cuart..." />
+            <marker date="1449603368132" expanded="true" signature="9015:9059" placeholder="DELETE FROM ..." />
+            <marker date="1449603368132" expanded="true" signature="9583:9767" placeholder="INSERT INTO ..." />
+            <marker date="1449603368132" expanded="true" signature="10591:10797" placeholder="SELECT colle..medic..." />
+            <marker date="1449603368132" expanded="true" signature="10605:10774" placeholder="SELECT P.cia..patient..." />
+            <marker date="1449603368132" expanded="true" signature="10605:10796" placeholder="SELECT P.cia..patient..." />
+            <marker date="1449603368132" expanded="true" signature="10605:10797" placeholder="SELECT P.cia..patient..." />
           </folding>
         </state>
       </provider>
@@ -960,7 +990,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="1072" column="21" selection-start-line="1072" selection-start-column="21" selection-end-line="1072" selection-end-column="21" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -985,20 +1017,23 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#9313#9314#0" expanded="true" />
-            <element signature="e#9340#9341#0" expanded="true" />
-            <element signature="e#9455#9456#0" expanded="true" />
-            <element signature="e#9482#9483#0" expanded="true" />
-            <marker date="1449599199882" expanded="true" signature="2723:2742" placeholder="SELECT * FRO..medic..." />
-            <marker date="1449599199882" expanded="true" signature="4056:4203" placeholder="SELECT colle..medic..." />
-            <marker date="1449599199882" expanded="true" signature="5581:5656" placeholder="SELECT COUNT..medic..." />
-            <marker date="1449599199882" expanded="true" signature="6377:6452" placeholder="SELECT COUNT..medic..." />
-            <marker date="1449599199882" expanded="true" signature="6377:6477" placeholder="SELECT COUNT..medic..." />
-            <marker date="1449599199882" expanded="true" signature="7329:7475" placeholder="UPDATE cuart..." />
-            <marker date="1449599199882" expanded="true" signature="8170:8376" placeholder="SELECT colle..medic..." />
-            <marker date="1449599199882" expanded="true" signature="8184:8353" placeholder="SELECT P.cia..patient..." />
-            <marker date="1449599199882" expanded="true" signature="8184:8375" placeholder="SELECT P.cia..patient..." />
-            <marker date="1449599199882" expanded="true" signature="8184:8376" placeholder="SELECT P.cia..patient..." />
+            <element signature="e#11734#11735#0" expanded="true" />
+            <element signature="e#11761#11762#0" expanded="true" />
+            <element signature="e#11876#11877#0" expanded="true" />
+            <element signature="e#11903#11904#0" expanded="true" />
+            <marker date="1449603368132" expanded="true" signature="2790:2809" placeholder="SELECT * FRO..medic..." />
+            <marker date="1449603368132" expanded="true" signature="4123:4270" placeholder="SELECT colle..medic..." />
+            <marker date="1449603368132" expanded="true" signature="5648:5723" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449603368132" expanded="true" signature="6444:6519" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449603368132" expanded="true" signature="6444:6544" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449603368132" expanded="true" signature="7283:7346" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449603368132" expanded="true" signature="8138:8298" placeholder="UPDATE cuart..." />
+            <marker date="1449603368132" expanded="true" signature="9015:9059" placeholder="DELETE FROM ..." />
+            <marker date="1449603368132" expanded="true" signature="9583:9767" placeholder="INSERT INTO ..." />
+            <marker date="1449603368132" expanded="true" signature="10591:10797" placeholder="SELECT colle..medic..." />
+            <marker date="1449603368132" expanded="true" signature="10605:10774" placeholder="SELECT P.cia..patient..." />
+            <marker date="1449603368132" expanded="true" signature="10605:10796" placeholder="SELECT P.cia..patient..." />
+            <marker date="1449603368132" expanded="true" signature="10605:10797" placeholder="SELECT P.cia..patient..." />
           </folding>
         </state>
       </provider>
@@ -1007,7 +1042,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="1072" column="21" selection-start-line="1072" selection-start-column="21" selection-end-line="1072" selection-end-column="21" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1032,20 +1069,23 @@
           <caret line="854" column="38" selection-start-line="854" selection-start-column="38" selection-end-line="854" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#9313#9314#0" expanded="true" />
-            <element signature="e#9340#9341#0" expanded="true" />
-            <element signature="e#9455#9456#0" expanded="true" />
-            <element signature="e#9482#9483#0" expanded="true" />
-            <marker date="1449599199882" expanded="true" signature="2723:2742" placeholder="SELECT * FRO..medic..." />
-            <marker date="1449599199882" expanded="true" signature="4056:4203" placeholder="SELECT colle..medic..." />
-            <marker date="1449599199882" expanded="true" signature="5581:5656" placeholder="SELECT COUNT..medic..." />
-            <marker date="1449599199882" expanded="true" signature="6377:6452" placeholder="SELECT COUNT..medic..." />
-            <marker date="1449599199882" expanded="true" signature="6377:6477" placeholder="SELECT COUNT..medic..." />
-            <marker date="1449599199882" expanded="true" signature="7329:7475" placeholder="UPDATE cuart..." />
-            <marker date="1449599199882" expanded="true" signature="8170:8376" placeholder="SELECT colle..medic..." />
-            <marker date="1449599199882" expanded="true" signature="8184:8353" placeholder="SELECT P.cia..patient..." />
-            <marker date="1449599199882" expanded="true" signature="8184:8375" placeholder="SELECT P.cia..patient..." />
-            <marker date="1449599199882" expanded="true" signature="8184:8376" placeholder="SELECT P.cia..patient..." />
+            <element signature="e#11734#11735#0" expanded="true" />
+            <element signature="e#11761#11762#0" expanded="true" />
+            <element signature="e#11876#11877#0" expanded="true" />
+            <element signature="e#11903#11904#0" expanded="true" />
+            <marker date="1449603368132" expanded="true" signature="2790:2809" placeholder="SELECT * FRO..medic..." />
+            <marker date="1449603368132" expanded="true" signature="4123:4270" placeholder="SELECT colle..medic..." />
+            <marker date="1449603368132" expanded="true" signature="5648:5723" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449603368132" expanded="true" signature="6444:6519" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449603368132" expanded="true" signature="6444:6544" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449603368132" expanded="true" signature="7283:7346" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449603368132" expanded="true" signature="8138:8298" placeholder="UPDATE cuart..." />
+            <marker date="1449603368132" expanded="true" signature="9015:9059" placeholder="DELETE FROM ..." />
+            <marker date="1449603368132" expanded="true" signature="9583:9767" placeholder="INSERT INTO ..." />
+            <marker date="1449603368132" expanded="true" signature="10591:10797" placeholder="SELECT colle..medic..." />
+            <marker date="1449603368132" expanded="true" signature="10605:10774" placeholder="SELECT P.cia..patient..." />
+            <marker date="1449603368132" expanded="true" signature="10605:10796" placeholder="SELECT P.cia..patient..." />
+            <marker date="1449603368132" expanded="true" signature="10605:10797" placeholder="SELECT P.cia..patient..." />
           </folding>
         </state>
       </provider>
@@ -1054,7 +1094,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="409" column="0" selection-start-line="409" selection-start-column="0" selection-end-line="410" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1079,20 +1121,23 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#9313#9314#0" expanded="true" />
-            <element signature="e#9340#9341#0" expanded="true" />
-            <element signature="e#9455#9456#0" expanded="true" />
-            <element signature="e#9482#9483#0" expanded="true" />
-            <marker date="1449599199882" expanded="true" signature="2723:2742" placeholder="SELECT * FRO..medic..." />
-            <marker date="1449599199882" expanded="true" signature="4056:4203" placeholder="SELECT colle..medic..." />
-            <marker date="1449599199882" expanded="true" signature="5581:5656" placeholder="SELECT COUNT..medic..." />
-            <marker date="1449599199882" expanded="true" signature="6377:6452" placeholder="SELECT COUNT..medic..." />
-            <marker date="1449599199882" expanded="true" signature="6377:6477" placeholder="SELECT COUNT..medic..." />
-            <marker date="1449599199882" expanded="true" signature="7329:7475" placeholder="UPDATE cuart..." />
-            <marker date="1449599199882" expanded="true" signature="8170:8376" placeholder="SELECT colle..medic..." />
-            <marker date="1449599199882" expanded="true" signature="8184:8353" placeholder="SELECT P.cia..patient..." />
-            <marker date="1449599199882" expanded="true" signature="8184:8375" placeholder="SELECT P.cia..patient..." />
-            <marker date="1449599199882" expanded="true" signature="8184:8376" placeholder="SELECT P.cia..patient..." />
+            <element signature="e#11734#11735#0" expanded="true" />
+            <element signature="e#11761#11762#0" expanded="true" />
+            <element signature="e#11876#11877#0" expanded="true" />
+            <element signature="e#11903#11904#0" expanded="true" />
+            <marker date="1449603368132" expanded="true" signature="2790:2809" placeholder="SELECT * FRO..medic..." />
+            <marker date="1449603368132" expanded="true" signature="4123:4270" placeholder="SELECT colle..medic..." />
+            <marker date="1449603368132" expanded="true" signature="5648:5723" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449603368132" expanded="true" signature="6444:6519" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449603368132" expanded="true" signature="6444:6544" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449603368132" expanded="true" signature="7283:7346" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449603368132" expanded="true" signature="8138:8298" placeholder="UPDATE cuart..." />
+            <marker date="1449603368132" expanded="true" signature="9015:9059" placeholder="DELETE FROM ..." />
+            <marker date="1449603368132" expanded="true" signature="9583:9767" placeholder="INSERT INTO ..." />
+            <marker date="1449603368132" expanded="true" signature="10591:10797" placeholder="SELECT colle..medic..." />
+            <marker date="1449603368132" expanded="true" signature="10605:10774" placeholder="SELECT P.cia..patient..." />
+            <marker date="1449603368132" expanded="true" signature="10605:10796" placeholder="SELECT P.cia..patient..." />
+            <marker date="1449603368132" expanded="true" signature="10605:10797" placeholder="SELECT P.cia..patient..." />
           </folding>
         </state>
       </provider>
@@ -1101,7 +1146,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="409" column="0" selection-start-line="409" selection-start-column="0" selection-end-line="410" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1221,6 +1268,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/dam/practic2/Model/Methods/Methods.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="302" column="35" selection-start-line="302" selection-start-column="35" selection-end-line="302" selection-end-column="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#11734#11735#0" expanded="true" />
+            <element signature="e#11761#11762#0" expanded="true" />
+            <element signature="e#11876#11877#0" expanded="true" />
+            <element signature="e#11903#11904#0" expanded="true" />
+            <marker date="1449603368132" expanded="true" signature="2790:2809" placeholder="SELECT * FRO..medic..." />
+            <marker date="1449603368132" expanded="true" signature="4123:4270" placeholder="SELECT colle..medic..." />
+            <marker date="1449603368132" expanded="true" signature="5648:5723" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449603368132" expanded="true" signature="6444:6519" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449603368132" expanded="true" signature="6444:6544" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449603368132" expanded="true" signature="7283:7346" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449603368132" expanded="true" signature="8138:8298" placeholder="UPDATE cuart..." />
+            <marker date="1449603368132" expanded="true" signature="9015:9059" placeholder="DELETE FROM ..." />
+            <marker date="1449603368132" expanded="true" signature="9583:9767" placeholder="INSERT INTO ..." />
+            <marker date="1449603368132" expanded="true" signature="10591:10797" placeholder="SELECT colle..medic..." />
+            <marker date="1449603368132" expanded="true" signature="10605:10774" placeholder="SELECT P.cia..patient..." />
+            <marker date="1449603368132" expanded="true" signature="10605:10796" placeholder="SELECT P.cia..patient..." />
+            <marker date="1449603368132" expanded="true" signature="10605:10797" placeholder="SELECT P.cia..patient..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/dam/practic2/View/Window.form">
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1234,32 +1308,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/dam/practic2/Controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="270" column="51" selection-start-line="270" selection-start-column="39" selection-end-line="270" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/dam/practic2/Model/Methods/Methods.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.77272725">
-          <caret line="227" column="32" selection-start-line="227" selection-start-column="32" selection-end-line="227" selection-end-column="32" />
+        <state vertical-scroll-proportion="0.4352518">
+          <caret line="379" column="74" selection-start-line="379" selection-start-column="74" selection-end-line="379" selection-end-column="74" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#9313#9314#0" expanded="true" />
-            <element signature="e#9340#9341#0" expanded="true" />
-            <element signature="e#9455#9456#0" expanded="true" />
-            <element signature="e#9482#9483#0" expanded="true" />
-            <marker date="1449599199882" expanded="true" signature="2723:2742" placeholder="SELECT * FRO..medic..." />
-            <marker date="1449599199882" expanded="true" signature="4056:4203" placeholder="SELECT colle..medic..." />
-            <marker date="1449599199882" expanded="true" signature="5581:5656" placeholder="SELECT COUNT..medic..." />
-            <marker date="1449599199882" expanded="true" signature="6377:6452" placeholder="SELECT COUNT..medic..." />
-            <marker date="1449599199882" expanded="true" signature="6377:6477" placeholder="SELECT COUNT..medic..." />
-            <marker date="1449599199882" expanded="true" signature="7329:7475" placeholder="UPDATE cuart..." />
-            <marker date="1449599199882" expanded="true" signature="8170:8376" placeholder="SELECT colle..medic..." />
-            <marker date="1449599199882" expanded="true" signature="8184:8353" placeholder="SELECT P.cia..patient..." />
-            <marker date="1449599199882" expanded="true" signature="8184:8375" placeholder="SELECT P.cia..patient..." />
-            <marker date="1449599199882" expanded="true" signature="8184:8376" placeholder="SELECT P.cia..patient..." />
           </folding>
         </state>
       </provider>
