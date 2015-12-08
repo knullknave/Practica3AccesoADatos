@@ -181,6 +181,36 @@ public class Methods
         return false;
     }
 
+    public boolean existsPatient(String name, String surname)
+    {
+        String query = "SELECT COUNT(*) as cuenta FROM patient WHERE name = ? AND surname = ?";
+
+        try
+        {
+            PreparedStatement sentencia = null;
+            sentencia = conexion.prepareStatement(query);
+            sentencia.setString(1, name);
+            sentencia.setString(2, surname);
+
+            ResultSet resultado = sentencia.executeQuery();
+            while (resultado.next())
+            {
+                int id = resultado.getInt("cuenta");
+
+                if(id == 0)
+                    return false;
+                else
+                    return true;
+            }
+        }
+        catch (SQLException e)
+        {
+
+            e.printStackTrace();
+        }
+        return true;
+    }
+
     public boolean existsMedic2(String u, String p, int idM)
     {
         String query = "SELECT COUNT(*) as cuenta FROM medic WHERE userName = ? AND userPasword = ? AND collegiateNumber = ?";
@@ -308,7 +338,6 @@ public class Methods
         }
     }
 
-    //TODO NO FUNCIONA?
     public ArrayList<Object[]> selectAllPatient(String user, String pass)
     {
         String sql = "SELECT P.cias, P.name, P.surname, P.sex FROM patient P INNER JOIN visit V ON P.cias = V.idPatient INNER JOIN medic M ON M.collegiateNumber = V.idMedic WHERE M.userName = ? and M.userPasword = ?";
@@ -341,6 +370,106 @@ public class Methods
             e.printStackTrace();
         }
         return null;
+    }
+
+    public ArrayList<Object[]> selectAllPatient()
+    {
+        String sql = "SELECT P.cias, P.name, P.surname, P.sex FROM patient P INNER JOIN visit V ON P.cias = V.idPatient INNER JOIN medic M ON M.collegiateNumber = V.idMedic WHERE M.collegiateNumber = ?";
+        ArrayList<Object[]> list = new ArrayList<>();
+        Object[] Row;
+
+        try
+        {
+            PreparedStatement sentencia = null;
+
+            sentencia = conexion.prepareStatement(sql);
+            sentencia.setInt(1, medicConnected);
+
+            ResultSet resultado = sentencia.executeQuery();
+            while (resultado.next())
+            {
+                int id = resultado.getInt("cias");
+                String name = resultado.getString("name");
+                String surname = resultado.getString("surname");
+                String sex = resultado.getString("sex");
+
+                Row = new Object[] {id, name, surname, sex};
+                list.add(Row);
+            }
+            return list;
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public void insertPatient(String name, String surname, java.sql.Date birth, String adress)
+    {
+        String sql = "INSERT INTO patient(name, surname, birthDate, adress) VALUES(?, ?, ?, ?)";
+        String busqueda = "SELECT cias FROM patient WHERE name = ? AND surname = ?";
+        String sql2 = "INSERT INTO visit(receptionDate, visitDate, medicalCentre, idAnalysis, idEpisode, idMedic, idPatient, idPharmacotherapy) VALUES (NULL, NULL, NULL, NULL, NULL, ?, ?, NULL)";
+
+        PreparedStatement sentenciaAltaPaciente = null;
+        PreparedStatement sentenciaBusquedaIdP = null;
+        PreparedStatement sentenciaAltaVisita = null;
+        try
+        {
+            conexion.setAutoCommit(false);
+            sentenciaAltaPaciente = conexion.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
+            sentenciaAltaPaciente.setString(1, name);
+            sentenciaAltaPaciente.setString(2, surname);
+            sentenciaAltaPaciente.setDate(3, birth);
+            sentenciaAltaPaciente.setString(4, adress);
+            sentenciaAltaPaciente.executeUpdate();
+
+            sentenciaBusquedaIdP = conexion.prepareStatement(busqueda);
+            sentenciaBusquedaIdP.setString(1, name);
+            sentenciaBusquedaIdP.setString(2, surname);
+
+            ResultSet resultado = sentenciaBusquedaIdP.executeQuery();
+            int idP = 0;
+            while (resultado.next())
+            {
+                idP = resultado.getInt("cias");
+            }
+
+            sentenciaAltaVisita = conexion.prepareStatement(sql2);
+
+            sentenciaAltaVisita.setInt(1, medicConnected);
+            sentenciaAltaVisita.setInt(2, idP);
+            sentenciaAltaVisita.executeUpdate();
+
+            conexion.commit();
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public int getCollegiateNumber(String user, String pass)
+    {
+        String sql = "SELECT collegiateNumber FROM medic WHERE userName = ? AND userPasword = ?";
+        int idM = 0;
+        try
+        {
+            PreparedStatement statement = conexion.prepareStatement(sql);
+            statement.setString(1, user);
+            statement.setString(2, pass);
+
+            ResultSet resultado = statement.executeQuery();
+            while(resultado.next())
+            {
+                idM = resultado.getInt("collegiateNumber");
+            }
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+        return idM;
     }
 
     public Object[] selectPatient(int idP)

@@ -185,6 +185,20 @@ public class Controller implements ActionListener
         }
     }
 
+    public void loadPatient2()
+    {
+        ArrayList<Object[]> list = methods.selectAllPatient();
+
+        if (list != null)
+        {
+            ColumnPatientTable.setNumRows(0);
+            for (int i = 0;i < list.size(); i++)
+            {
+                ColumnPatientTable.addRow(list.get(i));
+            }
+        }
+    }
+
     public void connect()
     {
         window.tabbedPane1.setEnabledAt(0, true);
@@ -199,6 +213,51 @@ public class Controller implements ActionListener
         window.tabbedPane1.setEnabledAt(2, false);
 
         window.tabbedPaneHistory.setEnabled(false);
+
+        window.tfName.setEnabled(false);
+        window.tfSurname.setEnabled(false);
+        window.tfAddress.setEnabled(false);
+        window.jdateChooserP.setEnabled(false);
+
+        window.jbModP.setEnabled(false);
+        window.jbDelP.setEnabled(false);
+        window.jbSaveP.setEnabled(false);
+        window.jbCancel.setEnabled(false);
+    }
+
+    public void newPatient()
+    {
+        window.tfName.setEnabled(true);
+        window.tfSurname.setEnabled(true);
+        window.tfAddress.setEnabled(true);
+        window.jdateChooserP.setEnabled(true);
+        window.jbSaveP.setEnabled(true);
+
+        window.tfName.setText("");
+        window.tfSurname.setText("");
+        window.tfAddress.setText("");
+        window.jdateChooserP.setDate(null);
+
+        window.jbNewP.setEnabled(false);
+        window.jbSaveP.setEnabled(true);
+        window.jbCancel.setEnabled(true);
+    }
+
+    public void endNewPatient()
+    {
+        window.tfName.setEnabled(false);
+        window.tfSurname.setEnabled(false);
+        window.tfAddress.setEnabled(false);
+        window.jdateChooserP.setEnabled(false);
+
+        window.tfName.setText("");
+        window.tfSurname.setText("");
+        window.tfAddress.setText("");
+        window.jdateChooserP.setDate(null);
+
+        window.jbNewP.setEnabled(true);
+        window.jbSaveP.setEnabled(false);
+        window.jbCancel.setEnabled(false);
     }
 
     //TODO CAMBIAS DE PESTAÑA, TE DESCONECTAS ETC
@@ -234,16 +293,33 @@ public class Controller implements ActionListener
             switch (actionCommand)
             {
                 case "New Patient":
-
+                    newPatient();
                     break;
                 case "Modify Patient":
                     //TODO UPDATE PATIENT
+                    loadPatient2();
                     break;
                 case "Cancel Modification":
-
+                    endNewPatient();
                     break;
                 case "Save Patient":
-
+                    if(window.tfName.getText().equals("") || window.tfSurname.getText().equals("") || window.tfAddress.getText().equals(""))
+                    {
+                        JOptionPane.showMessageDialog(null, "Please, fill each field", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                    else
+                    {
+                        if(methods.existsPatient(window.tfName.getText(), window.tfSurname.getText())==true)
+                        {
+                            JOptionPane.showMessageDialog(null, "This patient already exists", "Error", JOptionPane.ERROR_MESSAGE);
+                        }
+                        else
+                        {
+                            methods.insertPatient(window.tfName.getText(), window.tfSurname.getText(), new Date(window.jdateChooserP.getDate().getTime()), window.tfAddress.getText());
+                            loadPatient2();
+                        }
+                    }
+                    endNewPatient();
                     break;
                 case "Delete Patient":
                     //TODO DELETE PATIENT
@@ -378,6 +454,7 @@ public class Controller implements ActionListener
                             loadPatient(window.tfUser.getText(), window.tfPassword.getText());
                             JOptionPane.showMessageDialog(null, "Correct", "Correct", JOptionPane.INFORMATION_MESSAGE);
                             window.jlMedic.setText(window.tfUser.getText());
+                            methods.medicConnected = methods.getCollegiateNumber(window.tfUser.getText(), window.tfPassword.getText());
                         }
                         else
                         {
@@ -388,7 +465,6 @@ public class Controller implements ActionListener
                     {
                         JOptionPane.showMessageDialog(null, "Please, fill each field", "Error", JOptionPane.WARNING_MESSAGE);
                     }
-                    methods.medicConnected = 0;
                     break;
                 case "REGISTER":
                     JTextField field1 = new JTextField();

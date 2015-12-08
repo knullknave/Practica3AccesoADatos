@@ -31,15 +31,15 @@ CREATE TABLE IF NOT EXISTS Medic
 CREATE TABLE IF NOT EXISTS Patient
 (
 	cias INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-	patientUser VARCHAR(20) NOT NULL,
-	patientPassword VARCHAR(16) NOT NULL,
+	patientUser VARCHAR(20) NULL,
+	patientPassword VARCHAR(16) NULL,
 	name VARCHAR(20) NOT NULL,
 	surname	VARCHAR(30) NOT NULL,
-	sex	CHAR(1)	NOT NULL,
+	sex	CHAR(1)	NULL,
 	adress VARCHAR(100)	NOT NULL,
 	birthDate Date NOT NULL,
-	telephone VARCHAR(100) NOT NULL,
-	bloodType CHAR(2)
+	telephone VARCHAR(100) NULL,
+	bloodType CHAR(2) NULL
 );
 
 CREATE TABLE IF NOT EXISTS Radiography
@@ -135,38 +135,33 @@ CREATE TABLE IF NOT EXISTS EpisodeDisease
 CREATE TABLE IF NOT EXISTS Visit
 (
 	idVisit INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-	receptionDate DATE NOT NULL,
-	visitDate DATE NOT NULL,
-	medicalCentre VARCHAR(100) NOT NULL,
+	receptionDate DATE NULL,
+	visitDate DATE NULL,
+	medicalCentre VARCHAR(100) NULL,
 	
 	idAnalysis INT UNSIGNED,
 	INDEX(idAnalysis),
 	FOREIGN KEY(idAnalysis)
-		REFERENCES Analysis(id)
-		ON UPDATE CASCADE ON DELETE CASCADE,
+		REFERENCES Analysis(id),
 		
 		
 	idEpisode INT UNSIGNED,
 	INDEX(idEpisode),
 	FOREIGN KEY(idEpisode)
-		REFERENCES Episodes(id)
-		ON UPDATE CASCADE ON DELETE CASCADE,
+		REFERENCES Episodes(id),
 	
 	idMedic INT UNSIGNED,
 	INDEX(idMedic),
 	FOREIGN KEY(idMedic)
-		REFERENCES Medic(collegiateNumber)
-		ON UPDATE CASCADE ON DELETE CASCADE,
+		REFERENCES Medic(collegiateNumber),
 	
 	idPatient INT UNSIGNED,
 	INDEX(idPatient),
 	FOREIGN KEY(idPatient)
-		REFERENCES Patient(cias)
-		ON UPDATE CASCADE ON DELETE CASCADE,
+		REFERENCES Patient(cias),
 	
 	idPharmacotherapy INT UNSIGNED,
 	INDEX(idPharmacotherapy),
 	FOREIGN KEY(idPharmacotherapy)
 		REFERENCES Pharmacotherapy(id)
-		ON UPDATE CASCADE ON DELETE CASCADE
 );
