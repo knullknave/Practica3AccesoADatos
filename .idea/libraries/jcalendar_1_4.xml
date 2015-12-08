@@ -1,11 +1,13 @@
 <component name="libraryTable">
   <library name="jcalendar-1.4">
     <CLASSES>
-      <root url="jar://C:/Program Files/Java/Librerias/jcalendar-1.4.jar!/" />
-      <root url="jar://C:/Program Files/Java/Librerias/jgoodies-common-1.8.1.jar!/" />
-      <root url="jar://C:/Program Files/Java/Librerias/jgoodies-forms-1.9.0.jar!/" />
-      <root url="jar://C:/Program Files/Java/Librerias/jgoodies-looks-2.4.1.jar!/" />
-      <root url="jar://C:/Program Files/Java/Librerias/mysql-connector-java-5.1.37-bin.jar!/" />
+      <root url="jar://D:/Program Files/Java/Librerias/jcalendar-1.4.jar!/" />
+      <root url="jar://D:/Program Files/Java/Librerias/jcommon-1.0.19.jar!/" />
+      <root url="jar://D:/Program Files/Java/Librerias/jfreechart-1.0.0.jar!/" />
+      <root url="jar://D:/Program Files/Java/Librerias/jgoodies-common-1.8.1.jar!/" />
+      <root url="jar://D:/Program Files/Java/Librerias/jgoodies-forms-1.9.0.jar!/" />
+      <root url="jar://D:/Program Files/Java/Librerias/jgoodies-looks-2.4.1.jar!/" />
+      <root url="jar://D:/Program Files/Java/Librerias/mysql-connector-java-5.1.37-bin.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

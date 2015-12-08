@@ -1,4 +1,4 @@
-package com.dam.practic1.Model.Objects;
+package com.dam.practic2.Model.Objects;
 
 import java.io.Serializable;
 import java.util.Date;

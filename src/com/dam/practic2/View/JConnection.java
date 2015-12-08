@@ -1,6 +1,7 @@
-package com.dam.practic1.View;
+package com.dam.practic2.View;
 
-import com.dam.practic1.Controller.Controller;
+import com.dam.practic2.Controller.Controller;
+import com.dam.practic2.Model.Methods.Methods;
 
 import javax.swing.*;
 import java.awt.event.*;
@@ -18,14 +19,17 @@ public class JConnection extends JDialog
     private JTextField textField2;
     public  Connection conexion;
     public Controller c;
+    public Methods m;
 
-    public JConnection(Controller c)
+    public JConnection(Controller c, Methods m)
     {
         this.c = c;
+        this.m = m;
         setContentPane(contentPane);
         pack();
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
+        setLocationRelativeTo(null);
 
         buttonOK.addActionListener(new ActionListener()
         {
@@ -72,7 +76,8 @@ public class JConnection extends JDialog
 			 */
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             conexion = DriverManager.getConnection("jdbc:mysql://" + servidor + ":3306" + "/MedicDB", usuario, contrasena);
-            c.enableAll();
+            m.writeConfigureFile(servidor, usuario, contrasena);
+            m.conexion = conexion;
         }
         catch (ClassNotFoundException cnfe)
         {
@@ -108,7 +113,6 @@ public class JConnection extends JDialog
             conexion = null;
 
             JOptionPane.showMessageDialog(null, "Se ha desconectado de la Base de Datos");
-
         }
         catch (SQLException sqle)
         {

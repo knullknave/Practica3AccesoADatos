@@ -1,13 +1,11 @@
-package com.dam.practic1.View;
+package com.dam.practic2.View;
 
-import com.dam.practic1.Controller.Controller;
-import com.dam.practic1.Model.Objects.*;
+import com.dam.practic2.Controller.Controller;
 import com.toedter.calendar.JDateChooser;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
-import java.security.Key;
 
 /**
  * @author Daniel Cano Mainar
@@ -39,7 +37,6 @@ import java.security.Key;
 public class Window
 {
     public JTabbedPane tabbedPane1;
-    public JFrame frame;
     public JPanel panel1;
     public JButton jbRegister;
     public JTextField tfUser;
@@ -48,42 +45,28 @@ public class Window
     public JTextField tfName;
     public JTextField tfSurname;
     public JTextField tfAddress;
-    public JList<Patient> listPatients1;
     public JButton jbNewP;
     public JButton jbDelP;
     public JButton jbModP;
     public JButton jbSaveP;
     public JButton jbAddE;
-    public JButton jbSeePh;
     public JButton jbAddPh;
     public JButton jbModPh;
     public JButton jbDelPh;
-    public JButton jbSeeE;
     public JButton jbModE;
     public JButton jbDelE;
-    public JButton jbSeeA;
     public JButton jbAddA;
     public JButton jbModA;
     public JButton jbDelA;
-    public JButton jbSeeR;
     public JButton jbAddR;
     public JButton jbModR;
     public JButton jbDelR;
     public JDateChooser jdateChooserP;
-    public JList<Medic> listMed;
     public JLabel jlMedic;
-    public JList<Patient> listPatients5;
-    public JList<Patient> listPatients2;
-    public JList<Patient> listPatients3;
-    public JList<Patient> listPatients4;
     public JButton jbDelM;
     public JButton jbModM;
-    public JList<Episodes> listEpisodes;
-    public JList<Analysis> listAnalysis;
-    public JList<Radiography> listRadiography;
-    public JList<Pharmacotherapy> listPharmacotherapy;
     public JTextField tfSearchP;
-    public JTabbedPane tabbedPaneRadiography;
+    public JTabbedPane tabbedPaneHistory;
     public JTextField tfSearchP2;
     public JTextField tfSearchE;
     public JTextField tfSearchM;
@@ -94,16 +77,16 @@ public class Window
     public JTextField tfSearchR;
     public JTextField tfSearchPh;
     public JButton jbCancel;
-    private JTable table1;
-    private JTable table2;
-    private JTable table3;
-    private JTable table4;
-    private JTable table5;
-    private JTable table6;
-    private JTable table7;
-    private JTable table8;
-    private JTable table9;
-    private JTable table10;
+    public JTable tableMedic;
+    public JTable tablePatient1;
+    public JTable tablePatient2;
+    public JTable tableEpisodes;
+    public JTable tablePatient3;
+    public JTable tableAnalysis;
+    public JTable tablePatient4;
+    public JTable tableRadiography;
+    public JTable tablePatient5;
+    public JTable tablePharmacotherapy;
 
     public static JMenuBar menuBar;
     public static JMenu menu;
@@ -192,6 +175,7 @@ public class Window
         frame.setJMenuBar(menuBar);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
+        frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
 }

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.dam.practic1.View.Window">
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.dam.practic2.View.Window">
   <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="BorderLayout" hgap="0" vgap="0">
     <constraints>
-      <xy x="20" y="28" width="661" height="434"/>
+      <xy x="20" y="28" width="969" height="527"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -151,22 +151,6 @@
                   <text value="You need to log in"/>
                 </properties>
               </component>
-              <scrollpane id="e0c36">
-                <constraints>
-                  <grid row="16" column="6" row-span="3" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-                  <forms defaultalign-horz="false" defaultalign-vert="false"/>
-                </constraints>
-                <properties/>
-                <border type="none"/>
-                <children>
-                  <component id="e0ecb" class="javax.swing.JList" binding="listMed">
-                    <constraints/>
-                    <properties>
-                      <model/>
-                    </properties>
-                  </component>
-                </children>
-              </scrollpane>
               <component id="b12f3" class="javax.swing.JLabel">
                 <constraints>
                   <grid row="14" column="4" row-span="5" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
@@ -211,15 +195,15 @@
                   <text value=""/>
                 </properties>
               </component>
-              <scrollpane id="63871">
+              <scrollpane id="38955">
                 <constraints>
-                  <grid row="20" column="6" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <grid row="16" column="6" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                   <forms defaultalign-horz="false" defaultalign-vert="false"/>
                 </constraints>
                 <properties/>
                 <border type="none"/>
                 <children>
-                  <component id="e8536" class="javax.swing.JTable" binding="table1" default-binding="true">
+                  <component id="ed2b3" class="javax.swing.JTable" binding="tableMedic">
                     <constraints/>
                     <properties/>
                   </component>
@@ -251,14 +235,6 @@
             <rowspec value="center:max(d;4px):noGrow"/>
             <rowspec value="top:4dlu:noGrow"/>
             <rowspec value="center:max(d;4px):noGrow"/>
-            <rowspec value="top:4dlu:noGrow"/>
-            <rowspec value="center:max(d;4px):noGrow"/>
-            <rowspec value="top:4dlu:noGrow"/>
-            <rowspec value="center:max(d;4px):noGrow"/>
-            <rowspec value="top:4dlu:noGrow"/>
-            <rowspec value="center:max(d;4px):noGrow"/>
-            <rowspec value="top:4dlu:noGrow"/>
-            <rowspec value="center:d:grow"/>
             <colspec value="fill:max(d;4px):noGrow"/>
             <colspec value="left:4dlu:noGrow"/>
             <colspec value="fill:110px:noGrow"/>
@@ -268,7 +244,7 @@
             <colspec value="fill:max(d;4px):noGrow"/>
             <colspec value="left:4dlu:noGrow"/>
             <colspec value="fill:108px:noGrow"/>
-            <colspec value="left:4dlu:noGrow"/>
+            <colspec value="left:117dlu:noGrow"/>
             <colspec value="fill:max(d;4px):noGrow"/>
             <constraints>
               <tabbedpane title="Patient"/>
@@ -368,47 +344,33 @@
                   <text value="Address"/>
                 </properties>
               </component>
-              <scrollpane id="e7c3b">
-                <constraints>
-                  <grid row="4" column="5" row-span="19" col-span="6" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-                  <forms defaultalign-horz="false" defaultalign-vert="false"/>
-                </constraints>
-                <properties/>
-                <border type="none"/>
-                <children>
-                  <component id="3140d" class="javax.swing.JList" binding="listPatients1">
-                    <constraints/>
-                    <properties/>
-                  </component>
-                </children>
-              </scrollpane>
               <hspacer id="b63f5">
                 <constraints>
-                  <grid row="24" column="3" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <grid row="18" column="3" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                   <forms defaultalign-horz="false"/>
                 </constraints>
               </hspacer>
               <hspacer id="60cc5">
                 <constraints>
-                  <grid row="22" column="3" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <grid row="16" column="3" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                   <forms defaultalign-horz="false"/>
                 </constraints>
               </hspacer>
               <hspacer id="e2a4a">
                 <constraints>
-                  <grid row="14" column="3" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <grid row="10" column="3" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                   <forms defaultalign-horz="false"/>
                 </constraints>
               </hspacer>
               <hspacer id="4bc04">
                 <constraints>
-                  <grid row="16" column="3" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <grid row="12" column="3" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                   <forms defaultalign-horz="false"/>
                 </constraints>
               </hspacer>
               <hspacer id="bd5c6">
                 <constraints>
-                  <grid row="20" column="3" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <grid row="14" column="3" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                   <forms defaultalign-horz="false"/>
                 </constraints>
               </hspacer>
@@ -420,7 +382,7 @@
               </component>
               <component id="3ac0" class="javax.swing.JButton" binding="jbNewP">
                 <constraints>
-                  <grid row="26" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="20" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                   <forms defaultalign-horz="false"/>
                 </constraints>
                 <properties>
@@ -429,7 +391,7 @@
               </component>
               <component id="bacfc" class="javax.swing.JButton" binding="jbModP">
                 <constraints>
-                  <grid row="26" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="20" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                   <forms defaultalign-horz="false"/>
                 </constraints>
                 <properties>
@@ -438,7 +400,7 @@
               </component>
               <component id="514eb" class="javax.swing.JButton" binding="jbDelP">
                 <constraints>
-                  <grid row="26" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="20" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                   <forms defaultalign-horz="false"/>
                 </constraints>
                 <properties>
@@ -447,7 +409,7 @@
               </component>
               <component id="e5795" class="javax.swing.JButton" binding="jbSaveP">
                 <constraints>
-                  <grid row="26" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                  <grid row="20" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                   <forms/>
                 </constraints>
                 <properties>
@@ -456,22 +418,22 @@
               </component>
               <component id="6911a" class="javax.swing.JButton" binding="jbCancel">
                 <constraints>
-                  <grid row="28" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                  <grid row="22" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
                   <forms defaultalign-horz="false"/>
                 </constraints>
                 <properties>
                   <text value="Cancel Modification"/>
                 </properties>
               </component>
-              <scrollpane id="139d0">
+              <scrollpane id="547">
                 <constraints>
-                  <grid row="30" column="3" row-span="1" col-span="3" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                  <grid row="4" column="5" row-span="16" col-span="6" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                   <forms defaultalign-horz="false" defaultalign-vert="false"/>
                 </constraints>
                 <properties/>
                 <border type="none"/>
                 <children>
-                  <component id="7662e" class="javax.swing.JTable" binding="table2" default-binding="true">
+                  <component id="f2c1e" class="javax.swing.JTable" binding="tablePatient1">
                     <constraints/>
                     <properties/>
                   </component>
@@ -486,7 +448,7 @@
             <properties/>
             <border type="none"/>
             <children>
-              <tabbedpane id="44a6e" binding="tabbedPaneRadiography">
+              <tabbedpane id="44a6e" binding="tabbedPaneHistory">
                 <constraints border-constraint="Center"/>
                 <properties/>
                 <border type="none"/>
@@ -499,6 +461,8 @@
                     <border type="none"/>
                     <children>
                       <grid id="2f45a" layout-manager="FormLayout">
+                        <rowspec value="center:max(d;4px):noGrow"/>
+                        <rowspec value="top:4dlu:noGrow"/>
                         <rowspec value="center:max(d;4px):noGrow"/>
                         <rowspec value="top:4dlu:noGrow"/>
                         <rowspec value="center:max(d;4px):noGrow"/>
@@ -517,17 +481,10 @@
                         <rowspec value="center:max(d;4px):noGrow"/>
                         <rowspec value="top:4dlu:noGrow"/>
                         <rowspec value="top:4dlu:noGrow"/>
-                        <rowspec value="center:31px:noGrow"/>
-                        <rowspec value="center:61px:noGrow"/>
-                        <rowspec value="top:4dlu:noGrow"/>
-                        <rowspec value="center:d:grow"/>
-                        <colspec value="fill:d:grow"/>
-                        <colspec value="left:4dlu:noGrow"/>
+                        <rowspec value="center:250px:noGrow"/>
                         <colspec value="fill:249px:noGrow"/>
                         <colspec value="left:37dlu:noGrow"/>
                         <colspec value="fill:177px:grow"/>
-                        <colspec value="left:4dlu:noGrow"/>
-                        <colspec value="fill:max(d;4px):noGrow"/>
                         <colspec value="left:4dlu:noGrow"/>
                         <colspec value="fill:max(d;4px):noGrow"/>
                         <constraints border-constraint="Center"/>
@@ -536,43 +493,21 @@
                         <children>
                           <scrollpane id="49deb">
                             <constraints>
-                              <grid row="2" column="2" row-span="17" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                              <grid row="2" column="0" row-span="19" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                               <forms defaultalign-horz="false" defaultalign-vert="false"/>
                             </constraints>
                             <properties/>
                             <border type="none"/>
                             <children>
-                              <component id="931b2" class="javax.swing.JList" binding="listPatients2">
-                                <constraints/>
-                                <properties>
-                                  <model/>
-                                </properties>
-                              </component>
-                            </children>
-                          </scrollpane>
-                          <scrollpane id="5c279">
-                            <constraints>
-                              <grid row="2" column="4" row-span="17" col-span="1" vsize-policy="7" hsize-policy="7" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
-                              <forms defaultalign-horz="false" defaultalign-vert="false"/>
-                            </constraints>
-                            <properties/>
-                            <border type="none"/>
-                            <children>
-                              <component id="89f8e" class="javax.swing.JList" binding="listEpisodes">
+                              <component id="3cac0" class="javax.swing.JTable" binding="tablePatient2">
                                 <constraints/>
                                 <properties/>
                               </component>
                             </children>
                           </scrollpane>
-                          <vspacer id="7bdc3">
-                            <constraints>
-                              <grid row="8" column="8" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-                              <forms defaultalign-vert="false"/>
-                            </constraints>
-                          </vspacer>
                           <component id="a736" class="javax.swing.JTextField" binding="tfSearchP2">
                             <constraints>
-                              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                                 <preferred-size width="150" height="-1"/>
                               </grid>
                               <forms defaultalign-horz="false"/>
@@ -583,7 +518,7 @@
                           </component>
                           <component id="d19f2" class="javax.swing.JTextField" binding="tfSearchE">
                             <constraints>
-                              <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                                 <preferred-size width="150" height="-1"/>
                               </grid>
                               <forms defaultalign-horz="false"/>
@@ -594,7 +529,7 @@
                           </component>
                           <component id="78561" class="javax.swing.JButton" binding="jbDelE">
                             <constraints>
-                              <grid row="18" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                              <grid row="20" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                               <forms/>
                             </constraints>
                             <properties>
@@ -603,60 +538,31 @@
                           </component>
                           <component id="7321c" class="javax.swing.JButton" binding="jbModE">
                             <constraints>
-                              <grid row="14" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                              <grid row="16" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                               <forms/>
                             </constraints>
                             <properties>
                               <text value="Modify Episodes"/>
                             </properties>
                           </component>
-                          <hspacer id="f7d12">
-                            <constraints>
-                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                              <forms defaultalign-horz="false"/>
-                            </constraints>
-                          </hspacer>
-                          <component id="b8765" class="javax.swing.JButton" binding="jbSeeE">
-                            <constraints>
-                              <grid row="6" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                              <forms/>
-                            </constraints>
-                            <properties>
-                              <text value="See Episodes"/>
-                            </properties>
-                          </component>
                           <component id="8703f" class="javax.swing.JButton" binding="jbAddE">
                             <constraints>
-                              <grid row="9" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                              <grid row="11" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                               <forms/>
                             </constraints>
                             <properties>
                               <text value="Add Episodes"/>
                             </properties>
                           </component>
-                          <scrollpane id="c6a05">
+                          <scrollpane id="9221d">
                             <constraints>
-                              <grid row="21" column="2" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                              <grid row="2" column="2" row-span="19" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                               <forms defaultalign-horz="false" defaultalign-vert="false"/>
                             </constraints>
                             <properties/>
                             <border type="none"/>
                             <children>
-                              <component id="1789d" class="javax.swing.JTable" binding="table3" default-binding="true">
-                                <constraints/>
-                                <properties/>
-                              </component>
-                            </children>
-                          </scrollpane>
-                          <scrollpane id="d678e">
-                            <constraints>
-                              <grid row="21" column="4" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-                              <forms defaultalign-horz="false" defaultalign-vert="false"/>
-                            </constraints>
-                            <properties/>
-                            <border type="none"/>
-                            <children>
-                              <component id="245d4" class="javax.swing.JTable" binding="table4" default-binding="true">
+                              <component id="cf01b" class="javax.swing.JTable" binding="tableEpisodes">
                                 <constraints/>
                                 <properties/>
                               </component>
@@ -677,6 +583,8 @@
                         <rowspec value="center:max(d;4px):noGrow"/>
                         <rowspec value="top:4dlu:noGrow"/>
                         <rowspec value="center:max(d;4px):noGrow"/>
+                        <rowspec value="top:4dlu:noGrow"/>
+                        <rowspec value="center:max(d;4px):noGrow"/>
                         <rowspec value="top:5dlu:noGrow"/>
                         <rowspec value="center:max(d;4px):noGrow"/>
                         <rowspec value="top:4dlu:noGrow"/>
@@ -692,17 +600,10 @@
                         <rowspec value="center:max(d;4px):noGrow"/>
                         <rowspec value="top:4dlu:noGrow"/>
                         <rowspec value="top:4dlu:noGrow"/>
-                        <rowspec value="center:31px:noGrow"/>
-                        <rowspec value="center:61px:noGrow"/>
-                        <rowspec value="top:4dlu:noGrow"/>
-                        <rowspec value="center:d:grow"/>
-                        <colspec value="fill:d:grow"/>
-                        <colspec value="left:4dlu:noGrow"/>
+                        <rowspec value="center:253px:noGrow"/>
                         <colspec value="fill:249px:noGrow"/>
                         <colspec value="left:37dlu:noGrow"/>
                         <colspec value="fill:181px:grow"/>
-                        <colspec value="left:4dlu:noGrow"/>
-                        <colspec value="fill:max(d;4px):noGrow"/>
                         <colspec value="left:4dlu:noGrow"/>
                         <colspec value="fill:max(d;4px):noGrow"/>
                         <constraints border-constraint="Center"/>
@@ -711,41 +612,21 @@
                         <children>
                           <scrollpane id="f0dc0">
                             <constraints>
-                              <grid row="2" column="2" row-span="17" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                              <grid row="2" column="0" row-span="19" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                               <forms defaultalign-horz="false" defaultalign-vert="false"/>
                             </constraints>
                             <properties/>
                             <border type="none"/>
                             <children>
-                              <component id="cf19f" class="javax.swing.JList" binding="listPatients3">
+                              <component id="b632b" class="javax.swing.JTable" binding="tablePatient3">
                                 <constraints/>
                                 <properties/>
                               </component>
                             </children>
                           </scrollpane>
-                          <scrollpane id="3d5ce">
-                            <constraints>
-                              <grid row="2" column="4" row-span="17" col-span="1" vsize-policy="7" hsize-policy="7" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
-                              <forms defaultalign-horz="false" defaultalign-vert="false"/>
-                            </constraints>
-                            <properties/>
-                            <border type="none"/>
-                            <children>
-                              <component id="ac474" class="javax.swing.JList" binding="listAnalysis">
-                                <constraints/>
-                                <properties/>
-                              </component>
-                            </children>
-                          </scrollpane>
-                          <vspacer id="7c5e9">
-                            <constraints>
-                              <grid row="8" column="8" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-                              <forms defaultalign-vert="false"/>
-                            </constraints>
-                          </vspacer>
                           <component id="ded06" class="javax.swing.JTextField" binding="tfSearchP3">
                             <constraints>
-                              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                                 <preferred-size width="150" height="-1"/>
                               </grid>
                               <forms defaultalign-horz="false"/>
@@ -756,7 +637,7 @@
                           </component>
                           <component id="22ada" class="javax.swing.JTextField" binding="tfSearchA">
                             <constraints>
-                              <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                                 <preferred-size width="150" height="-1"/>
                               </grid>
                               <forms defaultalign-horz="false"/>
@@ -767,7 +648,7 @@
                           </component>
                           <component id="2c315" class="javax.swing.JButton" binding="jbDelA">
                             <constraints>
-                              <grid row="18" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                              <grid row="20" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                               <forms/>
                             </constraints>
                             <properties>
@@ -776,60 +657,31 @@
                           </component>
                           <component id="5e309" class="javax.swing.JButton" binding="jbModA">
                             <constraints>
-                              <grid row="14" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                              <grid row="16" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                               <forms/>
                             </constraints>
                             <properties>
                               <text value="Modify Analysis"/>
                             </properties>
                           </component>
-                          <hspacer id="1414d">
-                            <constraints>
-                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                              <forms defaultalign-horz="false"/>
-                            </constraints>
-                          </hspacer>
-                          <component id="94d26" class="javax.swing.JButton" binding="jbSeeA">
-                            <constraints>
-                              <grid row="6" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                              <forms/>
-                            </constraints>
-                            <properties>
-                              <text value="See Analysis"/>
-                            </properties>
-                          </component>
                           <component id="174db" class="javax.swing.JButton" binding="jbAddA">
                             <constraints>
-                              <grid row="9" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                              <grid row="11" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                               <forms/>
                             </constraints>
                             <properties>
                               <text value="Add Analysis"/>
                             </properties>
                           </component>
-                          <scrollpane id="8cf6f">
+                          <scrollpane id="cbf00">
                             <constraints>
-                              <grid row="21" column="2" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                              <grid row="2" column="2" row-span="19" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                               <forms defaultalign-horz="false" defaultalign-vert="false"/>
                             </constraints>
                             <properties/>
                             <border type="none"/>
                             <children>
-                              <component id="18af6" class="javax.swing.JTable" binding="table6" default-binding="true">
-                                <constraints/>
-                                <properties/>
-                              </component>
-                            </children>
-                          </scrollpane>
-                          <scrollpane id="87ab6">
-                            <constraints>
-                              <grid row="21" column="4" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-                              <forms defaultalign-horz="false" defaultalign-vert="false"/>
-                            </constraints>
-                            <properties/>
-                            <border type="none"/>
-                            <children>
-                              <component id="978e4" class="javax.swing.JTable" binding="table5" default-binding="true">
+                              <component id="6276d" class="javax.swing.JTable" binding="tableAnalysis">
                                 <constraints/>
                                 <properties/>
                               </component>
@@ -865,17 +717,10 @@
                         <rowspec value="center:max(d;4px):noGrow"/>
                         <rowspec value="top:4dlu:noGrow"/>
                         <rowspec value="top:4dlu:noGrow"/>
-                        <rowspec value="center:31px:noGrow"/>
-                        <rowspec value="center:61px:noGrow"/>
-                        <rowspec value="top:4dlu:noGrow"/>
-                        <rowspec value="center:d:grow"/>
-                        <colspec value="fill:d:grow"/>
-                        <colspec value="left:4dlu:noGrow"/>
+                        <rowspec value="center:267px:noGrow"/>
                         <colspec value="fill:249px:noGrow"/>
                         <colspec value="left:37dlu:noGrow"/>
                         <colspec value="fill:157px:grow"/>
-                        <colspec value="left:4dlu:noGrow"/>
-                        <colspec value="fill:max(d;4px):noGrow"/>
                         <colspec value="left:4dlu:noGrow"/>
                         <colspec value="fill:max(d;4px):noGrow"/>
                         <constraints border-constraint="Center"/>
@@ -884,41 +729,21 @@
                         <children>
                           <scrollpane id="9e415">
                             <constraints>
-                              <grid row="2" column="2" row-span="17" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                              <grid row="2" column="0" row-span="17" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                               <forms defaultalign-horz="false" defaultalign-vert="false"/>
                             </constraints>
                             <properties/>
                             <border type="none"/>
                             <children>
-                              <component id="9ecc" class="javax.swing.JList" binding="listPatients4">
+                              <component id="ec600" class="javax.swing.JTable" binding="tablePatient4">
                                 <constraints/>
                                 <properties/>
                               </component>
                             </children>
                           </scrollpane>
-                          <scrollpane id="56105">
-                            <constraints>
-                              <grid row="2" column="4" row-span="17" col-span="1" vsize-policy="7" hsize-policy="7" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
-                              <forms defaultalign-horz="false" defaultalign-vert="false"/>
-                            </constraints>
-                            <properties/>
-                            <border type="none"/>
-                            <children>
-                              <component id="4092d" class="javax.swing.JList" binding="listRadiography">
-                                <constraints/>
-                                <properties/>
-                              </component>
-                            </children>
-                          </scrollpane>
-                          <vspacer id="bc9b7">
-                            <constraints>
-                              <grid row="8" column="8" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-                              <forms defaultalign-vert="false"/>
-                            </constraints>
-                          </vspacer>
                           <component id="bbe61" class="javax.swing.JTextField" binding="tfSearchP4">
                             <constraints>
-                              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                                 <preferred-size width="150" height="-1"/>
                               </grid>
                               <forms defaultalign-horz="false"/>
@@ -929,7 +754,7 @@
                           </component>
                           <component id="a68ec" class="javax.swing.JTextField" binding="tfSearchR">
                             <constraints>
-                              <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                                 <preferred-size width="150" height="-1"/>
                               </grid>
                               <forms defaultalign-horz="false"/>
@@ -940,7 +765,7 @@
                           </component>
                           <component id="8fd1d" class="javax.swing.JButton" binding="jbDelR">
                             <constraints>
-                              <grid row="18" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                              <grid row="18" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                               <forms/>
                             </constraints>
                             <properties>
@@ -949,60 +774,31 @@
                           </component>
                           <component id="43506" class="javax.swing.JButton" binding="jbModR">
                             <constraints>
-                              <grid row="14" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                              <grid row="14" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                               <forms/>
                             </constraints>
                             <properties>
                               <text value="Modify Radiography"/>
                             </properties>
                           </component>
-                          <hspacer id="89d03">
-                            <constraints>
-                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                              <forms defaultalign-horz="false"/>
-                            </constraints>
-                          </hspacer>
-                          <component id="7249b" class="javax.swing.JButton" binding="jbSeeR">
-                            <constraints>
-                              <grid row="6" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                              <forms/>
-                            </constraints>
-                            <properties>
-                              <text value="See Radiography"/>
-                            </properties>
-                          </component>
                           <component id="beb28" class="javax.swing.JButton" binding="jbAddR">
                             <constraints>
-                              <grid row="9" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                              <grid row="9" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                               <forms/>
                             </constraints>
                             <properties>
                               <text value="Add Radiography"/>
                             </properties>
                           </component>
-                          <scrollpane id="4cb06">
+                          <scrollpane id="57282">
                             <constraints>
-                              <grid row="21" column="2" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                              <grid row="2" column="2" row-span="17" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                               <forms defaultalign-horz="false" defaultalign-vert="false"/>
                             </constraints>
                             <properties/>
                             <border type="none"/>
                             <children>
-                              <component id="c853c" class="javax.swing.JTable" binding="table8" default-binding="true">
-                                <constraints/>
-                                <properties/>
-                              </component>
-                            </children>
-                          </scrollpane>
-                          <scrollpane id="684d">
-                            <constraints>
-                              <grid row="21" column="4" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-                              <forms defaultalign-horz="false" defaultalign-vert="false"/>
-                            </constraints>
-                            <properties/>
-                            <border type="none"/>
-                            <children>
-                              <component id="b6360" class="javax.swing.JTable" binding="table7" default-binding="true">
+                              <component id="ceccd" class="javax.swing.JTable" binding="tableRadiography">
                                 <constraints/>
                                 <properties/>
                               </component>
@@ -1027,6 +823,8 @@
                         <rowspec value="center:max(d;4px):noGrow"/>
                         <rowspec value="top:4dlu:noGrow"/>
                         <rowspec value="center:35px:noGrow"/>
+                        <rowspec value="top:4dlu:noGrow"/>
+                        <rowspec value="center:max(d;4px):noGrow"/>
                         <rowspec value="center:max(d;4px):noGrow"/>
                         <rowspec value="top:8dlu:noGrow"/>
                         <rowspec value="center:max(d;4px):noGrow"/>
@@ -1038,17 +836,10 @@
                         <rowspec value="center:max(d;4px):noGrow"/>
                         <rowspec value="top:4dlu:noGrow"/>
                         <rowspec value="top:4dlu:noGrow"/>
-                        <rowspec value="center:31px:noGrow"/>
-                        <rowspec value="center:61px:noGrow"/>
-                        <rowspec value="top:4dlu:noGrow"/>
-                        <rowspec value="center:d:grow"/>
-                        <colspec value="fill:d:grow"/>
-                        <colspec value="left:5dlu:noGrow"/>
+                        <rowspec value="center:255px:noGrow"/>
                         <colspec value="fill:267px:noGrow"/>
                         <colspec value="left:37dlu:noGrow"/>
                         <colspec value="fill:d:grow"/>
-                        <colspec value="left:4dlu:noGrow"/>
-                        <colspec value="fill:max(d;4px):noGrow"/>
                         <colspec value="left:4dlu:noGrow"/>
                         <colspec value="fill:max(d;4px):noGrow"/>
                         <constraints border-constraint="Center"/>
@@ -1057,43 +848,21 @@
                         <children>
                           <scrollpane id="61c68">
                             <constraints>
-                              <grid row="2" column="2" row-span="17" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                              <grid row="2" column="0" row-span="19" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                               <forms defaultalign-horz="false" defaultalign-vert="false"/>
                             </constraints>
                             <properties/>
                             <border type="none"/>
                             <children>
-                              <component id="252b6" class="javax.swing.JList" binding="listPatients5">
-                                <constraints/>
-                                <properties>
-                                  <model/>
-                                </properties>
-                              </component>
-                            </children>
-                          </scrollpane>
-                          <scrollpane id="844ac">
-                            <constraints>
-                              <grid row="2" column="4" row-span="17" col-span="1" vsize-policy="7" hsize-policy="7" anchor="8" fill="2" indent="0" use-parent-layout="false"/>
-                              <forms defaultalign-horz="false" defaultalign-vert="false"/>
-                            </constraints>
-                            <properties/>
-                            <border type="none"/>
-                            <children>
-                              <component id="e187b" class="javax.swing.JList" binding="listPharmacotherapy">
+                              <component id="f54b3" class="javax.swing.JTable" binding="tablePatient5">
                                 <constraints/>
                                 <properties/>
                               </component>
                             </children>
                           </scrollpane>
-                          <vspacer id="43e1d">
-                            <constraints>
-                              <grid row="8" column="8" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
-                              <forms defaultalign-vert="false"/>
-                            </constraints>
-                          </vspacer>
                           <component id="18130" class="javax.swing.JTextField" binding="tfSearchP5">
                             <constraints>
-                              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                                 <preferred-size width="150" height="-1"/>
                               </grid>
                               <forms defaultalign-horz="false"/>
@@ -1104,7 +873,7 @@
                           </component>
                           <component id="31879" class="javax.swing.JTextField" binding="tfSearchPh">
                             <constraints>
-                              <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
                                 <preferred-size width="150" height="-1"/>
                               </grid>
                               <forms defaultalign-horz="false"/>
@@ -1115,7 +884,7 @@
                           </component>
                           <component id="e3520" class="javax.swing.JButton" binding="jbDelPh">
                             <constraints>
-                              <grid row="18" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                              <grid row="20" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                               <forms/>
                             </constraints>
                             <properties>
@@ -1124,60 +893,31 @@
                           </component>
                           <component id="f46ed" class="javax.swing.JButton" binding="jbModPh">
                             <constraints>
-                              <grid row="14" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                              <grid row="16" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                               <forms/>
                             </constraints>
                             <properties>
                               <text value="Modify Pharmacotherapy"/>
                             </properties>
                           </component>
-                          <hspacer id="672be">
-                            <constraints>
-                              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                              <forms defaultalign-horz="false"/>
-                            </constraints>
-                          </hspacer>
-                          <component id="b2088" class="javax.swing.JButton" binding="jbSeePh">
-                            <constraints>
-                              <grid row="6" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-                              <forms/>
-                            </constraints>
-                            <properties>
-                              <text value="See Pharmacotherapy"/>
-                            </properties>
-                          </component>
                           <component id="a6703" class="javax.swing.JButton" binding="jbAddPh">
                             <constraints>
-                              <grid row="9" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                              <grid row="11" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                               <forms/>
                             </constraints>
                             <properties>
                               <text value="Add Pharmacotherapy"/>
                             </properties>
                           </component>
-                          <scrollpane id="d2729">
+                          <scrollpane id="4c956">
                             <constraints>
-                              <grid row="21" column="4" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+                              <grid row="2" column="2" row-span="19" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
                               <forms defaultalign-horz="false" defaultalign-vert="false"/>
                             </constraints>
                             <properties/>
                             <border type="none"/>
                             <children>
-                              <component id="58aa" class="javax.swing.JTable" binding="table9" default-binding="true">
-                                <constraints/>
-                                <properties/>
-                              </component>
-                            </children>
-                          </scrollpane>
-                          <scrollpane id="795ed">
-                            <constraints>
-                              <grid row="21" column="2" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
-                              <forms defaultalign-horz="false" defaultalign-vert="false"/>
-                            </constraints>
-                            <properties/>
-                            <border type="none"/>
-                            <children>
-                              <component id="71c2a" class="javax.swing.JTable" binding="table10" default-binding="true">
+                              <component id="10081" class="javax.swing.JTable" binding="tablePharmacotherapy">
                                 <constraints/>
                                 <properties/>
                               </component>

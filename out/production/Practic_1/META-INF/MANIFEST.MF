@@ -1,3 +1,3 @@
 Manifest-Version: 1.0
-Main-Class: com.dam.practic1.View.Window
+Main-Class: com.dam.practic2.View.Window
 
