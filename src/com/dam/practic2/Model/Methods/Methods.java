@@ -613,7 +613,7 @@ public class Methods
     {
         String sql = "INSERT INTO episodes(descript, startDate, endDate, evolution) VALUES(?, ?, ?, ?)";
         String sql2 = "UPDATE visit SET idEpisode = ? WHERE idPatient = ?";
-        String sql22 = "INSERT INTO visit(receptionDate, visitDate, medicalCentre, idAnalysis, idEpisode, idMedic, idPatient, idPharmacotherapy) VALUES (NULL, ?, NULL, NULL, ?, ?, ?, NULL) ON idPatient = ?";
+        String sql22 = "INSERT INTO visit(receptionDate, visitDate, medicalCentre, idAnalysis, idEpisode, idMedic, idPatient, idPharmacotherapy) VALUES (NULL, ?, NULL, NULL, ?, ?, ?, NULL)";
         String sql3 = "SELECT idEpisode FROM visit WHERE idPatient = ?";
 
         PreparedStatement sentenciaAltaEpisode = null;
@@ -643,7 +643,6 @@ public class Methods
             while (resultado.next())
             {
                 idE2 = String.valueOf(resultado.getInt("idEpisode"));
-                System.out.print(idE2);
             }
 
             if(idE2.equals("0"))
@@ -656,24 +655,12 @@ public class Methods
             else
             {
                 sentenciaAltaVisita = conexion.prepareStatement(sql22);
-                sentenciaAltaVisita.setInt(1, idP);
 
                 Calendar calendario = GregorianCalendar.getInstance();
                 java.util.Date fecha = calendario.getTime();
                 SimpleDateFormat formatoDeFecha = new SimpleDateFormat("dd/MM/yyyy");
-                String fechaActual = String.valueOf(fecha);
 
-                Date fechaActualDate = null;
-                try
-                {
-                    fechaActualDate = new Date(formatoDeFecha.parse(fechaActual).getTime());
-                }
-                catch (ParseException e1)
-                {
-                    e1.printStackTrace();
-                }
-
-                sentenciaAltaVisita.setDate(1, fechaActualDate);
+                sentenciaAltaVisita.setDate(1, new Date(fecha.getTime()));
                 sentenciaAltaVisita.setInt(2, idE);
                 sentenciaAltaVisita.setInt(3, medicConnected);
                 sentenciaAltaVisita.setInt(4, idP);

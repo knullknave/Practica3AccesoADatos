@@ -29,6 +29,7 @@ public class Controller implements ActionListener, KeyListener
     private JConnection c;
     private DefaultTableModel ColumnMedicTable;
     private DefaultTableModel ColumnPatientTable;
+    private DefaultTableModel ColumnPatient2Table;
     private DefaultTableModel ColumnEpisodeTable;
     private DefaultTableModel ColumnAnalysisTable;
     private DefaultTableModel ColumnRadiographyTable;
@@ -89,7 +90,8 @@ public class Controller implements ActionListener, KeyListener
         window.tableMedic.setModel(ColumnMedicTable);
         ColumnPatientTable = new DefaultTableModel();
         window.tablePatient1.setModel(ColumnPatientTable);
-        window.tablePatient2.setModel(ColumnPatientTable);
+        ColumnPatient2Table = new DefaultTableModel();
+        window.tablePatient2.setModel(ColumnPatient2Table);
         window.tablePatient3.setModel(ColumnPatientTable);
         window.tablePatient4.setModel(ColumnPatientTable);
         window.tablePatient5.setModel(ColumnPatientTable);
@@ -195,6 +197,7 @@ public class Controller implements ActionListener, KeyListener
         for(int i=0; i<P.length; i++)
         {
             ColumnPatientTable.addColumn(P[i]);
+            ColumnPatient2Table.addColumn(P[i]);
         }
         String[] E = {"Id", "Description", "Start Date", "End Date", "Evolution"};
         for(int i=0; i<E.length; i++)
@@ -246,6 +249,20 @@ public class Controller implements ActionListener, KeyListener
         }
     }
 
+    public void loadPatient2()
+    {
+        ArrayList<Object[]> list = methods.selectAllPatient();
+
+        if (list != null)
+        {
+            ColumnPatient2Table.setNumRows(0);
+            for (int i = 0;i < list.size(); i++)
+            {
+                ColumnPatient2Table.addRow(list.get(i));
+            }
+        }
+    }
+
     public void loadEpisodes()
     {
         ArrayList<Object[]> list = methods.selectAllEpisodes(idPatient2);
@@ -286,6 +303,21 @@ public class Controller implements ActionListener, KeyListener
             {
                 if (String.valueOf(list.get(i)[0]).contains(search) || String.valueOf(list.get(i)[1]).contains(search) || String.valueOf(list.get(i)[2]).contains(search) || String.valueOf(list.get(i)[4]).contains(search) || String.valueOf(list.get(i)[6]).contains(search))
                     ColumnPatientTable.addRow(list.get(i));
+            }
+        }
+    }
+
+    public void loadPatient2(String search)
+    {
+        ArrayList<Object[]> list = methods.selectAllPatient();
+
+        if (list != null)
+        {
+            ColumnPatient2Table.setNumRows(0);
+            for (int i = 0;i < list.size(); i++)
+            {
+                if (String.valueOf(list.get(i)[0]).contains(search) || String.valueOf(list.get(i)[1]).contains(search) || String.valueOf(list.get(i)[2]).contains(search) || String.valueOf(list.get(i)[4]).contains(search) || String.valueOf(list.get(i)[6]).contains(search))
+                    ColumnPatient2Table.addRow(list.get(i));
             }
         }
     }
@@ -425,6 +457,7 @@ public class Controller implements ActionListener, KeyListener
                     {
                         methods.updatePatient(idPatient, window.tfName.getText(), window.tfSurname.getText(), new Date(window.jdateChooserP.getDate().getTime()), window.tfAddress.getText(), new Date(window.jdateChooserP2.getDate().getTime()));
                         loadPatient();
+                        loadPatient2();
                     }
                     window.jbModP.setEnabled(false);
                     window.jbDelP.setEnabled(false);
@@ -459,6 +492,7 @@ public class Controller implements ActionListener, KeyListener
                         {
                             methods.insertPatient(window.tfName.getText(), window.tfSurname.getText(), new Date(window.jdateChooserP.getDate().getTime()), window.tfAddress.getText(), new Date(window.jdateChooserP2.getDate().getTime()));
                             loadPatient();
+                            loadPatient2();
                         }
                     }
                     endNewPatient();
@@ -469,6 +503,7 @@ public class Controller implements ActionListener, KeyListener
                     {
                         methods.deletePatient(idPatient);
                         loadPatient();
+                        loadPatient2();
                     }
                     window.jbModP.setEnabled(false);
                     window.jbDelP.setEnabled(false);
@@ -597,6 +632,7 @@ public class Controller implements ActionListener, KeyListener
                                 methods.deleteMedic(idMedic);
                                 loadMedic();
                                 loadPatient();
+                                loadPatient2();
 
                                 if(methods.existsMedic3(idMedic) == false)
                                 {
@@ -616,6 +652,7 @@ public class Controller implements ActionListener, KeyListener
                             window.jlMedic.setText(window.tfUser.getText());
                             methods.medicConnected = methods.getCollegiateNumber(window.tfUser.getText(), window.tfPassword.getText());
                             loadPatient();
+                            loadPatient2();
                         }
                         else
                         {
@@ -708,6 +745,7 @@ public class Controller implements ActionListener, KeyListener
                                 methods.insertEpisode(field1.getText(), new Date(fieldd2.getDate().getTime()), new Date(fieldd3.getDate().getTime()), fieldd4.getText(), idPatient2);
                                 loadEpisodes();
                                 loadPatient();
+                                loadPatient2();
                             }
                         }
                     }
@@ -755,6 +793,7 @@ public class Controller implements ActionListener, KeyListener
                             sw = 1;
                             loadEpisodes();
                             loadPatient();
+                            loadPatient2();
                         }
                     }
                     break;
@@ -765,6 +804,7 @@ public class Controller implements ActionListener, KeyListener
                         methods.deleteEpisode(idEpisode);
                         loadEpisodes();
                         loadPatient();
+                        loadPatient2();
                     }
                     window.jbModE.setEnabled(false);
                     window.jbDelE.setEnabled(false);
@@ -834,9 +874,9 @@ public class Controller implements ActionListener, KeyListener
         else
             loadPatient(search2);
         if(search3.equals(""))
-            loadPatient();
+            loadPatient2();
         else
-            loadPatient(search3);
+            loadPatient2(search3);
         if(search4.equals(""))
             loadEpisodes();
         else
