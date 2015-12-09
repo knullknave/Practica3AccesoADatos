@@ -91,7 +91,7 @@ public class Window
 
     public static JMenuBar menuBar;
     public static JMenu menu;
-    public static JMenuItem menuItem, menuItem2, menuItem3, menuItem4, menuItem5, menuItem6, menuItem7, menuItem8;
+    public static JMenuItem menuItem6, menuItem7, menuItem8;
 
     Window()
     {
@@ -100,26 +100,6 @@ public class Window
         menu.setMnemonic(KeyEvent.VK_A);
         menu.getAccessibleContext().setAccessibleDescription("Description for menu");
         menuBar.add(menu);
-
-        menuItem = new JMenuItem("Save", KeyEvent.VK_T);
-        menuItem.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_1, ActionEvent.ALT_MASK));
-        menuItem.getAccessibleContext().setAccessibleDescription("Description for first item");
-
-        menuItem2 = new JMenuItem("Save as", KeyEvent.VK_T);
-        menuItem2.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_1, ActionEvent.ALT_MASK));
-        menuItem2.getAccessibleContext().setAccessibleDescription("Description for second item");
-
-        menuItem3 = new JMenuItem("Import", KeyEvent.VK_T);
-        menuItem3.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_1, ActionEvent.ALT_MASK));
-        menuItem3.getAccessibleContext().setAccessibleDescription("Description for third item");
-
-        menuItem4 = new JMenuItem("Export", KeyEvent.VK_T);
-        menuItem4.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_1, ActionEvent.ALT_MASK));
-        menuItem4.getAccessibleContext().setAccessibleDescription("Description for fourth item");
-
-        menuItem5 = new JMenuItem("Change File Path", KeyEvent.VK_T);
-        menuItem5.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_1, ActionEvent.ALT_MASK));
-        menuItem5.getAccessibleContext().setAccessibleDescription("Description for fifth item");
 
         menuItem6 = new JMenuItem("Exit", KeyEvent.VK_T);
         menuItem6.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_1, ActionEvent.ALT_MASK));
@@ -139,26 +119,6 @@ public class Window
 
         menu.add(menuItem8);
         menuItem8.setMnemonic(KeyEvent.VK_D);
-        menu.addSeparator();
-
-        menu.add(menuItem);
-        menuItem.setMnemonic(KeyEvent.VK_D);
-        menu.addSeparator();
-
-        menu.add(menuItem2);
-        menuItem2.setMnemonic(KeyEvent.VK_D);
-        menu.addSeparator();
-
-        menu.add(menuItem3);
-        menuItem3.setMnemonic(KeyEvent.VK_D);
-        menu.addSeparator();
-
-        menu.add(menuItem4);
-        menuItem4.setMnemonic(KeyEvent.VK_D);
-        menu.addSeparator();
-
-        menu.add(menuItem5);
-        menuItem5.setMnemonic(KeyEvent.VK_D);
         menu.addSeparator();
 
         menu.add(menuItem6);

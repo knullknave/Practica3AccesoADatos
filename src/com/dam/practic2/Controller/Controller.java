@@ -22,7 +22,7 @@ import java.sql.Date;
  * Esta clase controla lo que le pueda pasar a la ventana. Incorpora modelo MVC (Model, view, controller)
  * En esta clase se controlan todos los eventos del programa así como tratamiento con cada uno de los elementos de la ventana.
  */
-public class Controller implements ActionListener, KeyListener
+public class Controller extends SwingWorker<Void, Void> implements ActionListener, KeyListener
 {
     private Window window;
     private Methods methods;
@@ -39,6 +39,7 @@ public class Controller implements ActionListener, KeyListener
     public int idPatient2;
     public int idEpisode;
     public int idVisit;
+    public boolean pause;
     //TODO CREAR EL RESTO DE ID'S
 
     /**
@@ -72,11 +73,6 @@ public class Controller implements ActionListener, KeyListener
         this.window.jbDelM.addActionListener(this);
         this.window.jbCancel.addActionListener(this);
 
-        this.window.menuItem.addActionListener(this);
-        this.window.menuItem2.addActionListener(this);
-        this.window.menuItem3.addActionListener(this);
-        this.window.menuItem4.addActionListener(this);
-        this.window.menuItem5.addActionListener(this);
         this.window.menuItem6.addActionListener(this);
         this.window.menuItem7.addActionListener(this);
         this.window.menuItem8.addActionListener(this);
@@ -108,6 +104,8 @@ public class Controller implements ActionListener, KeyListener
         loadMedic();
         disconect();
         dishableMedic();
+        pause = false;
+        this.execute();
 
         window.tableMedic.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override
@@ -357,6 +355,7 @@ public class Controller implements ActionListener, KeyListener
         window.tfAddress.setEnabled(false);
         window.jdateChooserP.setEnabled(false);
         window.jdateChooserP2.setEnabled(false);
+        ColumnMedicTable.setNumRows(0);
 
         window.jbModP.setEnabled(false);
         window.jbDelP.setEnabled(false);
@@ -449,15 +448,22 @@ public class Controller implements ActionListener, KeyListener
                     newPatient();
                     break;
                 case "Modify Patient":
-                    if(window.tfName.getText().equals("") || window.tfSurname.getText().equals("") || window.tfAddress.getText().equals(""))
+                    if(String.valueOf(methods.getModificaciones()[1]).equals("0"))
                     {
-                        JOptionPane.showMessageDialog(null, "Please, fill each field", "Error", JOptionPane.ERROR_MESSAGE);
+                        if(window.tfName.getText().equals("") || window.tfSurname.getText().equals("") || window.tfAddress.getText().equals(""))
+                        {
+                            JOptionPane.showMessageDialog(null, "Please, fill each field", "Error", JOptionPane.ERROR_MESSAGE);
+                        }
+                        else
+                        {
+                            methods.updatePatient(idPatient, window.tfName.getText(), window.tfSurname.getText(), new Date(window.jdateChooserP.getDate().getTime()), window.tfAddress.getText(), new Date(window.jdateChooserP2.getDate().getTime()));
+                            loadPatient();
+                            loadPatient2();
+                        }
                     }
                     else
                     {
-                        methods.updatePatient(idPatient, window.tfName.getText(), window.tfSurname.getText(), new Date(window.jdateChooserP.getDate().getTime()), window.tfAddress.getText(), new Date(window.jdateChooserP2.getDate().getTime()));
-                        loadPatient();
-                        loadPatient2();
+                        JOptionPane.showMessageDialog(null, "You can not do that now", "Error", JOptionPane.ERROR_MESSAGE);
                     }
                     window.jbModP.setEnabled(false);
                     window.jbDelP.setEnabled(false);
@@ -498,13 +504,21 @@ public class Controller implements ActionListener, KeyListener
                     endNewPatient();
                     break;
                 case "Delete Patient":
-                    int resutl = JOptionPane.showConfirmDialog(null, "Do you want to delete it?", "Are you sure?", JOptionPane.YES_NO_CANCEL_OPTION);
-                    if(resutl == JOptionPane.YES_OPTION)
+                    if(String.valueOf(methods.getModificaciones()[1]).equals("0"))
                     {
-                        methods.deletePatient(idPatient);
-                        loadPatient();
-                        loadPatient2();
+                        int resutl = JOptionPane.showConfirmDialog(null, "Do you want to delete it?", "Are you sure?", JOptionPane.YES_NO_CANCEL_OPTION);
+                        if(resutl == JOptionPane.YES_OPTION)
+                        {
+                            methods.deletePatient(idPatient);
+                            loadPatient();
+                            loadPatient2();
+                        }
                     }
+                    else
+                    {
+                        JOptionPane.showMessageDialog(null, "You can not do that now", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+
                     window.jbModP.setEnabled(false);
                     window.jbDelP.setEnabled(false);
                     window.jbCancel.setEnabled(false);
@@ -521,126 +535,140 @@ public class Controller implements ActionListener, KeyListener
                     window.tablePatient1.clearSelection();
                     break;
                 case "Modify Medic":
-                    JTextField fieldUser = new JTextField();
-                    JTextField fieldPassword = new JTextField();
-                    Object[] check = {"User", fieldUser, "Password", fieldPassword};
-                    int op = JOptionPane.showConfirmDialog(null, check, "Enter all your values", JOptionPane.OK_CANCEL_OPTION);
-                    int sw1 = 0;
+                    if(String.valueOf(methods.getModificaciones()[0]).equals("0"))
+                    {
+                        JTextField fieldUser = new JTextField();
+                        JTextField fieldPassword = new JTextField();
+                        Object[] check = {"User", fieldUser, "Password", fieldPassword};
+                        int op = JOptionPane.showConfirmDialog(null, check, "Enter all your values", JOptionPane.OK_CANCEL_OPTION);
+                        int sw1 = 0;
 
-                    if(op == JOptionPane.CANCEL_OPTION || op == JOptionPane.CLOSED_OPTION)
-                    {
-                        sw1 = 1;
-                    }
-                    else
-                    {
-                        if (fieldUser.getText().equals("") || fieldPassword.getText().equals(""))
+                        if(op == JOptionPane.CANCEL_OPTION || op == JOptionPane.CLOSED_OPTION)
                         {
-
-                            JOptionPane.showMessageDialog(null, "Please, fill each field", "Error", JOptionPane.ERROR_MESSAGE);
+                            sw1 = 1;
                         }
                         else
                         {
-                            if(methods.existsMedic2(fieldUser.getText(), fieldPassword.getText(), idMedic) == false)
+                            if (fieldUser.getText().equals("") || fieldPassword.getText().equals(""))
                             {
-                                JOptionPane.showMessageDialog(null, "You can't modify this user", "Error", JOptionPane.ERROR_MESSAGE);
+
+                                JOptionPane.showMessageDialog(null, "Please, fill each field", "Error", JOptionPane.ERROR_MESSAGE);
                             }
                             else
                             {
-                                JOptionPane.showMessageDialog(null, "Successul", "Successful", JOptionPane.INFORMATION_MESSAGE);
-                                sw1 = 1;
-
-                                Object[] datos = methods.selectMedic(idMedic);
-
-                                JTextField field2 = new JTextField();
-                                field2.setText(datos[1].toString());
-                                JTextField field3 = new JTextField();
-                                field3.setText(datos[2].toString());
-                                JTextField field4 = new JTextField();
-                                field4.setText(datos[3].toString());
-                                JTextField field5 = new JTextField();
-                                field5.setText(datos[4].toString());
-                                JTextField field6 = new JTextField();
-                                field6.setText(datos[5].toString());
-                                JTextField field7 = new JTextField();
-                                field7.setText(datos[6].toString());
-                                JTextField field8 = new JTextField();
-                                field8.setText(datos[7].toString());
-                                JDateChooser field9 = new JDateChooser();
-                                field9.setDate((Date)datos[8]);
-
-
-                                int sw = 0;
-                                int option = 0;
-
-                                while (sw == 0)
+                                if(methods.existsMedic2(fieldUser.getText(), fieldPassword.getText(), idMedic) == false)
                                 {
-                                    Object[] message = {"Name", field2, "Surname", field3, "Address", field4,
-                                            "Medical Centre", field5, "Email", field6, "Medical Speciality", field7, "Telephone", field8, "BirthDate", field9};
-                                    option = JOptionPane.showConfirmDialog(null, message, "Enter all your values", JOptionPane.OK_CANCEL_OPTION);
+                                    JOptionPane.showMessageDialog(null, "You can't modify this user", "Error", JOptionPane.ERROR_MESSAGE);
+                                }
+                                else
+                                {
+                                    JOptionPane.showMessageDialog(null, "Successul", "Successful", JOptionPane.INFORMATION_MESSAGE);
+                                    sw1 = 1;
 
-                                    if (option == JOptionPane.CANCEL_OPTION || option == JOptionPane.CLOSED_OPTION)
+                                    Object[] datos = methods.selectMedic(idMedic);
+
+                                    JTextField field2 = new JTextField();
+                                    field2.setText(datos[1].toString());
+                                    JTextField field3 = new JTextField();
+                                    field3.setText(datos[2].toString());
+                                    JTextField field4 = new JTextField();
+                                    field4.setText(datos[3].toString());
+                                    JTextField field5 = new JTextField();
+                                    field5.setText(datos[4].toString());
+                                    JTextField field6 = new JTextField();
+                                    field6.setText(datos[5].toString());
+                                    JTextField field7 = new JTextField();
+                                    field7.setText(datos[6].toString());
+                                    JTextField field8 = new JTextField();
+                                    field8.setText(datos[7].toString());
+                                    JDateChooser field9 = new JDateChooser();
+                                    field9.setDate((Date)datos[8]);
+
+
+                                    int sw = 0;
+                                    int option = 0;
+
+                                    while (sw == 0)
                                     {
-                                        sw = 1;
-                                    }
-                                    else
-                                    {
-                                        if (field2.getText().equals("") || field3.getText().equals("") || field4.getText().equals("")
-                                                || field5.getText().equals("") || field7.getText().equals("") || field8.getText().equals(""))
+                                        Object[] message = {"Name", field2, "Surname", field3, "Address", field4,
+                                                "Medical Centre", field5, "Email", field6, "Medical Speciality", field7, "Telephone", field8, "BirthDate", field9};
+                                        option = JOptionPane.showConfirmDialog(null, message, "Enter all your values", JOptionPane.OK_CANCEL_OPTION);
+
+                                        if (option == JOptionPane.CANCEL_OPTION || option == JOptionPane.CLOSED_OPTION)
                                         {
-                                            JOptionPane.showMessageDialog(null, "Please, fill each field", "Error", JOptionPane.ERROR_MESSAGE);
+                                            sw = 1;
                                         }
                                         else
                                         {
-                                            JOptionPane.showMessageDialog(null, "Successul", "Successful", JOptionPane.INFORMATION_MESSAGE);
-                                            methods.updateMedic(field2.getText(), field3.getText(), field4.getText(), field5.getText(), field6.getText(), field7.getText(), field8.getText(), new Date(field9.getDate().getTime()), idMedic);
-                                            sw = 1;
-                                            loadMedic();
+                                            if (field2.getText().equals("") || field3.getText().equals("") || field4.getText().equals("")
+                                                    || field5.getText().equals("") || field7.getText().equals("") || field8.getText().equals(""))
+                                            {
+                                                JOptionPane.showMessageDialog(null, "Please, fill each field", "Error", JOptionPane.ERROR_MESSAGE);
+                                            }
+                                            else
+                                            {
+                                                JOptionPane.showMessageDialog(null, "Successul", "Successful", JOptionPane.INFORMATION_MESSAGE);
+                                                methods.updateMedic(field2.getText(), field3.getText(), field4.getText(), field5.getText(), field6.getText(), field7.getText(), field8.getText(), new Date(field9.getDate().getTime()), idMedic);
+                                                sw = 1;
+                                                loadMedic();
+                                            }
                                         }
                                     }
                                 }
                             }
                         }
                     }
-                    break;
-                case "Delete Medic":
-                    fieldUser = new JTextField();
-                    fieldPassword = new JTextField();
-                    Object[] check2 = {"User", fieldUser, "Password", fieldPassword};
-                    op = JOptionPane.showConfirmDialog(null, check2, "Enter all your values", JOptionPane.OK_CANCEL_OPTION);
-                    sw1 = 0;
-
-                    if(op == JOptionPane.CANCEL_OPTION || op == JOptionPane.CLOSED_OPTION)
-                    {
-                        sw1 = 1;
-                    }
                     else
                     {
-                        if (fieldUser.getText().equals("") || fieldPassword.getText().equals(""))
-                        {
+                        JOptionPane.showMessageDialog(null, "You can not do that now", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                    break;
+                case "Delete Medic":
+                    if(String.valueOf(methods.getModificaciones()[0]).equals("0"))
+                    {
+                        JTextField fieldUser = new JTextField();
+                        JTextField fieldPassword = new JTextField();
+                        Object[] check2 = {"User", fieldUser, "Password", fieldPassword};
+                        int op = JOptionPane.showConfirmDialog(null, check2, "Enter all your values", JOptionPane.OK_CANCEL_OPTION);
+                        int sw1 = 0;
 
-                            JOptionPane.showMessageDialog(null, "Please, fill each field", "Error", JOptionPane.ERROR_MESSAGE);
+                        if(op == JOptionPane.CANCEL_OPTION || op == JOptionPane.CLOSED_OPTION)
+                        {
+                            sw1 = 1;
                         }
                         else
                         {
-                            if (methods.existsMedic2(fieldUser.getText(), fieldPassword.getText(), idMedic) == false)
+                            if (fieldUser.getText().equals("") || fieldPassword.getText().equals(""))
                             {
-                                JOptionPane.showMessageDialog(null, "You can't modify this user", "Error", JOptionPane.ERROR_MESSAGE);
+
+                                JOptionPane.showMessageDialog(null, "Please, fill each field", "Error", JOptionPane.ERROR_MESSAGE);
                             }
                             else
                             {
-                                JOptionPane.showMessageDialog(null, "Successul", "Successful", JOptionPane.INFORMATION_MESSAGE);
-                                methods.deleteMedic(idMedic);
-                                loadMedic();
-                                loadPatient();
-                                loadPatient2();
-
-                                if(methods.existsMedic3(idMedic) == false)
+                                if (methods.existsMedic2(fieldUser.getText(), fieldPassword.getText(), idMedic) == false)
                                 {
-                                    disconect();
-                                    window.jlMedic.setText("You need to log in");
+                                    JOptionPane.showMessageDialog(null, "You can't modify this user", "Error", JOptionPane.ERROR_MESSAGE);
+                                }
+                                else
+                                {
+                                    JOptionPane.showMessageDialog(null, "Successul", "Successful", JOptionPane.INFORMATION_MESSAGE);
+                                    methods.deleteMedic(idMedic);
+                                    loadMedic();
+                                    loadPatient();
+                                    loadPatient2();
+
+                                    if(methods.existsMedic3(idMedic) == false)
+                                    {
+                                        disconect();
+                                        window.jlMedic.setText("You need to log in");
+                                    }
                                 }
                             }
                         }
+                    }
+                    else
+                    {
+                        JOptionPane.showMessageDialog(null, "You can not do that now", "Error", JOptionPane.ERROR_MESSAGE);
                     }
                     break;
                 case "ENTER":
@@ -723,24 +751,17 @@ public class Controller implements ActionListener, KeyListener
                     sw = 0;
                     option = 0;
 
-                    while (sw == 0)
-                    {
+                    while (sw == 0) {
                         Object[] message = {"Description", field1, "Start Date", fieldd2, "End Date", fieldd3, "Evolution", fieldd4};
 
                         option = JOptionPane.showConfirmDialog(null, message, "Enter all your values", JOptionPane.OK_CANCEL_OPTION);
 
-                        if (option == JOptionPane.CANCEL_OPTION || option == JOptionPane.CLOSED_OPTION)
-                        {
+                        if (option == JOptionPane.CANCEL_OPTION || option == JOptionPane.CLOSED_OPTION) {
                             sw = 1;
-                        }
-                        else
-                        {
-                            if (field1.getText().equals("") || fieldd4.getText().equals(""))
-                            {
+                        } else {
+                            if (field1.getText().equals("") || fieldd4.getText().equals("")) {
                                 JOptionPane.showMessageDialog(null, "Please, fill each field", "Error", JOptionPane.ERROR_MESSAGE);
-                            }
-                            else
-                            {
+                            } else {
                                 sw = 1;
                                 methods.insertEpisode(field1.getText(), new Date(fieldd2.getDate().getTime()), new Date(fieldd3.getDate().getTime()), fieldd4.getText(), idPatient2);
                                 loadEpisodes();
@@ -749,6 +770,7 @@ public class Controller implements ActionListener, KeyListener
                             }
                         }
                     }
+
                     window.tableEpisodes.clearSelection();
                     window.tablePatient2.clearSelection();
                     window.jbAddE.setEnabled(false);
@@ -756,56 +778,71 @@ public class Controller implements ActionListener, KeyListener
                     window.jbDelE.setEnabled(false);
                     break;
                 case "Modify Episodes":
-                    window.jbModE.setEnabled(false);
-                    window.jbDelE.setEnabled(false);
-                    window.tableEpisodes.clearSelection();
-
-                    Object[] datos = methods.selectEpisode(idEpisode);
-
-                    field1 = new JTextField();
-                    field1.setText(datos[0].toString());
-                    fieldd2 = new JDateChooser();
-                    fieldd2.setDate(Date.valueOf(datos[1].toString()));
-                    fieldd3 = new JDateChooser();
-                    fieldd3.setDate(Date.valueOf(datos[2].toString()));
-                    field4 = new JTextField();
-                    field4.setText(datos[3].toString());
-
-                    sw = 0;
-                    option = 0;
-
-                    Object[] message = {"Description", field1, "Start Date", fieldd2, "End Date", fieldd3, "Evolution", field4,};
-                    option = JOptionPane.showConfirmDialog(null, message, "Enter all your values", JOptionPane.OK_CANCEL_OPTION);
-                    if (option == JOptionPane.CANCEL_OPTION || option == JOptionPane.CLOSED_OPTION)
+                    if(String.valueOf(methods.getModificaciones()[3]).equals("0"))
                     {
-                        sw = 1;
-                    }
-                    else
-                    {
-                        if (field1.getText().equals("") || field4.getText().equals(""))
+                        window.jbModE.setEnabled(false);
+                        window.jbDelE.setEnabled(false);
+                        window.tableEpisodes.clearSelection();
+
+                        Object[] datos = methods.selectEpisode(idEpisode);
+
+                        field1 = new JTextField();
+                        field1.setText(datos[0].toString());
+                        fieldd2 = new JDateChooser();
+                        fieldd2.setDate(Date.valueOf(datos[1].toString()));
+                        fieldd3 = new JDateChooser();
+                        fieldd3.setDate(Date.valueOf(datos[2].toString()));
+                        field4 = new JTextField();
+                        field4.setText(datos[3].toString());
+
+                        sw = 0;
+                        option = 0;
+
+                        Object[] message = {"Description", field1, "Start Date", fieldd2, "End Date", fieldd3, "Evolution", field4,};
+                        option = JOptionPane.showConfirmDialog(null, message, "Enter all your values", JOptionPane.OK_CANCEL_OPTION);
+                        if (option == JOptionPane.CANCEL_OPTION || option == JOptionPane.CLOSED_OPTION)
                         {
-                            JOptionPane.showMessageDialog(null, "Please, fill each field", "Error", JOptionPane.ERROR_MESSAGE);
+                            sw = 1;
                         }
                         else
                         {
-                            JOptionPane.showMessageDialog(null, "Successul", "Successful", JOptionPane.INFORMATION_MESSAGE);
-                            methods.updateEpisode(idEpisode, field1.getText(), new Date(fieldd2.getDate().getTime()), new Date(fieldd3.getDate().getTime()), field4.getText());
-                            sw = 1;
+                            if (field1.getText().equals("") || field4.getText().equals(""))
+                            {
+                                JOptionPane.showMessageDialog(null, "Please, fill each field", "Error", JOptionPane.ERROR_MESSAGE);
+                            }
+                            else
+                            {
+                                JOptionPane.showMessageDialog(null, "Successul", "Successful", JOptionPane.INFORMATION_MESSAGE);
+                                methods.updateEpisode(idEpisode, field1.getText(), new Date(fieldd2.getDate().getTime()), new Date(fieldd3.getDate().getTime()), field4.getText());
+                                sw = 1;
+                                loadEpisodes();
+                                loadPatient();
+                                loadPatient2();
+                            }
+                        }
+                    }
+                    else
+                    {
+                        JOptionPane.showMessageDialog(null, "You can not do that now", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                    break;
+                case "Delete Episodes":
+                    if(String.valueOf(methods.getModificaciones()[3]).equals("0"))
+                    {
+                        int resutl = JOptionPane.showConfirmDialog(null, "Do you want to delete it?", "Are you sure?", JOptionPane.YES_NO_CANCEL_OPTION);
+                        if(resutl == JOptionPane.YES_OPTION)
+                        {
+                            methods.deleteEpisode(idEpisode);
                             loadEpisodes();
                             loadPatient();
                             loadPatient2();
                         }
                     }
-                    break;
-                case "Delete Episodes":
-                    resutl = JOptionPane.showConfirmDialog(null, "Do you want to delete it?", "Are you sure?", JOptionPane.YES_NO_CANCEL_OPTION);
-                    if(resutl == JOptionPane.YES_OPTION)
+                    else
                     {
-                        methods.deleteEpisode(idEpisode);
-                        loadEpisodes();
-                        loadPatient();
-                        loadPatient2();
+                        JOptionPane.showMessageDialog(null, "You can not do that now", "Error", JOptionPane.ERROR_MESSAGE);
                     }
+
                     window.jbModE.setEnabled(false);
                     window.jbDelE.setEnabled(false);
                     window.tableEpisodes.clearSelection();
@@ -813,27 +850,13 @@ public class Controller implements ActionListener, KeyListener
                 default:
                     break;
             }
-        } else
+        }
+        else
         {
             String actionCommand2 = ((JMenuItem) e.getSource()).getActionCommand();
 
             switch (actionCommand2)
             {
-                case "Save":
-
-                    break;
-                case "Save as":
-
-                    break;
-                case "Import":
-
-                    break;
-                case "Export":
-
-                    break;
-                case "Change File Path":
-
-                    break;
                 case "Exit":
                     System.exit(0);
                     break;
@@ -842,11 +865,9 @@ public class Controller implements ActionListener, KeyListener
                     c.mostrar();
                     break;
                 case "Disconnect":
-                    if(c != null)
-                    {
-                        c.desconectar();
-                        disconect();
-                    }
+                    JConnection c = new JConnection(this, this.methods);
+                    c.desconectar();
+                    disconect();
                     break;
                 default:
                     break;
@@ -893,5 +914,19 @@ public class Controller implements ActionListener, KeyListener
     public void keyPressed(KeyEvent e)
     {
 
+    }
+
+    @Override
+    protected Void doInBackground() throws Exception
+    {
+        while(pause == false)
+        {
+            loadMedic();
+            loadEpisodes();
+            loadPatient2();
+            loadPatient();
+            Thread.sleep(5000);
+        }
+        return null;
     }
 }

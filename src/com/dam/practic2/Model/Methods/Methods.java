@@ -1,15 +1,11 @@
 package com.dam.practic2.Model.Methods;
 
 import com.dam.practic2.Controller.Controller;
-import com.dam.practic2.Model.Objects.*;
 import com.dam.practic2.View.JConnection;
-import sun.util.calendar.Gregorian;
 
 import javax.swing.*;
-import javax.swing.plaf.nimbus.State;
 import java.io.*;
 import java.sql.*;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.sql.Date;
@@ -88,8 +84,8 @@ public class Methods
         try
         {
             PreparedStatement sentencia = null;
-
-            sentencia = conexion.prepareStatement(sql);
+            if(!conexion.isClosed())
+                sentencia = conexion.prepareStatement(sql);
             ResultSet resultado = sentencia.executeQuery();
             while (resultado.next())
             {
@@ -221,7 +217,8 @@ public class Methods
         try
         {
             PreparedStatement sentencia = null;
-            sentencia = conexion.prepareStatement(query);
+            if(!conexion.isClosed())
+                sentencia = conexion.prepareStatement(query);
             sentencia.setString(1, u);
             sentencia.setString(2, p);
 
@@ -336,11 +333,16 @@ public class Methods
 
     public void updateMedic(String name, String surname, String adress, String medCentre, String email, String medSpeciality, String telephone, java.sql.Date birth, int idM)
     {
+        String start = "UPDATE modificaciones SET modM = 1";
+        String end = "UPDATE modificaciones SET modM = 0";
         String sql = "UPDATE medic SET name = ?, surname = ?, adress = ?, medicalCentre = ?, email = ?, medicalSpeciality = ?, telephone = ?, birthDate = ? WHERE collegiateNumber = ?";
         PreparedStatement sentence = null;
 
         try
         {
+            sentence = conexion.prepareStatement(start);
+            sentence.executeUpdate();
+
             sentence = conexion.prepareStatement(sql);
             sentence.setString(1, name);
             sentence.setString(2, surname);
@@ -352,6 +354,9 @@ public class Methods
             sentence.setDate(8, birth);
             sentence.setInt(9, idM);
             sentence.executeUpdate();
+
+            sentence = conexion.prepareStatement(end);
+            sentence.executeUpdate();
         }
         catch (SQLException e)
         {
@@ -361,6 +366,9 @@ public class Methods
 
     public void deleteMedic(int idM)
     {
+        String start = "UPDATE modificaciones SET modM = 1";
+        String end = "UPDATE modificaciones SET modM = 0";
+
         String sql = "DELETE FROM medic WHERE collegiateNumber = ?";
         String sql11 = "SELECT idPatient, idEpisode FROM visit WHERE idMedic = ?";
         String sql2 = "DELETE FROM visit WHERE idMedic = ?";
@@ -369,6 +377,9 @@ public class Methods
         PreparedStatement sentencia = null;
         try
         {
+            sentencia = conexion.prepareStatement(start);
+            sentencia.executeUpdate();
+
             conexion.setAutoCommit(false);
             sentencia = conexion.prepareStatement(sql11);
             sentencia.setInt(1, idM);
@@ -401,6 +412,9 @@ public class Methods
             sentencia.executeUpdate();
 
             conexion.commit();
+
+            sentencia = conexion.prepareStatement(end);
+            sentencia.executeUpdate();
         }
         catch (SQLException e)
         {
@@ -539,12 +553,18 @@ public class Methods
 
     public void updatePatient(int idP, String name, String surname, Date birth, String adress, Date visitDate)
     {
+        String start = "UPDATE modificaciones SET modP = 1";
+        String end = "UPDATE modificaciones SET modP = 0";
+
         String sql = "UPDATE patient SET name = ?, surname = ?, adress = ?, birthDate = ? WHERE cias = ?";
         String sql2 = "UPDATE visit SET visitDate = ?";
         PreparedStatement sentence = null;
 
         try
         {
+            sentence = conexion.prepareStatement(start);
+            sentence.executeUpdate();
+
             conexion.setAutoCommit(false);
             sentence = conexion.prepareStatement(sql);
             sentence.setString(1, name);
@@ -559,6 +579,9 @@ public class Methods
             sentence.executeUpdate();
 
             conexion.commit();
+
+            sentence = conexion.prepareStatement(end);
+            sentence.executeUpdate();
         }
         catch (SQLException e)
         {
@@ -568,6 +591,9 @@ public class Methods
 
     public void deletePatient(int idP)
     {
+        String start = "UPDATE modificaciones SET modP = 1";
+        String end = "UPDATE modificaciones SET modP = 0";
+
         String sql = "DELETE FROM patient WHERE cias = ?";
         String sql2 = "DELETE FROM visit WHERE idPatient = ?";
         String sql3 = "DELETE FROM episodes WHERE id = ?";
@@ -579,6 +605,9 @@ public class Methods
         PreparedStatement sentencia4 = null;
         try
         {
+            sentencia = conexion.prepareStatement(start);
+            sentencia.executeUpdate();
+
             conexion.setAutoCommit(false);
             sentencia4 = conexion.prepareStatement(sql4);
             sentencia4.setInt(1, idP);
@@ -602,11 +631,42 @@ public class Methods
             sentencia.executeUpdate();
 
             conexion.commit();
+
+            sentencia = conexion.prepareStatement(start);
+            sentencia.executeUpdate();
         }
         catch (SQLException e)
         {
             e.printStackTrace();
         }
+    }
+
+    public Object[] getModificaciones()
+    {
+        Object[] data = new Object[4];
+        String sql = "Select modM, modP, modV, modEp FROM modificaciones";
+
+        PreparedStatement statement = null;
+
+        try
+        {
+            statement = conexion.prepareStatement(sql);
+            ResultSet resutl = statement.executeQuery();
+            while (resutl.next())
+            {
+                data[0] = resutl.getInt("modM");
+                data[1] = resutl.getInt("modP");
+                data[2] = resutl.getInt("modV");
+                data[3] = resutl.getInt("modEp");
+
+                return data;
+            }
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+        return data;
     }
 
     public void insertEpisode(String d, java.sql.Date sD, java.sql.Date eD, String e, int idP)
@@ -676,13 +736,22 @@ public class Methods
 
     public void deleteEpisode(int idE)
     {
+        String start = "UPDATE modificaciones SET modEp = 1";
+        String end = "UPDATE modificaciones SET modEp = 0";
+
         String sql = "DELETE FROM episodes WHERE id = ?";
 
         PreparedStatement sentencia = null;
         try
         {
+            sentencia = conexion.prepareStatement(start);
+            sentencia.executeUpdate();
+
             sentencia = conexion.prepareStatement(sql);
             sentencia.setInt(1, idE);
+            sentencia.executeUpdate();
+
+            sentencia = conexion.prepareStatement(end);
             sentencia.executeUpdate();
         }
         catch (SQLException e)
@@ -722,17 +791,26 @@ public class Methods
 
     public void updateEpisode(int idE, String desc, Date sD, Date eD, String evol)
     {
+        String start = "UPDATE modificaciones SET modEp = 1";
+        String end = "UPDATE modificaciones SET modEp = 0";
+
         String sql = "UPDATE episodes SET descript = ?, startDate = ?, endDate = ?, evolution = ?";
 
         PreparedStatement sentencia = null;
 
         try
         {
+            sentencia = conexion.prepareStatement(start);
+            sentencia.executeUpdate();
+
             sentencia = conexion.prepareStatement(sql);
             sentencia.setString(1, desc);
             sentencia.setDate(2, sD);
             sentencia.setDate(3, eD);
             sentencia.setString(4, evol);
+            sentencia.executeUpdate();
+
+            sentencia = conexion.prepareStatement(end);
             sentencia.executeUpdate();
         }
         catch (SQLException e)
@@ -740,46 +818,6 @@ public class Methods
             e.printStackTrace();
         }
     }
-
-    /**
-     * @param value
-     * @return
-     *
-     * Esta función permite comprobar si un valor guardado en una String es un valor numérico o no.
-     * Para comprobarlo, es necesario recorrer la cadena y aplicarle la función matches("\\d*")
-     * Esta función indica si lo que ha encontrado es numerico o char mediante un true o false.
-     */
-    public boolean checkNumber(String value)
-    {
-        boolean number = true;
-        if (value.substring(0, 1).equalsIgnoreCase("-"))
-        {
-            for (int j = 1; j < value.length(); j++)
-            {
-                /**
-                 * La función matches comprueba si el valor que le estas pasando es realmente numérico, y a su vez
-                 */
-                if (!value.substring(j, j + 1).matches("\\d*"))
-                {
-                    number = false;
-                    if (value.substring(j, j + 1).equalsIgnoreCase("."))
-                        number = true;
-                }
-            }
-        }
-        else
-        {
-            for (int j = 0; j < value.length(); j++)
-            {
-                if (!value.substring(j, j + 1).matches("\\d*"))
-                    number = false;
-                if (value.substring(j, j + 1).equalsIgnoreCase("."))
-                    number = true;
-            }
-        }
-        return number;
-    }
-
 
     /**
      * Este método permite escribir un archivo de configuracion, el cual almacena el PATH de los datos del vector medicList

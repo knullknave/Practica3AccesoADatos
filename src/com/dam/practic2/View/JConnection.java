@@ -109,8 +109,16 @@ public class JConnection extends JDialog
     {
         try
         {
-            conexion.close();
-            conexion = null;
+            if(conexion == null)
+            {
+                m.conexion.close();
+                m.conexion = null;
+            }
+            else
+            {
+                conexion.close();
+                conexion = null;
+            }
 
             JOptionPane.showMessageDialog(null, "Se ha desconectado de la Base de Datos");
         }
