@@ -33,6 +33,7 @@ public class Controller implements ActionListener
     private DefaultTableModel ColumnPharmacotherapyTable;
     public int idMedic;
     public int idPatient;
+    public int idPatient2;
     //TODO CREAR EL RESTO DE ID'S
 
     /**
@@ -102,6 +103,8 @@ public class Controller implements ActionListener
             @Override
             public void valueChanged(ListSelectionEvent e)
             {
+                window.tablePatient2.clearSelection();
+                window.tablePatient1.clearSelection();
                 if (window.tableMedic.isRowSelected(window.tableMedic.getSelectedRow()))
                 {
                     idMedic = Integer.parseInt(window.tableMedic.getValueAt(window.tableMedic.getSelectedRow(), 0).toString());
@@ -115,9 +118,35 @@ public class Controller implements ActionListener
             @Override
             public void valueChanged(ListSelectionEvent e)
             {
+                window.tablePatient2.clearSelection();
+                window.tableMedic.clearSelection();
                 if (window.tablePatient1.isRowSelected(window.tablePatient1.getSelectedRow()))
                 {
                     idPatient = Integer.parseInt(window.tablePatient1.getValueAt(window.tablePatient1.getSelectedRow(), 0).toString());
+                    //TODO CARGAR DATOS EN LAS CAJAS Y HABILITAR MODIFICAR Y BORRAR
+                    Object[] datos = methods.selectPatient(idPatient);
+                    window.tfName.setText(String.valueOf(datos[1]));
+                    window.tfSurname.setText(String.valueOf(datos[2]));
+                    window.jdateChooserP.setDate(Date.valueOf(datos[3].toString()));
+                    window.tfAddress.setText(String.valueOf(datos[4]));
+
+                    window.jbModP.setEnabled(true);
+                    window.jbDelP.setEnabled(true);
+                }
+            }
+        });
+
+        window.tablePatient2.getSelectionModel().addListSelectionListener(new ListSelectionListener()
+        {
+            @Override
+            public void valueChanged(ListSelectionEvent e)
+            {
+                window.tablePatient1.clearSelection();
+                window.tableMedic.clearSelection();
+                if (window.tablePatient2.isRowSelected(window.tablePatient2.getSelectedRow()))
+                {
+                    idPatient2 = Integer.parseInt(window.tablePatient2.getValueAt(window.tablePatient2.getSelectedRow(), 0).toString());
+                    //TODO CARGAR EPISODIOS Y HABILITAR BOTONES
                 }
             }
         });
@@ -130,7 +159,7 @@ public class Controller implements ActionListener
         {
             ColumnMedicTable.addColumn(M[i]);
         }
-        String[] P = {"CIAS", "Name", "Surname", "Sex"};
+        String[] P = {"Id", "Name", "Surname", "birthDate", "Address"};
         for(int i=0; i<P.length; i++)
         {
             ColumnPatientTable.addColumn(P[i]);
@@ -178,7 +207,7 @@ public class Controller implements ActionListener
         if (list != null)
         {
             ColumnPatientTable.setNumRows(0);
-            for (int i = 0;i < list.size(); i++)
+            for (int i = 1;i < list.size(); i++)
             {
                 ColumnPatientTable.addRow(list.get(i));
             }
@@ -223,6 +252,10 @@ public class Controller implements ActionListener
         window.jbDelP.setEnabled(false);
         window.jbSaveP.setEnabled(false);
         window.jbCancel.setEnabled(false);
+
+        window.jbAddE.setEnabled(false);
+        window.jbModE.setEnabled(false);
+        window.jbDelE.setEnabled(false);
     }
 
     public void newPatient()
@@ -451,10 +484,10 @@ public class Controller implements ActionListener
                         if(methods.existsMedic(window.tfUser.getText(), window.tfPassword.getText()) == true)
                         {
                             connect();
-                            loadPatient(window.tfUser.getText(), window.tfPassword.getText());
                             JOptionPane.showMessageDialog(null, "Correct", "Correct", JOptionPane.INFORMATION_MESSAGE);
                             window.jlMedic.setText(window.tfUser.getText());
                             methods.medicConnected = methods.getCollegiateNumber(window.tfUser.getText(), window.tfPassword.getText());
+                            loadPatient2();
                         }
                         else
                         {

@@ -118,7 +118,6 @@ public class Methods
     public Object[] selectMedic(int idM)
     {
         String sql = "SELECT collegiateNumber, name, surname, adress, medicalCentre, email, medicalSpeciality, telephone, birthDate FROM medic WHERE collegiateNumber = ?";
-        ArrayList<Object[]> list = new ArrayList<>();
         Object[] Row = new Object[9];
         try
         {
@@ -140,7 +139,36 @@ public class Methods
                 Date birthDate = resultado.getDate("birthDate");
 
                 Row = new Object[] {id, name, surname, adress, medicalCentre, email, medicalSpeciality, telephone, birthDate};
-                list.add(Row);
+            }
+            return Row;
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public Object[] selectPatient(int idP)
+    {
+        String sql = "SELECT cias, name, surname, birthDate, adress FROM patient WHERE cias = ?";
+        Object[] Row = new Object[9];
+        try
+        {
+            PreparedStatement sentencia = null;
+
+            sentencia = conexion.prepareStatement(sql);
+            sentencia.setInt(1, idP);
+            ResultSet resultado = sentencia.executeQuery();
+            while (resultado.next())
+            {
+                int id = resultado.getInt("cias");
+                String name = resultado.getString("name");
+                String surname = resultado.getString("surname");
+                java.util.Date birthDate = new Date(resultado.getDate("birthDate").getTime());
+                String adress = resultado.getString("adress");
+
+                Row = new Object[] {id, name, surname, birthDate, adress};
             }
             return Row;
         }
@@ -340,7 +368,7 @@ public class Methods
 
     public ArrayList<Object[]> selectAllPatient(String user, String pass)
     {
-        String sql = "SELECT P.cias, P.name, P.surname, P.sex FROM patient P INNER JOIN visit V ON P.cias = V.idPatient INNER JOIN medic M ON M.collegiateNumber = V.idMedic WHERE M.userName = ? and M.userPasword = ?";
+        String sql = "SELECT P.cias, P.name, P.surname, P.birthDate, P.adress FROM patient P INNER JOIN visit V ON P.cias = V.idPatient INNER JOIN medic M ON M.collegiateNumber = V.idMedic WHERE M.userName = ? and M.userPasword = ?";
         ArrayList<Object[]> list = new ArrayList<>();
         Object[] Row;
 
@@ -358,9 +386,10 @@ public class Methods
                 int id = resultado.getInt("cias");
                 String name = resultado.getString("name");
                 String surname = resultado.getString("surname");
-                String sex = resultado.getString("sex");
+                Date birth = resultado.getDate("birthDate");
+                String adress = resultado.getString("adress");
 
-                Row = new Object[] {id, name, surname, sex};
+                Row = new Object[] {id, name, surname, birth, adress};
                 list.add(Row);
             }
             return list;
@@ -374,7 +403,7 @@ public class Methods
 
     public ArrayList<Object[]> selectAllPatient()
     {
-        String sql = "SELECT P.cias, P.name, P.surname, P.sex FROM patient P INNER JOIN visit V ON P.cias = V.idPatient INNER JOIN medic M ON M.collegiateNumber = V.idMedic WHERE M.collegiateNumber = ?";
+        String sql = "SELECT P.cias, P.name, P.surname, P.birthDate, P.adress FROM patient P INNER JOIN visit V ON P.cias = V.idPatient INNER JOIN medic M ON M.collegiateNumber = V.idMedic WHERE M.collegiateNumber = ?";
         ArrayList<Object[]> list = new ArrayList<>();
         Object[] Row;
 
@@ -391,9 +420,10 @@ public class Methods
                 int id = resultado.getInt("cias");
                 String name = resultado.getString("name");
                 String surname = resultado.getString("surname");
-                String sex = resultado.getString("sex");
+                String birth = resultado.getString("birthDate");
+                String adress = resultado.getString("adress");
 
-                Row = new Object[] {id, name, surname, sex};
+                Row = new Object[] {id, name, surname, birth, adress};
                 list.add(Row);
             }
             return list;
@@ -472,11 +502,6 @@ public class Methods
         return idM;
     }
 
-    public Object[] selectPatient(int idP)
-    {
-        return null;
-    }
-
     public void SelectAllEpisode(int idP)
     {
 
@@ -485,126 +510,6 @@ public class Methods
     public Object[] selectEpisode(int idP, int idE)
     {
         return null;
-    }
-
-    /**
-     * @param v1
-     * @param v2
-     * @param v3
-     * @param v4
-     * @param v5
-     * @param v6
-     * @param v7
-     * @param v8
-     *
-     * Este metodo permite añadir al vector medicList un médico con sus respectivos pacientes e historias
-     * Además almaceno la posicion que ocupa el último medico para añadirla al id del próximo médico.
-     */
-    public void registerMedic(String v1, String v2, String v3, String v4, String v5, Date v6, String v7, String v8)
-    {
-        Medic m = new Medic();
-
-        m.setIdM(0);
-        m.setName(v1);
-        m.setSurname(v2);
-        m.setMedicalSpeciality(v3);
-        m.setCollegiateNumber(v4);
-        m.setAddress(v5);
-        m.setBirthDate(v6);
-        m.setUser(v7);
-        m.setPassword(v8);
-    }
-
-    /**
-     * @param v1
-     * @param v2
-     * @param v3
-     * @param v4
-     * @param v5
-     *
-     * Este método permite registrar pacientes. También guardo la ultima posicion que ocupa para añadirla al próximo
-     * paciente
-     */
-    public void registerPatient(String v1, String v2, Date v3, String v4, int v5)
-    {
-        Patient p = new Patient();
-
-        p.setIdP(0);
-        p.setName(v1);
-        p.setSurname(v2);
-        p.setBirthDate(v3);
-        p.setAddress(v4);
-        p.getHistory();
-        p.getHistory().setIdPatient(0);
-        p.setIdMed(v5);
-    }
-
-    /**
-     * @param v1
-     * @param v2
-     * @param v3
-     * @param v4
-     * @param v5
-     * @param v6
-     *
-     * Este método permite modificar los datos de un paciente
-     */
-    public void updatePatient(String v1, String v2, Date v3, String v4, int v5, int v6)
-    {
-
-    }
-
-    /**
-     * @param v1
-     * @param v2
-     * @param v3
-     * @param v4
-     * @param v5
-     * @param v6
-     * @param v7
-     * @param v8
-     * @param pos
-     *
-     * Este metodo permite actualizar los datos de un médico
-     */
-    public void updateMedic(String v1, String v2, String v3, String v4, String v5, Date v6, String v7, String v8, int pos)
-    {
-
-    }
-
-    /**
-     * @param v1
-     * @param v2
-     * @param v3
-     * @param v4
-     * @param v5
-     * @param v6
-     * @param v7
-     * @param v8
-     * @param v9
-     * @param v10
-     *
-     * Este método permite añadir Episodos a un paciente
-     */
-    public void registerEpisode(String v1, String v2, String v3, Date v4, Date v5, int v6, String v7, String v8, int v9, int v10)
-    {
-        Episodes e = new Episodes();
-
-        e.setIdE(0);
-        e.setDescription(v1);
-        e.setObservation(v2);
-        e.setEvolution(v3);
-        e.setStartDate(v4);
-        e.setEndDate(v5);
-        e.setNumberRepetitions(v6);
-        boolean b = false;
-        if (v7.equals("Yes"))
-            b = true;
-        else
-            b = false;
-        e.setCauseOffWork(b);
-        e.setDiseases(v8);
-        e.setIdPatient(v10);
     }
 
     /**
@@ -646,235 +551,6 @@ public class Methods
         return number;
     }
 
-    /**
-     * @param medPos
-     * @param row
-     *
-     * Este método permite elimiar un paciente
-     */
-    public void removePatient(int medPos, int row)
-    {
-
-    }
-
-    /**
-     * @param medPos
-     *
-     * Este método permite elimiar un médico
-     */
-    public void removeMedic(int medPos)
-    {
-
-    }
-
-    /**
-     * @param v1
-     * @param v2
-     * @param v3
-     * @param v4
-     * @param v5
-     * @param v6
-     * @param v7
-     * @param v8
-     * @param v9
-     * @param v10
-     * @param v11
-     *
-     * Este método permite actualizar un Episodio.
-     */
-    public void updateEpisode(String v1, String v2, String v3, Date v4, Date v5, int v6, String v7, String v8, int v9, int v10, int v11)
-    {
-
-    }
-
-    /**
-     * @param v1
-     * @param v2
-     * @param v3
-     *
-     * Este método permite eliminar un Episodio.
-     */
-    public void removeEpisode(int v1, int v2, int v3)
-    {
-
-    }
-
-    /**
-     * @param v1
-     * @param v2
-     * @param v3
-     * @param v4
-     * @param v5
-     * @param v6
-     * @param v7
-     * @param v8
-     *
-     * Este método permite registrar un Análisis
-     */
-    public void registerAnalysis(String v1, String v2, Date v3, Date v4, String v5, Date v6, int v7, int v8)
-    {
-        Analysis a = new Analysis();
-
-        a.setIdA(0);
-        a.setReport(v1);
-        a.setHospital(v2);
-        a.setReceptionDate(v3);
-        a.setAnalysisDate(v4);
-        a.setAnalysisType(v5);
-        a.setReportDate(v6);
-        a.setIdPatient(v8);
-    }
-
-    /**
-     * @param v1
-     * @param v2
-     * @param v3
-     * @param v4
-     * @param v5
-     * @param v6
-     * @param v7
-     * @param v8
-     * @param v9
-     *
-     * Este método permite actualizar un Análisis
-     */
-    public void updateAnalysis(String v1, String v2, Date v3, Date v4, String v5, Date v6, int v7, int v8, int v9)
-    {
-
-    }
-
-    /**
-     * @param v1
-     * @param v2
-     * @param v3
-     *
-     * Este método permite eliminar un Análisis.
-     */
-    public void removeAnalysis(int v1, int v2, int v3)
-    {
-
-    }
-
-    /**
-     * @param v1
-     * @param v2
-     * @param v3
-     * @param v4
-     * @param v5
-     * @param v6
-     * @param v7
-     * @param v8
-     * @param v9
-     *
-     * Este método permite añadir Radiografías
-     */
-    public void registerRadiography(Date v1, Date v2, Date v3, String v4, String v5, String v6, String v7, int v8, int v9)
-    {
-        Radiography r = new Radiography();
-
-        r.setIdR(0);
-        r.setReportDate(v1);
-        r.setReceptionDate(v2);
-        r.setRadiographyDate(v3);
-        r.setStudy(v4);
-        r.setControlMonitored(v5);
-        r.setInform(v6);
-        r.setPerformance(v7);
-        r.setIdPatient(v9);
-    }
-
-    /**
-     * @param v1
-     * @param v2
-     * @param v3
-     * @param v4
-     * @param v5
-     * @param v6
-     * @param v7
-     * @param v8
-     * @param v9
-     * @param v10
-     *
-     * Este método permite actualizar Radiografías
-     */
-    public void updateRadiography(Date v1, Date v2, Date v3, String v4, String v5, String v6, String v7, int v8, int v9, int v10)
-    {
-
-    }
-
-    /**
-     * @param v1
-     * @param v2
-     * @param v3
-     *
-     * Este método permite eliminar Radiografías
-     */
-    public void removeRadiography(int v1, int v2, int v3)
-    {
-
-    }
-
-    /**
-     * @param v1
-     * @param v2
-     * @param v3
-     * @param v4
-     * @param v5
-     * @param v6
-     * @param v7
-     * @param v8
-     * @param v9
-     * @param v10
-     *
-     * Este metodo permite añadir un Tratamiento Farmacologico
-     */
-    public void registerPharmacotherapy(Date v1, Date v2, String v3, String v4, String v5, float v6, float v7, String v8, int v9, int v10)
-    {
-        Pharmacotherapy ph = new Pharmacotherapy();
-
-        ph.setIdPh(0);
-        ph.setStartDate(v1);
-        ph.setEndDate(v2);
-        ph.setTherapyType(v3);
-        ph.setDosage(v4);
-        ph.setDescription(v5);
-        ph.setInitialWeight(v6);
-        ph.setFinalWeight(v7);
-        ph.setMedicines(v8);
-        ph.setIdPatient(v10);
-    }
-
-    /**
-     * @param v1
-     * @param v2
-     * @param v3
-     * @param v4
-     * @param v5
-     * @param v6
-     * @param v7
-     * @param v8
-     * @param v9
-     * @param v10
-     * @param v11
-     *
-     * Este método permite modificar un Tratamiento Farmacológico
-     */
-    public void updatePharmacotherapy(Date v1, Date v2, String v3, String v4, String v5, Float v6, Float v7, String v8, int v9, int v10, int v11)
-    {
-
-    }
-
-    /**
-     * @param v1
-     * @param v2
-     * @param v3
-     *
-     * Este metodo permite eliminar un Tratamiento Farmacologico
-     */
-    public void removePharmacotherapy(int v1, int v2, int v3)
-    {
-
-    }
 
     /**
      * Este método permite escribir un archivo de configuracion, el cual almacena el PATH de los datos del vector medicList
