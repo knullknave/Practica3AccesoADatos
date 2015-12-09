@@ -179,6 +179,39 @@ public class Methods
         return null;
     }
 
+    public  ArrayList<Object[]> selectAllEpisodes(int idP)
+    {
+        String sql = "SELECT id, descript, startDate, endDate, evolution FROM episodes E INNER JOIN visit V ON V.idEpisode = E.id AND V.idPatient = ?";
+        ArrayList<Object[]> list = new ArrayList<>();
+        Object[] Row;
+
+        try
+        {
+            PreparedStatement sentencia = null;
+
+            sentencia = conexion.prepareStatement(sql);
+            sentencia.setInt(1, idP);
+            ResultSet resultado = sentencia.executeQuery();
+            while (resultado.next())
+            {
+                int id = resultado.getInt("id");
+                String descript = resultado.getString("descript");
+                java.util.Date startDate = new Date(resultado.getDate("startDate").getTime());
+                java.util.Date endDate = new Date(resultado.getDate("endDate").getTime());
+                String evolution = resultado.getString("evolution");
+
+                Row = new Object[] {id, descript, startDate, endDate, evolution};
+                list.add(Row);
+            }
+            return list;
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     public boolean existsMedic(String u, String p)
     {
         String query = "SELECT COUNT(*) as cuenta FROM medic WHERE userName = ? AND userPasword = ?";
@@ -366,41 +399,6 @@ public class Methods
         }
     }
 
-    public ArrayList<Object[]> selectAllPatient(String user, String pass)
-    {
-        String sql = "SELECT P.cias, P.name, P.surname, P.birthDate, P.adress FROM patient P INNER JOIN visit V ON P.cias = V.idPatient INNER JOIN medic M ON M.collegiateNumber = V.idMedic WHERE M.userName = ? and M.userPasword = ?";
-        ArrayList<Object[]> list = new ArrayList<>();
-        Object[] Row;
-
-        try
-        {
-            PreparedStatement sentencia = null;
-
-            sentencia = conexion.prepareStatement(sql);
-            sentencia.setString(1, user);
-            sentencia.setString(2, pass);
-
-            ResultSet resultado = sentencia.executeQuery();
-            while (resultado.next())
-            {
-                int id = resultado.getInt("cias");
-                String name = resultado.getString("name");
-                String surname = resultado.getString("surname");
-                Date birth = resultado.getDate("birthDate");
-                String adress = resultado.getString("adress");
-
-                Row = new Object[] {id, name, surname, birth, adress};
-                list.add(Row);
-            }
-            return list;
-        }
-        catch (SQLException e)
-        {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
     public ArrayList<Object[]> selectAllPatient()
     {
         String sql = "SELECT P.cias, P.name, P.surname, P.birthDate, P.adress FROM patient P INNER JOIN visit V ON P.cias = V.idPatient INNER JOIN medic M ON M.collegiateNumber = V.idMedic WHERE M.collegiateNumber = ?";
@@ -502,14 +500,104 @@ public class Methods
         return idM;
     }
 
-    public void SelectAllEpisode(int idP)
+    public void updatePatient(int idP, String name, String surname, Date birth, String adress)
     {
+        String sql = "UPDATE patient SET name = ?, surname = ?, adress = ?, birthDate = ? WHERE cias = ?";
+        PreparedStatement sentence = null;
 
+        try
+        {
+            sentence = conexion.prepareStatement(sql);
+            sentence.setString(1, name);
+            sentence.setString(2, surname);
+            sentence.setString(3, adress);
+            sentence.setString(4, birth.toString());
+            sentence.setInt(5, idP);
+            sentence.executeUpdate();
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
     }
 
-    public Object[] selectEpisode(int idP, int idE)
+    public void deletePatient(int idP)
     {
-        return null;
+        String sql = "DELETE FROM patient WHERE cias = ?";
+        String sql2 = "DELETE FROM visit WHERE idPatient = ?";
+        String sql3 = "DELETE FROM episodes WHERE id = ?";
+        String sql4 = "SELECT E.id FROM episodes E INNER JOIN visit V ON V.idEpisode = E.id AND V.idPatient = ?";
+
+        PreparedStatement sentencia = null;
+        PreparedStatement sentencia2 = null;
+        PreparedStatement sentencia3 = null;
+        PreparedStatement sentencia4 = null;
+        try
+        {
+            conexion.setAutoCommit(false);
+            sentencia4 = conexion.prepareStatement(sql4);
+            sentencia4.setInt(1, idP);
+            ResultSet resultado = sentencia4.executeQuery();
+            int idE = 0;
+            while (resultado.next())
+            {
+                idE = resultado.getInt("id");
+            }
+
+            sentencia3 = conexion.prepareStatement(sql3);
+            sentencia3.setInt(1, idE);
+            sentencia3.executeUpdate();
+
+            sentencia2 = conexion.prepareStatement(sql2);
+            sentencia2.setInt(1, idP);
+            sentencia2.executeUpdate();
+
+            sentencia = conexion.prepareStatement(sql);
+            sentencia.setInt(1, idP);
+            sentencia.executeUpdate();
+
+            conexion.commit();
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public void insertEpisode(String d, java.sql.Date sD, java.sql.Date eD, String e, int idP)
+    {
+        String sql = "INSERT INTO episodes(descript, startDate, endDate, evolution) VALUES(?, ?, ?, ?)";
+        String sql2 = "UPDATE visit SET idEpisode = ?";
+
+        PreparedStatement sentenciaAltaEpisode = null;
+        PreparedStatement sentenciaAltaVisita = null;
+        try
+        {
+            conexion.setAutoCommit(false);
+            sentenciaAltaEpisode = conexion.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
+            sentenciaAltaEpisode.setString(1, d);
+            sentenciaAltaEpisode.setDate(2, sD);
+            sentenciaAltaEpisode.setDate(3, eD);
+            sentenciaAltaEpisode.setString(4, e);
+            sentenciaAltaEpisode.executeUpdate();
+
+
+            ResultSet idsGenerados = sentenciaAltaEpisode.getGeneratedKeys();
+            idsGenerados.next();
+            int idE = idsGenerados.getInt(1);
+            idsGenerados.close();
+            sentenciaAltaEpisode.close();
+
+            sentenciaAltaVisita = conexion.prepareStatement(sql2);
+            sentenciaAltaVisita.setInt(1, idE);
+            sentenciaAltaEpisode.executeUpdate();
+
+            conexion.commit();
+        }
+        catch (SQLException sqle)
+        {
+            sqle.printStackTrace();
+        }
     }
 
     /**

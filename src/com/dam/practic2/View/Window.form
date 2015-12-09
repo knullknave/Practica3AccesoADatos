@@ -482,7 +482,7 @@
                         <rowspec value="top:4dlu:noGrow"/>
                         <rowspec value="top:4dlu:noGrow"/>
                         <rowspec value="center:250px:noGrow"/>
-                        <colspec value="fill:249px:noGrow"/>
+                        <colspec value="fill:392px:noGrow"/>
                         <colspec value="left:37dlu:noGrow"/>
                         <colspec value="fill:177px:grow"/>
                         <colspec value="left:4dlu:noGrow"/>

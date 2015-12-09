@@ -34,6 +34,7 @@ public class Controller implements ActionListener
     public int idMedic;
     public int idPatient;
     public int idPatient2;
+    public int idEpisode;
     //TODO CREAR EL RESTO DE ID'S
 
     /**
@@ -98,15 +99,12 @@ public class Controller implements ActionListener
         disconect();
         dishableMedic();
 
-        window.tableMedic.getSelectionModel().addListSelectionListener(new ListSelectionListener()
-        {
+        window.tableMedic.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override
-            public void valueChanged(ListSelectionEvent e)
-            {
+            public void valueChanged(ListSelectionEvent e) {
                 window.tablePatient2.clearSelection();
                 window.tablePatient1.clearSelection();
-                if (window.tableMedic.isRowSelected(window.tableMedic.getSelectedRow()))
-                {
+                if (window.tableMedic.isRowSelected(window.tableMedic.getSelectedRow())) {
                     idMedic = Integer.parseInt(window.tableMedic.getValueAt(window.tableMedic.getSelectedRow(), 0).toString());
                     enableMedic();
                 }
@@ -132,6 +130,12 @@ public class Controller implements ActionListener
 
                     window.jbModP.setEnabled(true);
                     window.jbDelP.setEnabled(true);
+                    window.jbCancel.setEnabled(true);
+
+                    window.tfName.setEnabled(true);
+                    window.tfSurname.setEnabled(true);
+                    window.jdateChooserP.setEnabled(true);
+                    window.tfAddress.setEnabled(true);
                 }
             }
         });
@@ -146,8 +150,21 @@ public class Controller implements ActionListener
                 if (window.tablePatient2.isRowSelected(window.tablePatient2.getSelectedRow()))
                 {
                     idPatient2 = Integer.parseInt(window.tablePatient2.getValueAt(window.tablePatient2.getSelectedRow(), 0).toString());
-                    //TODO CARGAR EPISODIOS Y HABILITAR BOTONES
+                    window.jbAddE.setEnabled(true);
+                    window.jbModE.setEnabled(false);
+                    window.jbDelE.setEnabled(false);
+                    loadEpisodes();
                 }
+            }
+        });
+
+        window.tableEpisodes.getSelectionModel().addListSelectionListener(new ListSelectionListener()
+        {
+            @Override
+            public void valueChanged(ListSelectionEvent e)
+            {
+                window.jbModE.setEnabled(true);
+                window.jbDelE.setEnabled(true);
             }
         });
     }
@@ -164,7 +181,7 @@ public class Controller implements ActionListener
         {
             ColumnPatientTable.addColumn(P[i]);
         }
-        String[] E = {"Id", "Description", "Start Date", "End Date", "Ecolution"};
+        String[] E = {"Id", "Description", "Start Date", "End Date", "Evolution"};
         for(int i=0; i<E.length; i++)
         {
             ColumnEpisodeTable.addColumn(E[i]);
@@ -200,20 +217,6 @@ public class Controller implements ActionListener
         }
     }
 
-    public void loadPatient(String user, String pass)
-    {
-        ArrayList<Object[]> list = methods.selectAllPatient(user, pass);
-
-        if (list != null)
-        {
-            ColumnPatientTable.setNumRows(0);
-            for (int i = 1;i < list.size(); i++)
-            {
-                ColumnPatientTable.addRow(list.get(i));
-            }
-        }
-    }
-
     public void loadPatient2()
     {
         ArrayList<Object[]> list = methods.selectAllPatient();
@@ -224,6 +227,20 @@ public class Controller implements ActionListener
             for (int i = 0;i < list.size(); i++)
             {
                 ColumnPatientTable.addRow(list.get(i));
+            }
+        }
+    }
+
+    public void loadEpisodes()
+    {
+        ArrayList<Object[]> list = methods.selectAllEpisodes(idPatient2);
+
+        if (list != null)
+        {
+            ColumnEpisodeTable.setNumRows(0);
+            for (int i = 0;i < list.size(); i++)
+            {
+                ColumnEpisodeTable.addRow(list.get(i));
             }
         }
     }
@@ -278,6 +295,10 @@ public class Controller implements ActionListener
 
     public void endNewPatient()
     {
+        window.tablePatient1.clearSelection();
+        window.jbDelP.setEnabled(false);
+        window.jbModP.setEnabled(false);
+
         window.tfName.setEnabled(false);
         window.tfSurname.setEnabled(false);
         window.tfAddress.setEnabled(false);
@@ -326,11 +347,41 @@ public class Controller implements ActionListener
             switch (actionCommand)
             {
                 case "New Patient":
+                    window.jbModP.setEnabled(false);
+                    window.jbDelP.setEnabled(false);
+                    window.tablePatient1.clearSelection();
                     newPatient();
                     break;
                 case "Modify Patient":
-                    //TODO UPDATE PATIENT
-                    loadPatient2();
+                    //TODO COMPROBAR QUE TODOS LOS CAMPOS ESTAN LLENOS
+                    if(window.tfName.getText().equals("") || window.tfSurname.getText().equals("") || window.tfAddress.getText().equals(""))
+                    {
+                        JOptionPane.showMessageDialog(null, "Please, fill each field", "Error", JOptionPane.ERROR_MESSAGE);
+                    }
+                    else
+                    {
+                        if(methods.existsPatient(window.tfName.getText(), window.tfSurname.getText()) == false)
+                        {
+                            methods.updatePatient(idPatient, window.tfName.getText(), window.tfSurname.getText(), new Date(window.jdateChooserP.getDate().getTime()), window.tfAddress.getText());
+                            loadPatient2();
+                        }
+                        else
+                        {
+                            JOptionPane.showMessageDialog(null, "This patient already exists", "Error", JOptionPane.ERROR_MESSAGE);
+                        }
+                    }
+                    window.jbModP.setEnabled(false);
+                    window.jbDelP.setEnabled(false);
+                    window.jbCancel.setEnabled(false);
+                    window.tfName.setEnabled(false);
+                    window.tfName.setText("");
+                    window.tfSurname.setEnabled(false);
+                    window.tfSurname.setText("");
+                    window.jdateChooserP.setEnabled(false);
+                    window.jdateChooserP.setDate(null);
+                    window.tfAddress.setEnabled(false);
+                    window.tfAddress.setText("");
+                    window.tablePatient1.clearSelection();
                     break;
                 case "Cancel Modification":
                     endNewPatient();
@@ -355,7 +406,24 @@ public class Controller implements ActionListener
                     endNewPatient();
                     break;
                 case "Delete Patient":
-                    //TODO DELETE PATIENT
+                    int resutl = JOptionPane.showConfirmDialog(null, "Do you want to delete it?", "Are you sure?", JOptionPane.YES_NO_CANCEL_OPTION);
+                    if(resutl == JOptionPane.YES_OPTION)
+                    {
+                        methods.deletePatient(idPatient);
+                        loadPatient2();
+                    }
+                    window.jbModP.setEnabled(false);
+                    window.jbDelP.setEnabled(false);
+                    window.jbCancel.setEnabled(false);
+                    window.tfName.setEnabled(false);
+                    window.tfName.setText("");
+                    window.tfSurname.setEnabled(false);
+                    window.tfSurname.setText("");
+                    window.jdateChooserP.setEnabled(false);
+                    window.jdateChooserP.setDate(null);
+                    window.tfAddress.setEnabled(false);
+                    window.tfAddress.setText("");
+                    window.tablePatient1.clearSelection();
                     break;
                 case "Modify Medic":
                     JTextField fieldUser = new JTextField();
@@ -481,8 +549,7 @@ public class Controller implements ActionListener
                 case "ENTER":
                     if(!window.tfUser.getText().equals("") || !window.tfPassword.getText().equals(""))
                     {
-                        if(methods.existsMedic(window.tfUser.getText(), window.tfPassword.getText()) == true)
-                        {
+                        if(methods.existsMedic(window.tfUser.getText(), window.tfPassword.getText()) == true) {
                             connect();
                             JOptionPane.showMessageDialog(null, "Correct", "Correct", JOptionPane.INFORMATION_MESSAGE);
                             window.jlMedic.setText(window.tfUser.getText());
@@ -548,53 +615,55 @@ public class Controller implements ActionListener
                         }
                     }
                     break;
-                case "See Episodes":
-                    break;
                 case "Add Episodes":
+                    window.tableEpisodes.clearSelection();
+                    field1 = new JTextField();
+                    JDateChooser fieldd2 = new JDateChooser();
+                    JDateChooser fieldd3 = new JDateChooser();
+                    JTextField fieldd4 = new JTextField();
+
+                    sw = 0;
+                    option = 0;
+
+                    while (sw == 0)
+                    {
+                        Object[] message = {"Description", field1, "Start Date", fieldd2, "End Date", fieldd3, "Evolution", fieldd4};
+
+                        option = JOptionPane.showConfirmDialog(null, message, "Enter all your values", JOptionPane.OK_CANCEL_OPTION);
+
+                        if (option == JOptionPane.CANCEL_OPTION || option == JOptionPane.CLOSED_OPTION)
+                        {
+                            sw = 1;
+                        }
+                        else
+                        {
+                            if (field1.getText().equals("") || fieldd4.getText().equals(""))
+                            {
+                                JOptionPane.showMessageDialog(null, "Please, fill each field", "Error", JOptionPane.ERROR_MESSAGE);
+                            }
+                            else
+                            {
+                                sw = 1;
+                                methods.insertEpisode(field1.getText(), new Date(fieldd2.getDate().getTime()), new Date(fieldd3.getDate().getTime()), fieldd4.getText(), idPatient2);
+                                loadEpisodes();
+
+                            }
+                        }
+                    }
+                    window.tableEpisodes.clearSelection();
+                    window.tablePatient2.clearSelection();
+                    window.jbAddE.setEnabled(false);
+                    window.jbModE.setEnabled(false);
+                    window.jbDelE.setEnabled(false);
                     break;
                 case "Modify Episodes":
                     break;
                 case "Delete Episodes":
-
-                    break;
-                case "See Analysis":
-
-                    break;
-                case "Modify Analysis":
-
-                    break;
-                case "Delete Analysis":
-
-                    break;
-                case "Add Radiography":
-
-                    break;
-                case "See Radiography":
-
-                    break;
-                case "Modify Radiography":
-
-                    break;
-                case "Delete Radiography":
-
-                    break;
-                case "Add Pharmacotherapy":
-
-                    break;
-                case "See Pharmacotherapy":
-
-                    break;
-                case "Modify Pharmacotherapy":
-
-                    break;
-                case "Delete Pharmacotherapy":
-
                     break;
                 default:
                     break;
             }
-        }
-        else
+        } else
         {
             String actionCommand2 = ((JMenuItem) e.getSource()).getActionCommand();
 
