@@ -3,6 +3,7 @@ package com.dam.practic2.Model.Methods;
 import com.dam.practic2.Controller.Controller;
 import com.dam.practic2.Model.Objects.*;
 import com.dam.practic2.View.JConnection;
+import sun.util.calendar.Gregorian;
 
 import javax.swing.*;
 import javax.swing.plaf.nimbus.State;
@@ -10,10 +11,8 @@ import java.io.*;
 import java.sql.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
+import java.util.*;
 import java.sql.Date;
-import java.util.Properties;
-import java.util.Random;
 
 /**
  * @author Daniel Cano Mainar
@@ -152,7 +151,7 @@ public class Methods
 
     public Object[] selectPatient(int idP)
     {
-        String sql = "SELECT P.cias, P.name, P.surname, P.birthDate, P.adress, V.visitDate FROM patient P INNER JOIN visit V ON V.idPatient = ?";
+        String sql = "SELECT P.cias, P.name, P.surname, P.birthDate, P.adress, V.visitDate, V.idVisit FROM patient P INNER JOIN visit V ON V.idPatient = P.cias WHERE P.cias = ?";
         Object[] Row = new Object[9];
         try
         {
@@ -169,8 +168,9 @@ public class Methods
                 java.util.Date birthDate = new Date(resultado.getDate("birthDate").getTime());
                 String adress = resultado.getString("adress");
                 java.util.Date visitDate = new Date(resultado.getDate("visitDate").getTime());
+                int idVisit = resultado.getInt("idVisit");
 
-                Row = new Object[] {id, name, surname, birthDate, adress, visitDate};
+                Row = new Object[] {id, name, surname, birthDate, adress, visitDate, idVisit};
             }
             return Row;
         }
@@ -436,7 +436,7 @@ public class Methods
 
     public ArrayList<Object[]> selectAllPatient()
     {
-        String sql = "SELECT P.cias, P.name, P.surname, P.birthDate, P.adress, V.visitDate FROM patient P INNER JOIN visit V ON P.cias = V.idPatient INNER JOIN medic M ON M.collegiateNumber = V.idMedic WHERE M.collegiateNumber = ?";
+        String sql = "SELECT P.cias, P.name, P.surname, P.birthDate, P.adress, V.visitDate, V.idVisit FROM patient P INNER JOIN visit V ON P.cias = V.idPatient INNER JOIN medic M ON M.collegiateNumber = V.idMedic WHERE M.collegiateNumber = ?";
         ArrayList<Object[]> list = new ArrayList<>();
         Object[] Row;
 
@@ -453,11 +453,12 @@ public class Methods
                 int id = resultado.getInt("cias");
                 String name = resultado.getString("name");
                 String surname = resultado.getString("surname");
-                String birth = resultado.getString("birthDate");
+                java.util.Date birthDate = new Date(resultado.getDate("birthDate").getTime());
                 String adress = resultado.getString("adress");
-                java.util.Date visitDate = new java.util.Date(resultado.getDate("visitDate").getTime());
+                java.util.Date visitDate = new Date(resultado.getDate("visitDate").getTime());
+                int idVisit = resultado.getInt("idVisit");
 
-                Row = new Object[] {id, name, surname, birth, adress, visitDate};
+                Row = new Object[] {id, name, surname, birthDate, adress, visitDate, idVisit};
                 list.add(Row);
             }
             return list;
@@ -500,7 +501,6 @@ public class Methods
             }
 
             sentenciaAltaVisita = conexion.prepareStatement(sql2);
-
             sentenciaAltaVisita.setDate(1, visitDate);
             sentenciaAltaVisita.setInt(2, medicConnected);
             sentenciaAltaVisita.setInt(3, idP);
@@ -612,8 +612,8 @@ public class Methods
     public void insertEpisode(String d, java.sql.Date sD, java.sql.Date eD, String e, int idP)
     {
         String sql = "INSERT INTO episodes(descript, startDate, endDate, evolution) VALUES(?, ?, ?, ?)";
-        String sql2 = "UPDATE visit SET idEpisode = ?";
-        String sql22 = "INSERT INTO visit(receptionDate, visitDate, medicalCentre, idAnalysis, idEpisode, idMedic, idPatient, idPharmacotherapy) VALUES (NULL, NULL, NULL, NULL, ?, ?, ?, NULL)";
+        String sql2 = "UPDATE visit SET idEpisode = ? WHERE idPatient = ?";
+        String sql22 = "INSERT INTO visit(receptionDate, visitDate, medicalCentre, idAnalysis, idEpisode, idMedic, idPatient, idPharmacotherapy) VALUES (NULL, ?, NULL, NULL, ?, ?, ?, NULL) ON idPatient = ?";
         String sql3 = "SELECT idEpisode FROM visit WHERE idPatient = ?";
 
         PreparedStatement sentenciaAltaEpisode = null;
@@ -639,26 +639,46 @@ public class Methods
             sentenciaComprobacion = conexion.prepareStatement(sql3);
             sentenciaComprobacion.setInt(1, idP);
             ResultSet resultado = sentenciaComprobacion.executeQuery();
-            String idE2 = "";
+            String idE2 = null;
             while (resultado.next())
             {
                 idE2 = String.valueOf(resultado.getInt("idEpisode"));
+                System.out.print(idE2);
             }
 
-            if(idE2.equals(null))
+            if(idE2.equals("0"))
             {
                 sentenciaAltaVisita = conexion.prepareStatement(sql2);
                 sentenciaAltaVisita.setInt(1, idE);
+                sentenciaAltaVisita.setInt(2, idP);
+                sentenciaAltaVisita.executeUpdate();
             }
             else
             {
                 sentenciaAltaVisita = conexion.prepareStatement(sql22);
-                sentenciaAltaVisita.setInt(1, idE);
-                sentenciaAltaVisita.setInt(2, medicConnected);
-                sentenciaAltaVisita.setInt(3, idP);
-            }
-            sentenciaAltaVisita.executeUpdate();
+                sentenciaAltaVisita.setInt(1, idP);
 
+                Calendar calendario = GregorianCalendar.getInstance();
+                java.util.Date fecha = calendario.getTime();
+                SimpleDateFormat formatoDeFecha = new SimpleDateFormat("dd/MM/yyyy");
+                String fechaActual = String.valueOf(fecha);
+
+                Date fechaActualDate = null;
+                try
+                {
+                    fechaActualDate = new Date(formatoDeFecha.parse(fechaActual).getTime());
+                }
+                catch (ParseException e1)
+                {
+                    e1.printStackTrace();
+                }
+
+                sentenciaAltaVisita.setDate(1, fechaActualDate);
+                sentenciaAltaVisita.setInt(2, idE);
+                sentenciaAltaVisita.setInt(3, medicConnected);
+                sentenciaAltaVisita.setInt(4, idP);
+                sentenciaAltaVisita.executeUpdate();
+            }
             conexion.commit();
         }
         catch (SQLException sqle)

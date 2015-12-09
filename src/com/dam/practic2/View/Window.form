@@ -2,7 +2,7 @@
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="com.dam.practic2.View.Window">
   <grid id="27dc6" binding="panel1" default-binding="true" layout-manager="BorderLayout" hgap="0" vgap="0">
     <constraints>
-      <xy x="20" y="28" width="969" height="699"/>
+      <xy x="20" y="28" width="972" height="699"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -250,7 +250,7 @@
             <colspec value="fill:max(d;4px):noGrow"/>
             <colspec value="left:4dlu:noGrow"/>
             <colspec value="fill:108px:noGrow"/>
-            <colspec value="left:117dlu:noGrow"/>
+            <colspec value="left:199dlu:noGrow"/>
             <colspec value="fill:max(d;4px):noGrow"/>
             <constraints>
               <tabbedpane title="Visit"/>

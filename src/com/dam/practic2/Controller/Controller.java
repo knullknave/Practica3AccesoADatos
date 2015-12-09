@@ -35,6 +35,7 @@ public class Controller implements ActionListener
     public int idPatient;
     public int idPatient2;
     public int idEpisode;
+    public int idVisit;
     //TODO CREAR EL RESTO DE ID'S
 
     /**
@@ -121,12 +122,14 @@ public class Controller implements ActionListener
                 if (window.tablePatient1.isRowSelected(window.tablePatient1.getSelectedRow()))
                 {
                     idPatient = Integer.parseInt(window.tablePatient1.getValueAt(window.tablePatient1.getSelectedRow(), 0).toString());
-                    //TODO CARGAR DATOS EN LAS CAJAS Y HABILITAR MODIFICAR Y BORRAR
+                    idVisit = Integer.parseInt(window.tablePatient1.getValueAt(window.tablePatient1.getSelectedRow(), 6).toString());
+
                     Object[] datos = methods.selectPatient(idPatient);
                     window.tfName.setText(String.valueOf(datos[1]));
                     window.tfSurname.setText(String.valueOf(datos[2]));
                     window.jdateChooserP.setDate(Date.valueOf(datos[3].toString()));
                     window.tfAddress.setText(String.valueOf(datos[4]));
+                    window.jdateChooserP2.setDate(Date.valueOf(datos[5].toString()));
 
                     window.jbModP.setEnabled(true);
                     window.jbDelP.setEnabled(true);
@@ -136,6 +139,7 @@ public class Controller implements ActionListener
                     window.tfSurname.setEnabled(true);
                     window.jdateChooserP.setEnabled(true);
                     window.tfAddress.setEnabled(true);
+                    window.jdateChooserP2.setEnabled(true);
                 }
             }
         });
@@ -180,7 +184,7 @@ public class Controller implements ActionListener
         {
             ColumnMedicTable.addColumn(M[i]);
         }
-        String[] P = {"Id Patient", "Name", "Surname", "birthDate", "Address", "Visit Date"};
+        String[] P = {"Id Patient", "Name", "Surname", "birthDate", "Address", "V. Date", "V. Id"};
         for(int i=0; i<P.length; i++)
         {
             ColumnPatientTable.addColumn(P[i]);
@@ -221,7 +225,7 @@ public class Controller implements ActionListener
         }
     }
 
-    public void loadPatient2()
+    public void loadPatient()
     {
         ArrayList<Object[]> list = methods.selectAllPatient();
 
@@ -268,6 +272,7 @@ public class Controller implements ActionListener
         window.tfSurname.setEnabled(false);
         window.tfAddress.setEnabled(false);
         window.jdateChooserP.setEnabled(false);
+        window.jdateChooserP2.setEnabled(false);
 
         window.jbModP.setEnabled(false);
         window.jbDelP.setEnabled(false);
@@ -285,12 +290,14 @@ public class Controller implements ActionListener
         window.tfSurname.setEnabled(true);
         window.tfAddress.setEnabled(true);
         window.jdateChooserP.setEnabled(true);
+        window.jdateChooserP2.setEnabled(true);
         window.jbSaveP.setEnabled(true);
 
         window.tfName.setText("");
         window.tfSurname.setText("");
         window.tfAddress.setText("");
         window.jdateChooserP.setDate(null);
+        window.jdateChooserP2.setDate(null);
 
         window.jbNewP.setEnabled(false);
         window.jbSaveP.setEnabled(true);
@@ -307,18 +314,19 @@ public class Controller implements ActionListener
         window.tfSurname.setEnabled(false);
         window.tfAddress.setEnabled(false);
         window.jdateChooserP.setEnabled(false);
+        window.jdateChooserP2.setEnabled(false);
 
         window.tfName.setText("");
         window.tfSurname.setText("");
         window.tfAddress.setText("");
         window.jdateChooserP.setDate(null);
+        window.jdateChooserP2.setDate(null);
 
         window.jbNewP.setEnabled(true);
         window.jbSaveP.setEnabled(false);
         window.jbCancel.setEnabled(false);
     }
 
-    //TODO CAMBIAS DE PESTAÑA, TE DESCONECTAS ETC
     public void dishableMedic()
     {
         idMedic = 0;
@@ -357,22 +365,14 @@ public class Controller implements ActionListener
                     newPatient();
                     break;
                 case "Modify Patient":
-                    //TODO COMPROBAR QUE TODOS LOS CAMPOS ESTAN LLENOS
                     if(window.tfName.getText().equals("") || window.tfSurname.getText().equals("") || window.tfAddress.getText().equals(""))
                     {
                         JOptionPane.showMessageDialog(null, "Please, fill each field", "Error", JOptionPane.ERROR_MESSAGE);
                     }
                     else
                     {
-                        if(methods.existsPatient(window.tfName.getText(), window.tfSurname.getText()) == false)
-                        {
-                            methods.updatePatient(idPatient, window.tfName.getText(), window.tfSurname.getText(), new Date(window.jdateChooserP.getDate().getTime()), window.tfAddress.getText(), new Date(window.jdateChooserP2.getDate().getTime()));
-                            loadPatient2();
-                        }
-                        else
-                        {
-                            JOptionPane.showMessageDialog(null, "This patient already exists", "Error", JOptionPane.ERROR_MESSAGE);
-                        }
+                        methods.updatePatient(idPatient, window.tfName.getText(), window.tfSurname.getText(), new Date(window.jdateChooserP.getDate().getTime()), window.tfAddress.getText(), new Date(window.jdateChooserP2.getDate().getTime()));
+                        loadPatient();
                     }
                     window.jbModP.setEnabled(false);
                     window.jbDelP.setEnabled(false);
@@ -382,7 +382,9 @@ public class Controller implements ActionListener
                     window.tfSurname.setEnabled(false);
                     window.tfSurname.setText("");
                     window.jdateChooserP.setEnabled(false);
+                    window.jdateChooserP2.setEnabled(false);
                     window.jdateChooserP.setDate(null);
+                    window.jdateChooserP2.setDate(null);
                     window.tfAddress.setEnabled(false);
                     window.tfAddress.setText("");
                     window.tablePatient1.clearSelection();
@@ -404,7 +406,7 @@ public class Controller implements ActionListener
                         else
                         {
                             methods.insertPatient(window.tfName.getText(), window.tfSurname.getText(), new Date(window.jdateChooserP.getDate().getTime()), window.tfAddress.getText(), new Date(window.jdateChooserP2.getDate().getTime()));
-                            loadPatient2();
+                            loadPatient();
                         }
                     }
                     endNewPatient();
@@ -414,7 +416,7 @@ public class Controller implements ActionListener
                     if(resutl == JOptionPane.YES_OPTION)
                     {
                         methods.deletePatient(idPatient);
-                        loadPatient2();
+                        loadPatient();
                     }
                     window.jbModP.setEnabled(false);
                     window.jbDelP.setEnabled(false);
@@ -424,7 +426,9 @@ public class Controller implements ActionListener
                     window.tfSurname.setEnabled(false);
                     window.tfSurname.setText("");
                     window.jdateChooserP.setEnabled(false);
+                    window.jdateChooserP2.setEnabled(false);
                     window.jdateChooserP.setDate(null);
+                    window.jdateChooserP2.setDate(null);
                     window.tfAddress.setEnabled(false);
                     window.tfAddress.setText("");
                     window.tablePatient1.clearSelection();
@@ -540,6 +544,7 @@ public class Controller implements ActionListener
                                 JOptionPane.showMessageDialog(null, "Successul", "Successful", JOptionPane.INFORMATION_MESSAGE);
                                 methods.deleteMedic(idMedic);
                                 loadMedic();
+                                loadPatient();
 
                                 if(methods.existsMedic3(idMedic) == false)
                                 {
@@ -558,7 +563,7 @@ public class Controller implements ActionListener
                             JOptionPane.showMessageDialog(null, "Correct", "Correct", JOptionPane.INFORMATION_MESSAGE);
                             window.jlMedic.setText(window.tfUser.getText());
                             methods.medicConnected = methods.getCollegiateNumber(window.tfUser.getText(), window.tfPassword.getText());
-                            loadPatient2();
+                            loadPatient();
                         }
                         else
                         {
@@ -650,7 +655,7 @@ public class Controller implements ActionListener
                                 sw = 1;
                                 methods.insertEpisode(field1.getText(), new Date(fieldd2.getDate().getTime()), new Date(fieldd3.getDate().getTime()), fieldd4.getText(), idPatient2);
                                 loadEpisodes();
-
+                                loadPatient();
                             }
                         }
                     }
@@ -697,6 +702,7 @@ public class Controller implements ActionListener
                             methods.updateEpisode(idEpisode, field1.getText(), new Date(fieldd2.getDate().getTime()), new Date(fieldd3.getDate().getTime()), field4.getText());
                             sw = 1;
                             loadEpisodes();
+                            loadPatient();
                         }
                     }
                     break;
@@ -706,6 +712,7 @@ public class Controller implements ActionListener
                     {
                         methods.deleteEpisode(idEpisode);
                         loadEpisodes();
+                        loadPatient();
                     }
                     window.jbModE.setEnabled(false);
                     window.jbDelE.setEnabled(false);
