@@ -121,6 +121,7 @@ CREATE TABLE `visit` (
   `idPharmacotherapy` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+INSERT INTO modificaciones(modM, modP, modV, modEp) VALUES(0,0,0,0);
 
 ALTER TABLE `analysis`
   ADD PRIMARY KEY (`id`);

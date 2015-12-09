@@ -147,7 +147,7 @@ public class Methods
 
     public Object[] selectPatient(int idP)
     {
-        String sql = "SELECT P.cias, P.name, P.surname, P.birthDate, P.adress, V.visitDate, V.idVisit FROM patient P INNER JOIN visit V ON V.idPatient = P.cias WHERE P.cias = ?";
+        String sql = "SELECT P.cias, P.name, P.surname, P.birthDate, P.adress, V.visitDate, V.idVisit FROM patient P INNER JOIN visit V ON V.idPatient = P.cias WHERE P.cias = ? GROUP BY P.cias";
         Object[] Row = new Object[9];
         try
         {
@@ -450,7 +450,7 @@ public class Methods
 
     public ArrayList<Object[]> selectAllPatient()
     {
-        String sql = "SELECT P.cias, P.name, P.surname, P.birthDate, P.adress, V.visitDate, V.idVisit FROM patient P INNER JOIN visit V ON P.cias = V.idPatient INNER JOIN medic M ON M.collegiateNumber = V.idMedic WHERE M.collegiateNumber = ?";
+        String sql = "SELECT P.cias, P.name, P.surname, P.birthDate, P.adress, V.visitDate, V.idVisit FROM patient P INNER JOIN visit V ON P.cias = V.idPatient INNER JOIN medic M ON M.collegiateNumber = V.idMedic WHERE M.collegiateNumber = ? GROUP BY P.cias";
         ArrayList<Object[]> list = new ArrayList<>();
         Object[] Row;
 
