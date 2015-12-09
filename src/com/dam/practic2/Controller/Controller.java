@@ -163,6 +163,10 @@ public class Controller implements ActionListener
             @Override
             public void valueChanged(ListSelectionEvent e)
             {
+                if (window.tableEpisodes.isRowSelected(window.tableEpisodes.getSelectedRow()))
+                {
+                    idEpisode = Integer.parseInt(window.tableEpisodes.getValueAt(window.tableEpisodes.getSelectedRow(), 0).toString());
+                }
                 window.jbModE.setEnabled(true);
                 window.jbDelE.setEnabled(true);
             }
@@ -176,7 +180,7 @@ public class Controller implements ActionListener
         {
             ColumnMedicTable.addColumn(M[i]);
         }
-        String[] P = {"Id", "Name", "Surname", "birthDate", "Address"};
+        String[] P = {"Id Patient", "Name", "Surname", "birthDate", "Address", "Visit Date"};
         for(int i=0; i<P.length; i++)
         {
             ColumnPatientTable.addColumn(P[i]);
@@ -362,7 +366,7 @@ public class Controller implements ActionListener
                     {
                         if(methods.existsPatient(window.tfName.getText(), window.tfSurname.getText()) == false)
                         {
-                            methods.updatePatient(idPatient, window.tfName.getText(), window.tfSurname.getText(), new Date(window.jdateChooserP.getDate().getTime()), window.tfAddress.getText());
+                            methods.updatePatient(idPatient, window.tfName.getText(), window.tfSurname.getText(), new Date(window.jdateChooserP.getDate().getTime()), window.tfAddress.getText(), new Date(window.jdateChooserP2.getDate().getTime()));
                             loadPatient2();
                         }
                         else
@@ -399,7 +403,7 @@ public class Controller implements ActionListener
                         }
                         else
                         {
-                            methods.insertPatient(window.tfName.getText(), window.tfSurname.getText(), new Date(window.jdateChooserP.getDate().getTime()), window.tfAddress.getText());
+                            methods.insertPatient(window.tfName.getText(), window.tfSurname.getText(), new Date(window.jdateChooserP.getDate().getTime()), window.tfAddress.getText(), new Date(window.jdateChooserP2.getDate().getTime()));
                             loadPatient2();
                         }
                     }
@@ -657,8 +661,55 @@ public class Controller implements ActionListener
                     window.jbDelE.setEnabled(false);
                     break;
                 case "Modify Episodes":
+                    window.jbModE.setEnabled(false);
+                    window.jbDelE.setEnabled(false);
+                    window.tableEpisodes.clearSelection();
+
+                    Object[] datos = methods.selectEpisode(idEpisode);
+
+                    field1 = new JTextField();
+                    field1.setText(datos[0].toString());
+                    fieldd2 = new JDateChooser();
+                    fieldd2.setDate(Date.valueOf(datos[1].toString()));
+                    fieldd3 = new JDateChooser();
+                    fieldd3.setDate(Date.valueOf(datos[2].toString()));
+                    field4 = new JTextField();
+                    field4.setText(datos[3].toString());
+
+                    sw = 0;
+                    option = 0;
+
+                    Object[] message = {"Description", field1, "Start Date", fieldd2, "End Date", fieldd3, "Evolution", field4,};
+                    option = JOptionPane.showConfirmDialog(null, message, "Enter all your values", JOptionPane.OK_CANCEL_OPTION);
+                    if (option == JOptionPane.CANCEL_OPTION || option == JOptionPane.CLOSED_OPTION)
+                    {
+                        sw = 1;
+                    }
+                    else
+                    {
+                        if (field1.getText().equals("") || field4.getText().equals(""))
+                        {
+                            JOptionPane.showMessageDialog(null, "Please, fill each field", "Error", JOptionPane.ERROR_MESSAGE);
+                        }
+                        else
+                        {
+                            JOptionPane.showMessageDialog(null, "Successul", "Successful", JOptionPane.INFORMATION_MESSAGE);
+                            methods.updateEpisode(idEpisode, field1.getText(), new Date(fieldd2.getDate().getTime()), new Date(fieldd3.getDate().getTime()), field4.getText());
+                            sw = 1;
+                            loadEpisodes();
+                        }
+                    }
                     break;
                 case "Delete Episodes":
+                    resutl = JOptionPane.showConfirmDialog(null, "Do you want to delete it?", "Are you sure?", JOptionPane.YES_NO_CANCEL_OPTION);
+                    if(resutl == JOptionPane.YES_OPTION)
+                    {
+                        methods.deleteEpisode(idEpisode);
+                        loadEpisodes();
+                    }
+                    window.jbModE.setEnabled(false);
+                    window.jbDelE.setEnabled(false);
+                    window.tableEpisodes.clearSelection();
                     break;
                 default:
                     break;

@@ -5,6 +5,7 @@ import com.dam.practic2.Model.Objects.*;
 import com.dam.practic2.View.JConnection;
 
 import javax.swing.*;
+import javax.swing.plaf.nimbus.State;
 import java.io.*;
 import java.sql.*;
 import java.text.ParseException;
@@ -151,7 +152,7 @@ public class Methods
 
     public Object[] selectPatient(int idP)
     {
-        String sql = "SELECT cias, name, surname, birthDate, adress FROM patient WHERE cias = ?";
+        String sql = "SELECT P.cias, P.name, P.surname, P.birthDate, P.adress, V.visitDate FROM patient P INNER JOIN visit V ON V.idPatient = ?";
         Object[] Row = new Object[9];
         try
         {
@@ -167,8 +168,9 @@ public class Methods
                 String surname = resultado.getString("surname");
                 java.util.Date birthDate = new Date(resultado.getDate("birthDate").getTime());
                 String adress = resultado.getString("adress");
+                java.util.Date visitDate = new Date(resultado.getDate("visitDate").getTime());
 
-                Row = new Object[] {id, name, surname, birthDate, adress};
+                Row = new Object[] {id, name, surname, birthDate, adress, visitDate};
             }
             return Row;
         }
@@ -360,12 +362,45 @@ public class Methods
     public void deleteMedic(int idM)
     {
         String sql = "DELETE FROM medic WHERE collegiateNumber = ?";
+        String sql11 = "SELECT idPatient, idEpisode FROM visit WHERE idMedic = ?";
+        String sql2 = "DELETE FROM visit WHERE idMedic = ?";
+        String sql3 = "DELETE FROM patient WHERE cias = ?";
+        String sql4 = "DELETE FROM episodes WHERE id = ?";
         PreparedStatement sentencia = null;
         try
         {
+            conexion.setAutoCommit(false);
+            sentencia = conexion.prepareStatement(sql11);
+            sentencia.setInt(1, idM);
+            ResultSet resultado = sentencia.executeQuery();
+            int idP = 0;
+            String idE = "";
+            while (resultado.next())
+            {
+                idP = resultado.getInt("idPatient");
+                idE = String.valueOf(resultado.getInt("idEpisode"));
+            }
+
+            if(!idE.equals(null))
+            {
+                sentencia = conexion.prepareStatement(sql4);
+                sentencia.setInt(1, Integer.parseInt(idE));
+                sentencia.executeUpdate();
+            }
+
+            sentencia = conexion.prepareStatement(sql3);
+            sentencia.setInt(1, idP);
+            sentencia.executeUpdate();
+
+            sentencia = conexion.prepareStatement(sql2);
+            sentencia.setInt(1, idM);
+            sentencia.executeUpdate();
+
             sentencia = conexion.prepareStatement(sql);
             sentencia.setInt(1, idM);
             sentencia.executeUpdate();
+
+            conexion.commit();
         }
         catch (SQLException e)
         {
@@ -401,7 +436,7 @@ public class Methods
 
     public ArrayList<Object[]> selectAllPatient()
     {
-        String sql = "SELECT P.cias, P.name, P.surname, P.birthDate, P.adress FROM patient P INNER JOIN visit V ON P.cias = V.idPatient INNER JOIN medic M ON M.collegiateNumber = V.idMedic WHERE M.collegiateNumber = ?";
+        String sql = "SELECT P.cias, P.name, P.surname, P.birthDate, P.adress, V.visitDate FROM patient P INNER JOIN visit V ON P.cias = V.idPatient INNER JOIN medic M ON M.collegiateNumber = V.idMedic WHERE M.collegiateNumber = ?";
         ArrayList<Object[]> list = new ArrayList<>();
         Object[] Row;
 
@@ -420,8 +455,9 @@ public class Methods
                 String surname = resultado.getString("surname");
                 String birth = resultado.getString("birthDate");
                 String adress = resultado.getString("adress");
+                java.util.Date visitDate = new java.util.Date(resultado.getDate("visitDate").getTime());
 
-                Row = new Object[] {id, name, surname, birth, adress};
+                Row = new Object[] {id, name, surname, birth, adress, visitDate};
                 list.add(Row);
             }
             return list;
@@ -433,11 +469,11 @@ public class Methods
         return null;
     }
 
-    public void insertPatient(String name, String surname, java.sql.Date birth, String adress)
+    public void insertPatient(String name, String surname, java.sql.Date birth, String adress, java.sql.Date visitDate)
     {
         String sql = "INSERT INTO patient(name, surname, birthDate, adress) VALUES(?, ?, ?, ?)";
         String busqueda = "SELECT cias FROM patient WHERE name = ? AND surname = ?";
-        String sql2 = "INSERT INTO visit(receptionDate, visitDate, medicalCentre, idAnalysis, idEpisode, idMedic, idPatient, idPharmacotherapy) VALUES (NULL, NULL, NULL, NULL, NULL, ?, ?, NULL)";
+        String sql2 = "INSERT INTO visit(receptionDate, visitDate, medicalCentre, idAnalysis, idEpisode, idMedic, idPatient, idPharmacotherapy) VALUES (NULL, ?, NULL, NULL, NULL, ?, ?, NULL)";
 
         PreparedStatement sentenciaAltaPaciente = null;
         PreparedStatement sentenciaBusquedaIdP = null;
@@ -465,8 +501,9 @@ public class Methods
 
             sentenciaAltaVisita = conexion.prepareStatement(sql2);
 
-            sentenciaAltaVisita.setInt(1, medicConnected);
-            sentenciaAltaVisita.setInt(2, idP);
+            sentenciaAltaVisita.setDate(1, visitDate);
+            sentenciaAltaVisita.setInt(2, medicConnected);
+            sentenciaAltaVisita.setInt(3, idP);
             sentenciaAltaVisita.executeUpdate();
 
             conexion.commit();
@@ -500,13 +537,15 @@ public class Methods
         return idM;
     }
 
-    public void updatePatient(int idP, String name, String surname, Date birth, String adress)
+    public void updatePatient(int idP, String name, String surname, Date birth, String adress, Date visitDate)
     {
         String sql = "UPDATE patient SET name = ?, surname = ?, adress = ?, birthDate = ? WHERE cias = ?";
+        String sql2 = "UPDATE visit SET visitDate = ?";
         PreparedStatement sentence = null;
 
         try
         {
+            conexion.setAutoCommit(false);
             sentence = conexion.prepareStatement(sql);
             sentence.setString(1, name);
             sentence.setString(2, surname);
@@ -514,6 +553,12 @@ public class Methods
             sentence.setString(4, birth.toString());
             sentence.setInt(5, idP);
             sentence.executeUpdate();
+
+            sentence = conexion.prepareStatement(sql2);
+            sentence.setDate(1, visitDate);
+            sentence.executeUpdate();
+
+            conexion.commit();
         }
         catch (SQLException e)
         {
@@ -568,9 +613,12 @@ public class Methods
     {
         String sql = "INSERT INTO episodes(descript, startDate, endDate, evolution) VALUES(?, ?, ?, ?)";
         String sql2 = "UPDATE visit SET idEpisode = ?";
+        String sql22 = "INSERT INTO visit(receptionDate, visitDate, medicalCentre, idAnalysis, idEpisode, idMedic, idPatient, idPharmacotherapy) VALUES (NULL, NULL, NULL, NULL, ?, ?, ?, NULL)";
+        String sql3 = "SELECT idEpisode FROM visit WHERE idPatient = ?";
 
         PreparedStatement sentenciaAltaEpisode = null;
         PreparedStatement sentenciaAltaVisita = null;
+        PreparedStatement sentenciaComprobacion = null;
         try
         {
             conexion.setAutoCommit(false);
@@ -588,15 +636,101 @@ public class Methods
             idsGenerados.close();
             sentenciaAltaEpisode.close();
 
-            sentenciaAltaVisita = conexion.prepareStatement(sql2);
-            sentenciaAltaVisita.setInt(1, idE);
-            sentenciaAltaEpisode.executeUpdate();
+            sentenciaComprobacion = conexion.prepareStatement(sql3);
+            sentenciaComprobacion.setInt(1, idP);
+            ResultSet resultado = sentenciaComprobacion.executeQuery();
+            String idE2 = "";
+            while (resultado.next())
+            {
+                idE2 = String.valueOf(resultado.getInt("idEpisode"));
+            }
+
+            if(idE2.equals(null))
+            {
+                sentenciaAltaVisita = conexion.prepareStatement(sql2);
+                sentenciaAltaVisita.setInt(1, idE);
+            }
+            else
+            {
+                sentenciaAltaVisita = conexion.prepareStatement(sql22);
+                sentenciaAltaVisita.setInt(1, idE);
+                sentenciaAltaVisita.setInt(2, medicConnected);
+                sentenciaAltaVisita.setInt(3, idP);
+            }
+            sentenciaAltaVisita.executeUpdate();
 
             conexion.commit();
         }
         catch (SQLException sqle)
         {
             sqle.printStackTrace();
+        }
+    }
+
+    public void deleteEpisode(int idE)
+    {
+        String sql = "DELETE FROM episodes WHERE id = ?";
+
+        PreparedStatement sentencia = null;
+        try
+        {
+            sentencia = conexion.prepareStatement(sql);
+            sentencia.setInt(1, idE);
+            sentencia.executeUpdate();
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    public Object[] selectEpisode(int idE)
+    {
+        String sql = "SELECT descript, startDate, endDate, evolution FROM episodes WHERE id = ?";
+        Object[] Row = new Object[4];
+        try
+        {
+            PreparedStatement sentencia = null;
+
+            sentencia = conexion.prepareStatement(sql);
+            sentencia.setInt(1, idE);
+            ResultSet resultado = sentencia.executeQuery();
+            while (resultado.next())
+            {
+                String desc = resultado.getString("descript");
+                java.util.Date startDate = new Date(resultado.getDate("startDate").getTime());
+                java.util.Date endDate = new Date(resultado.getDate("endDate").getTime());
+                String evolution = resultado.getString("evolution");
+
+                Row = new Object[] {desc, startDate, endDate, evolution};
+            }
+            return Row;
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public void updateEpisode(int idE, String desc, Date sD, Date eD, String evol)
+    {
+        String sql = "UPDATE episodes SET descript = ?, startDate = ?, endDate = ?, evolution = ?";
+
+        PreparedStatement sentencia = null;
+
+        try
+        {
+            sentencia = conexion.prepareStatement(sql);
+            sentencia.setString(1, desc);
+            sentencia.setDate(2, sD);
+            sentencia.setDate(3, eD);
+            sentencia.setString(4, evol);
+            sentencia.executeUpdate();
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
         }
     }
 

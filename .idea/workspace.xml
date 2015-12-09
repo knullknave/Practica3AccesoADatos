@@ -37,42 +37,52 @@
       <file leaf-file-name="Methods.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/dam/practic2/Model/Methods/Methods.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.75043935">
-              <caret line="592" column="49" selection-start-line="592" selection-start-column="49" selection-end-line="592" selection-end-column="49" />
+            <state vertical-scroll-proportion="-4.7557116">
+              <caret line="571" column="62" selection-start-line="571" selection-start-column="62" selection-end-line="571" selection-end-column="62" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1449630427386" expanded="true" signature="2790:2809" placeholder="SELECT * FRO..medic..." />
-                <marker date="1449630427386" expanded="true" signature="4123:4270" placeholder="SELECT colle..medic..." />
-                <marker date="1449630427386" expanded="true" signature="5553:5626" placeholder="SELECT colle..medic..." />
-                <marker date="1449630427386" expanded="true" signature="6599:6655" placeholder="SELECT id, d..medic..." />
-                <marker date="1449630427386" expanded="true" signature="6599:6662" placeholder="SELECT id, d..episode..." />
-                <marker date="1449630427386" expanded="true" signature="6599:6663" placeholder="SELECT id, d..episodes..." />
-                <marker date="1449630427386" expanded="true" signature="6599:6684" placeholder="SELECT id, d..episodes..." />
-                <marker date="1449630427386" expanded="true" signature="6599:6707" placeholder="SELECT id, d..episodes..." />
-                <marker date="1449630427386" expanded="true" signature="6599:6715" placeholder="SELECT id, d..episodes..." />
-                <marker date="1449630427386" expanded="true" signature="6599:6726" placeholder="SELECT id, d..episodes..." />
-                <marker date="1449630427386" expanded="true" signature="7809:7884" placeholder="SELECT COUNT..medic..." />
-                <marker date="1449630427386" expanded="true" signature="8606:8675" placeholder="SELECT COUNT..patient..." />
-                <marker date="1449630427386" expanded="true" signature="9404:9504" placeholder="SELECT COUNT..medic..." />
-                <marker date="1449630427386" expanded="true" signature="10243:10306" placeholder="SELECT COUNT..medic..." />
-                <marker date="1449630427386" expanded="true" signature="11098:11258" placeholder="UPDATE medic..." />
-                <marker date="1449630427386" expanded="true" signature="11975:12019" placeholder="DELETE FROM ..." />
-                <marker date="1449630427386" expanded="true" signature="12543:12727" placeholder="INSERT INTO ..." />
-                <marker date="1449630427386" expanded="true" signature="13517:13692" placeholder="SELECT P.cia..patient..." />
-                <marker date="1449630427386" expanded="true" signature="13517:13698" placeholder="SELECT P.cia..patient..." />
-                <marker date="1449630427386" expanded="true" signature="13517:13712" placeholder="SELECT P.cia..patient..." />
-                <marker date="1449630427386" expanded="true" signature="14770:14842" placeholder="INSERT INTO ..." />
-                <marker date="1449630427386" expanded="true" signature="14872:14927" placeholder="SELECT cias ..patient..." />
-                <marker date="1449630427386" expanded="true" signature="14953:15082" placeholder="INSERT INTO ..." />
-                <marker date="1449630427386" expanded="true" signature="14953:15123" placeholder="INSERT INTO ..." />
-                <marker date="1449630427386" expanded="true" signature="16576:16649" placeholder="SELECT colle..medic..." />
-                <marker date="1449630427386" expanded="true" signature="17282:17364" placeholder="UPDATE medic..." />
-                <marker date="1449630427386" expanded="true" signature="17912:17946" placeholder="DELETE FROM ..." />
-                <marker date="1449630427386" expanded="true" signature="17972:18009" placeholder="DELETE FROM ..." />
-                <marker date="1449630427386" expanded="true" signature="18035:18068" placeholder="DELETE FROM ..." />
-                <marker date="1449630427386" expanded="true" signature="18094:18182" placeholder="SELECT E.id ..episodes..." />
-                <marker date="1449630427386" expanded="true" signature="19390:19470" placeholder="INSERT INTO ..." />
-                <marker date="1449630427386" expanded="true" signature="19496:19526" placeholder="UPDATE visit..." />
+                <marker date="1449636097962" expanded="true" signature="2828:2847" placeholder="SELECT * FRO..medic..." />
+                <marker date="1449636097962" expanded="true" signature="4161:4308" placeholder="SELECT colle..medic..." />
+                <marker date="1449636097962" expanded="true" signature="5591:5712" placeholder="SELECT colle..medic..." />
+                <marker date="1449636097962" expanded="true" signature="6791:6847" placeholder="SELECT id, d..medic..." />
+                <marker date="1449636097962" expanded="true" signature="6791:6854" placeholder="SELECT id, d..episode..." />
+                <marker date="1449636097962" expanded="true" signature="6791:6855" placeholder="SELECT id, d..episodes..." />
+                <marker date="1449636097962" expanded="true" signature="6791:6876" placeholder="SELECT id, d..episodes..." />
+                <marker date="1449636097962" expanded="true" signature="6791:6899" placeholder="SELECT id, d..episodes..." />
+                <marker date="1449636097962" expanded="true" signature="6791:6907" placeholder="SELECT id, d..episodes..." />
+                <marker date="1449636097962" expanded="true" signature="6791:6918" placeholder="SELECT id, d..episodes..." />
+                <marker date="1449636097962" expanded="true" signature="8001:8076" placeholder="SELECT COUNT..medic..." />
+                <marker date="1449636097962" expanded="true" signature="8798:8867" placeholder="SELECT COUNT..patient..." />
+                <marker date="1449636097962" expanded="true" signature="9596:9696" placeholder="SELECT COUNT..medic..." />
+                <marker date="1449636097962" expanded="true" signature="10435:10498" placeholder="SELECT COUNT..medic..." />
+                <marker date="1449636097962" expanded="true" signature="11290:11450" placeholder="UPDATE medic..." />
+                <marker date="1449636097962" expanded="true" signature="12167:12211" placeholder="DELETE FROM ..." />
+                <marker date="1449636097962" expanded="true" signature="12238:12294" placeholder="SELECT idPat..visit..." />
+                <marker date="1449636097962" expanded="true" signature="12320:12355" placeholder="DELETE FROM ..." />
+                <marker date="1449636097962" expanded="true" signature="12381:12415" placeholder="DELETE FROM ..." />
+                <marker date="1449636097962" expanded="true" signature="12441:12474" placeholder="DELETE FROM ..." />
+                <marker date="1449636097962" expanded="true" signature="13968:14152" placeholder="INSERT INTO ..." />
+                <marker date="1449636097962" expanded="true" signature="14942:15130" placeholder="SELECT P.cia..patient..." />
+                <marker date="1449636097962" expanded="true" signature="14942:15136" placeholder="SELECT P.cia..patient..." />
+                <marker date="1449636097962" expanded="true" signature="14942:15150" placeholder="SELECT P.cia..patient..." />
+                <marker date="1449636097962" expanded="true" signature="16349:16421" placeholder="INSERT INTO ..." />
+                <marker date="1449636097962" expanded="true" signature="16451:16506" placeholder="SELECT cias ..patient..." />
+                <marker date="1449636097962" expanded="true" signature="16532:16661" placeholder="INSERT INTO ..." />
+                <marker date="1449636097962" expanded="true" signature="16532:16699" placeholder="INSERT INTO ..." />
+                <marker date="1449636097962" expanded="true" signature="18207:18280" placeholder="SELECT colle..medic..." />
+                <marker date="1449636097962" expanded="true" signature="18929:19011" placeholder="UPDATE medic..." />
+                <marker date="1449636097962" expanded="true" signature="19037:19067" placeholder="UPDATE visit..." />
+                <marker date="1449636097962" expanded="true" signature="19829:19863" placeholder="DELETE FROM ..." />
+                <marker date="1449636097962" expanded="true" signature="19889:19926" placeholder="DELETE FROM ..." />
+                <marker date="1449636097962" expanded="true" signature="19952:19985" placeholder="DELETE FROM ..." />
+                <marker date="1449636097962" expanded="true" signature="20011:20099" placeholder="SELECT E.id ..episodes..." />
+                <marker date="1449636097962" expanded="true" signature="21307:21387" placeholder="INSERT INTO ..." />
+                <marker date="1449636097962" expanded="true" signature="21413:21443" placeholder="UPDATE visit..." />
+                <marker date="1449636097962" expanded="true" signature="21470:21637" placeholder="INSERT INTO ..." />
+                <marker date="1449636097962" expanded="true" signature="21663:21710" placeholder="SELECT idEpi..visit..." />
+                <marker date="1449636097962" expanded="true" signature="23617:23650" placeholder="DELETE FROM ..." />
+                <marker date="1449636097962" expanded="true" signature="24025:24098" placeholder="SELECT cias,..patient..." />
+                <marker date="1449636097962" expanded="true" signature="25079:25154" placeholder="UPDATE episo..." />
               </folding>
             </state>
           </provider>
@@ -82,7 +92,7 @@
         <entry file="file://$PROJECT_DIR$/src/com/dam/practic2/Controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="411" column="45" selection-start-line="411" selection-start-column="32" selection-end-line="411" selection-end-column="45" />
+              <caret line="368" column="245" selection-start-line="368" selection-start-column="245" selection-end-line="368" selection-end-column="245" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -101,7 +111,7 @@
         <entry file="file://$PROJECT_DIR$/src/com/dam/practic2/View/Window.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="158" column="28" selection-start-line="158" selection-start-column="28" selection-end-line="158" selection-end-column="28" />
+              <caret line="89" column="10" selection-start-line="89" selection-start-column="10" selection-end-line="89" selection-end-column="10" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -158,11 +168,11 @@
         <option value="$PROJECT_DIR$/src/com/dam/practic1/View/JConnection.java" />
         <option value="$PROJECT_DIR$/src/com/dam/practic1/Controller/Controller.java" />
         <option value="$PROJECT_DIR$/src/com/dam/practic1/Model/Methods/Methods.java" />
-        <option value="$PROJECT_DIR$/src/com/dam/practic2/View/Window.java" />
         <option value="$PROJECT_DIR$/src/com/dam/practic2/View/JConnection.java" />
         <option value="$PROJECT_DIR$/src/com/dam/practic2/View/Window.form" />
-        <option value="$PROJECT_DIR$/src/com/dam/practic2/Controller/Controller.java" />
+        <option value="$PROJECT_DIR$/src/com/dam/practic2/View/Window.java" />
         <option value="$PROJECT_DIR$/src/com/dam/practic2/Model/Methods/Methods.java" />
+        <option value="$PROJECT_DIR$/src/com/dam/practic2/Controller/Controller.java" />
       </list>
     </option>
   </component>
@@ -636,12 +646,12 @@
       <option name="number" value="Default" />
       <updated>1449417157641</updated>
       <workItem from="1449417142141" duration="5451000" />
-      <workItem from="1449572599063" duration="44538000" />
+      <workItem from="1449572599063" duration="49208000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="49989000" />
+    <option name="totallyTimeSpent" value="54659000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -727,38 +737,48 @@
           <caret line="296" column="5" selection-start-line="296" selection-start-column="5" selection-end-line="296" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1449630427386" expanded="true" signature="2790:2809" placeholder="SELECT * FRO..medic..." />
-            <marker date="1449630427386" expanded="true" signature="4123:4270" placeholder="SELECT colle..medic..." />
-            <marker date="1449630427386" expanded="true" signature="5553:5626" placeholder="SELECT colle..medic..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6655" placeholder="SELECT id, d..medic..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6662" placeholder="SELECT id, d..episode..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6663" placeholder="SELECT id, d..episodes..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6684" placeholder="SELECT id, d..episodes..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6707" placeholder="SELECT id, d..episodes..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6715" placeholder="SELECT id, d..episodes..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6726" placeholder="SELECT id, d..episodes..." />
-            <marker date="1449630427386" expanded="true" signature="7809:7884" placeholder="SELECT COUNT..medic..." />
-            <marker date="1449630427386" expanded="true" signature="8606:8675" placeholder="SELECT COUNT..patient..." />
-            <marker date="1449630427386" expanded="true" signature="9404:9504" placeholder="SELECT COUNT..medic..." />
-            <marker date="1449630427386" expanded="true" signature="10243:10306" placeholder="SELECT COUNT..medic..." />
-            <marker date="1449630427386" expanded="true" signature="11098:11258" placeholder="UPDATE medic..." />
-            <marker date="1449630427386" expanded="true" signature="11975:12019" placeholder="DELETE FROM ..." />
-            <marker date="1449630427386" expanded="true" signature="12543:12727" placeholder="INSERT INTO ..." />
-            <marker date="1449630427386" expanded="true" signature="13517:13692" placeholder="SELECT P.cia..patient..." />
-            <marker date="1449630427386" expanded="true" signature="13517:13698" placeholder="SELECT P.cia..patient..." />
-            <marker date="1449630427386" expanded="true" signature="13517:13712" placeholder="SELECT P.cia..patient..." />
-            <marker date="1449630427386" expanded="true" signature="14770:14842" placeholder="INSERT INTO ..." />
-            <marker date="1449630427386" expanded="true" signature="14872:14927" placeholder="SELECT cias ..patient..." />
-            <marker date="1449630427386" expanded="true" signature="14953:15082" placeholder="INSERT INTO ..." />
-            <marker date="1449630427386" expanded="true" signature="14953:15123" placeholder="INSERT INTO ..." />
-            <marker date="1449630427386" expanded="true" signature="16576:16649" placeholder="SELECT colle..medic..." />
-            <marker date="1449630427386" expanded="true" signature="17282:17364" placeholder="UPDATE medic..." />
-            <marker date="1449630427386" expanded="true" signature="17912:17946" placeholder="DELETE FROM ..." />
-            <marker date="1449630427386" expanded="true" signature="17972:18009" placeholder="DELETE FROM ..." />
-            <marker date="1449630427386" expanded="true" signature="18035:18068" placeholder="DELETE FROM ..." />
-            <marker date="1449630427386" expanded="true" signature="18094:18182" placeholder="SELECT E.id ..episodes..." />
-            <marker date="1449630427386" expanded="true" signature="19390:19470" placeholder="INSERT INTO ..." />
-            <marker date="1449630427386" expanded="true" signature="19496:19526" placeholder="UPDATE visit..." />
+            <marker date="1449636097962" expanded="true" signature="2828:2847" placeholder="SELECT * FRO..medic..." />
+            <marker date="1449636097962" expanded="true" signature="4161:4308" placeholder="SELECT colle..medic..." />
+            <marker date="1449636097962" expanded="true" signature="5591:5712" placeholder="SELECT colle..medic..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6847" placeholder="SELECT id, d..medic..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6854" placeholder="SELECT id, d..episode..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6855" placeholder="SELECT id, d..episodes..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6876" placeholder="SELECT id, d..episodes..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6899" placeholder="SELECT id, d..episodes..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6907" placeholder="SELECT id, d..episodes..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6918" placeholder="SELECT id, d..episodes..." />
+            <marker date="1449636097962" expanded="true" signature="8001:8076" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449636097962" expanded="true" signature="8798:8867" placeholder="SELECT COUNT..patient..." />
+            <marker date="1449636097962" expanded="true" signature="9596:9696" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449636097962" expanded="true" signature="10435:10498" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449636097962" expanded="true" signature="11290:11450" placeholder="UPDATE medic..." />
+            <marker date="1449636097962" expanded="true" signature="12167:12211" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="12238:12294" placeholder="SELECT idPat..visit..." />
+            <marker date="1449636097962" expanded="true" signature="12320:12355" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="12381:12415" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="12441:12474" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="13968:14152" placeholder="INSERT INTO ..." />
+            <marker date="1449636097962" expanded="true" signature="14942:15130" placeholder="SELECT P.cia..patient..." />
+            <marker date="1449636097962" expanded="true" signature="14942:15136" placeholder="SELECT P.cia..patient..." />
+            <marker date="1449636097962" expanded="true" signature="14942:15150" placeholder="SELECT P.cia..patient..." />
+            <marker date="1449636097962" expanded="true" signature="16349:16421" placeholder="INSERT INTO ..." />
+            <marker date="1449636097962" expanded="true" signature="16451:16506" placeholder="SELECT cias ..patient..." />
+            <marker date="1449636097962" expanded="true" signature="16532:16661" placeholder="INSERT INTO ..." />
+            <marker date="1449636097962" expanded="true" signature="16532:16699" placeholder="INSERT INTO ..." />
+            <marker date="1449636097962" expanded="true" signature="18207:18280" placeholder="SELECT colle..medic..." />
+            <marker date="1449636097962" expanded="true" signature="18929:19011" placeholder="UPDATE medic..." />
+            <marker date="1449636097962" expanded="true" signature="19037:19067" placeholder="UPDATE visit..." />
+            <marker date="1449636097962" expanded="true" signature="19829:19863" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="19889:19926" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="19952:19985" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="20011:20099" placeholder="SELECT E.id ..episodes..." />
+            <marker date="1449636097962" expanded="true" signature="21307:21387" placeholder="INSERT INTO ..." />
+            <marker date="1449636097962" expanded="true" signature="21413:21443" placeholder="UPDATE visit..." />
+            <marker date="1449636097962" expanded="true" signature="21470:21637" placeholder="INSERT INTO ..." />
+            <marker date="1449636097962" expanded="true" signature="21663:21710" placeholder="SELECT idEpi..visit..." />
+            <marker date="1449636097962" expanded="true" signature="23617:23650" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="24025:24098" placeholder="SELECT cias,..patient..." />
+            <marker date="1449636097962" expanded="true" signature="25079:25154" placeholder="UPDATE episo..." />
           </folding>
         </state>
       </provider>
@@ -789,38 +809,48 @@
           <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1449630427386" expanded="true" signature="2790:2809" placeholder="SELECT * FRO..medic..." />
-            <marker date="1449630427386" expanded="true" signature="4123:4270" placeholder="SELECT colle..medic..." />
-            <marker date="1449630427386" expanded="true" signature="5553:5626" placeholder="SELECT colle..medic..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6655" placeholder="SELECT id, d..medic..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6662" placeholder="SELECT id, d..episode..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6663" placeholder="SELECT id, d..episodes..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6684" placeholder="SELECT id, d..episodes..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6707" placeholder="SELECT id, d..episodes..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6715" placeholder="SELECT id, d..episodes..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6726" placeholder="SELECT id, d..episodes..." />
-            <marker date="1449630427386" expanded="true" signature="7809:7884" placeholder="SELECT COUNT..medic..." />
-            <marker date="1449630427386" expanded="true" signature="8606:8675" placeholder="SELECT COUNT..patient..." />
-            <marker date="1449630427386" expanded="true" signature="9404:9504" placeholder="SELECT COUNT..medic..." />
-            <marker date="1449630427386" expanded="true" signature="10243:10306" placeholder="SELECT COUNT..medic..." />
-            <marker date="1449630427386" expanded="true" signature="11098:11258" placeholder="UPDATE medic..." />
-            <marker date="1449630427386" expanded="true" signature="11975:12019" placeholder="DELETE FROM ..." />
-            <marker date="1449630427386" expanded="true" signature="12543:12727" placeholder="INSERT INTO ..." />
-            <marker date="1449630427386" expanded="true" signature="13517:13692" placeholder="SELECT P.cia..patient..." />
-            <marker date="1449630427386" expanded="true" signature="13517:13698" placeholder="SELECT P.cia..patient..." />
-            <marker date="1449630427386" expanded="true" signature="13517:13712" placeholder="SELECT P.cia..patient..." />
-            <marker date="1449630427386" expanded="true" signature="14770:14842" placeholder="INSERT INTO ..." />
-            <marker date="1449630427386" expanded="true" signature="14872:14927" placeholder="SELECT cias ..patient..." />
-            <marker date="1449630427386" expanded="true" signature="14953:15082" placeholder="INSERT INTO ..." />
-            <marker date="1449630427386" expanded="true" signature="14953:15123" placeholder="INSERT INTO ..." />
-            <marker date="1449630427386" expanded="true" signature="16576:16649" placeholder="SELECT colle..medic..." />
-            <marker date="1449630427386" expanded="true" signature="17282:17364" placeholder="UPDATE medic..." />
-            <marker date="1449630427386" expanded="true" signature="17912:17946" placeholder="DELETE FROM ..." />
-            <marker date="1449630427386" expanded="true" signature="17972:18009" placeholder="DELETE FROM ..." />
-            <marker date="1449630427386" expanded="true" signature="18035:18068" placeholder="DELETE FROM ..." />
-            <marker date="1449630427386" expanded="true" signature="18094:18182" placeholder="SELECT E.id ..episodes..." />
-            <marker date="1449630427386" expanded="true" signature="19390:19470" placeholder="INSERT INTO ..." />
-            <marker date="1449630427386" expanded="true" signature="19496:19526" placeholder="UPDATE visit..." />
+            <marker date="1449636097962" expanded="true" signature="2828:2847" placeholder="SELECT * FRO..medic..." />
+            <marker date="1449636097962" expanded="true" signature="4161:4308" placeholder="SELECT colle..medic..." />
+            <marker date="1449636097962" expanded="true" signature="5591:5712" placeholder="SELECT colle..medic..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6847" placeholder="SELECT id, d..medic..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6854" placeholder="SELECT id, d..episode..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6855" placeholder="SELECT id, d..episodes..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6876" placeholder="SELECT id, d..episodes..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6899" placeholder="SELECT id, d..episodes..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6907" placeholder="SELECT id, d..episodes..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6918" placeholder="SELECT id, d..episodes..." />
+            <marker date="1449636097962" expanded="true" signature="8001:8076" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449636097962" expanded="true" signature="8798:8867" placeholder="SELECT COUNT..patient..." />
+            <marker date="1449636097962" expanded="true" signature="9596:9696" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449636097962" expanded="true" signature="10435:10498" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449636097962" expanded="true" signature="11290:11450" placeholder="UPDATE medic..." />
+            <marker date="1449636097962" expanded="true" signature="12167:12211" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="12238:12294" placeholder="SELECT idPat..visit..." />
+            <marker date="1449636097962" expanded="true" signature="12320:12355" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="12381:12415" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="12441:12474" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="13968:14152" placeholder="INSERT INTO ..." />
+            <marker date="1449636097962" expanded="true" signature="14942:15130" placeholder="SELECT P.cia..patient..." />
+            <marker date="1449636097962" expanded="true" signature="14942:15136" placeholder="SELECT P.cia..patient..." />
+            <marker date="1449636097962" expanded="true" signature="14942:15150" placeholder="SELECT P.cia..patient..." />
+            <marker date="1449636097962" expanded="true" signature="16349:16421" placeholder="INSERT INTO ..." />
+            <marker date="1449636097962" expanded="true" signature="16451:16506" placeholder="SELECT cias ..patient..." />
+            <marker date="1449636097962" expanded="true" signature="16532:16661" placeholder="INSERT INTO ..." />
+            <marker date="1449636097962" expanded="true" signature="16532:16699" placeholder="INSERT INTO ..." />
+            <marker date="1449636097962" expanded="true" signature="18207:18280" placeholder="SELECT colle..medic..." />
+            <marker date="1449636097962" expanded="true" signature="18929:19011" placeholder="UPDATE medic..." />
+            <marker date="1449636097962" expanded="true" signature="19037:19067" placeholder="UPDATE visit..." />
+            <marker date="1449636097962" expanded="true" signature="19829:19863" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="19889:19926" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="19952:19985" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="20011:20099" placeholder="SELECT E.id ..episodes..." />
+            <marker date="1449636097962" expanded="true" signature="21307:21387" placeholder="INSERT INTO ..." />
+            <marker date="1449636097962" expanded="true" signature="21413:21443" placeholder="UPDATE visit..." />
+            <marker date="1449636097962" expanded="true" signature="21470:21637" placeholder="INSERT INTO ..." />
+            <marker date="1449636097962" expanded="true" signature="21663:21710" placeholder="SELECT idEpi..visit..." />
+            <marker date="1449636097962" expanded="true" signature="23617:23650" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="24025:24098" placeholder="SELECT cias,..patient..." />
+            <marker date="1449636097962" expanded="true" signature="25079:25154" placeholder="UPDATE episo..." />
           </folding>
         </state>
       </provider>
@@ -841,38 +871,48 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1449630427386" expanded="true" signature="2790:2809" placeholder="SELECT * FRO..medic..." />
-            <marker date="1449630427386" expanded="true" signature="4123:4270" placeholder="SELECT colle..medic..." />
-            <marker date="1449630427386" expanded="true" signature="5553:5626" placeholder="SELECT colle..medic..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6655" placeholder="SELECT id, d..medic..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6662" placeholder="SELECT id, d..episode..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6663" placeholder="SELECT id, d..episodes..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6684" placeholder="SELECT id, d..episodes..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6707" placeholder="SELECT id, d..episodes..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6715" placeholder="SELECT id, d..episodes..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6726" placeholder="SELECT id, d..episodes..." />
-            <marker date="1449630427386" expanded="true" signature="7809:7884" placeholder="SELECT COUNT..medic..." />
-            <marker date="1449630427386" expanded="true" signature="8606:8675" placeholder="SELECT COUNT..patient..." />
-            <marker date="1449630427386" expanded="true" signature="9404:9504" placeholder="SELECT COUNT..medic..." />
-            <marker date="1449630427386" expanded="true" signature="10243:10306" placeholder="SELECT COUNT..medic..." />
-            <marker date="1449630427386" expanded="true" signature="11098:11258" placeholder="UPDATE medic..." />
-            <marker date="1449630427386" expanded="true" signature="11975:12019" placeholder="DELETE FROM ..." />
-            <marker date="1449630427386" expanded="true" signature="12543:12727" placeholder="INSERT INTO ..." />
-            <marker date="1449630427386" expanded="true" signature="13517:13692" placeholder="SELECT P.cia..patient..." />
-            <marker date="1449630427386" expanded="true" signature="13517:13698" placeholder="SELECT P.cia..patient..." />
-            <marker date="1449630427386" expanded="true" signature="13517:13712" placeholder="SELECT P.cia..patient..." />
-            <marker date="1449630427386" expanded="true" signature="14770:14842" placeholder="INSERT INTO ..." />
-            <marker date="1449630427386" expanded="true" signature="14872:14927" placeholder="SELECT cias ..patient..." />
-            <marker date="1449630427386" expanded="true" signature="14953:15082" placeholder="INSERT INTO ..." />
-            <marker date="1449630427386" expanded="true" signature="14953:15123" placeholder="INSERT INTO ..." />
-            <marker date="1449630427386" expanded="true" signature="16576:16649" placeholder="SELECT colle..medic..." />
-            <marker date="1449630427386" expanded="true" signature="17282:17364" placeholder="UPDATE medic..." />
-            <marker date="1449630427386" expanded="true" signature="17912:17946" placeholder="DELETE FROM ..." />
-            <marker date="1449630427386" expanded="true" signature="17972:18009" placeholder="DELETE FROM ..." />
-            <marker date="1449630427386" expanded="true" signature="18035:18068" placeholder="DELETE FROM ..." />
-            <marker date="1449630427386" expanded="true" signature="18094:18182" placeholder="SELECT E.id ..episodes..." />
-            <marker date="1449630427386" expanded="true" signature="19390:19470" placeholder="INSERT INTO ..." />
-            <marker date="1449630427386" expanded="true" signature="19496:19526" placeholder="UPDATE visit..." />
+            <marker date="1449636097962" expanded="true" signature="2828:2847" placeholder="SELECT * FRO..medic..." />
+            <marker date="1449636097962" expanded="true" signature="4161:4308" placeholder="SELECT colle..medic..." />
+            <marker date="1449636097962" expanded="true" signature="5591:5712" placeholder="SELECT colle..medic..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6847" placeholder="SELECT id, d..medic..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6854" placeholder="SELECT id, d..episode..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6855" placeholder="SELECT id, d..episodes..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6876" placeholder="SELECT id, d..episodes..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6899" placeholder="SELECT id, d..episodes..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6907" placeholder="SELECT id, d..episodes..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6918" placeholder="SELECT id, d..episodes..." />
+            <marker date="1449636097962" expanded="true" signature="8001:8076" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449636097962" expanded="true" signature="8798:8867" placeholder="SELECT COUNT..patient..." />
+            <marker date="1449636097962" expanded="true" signature="9596:9696" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449636097962" expanded="true" signature="10435:10498" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449636097962" expanded="true" signature="11290:11450" placeholder="UPDATE medic..." />
+            <marker date="1449636097962" expanded="true" signature="12167:12211" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="12238:12294" placeholder="SELECT idPat..visit..." />
+            <marker date="1449636097962" expanded="true" signature="12320:12355" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="12381:12415" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="12441:12474" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="13968:14152" placeholder="INSERT INTO ..." />
+            <marker date="1449636097962" expanded="true" signature="14942:15130" placeholder="SELECT P.cia..patient..." />
+            <marker date="1449636097962" expanded="true" signature="14942:15136" placeholder="SELECT P.cia..patient..." />
+            <marker date="1449636097962" expanded="true" signature="14942:15150" placeholder="SELECT P.cia..patient..." />
+            <marker date="1449636097962" expanded="true" signature="16349:16421" placeholder="INSERT INTO ..." />
+            <marker date="1449636097962" expanded="true" signature="16451:16506" placeholder="SELECT cias ..patient..." />
+            <marker date="1449636097962" expanded="true" signature="16532:16661" placeholder="INSERT INTO ..." />
+            <marker date="1449636097962" expanded="true" signature="16532:16699" placeholder="INSERT INTO ..." />
+            <marker date="1449636097962" expanded="true" signature="18207:18280" placeholder="SELECT colle..medic..." />
+            <marker date="1449636097962" expanded="true" signature="18929:19011" placeholder="UPDATE medic..." />
+            <marker date="1449636097962" expanded="true" signature="19037:19067" placeholder="UPDATE visit..." />
+            <marker date="1449636097962" expanded="true" signature="19829:19863" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="19889:19926" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="19952:19985" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="20011:20099" placeholder="SELECT E.id ..episodes..." />
+            <marker date="1449636097962" expanded="true" signature="21307:21387" placeholder="INSERT INTO ..." />
+            <marker date="1449636097962" expanded="true" signature="21413:21443" placeholder="UPDATE visit..." />
+            <marker date="1449636097962" expanded="true" signature="21470:21637" placeholder="INSERT INTO ..." />
+            <marker date="1449636097962" expanded="true" signature="21663:21710" placeholder="SELECT idEpi..visit..." />
+            <marker date="1449636097962" expanded="true" signature="23617:23650" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="24025:24098" placeholder="SELECT cias,..patient..." />
+            <marker date="1449636097962" expanded="true" signature="25079:25154" placeholder="UPDATE episo..." />
           </folding>
         </state>
       </provider>
@@ -932,38 +972,48 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1449630427386" expanded="true" signature="2790:2809" placeholder="SELECT * FRO..medic..." />
-            <marker date="1449630427386" expanded="true" signature="4123:4270" placeholder="SELECT colle..medic..." />
-            <marker date="1449630427386" expanded="true" signature="5553:5626" placeholder="SELECT colle..medic..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6655" placeholder="SELECT id, d..medic..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6662" placeholder="SELECT id, d..episode..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6663" placeholder="SELECT id, d..episodes..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6684" placeholder="SELECT id, d..episodes..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6707" placeholder="SELECT id, d..episodes..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6715" placeholder="SELECT id, d..episodes..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6726" placeholder="SELECT id, d..episodes..." />
-            <marker date="1449630427386" expanded="true" signature="7809:7884" placeholder="SELECT COUNT..medic..." />
-            <marker date="1449630427386" expanded="true" signature="8606:8675" placeholder="SELECT COUNT..patient..." />
-            <marker date="1449630427386" expanded="true" signature="9404:9504" placeholder="SELECT COUNT..medic..." />
-            <marker date="1449630427386" expanded="true" signature="10243:10306" placeholder="SELECT COUNT..medic..." />
-            <marker date="1449630427386" expanded="true" signature="11098:11258" placeholder="UPDATE medic..." />
-            <marker date="1449630427386" expanded="true" signature="11975:12019" placeholder="DELETE FROM ..." />
-            <marker date="1449630427386" expanded="true" signature="12543:12727" placeholder="INSERT INTO ..." />
-            <marker date="1449630427386" expanded="true" signature="13517:13692" placeholder="SELECT P.cia..patient..." />
-            <marker date="1449630427386" expanded="true" signature="13517:13698" placeholder="SELECT P.cia..patient..." />
-            <marker date="1449630427386" expanded="true" signature="13517:13712" placeholder="SELECT P.cia..patient..." />
-            <marker date="1449630427386" expanded="true" signature="14770:14842" placeholder="INSERT INTO ..." />
-            <marker date="1449630427386" expanded="true" signature="14872:14927" placeholder="SELECT cias ..patient..." />
-            <marker date="1449630427386" expanded="true" signature="14953:15082" placeholder="INSERT INTO ..." />
-            <marker date="1449630427386" expanded="true" signature="14953:15123" placeholder="INSERT INTO ..." />
-            <marker date="1449630427386" expanded="true" signature="16576:16649" placeholder="SELECT colle..medic..." />
-            <marker date="1449630427386" expanded="true" signature="17282:17364" placeholder="UPDATE medic..." />
-            <marker date="1449630427386" expanded="true" signature="17912:17946" placeholder="DELETE FROM ..." />
-            <marker date="1449630427386" expanded="true" signature="17972:18009" placeholder="DELETE FROM ..." />
-            <marker date="1449630427386" expanded="true" signature="18035:18068" placeholder="DELETE FROM ..." />
-            <marker date="1449630427386" expanded="true" signature="18094:18182" placeholder="SELECT E.id ..episodes..." />
-            <marker date="1449630427386" expanded="true" signature="19390:19470" placeholder="INSERT INTO ..." />
-            <marker date="1449630427386" expanded="true" signature="19496:19526" placeholder="UPDATE visit..." />
+            <marker date="1449636097962" expanded="true" signature="2828:2847" placeholder="SELECT * FRO..medic..." />
+            <marker date="1449636097962" expanded="true" signature="4161:4308" placeholder="SELECT colle..medic..." />
+            <marker date="1449636097962" expanded="true" signature="5591:5712" placeholder="SELECT colle..medic..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6847" placeholder="SELECT id, d..medic..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6854" placeholder="SELECT id, d..episode..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6855" placeholder="SELECT id, d..episodes..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6876" placeholder="SELECT id, d..episodes..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6899" placeholder="SELECT id, d..episodes..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6907" placeholder="SELECT id, d..episodes..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6918" placeholder="SELECT id, d..episodes..." />
+            <marker date="1449636097962" expanded="true" signature="8001:8076" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449636097962" expanded="true" signature="8798:8867" placeholder="SELECT COUNT..patient..." />
+            <marker date="1449636097962" expanded="true" signature="9596:9696" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449636097962" expanded="true" signature="10435:10498" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449636097962" expanded="true" signature="11290:11450" placeholder="UPDATE medic..." />
+            <marker date="1449636097962" expanded="true" signature="12167:12211" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="12238:12294" placeholder="SELECT idPat..visit..." />
+            <marker date="1449636097962" expanded="true" signature="12320:12355" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="12381:12415" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="12441:12474" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="13968:14152" placeholder="INSERT INTO ..." />
+            <marker date="1449636097962" expanded="true" signature="14942:15130" placeholder="SELECT P.cia..patient..." />
+            <marker date="1449636097962" expanded="true" signature="14942:15136" placeholder="SELECT P.cia..patient..." />
+            <marker date="1449636097962" expanded="true" signature="14942:15150" placeholder="SELECT P.cia..patient..." />
+            <marker date="1449636097962" expanded="true" signature="16349:16421" placeholder="INSERT INTO ..." />
+            <marker date="1449636097962" expanded="true" signature="16451:16506" placeholder="SELECT cias ..patient..." />
+            <marker date="1449636097962" expanded="true" signature="16532:16661" placeholder="INSERT INTO ..." />
+            <marker date="1449636097962" expanded="true" signature="16532:16699" placeholder="INSERT INTO ..." />
+            <marker date="1449636097962" expanded="true" signature="18207:18280" placeholder="SELECT colle..medic..." />
+            <marker date="1449636097962" expanded="true" signature="18929:19011" placeholder="UPDATE medic..." />
+            <marker date="1449636097962" expanded="true" signature="19037:19067" placeholder="UPDATE visit..." />
+            <marker date="1449636097962" expanded="true" signature="19829:19863" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="19889:19926" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="19952:19985" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="20011:20099" placeholder="SELECT E.id ..episodes..." />
+            <marker date="1449636097962" expanded="true" signature="21307:21387" placeholder="INSERT INTO ..." />
+            <marker date="1449636097962" expanded="true" signature="21413:21443" placeholder="UPDATE visit..." />
+            <marker date="1449636097962" expanded="true" signature="21470:21637" placeholder="INSERT INTO ..." />
+            <marker date="1449636097962" expanded="true" signature="21663:21710" placeholder="SELECT idEpi..visit..." />
+            <marker date="1449636097962" expanded="true" signature="23617:23650" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="24025:24098" placeholder="SELECT cias,..patient..." />
+            <marker date="1449636097962" expanded="true" signature="25079:25154" placeholder="UPDATE episo..." />
           </folding>
         </state>
       </provider>
@@ -1026,38 +1076,48 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1449630427386" expanded="true" signature="2790:2809" placeholder="SELECT * FRO..medic..." />
-            <marker date="1449630427386" expanded="true" signature="4123:4270" placeholder="SELECT colle..medic..." />
-            <marker date="1449630427386" expanded="true" signature="5553:5626" placeholder="SELECT colle..medic..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6655" placeholder="SELECT id, d..medic..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6662" placeholder="SELECT id, d..episode..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6663" placeholder="SELECT id, d..episodes..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6684" placeholder="SELECT id, d..episodes..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6707" placeholder="SELECT id, d..episodes..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6715" placeholder="SELECT id, d..episodes..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6726" placeholder="SELECT id, d..episodes..." />
-            <marker date="1449630427386" expanded="true" signature="7809:7884" placeholder="SELECT COUNT..medic..." />
-            <marker date="1449630427386" expanded="true" signature="8606:8675" placeholder="SELECT COUNT..patient..." />
-            <marker date="1449630427386" expanded="true" signature="9404:9504" placeholder="SELECT COUNT..medic..." />
-            <marker date="1449630427386" expanded="true" signature="10243:10306" placeholder="SELECT COUNT..medic..." />
-            <marker date="1449630427386" expanded="true" signature="11098:11258" placeholder="UPDATE medic..." />
-            <marker date="1449630427386" expanded="true" signature="11975:12019" placeholder="DELETE FROM ..." />
-            <marker date="1449630427386" expanded="true" signature="12543:12727" placeholder="INSERT INTO ..." />
-            <marker date="1449630427386" expanded="true" signature="13517:13692" placeholder="SELECT P.cia..patient..." />
-            <marker date="1449630427386" expanded="true" signature="13517:13698" placeholder="SELECT P.cia..patient..." />
-            <marker date="1449630427386" expanded="true" signature="13517:13712" placeholder="SELECT P.cia..patient..." />
-            <marker date="1449630427386" expanded="true" signature="14770:14842" placeholder="INSERT INTO ..." />
-            <marker date="1449630427386" expanded="true" signature="14872:14927" placeholder="SELECT cias ..patient..." />
-            <marker date="1449630427386" expanded="true" signature="14953:15082" placeholder="INSERT INTO ..." />
-            <marker date="1449630427386" expanded="true" signature="14953:15123" placeholder="INSERT INTO ..." />
-            <marker date="1449630427386" expanded="true" signature="16576:16649" placeholder="SELECT colle..medic..." />
-            <marker date="1449630427386" expanded="true" signature="17282:17364" placeholder="UPDATE medic..." />
-            <marker date="1449630427386" expanded="true" signature="17912:17946" placeholder="DELETE FROM ..." />
-            <marker date="1449630427386" expanded="true" signature="17972:18009" placeholder="DELETE FROM ..." />
-            <marker date="1449630427386" expanded="true" signature="18035:18068" placeholder="DELETE FROM ..." />
-            <marker date="1449630427386" expanded="true" signature="18094:18182" placeholder="SELECT E.id ..episodes..." />
-            <marker date="1449630427386" expanded="true" signature="19390:19470" placeholder="INSERT INTO ..." />
-            <marker date="1449630427386" expanded="true" signature="19496:19526" placeholder="UPDATE visit..." />
+            <marker date="1449636097962" expanded="true" signature="2828:2847" placeholder="SELECT * FRO..medic..." />
+            <marker date="1449636097962" expanded="true" signature="4161:4308" placeholder="SELECT colle..medic..." />
+            <marker date="1449636097962" expanded="true" signature="5591:5712" placeholder="SELECT colle..medic..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6847" placeholder="SELECT id, d..medic..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6854" placeholder="SELECT id, d..episode..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6855" placeholder="SELECT id, d..episodes..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6876" placeholder="SELECT id, d..episodes..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6899" placeholder="SELECT id, d..episodes..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6907" placeholder="SELECT id, d..episodes..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6918" placeholder="SELECT id, d..episodes..." />
+            <marker date="1449636097962" expanded="true" signature="8001:8076" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449636097962" expanded="true" signature="8798:8867" placeholder="SELECT COUNT..patient..." />
+            <marker date="1449636097962" expanded="true" signature="9596:9696" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449636097962" expanded="true" signature="10435:10498" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449636097962" expanded="true" signature="11290:11450" placeholder="UPDATE medic..." />
+            <marker date="1449636097962" expanded="true" signature="12167:12211" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="12238:12294" placeholder="SELECT idPat..visit..." />
+            <marker date="1449636097962" expanded="true" signature="12320:12355" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="12381:12415" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="12441:12474" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="13968:14152" placeholder="INSERT INTO ..." />
+            <marker date="1449636097962" expanded="true" signature="14942:15130" placeholder="SELECT P.cia..patient..." />
+            <marker date="1449636097962" expanded="true" signature="14942:15136" placeholder="SELECT P.cia..patient..." />
+            <marker date="1449636097962" expanded="true" signature="14942:15150" placeholder="SELECT P.cia..patient..." />
+            <marker date="1449636097962" expanded="true" signature="16349:16421" placeholder="INSERT INTO ..." />
+            <marker date="1449636097962" expanded="true" signature="16451:16506" placeholder="SELECT cias ..patient..." />
+            <marker date="1449636097962" expanded="true" signature="16532:16661" placeholder="INSERT INTO ..." />
+            <marker date="1449636097962" expanded="true" signature="16532:16699" placeholder="INSERT INTO ..." />
+            <marker date="1449636097962" expanded="true" signature="18207:18280" placeholder="SELECT colle..medic..." />
+            <marker date="1449636097962" expanded="true" signature="18929:19011" placeholder="UPDATE medic..." />
+            <marker date="1449636097962" expanded="true" signature="19037:19067" placeholder="UPDATE visit..." />
+            <marker date="1449636097962" expanded="true" signature="19829:19863" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="19889:19926" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="19952:19985" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="20011:20099" placeholder="SELECT E.id ..episodes..." />
+            <marker date="1449636097962" expanded="true" signature="21307:21387" placeholder="INSERT INTO ..." />
+            <marker date="1449636097962" expanded="true" signature="21413:21443" placeholder="UPDATE visit..." />
+            <marker date="1449636097962" expanded="true" signature="21470:21637" placeholder="INSERT INTO ..." />
+            <marker date="1449636097962" expanded="true" signature="21663:21710" placeholder="SELECT idEpi..visit..." />
+            <marker date="1449636097962" expanded="true" signature="23617:23650" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="24025:24098" placeholder="SELECT cias,..patient..." />
+            <marker date="1449636097962" expanded="true" signature="25079:25154" placeholder="UPDATE episo..." />
           </folding>
         </state>
       </provider>
@@ -1093,38 +1153,48 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1449630427386" expanded="true" signature="2790:2809" placeholder="SELECT * FRO..medic..." />
-            <marker date="1449630427386" expanded="true" signature="4123:4270" placeholder="SELECT colle..medic..." />
-            <marker date="1449630427386" expanded="true" signature="5553:5626" placeholder="SELECT colle..medic..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6655" placeholder="SELECT id, d..medic..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6662" placeholder="SELECT id, d..episode..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6663" placeholder="SELECT id, d..episodes..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6684" placeholder="SELECT id, d..episodes..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6707" placeholder="SELECT id, d..episodes..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6715" placeholder="SELECT id, d..episodes..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6726" placeholder="SELECT id, d..episodes..." />
-            <marker date="1449630427386" expanded="true" signature="7809:7884" placeholder="SELECT COUNT..medic..." />
-            <marker date="1449630427386" expanded="true" signature="8606:8675" placeholder="SELECT COUNT..patient..." />
-            <marker date="1449630427386" expanded="true" signature="9404:9504" placeholder="SELECT COUNT..medic..." />
-            <marker date="1449630427386" expanded="true" signature="10243:10306" placeholder="SELECT COUNT..medic..." />
-            <marker date="1449630427386" expanded="true" signature="11098:11258" placeholder="UPDATE medic..." />
-            <marker date="1449630427386" expanded="true" signature="11975:12019" placeholder="DELETE FROM ..." />
-            <marker date="1449630427386" expanded="true" signature="12543:12727" placeholder="INSERT INTO ..." />
-            <marker date="1449630427386" expanded="true" signature="13517:13692" placeholder="SELECT P.cia..patient..." />
-            <marker date="1449630427386" expanded="true" signature="13517:13698" placeholder="SELECT P.cia..patient..." />
-            <marker date="1449630427386" expanded="true" signature="13517:13712" placeholder="SELECT P.cia..patient..." />
-            <marker date="1449630427386" expanded="true" signature="14770:14842" placeholder="INSERT INTO ..." />
-            <marker date="1449630427386" expanded="true" signature="14872:14927" placeholder="SELECT cias ..patient..." />
-            <marker date="1449630427386" expanded="true" signature="14953:15082" placeholder="INSERT INTO ..." />
-            <marker date="1449630427386" expanded="true" signature="14953:15123" placeholder="INSERT INTO ..." />
-            <marker date="1449630427386" expanded="true" signature="16576:16649" placeholder="SELECT colle..medic..." />
-            <marker date="1449630427386" expanded="true" signature="17282:17364" placeholder="UPDATE medic..." />
-            <marker date="1449630427386" expanded="true" signature="17912:17946" placeholder="DELETE FROM ..." />
-            <marker date="1449630427386" expanded="true" signature="17972:18009" placeholder="DELETE FROM ..." />
-            <marker date="1449630427386" expanded="true" signature="18035:18068" placeholder="DELETE FROM ..." />
-            <marker date="1449630427386" expanded="true" signature="18094:18182" placeholder="SELECT E.id ..episodes..." />
-            <marker date="1449630427386" expanded="true" signature="19390:19470" placeholder="INSERT INTO ..." />
-            <marker date="1449630427386" expanded="true" signature="19496:19526" placeholder="UPDATE visit..." />
+            <marker date="1449636097962" expanded="true" signature="2828:2847" placeholder="SELECT * FRO..medic..." />
+            <marker date="1449636097962" expanded="true" signature="4161:4308" placeholder="SELECT colle..medic..." />
+            <marker date="1449636097962" expanded="true" signature="5591:5712" placeholder="SELECT colle..medic..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6847" placeholder="SELECT id, d..medic..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6854" placeholder="SELECT id, d..episode..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6855" placeholder="SELECT id, d..episodes..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6876" placeholder="SELECT id, d..episodes..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6899" placeholder="SELECT id, d..episodes..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6907" placeholder="SELECT id, d..episodes..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6918" placeholder="SELECT id, d..episodes..." />
+            <marker date="1449636097962" expanded="true" signature="8001:8076" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449636097962" expanded="true" signature="8798:8867" placeholder="SELECT COUNT..patient..." />
+            <marker date="1449636097962" expanded="true" signature="9596:9696" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449636097962" expanded="true" signature="10435:10498" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449636097962" expanded="true" signature="11290:11450" placeholder="UPDATE medic..." />
+            <marker date="1449636097962" expanded="true" signature="12167:12211" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="12238:12294" placeholder="SELECT idPat..visit..." />
+            <marker date="1449636097962" expanded="true" signature="12320:12355" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="12381:12415" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="12441:12474" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="13968:14152" placeholder="INSERT INTO ..." />
+            <marker date="1449636097962" expanded="true" signature="14942:15130" placeholder="SELECT P.cia..patient..." />
+            <marker date="1449636097962" expanded="true" signature="14942:15136" placeholder="SELECT P.cia..patient..." />
+            <marker date="1449636097962" expanded="true" signature="14942:15150" placeholder="SELECT P.cia..patient..." />
+            <marker date="1449636097962" expanded="true" signature="16349:16421" placeholder="INSERT INTO ..." />
+            <marker date="1449636097962" expanded="true" signature="16451:16506" placeholder="SELECT cias ..patient..." />
+            <marker date="1449636097962" expanded="true" signature="16532:16661" placeholder="INSERT INTO ..." />
+            <marker date="1449636097962" expanded="true" signature="16532:16699" placeholder="INSERT INTO ..." />
+            <marker date="1449636097962" expanded="true" signature="18207:18280" placeholder="SELECT colle..medic..." />
+            <marker date="1449636097962" expanded="true" signature="18929:19011" placeholder="UPDATE medic..." />
+            <marker date="1449636097962" expanded="true" signature="19037:19067" placeholder="UPDATE visit..." />
+            <marker date="1449636097962" expanded="true" signature="19829:19863" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="19889:19926" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="19952:19985" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="20011:20099" placeholder="SELECT E.id ..episodes..." />
+            <marker date="1449636097962" expanded="true" signature="21307:21387" placeholder="INSERT INTO ..." />
+            <marker date="1449636097962" expanded="true" signature="21413:21443" placeholder="UPDATE visit..." />
+            <marker date="1449636097962" expanded="true" signature="21470:21637" placeholder="INSERT INTO ..." />
+            <marker date="1449636097962" expanded="true" signature="21663:21710" placeholder="SELECT idEpi..visit..." />
+            <marker date="1449636097962" expanded="true" signature="23617:23650" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="24025:24098" placeholder="SELECT cias,..patient..." />
+            <marker date="1449636097962" expanded="true" signature="25079:25154" placeholder="UPDATE episo..." />
           </folding>
         </state>
       </provider>
@@ -1160,38 +1230,48 @@
           <caret line="854" column="38" selection-start-line="854" selection-start-column="38" selection-end-line="854" selection-end-column="38" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1449630427386" expanded="true" signature="2790:2809" placeholder="SELECT * FRO..medic..." />
-            <marker date="1449630427386" expanded="true" signature="4123:4270" placeholder="SELECT colle..medic..." />
-            <marker date="1449630427386" expanded="true" signature="5553:5626" placeholder="SELECT colle..medic..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6655" placeholder="SELECT id, d..medic..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6662" placeholder="SELECT id, d..episode..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6663" placeholder="SELECT id, d..episodes..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6684" placeholder="SELECT id, d..episodes..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6707" placeholder="SELECT id, d..episodes..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6715" placeholder="SELECT id, d..episodes..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6726" placeholder="SELECT id, d..episodes..." />
-            <marker date="1449630427386" expanded="true" signature="7809:7884" placeholder="SELECT COUNT..medic..." />
-            <marker date="1449630427386" expanded="true" signature="8606:8675" placeholder="SELECT COUNT..patient..." />
-            <marker date="1449630427386" expanded="true" signature="9404:9504" placeholder="SELECT COUNT..medic..." />
-            <marker date="1449630427386" expanded="true" signature="10243:10306" placeholder="SELECT COUNT..medic..." />
-            <marker date="1449630427386" expanded="true" signature="11098:11258" placeholder="UPDATE medic..." />
-            <marker date="1449630427386" expanded="true" signature="11975:12019" placeholder="DELETE FROM ..." />
-            <marker date="1449630427386" expanded="true" signature="12543:12727" placeholder="INSERT INTO ..." />
-            <marker date="1449630427386" expanded="true" signature="13517:13692" placeholder="SELECT P.cia..patient..." />
-            <marker date="1449630427386" expanded="true" signature="13517:13698" placeholder="SELECT P.cia..patient..." />
-            <marker date="1449630427386" expanded="true" signature="13517:13712" placeholder="SELECT P.cia..patient..." />
-            <marker date="1449630427386" expanded="true" signature="14770:14842" placeholder="INSERT INTO ..." />
-            <marker date="1449630427386" expanded="true" signature="14872:14927" placeholder="SELECT cias ..patient..." />
-            <marker date="1449630427386" expanded="true" signature="14953:15082" placeholder="INSERT INTO ..." />
-            <marker date="1449630427386" expanded="true" signature="14953:15123" placeholder="INSERT INTO ..." />
-            <marker date="1449630427386" expanded="true" signature="16576:16649" placeholder="SELECT colle..medic..." />
-            <marker date="1449630427386" expanded="true" signature="17282:17364" placeholder="UPDATE medic..." />
-            <marker date="1449630427386" expanded="true" signature="17912:17946" placeholder="DELETE FROM ..." />
-            <marker date="1449630427386" expanded="true" signature="17972:18009" placeholder="DELETE FROM ..." />
-            <marker date="1449630427386" expanded="true" signature="18035:18068" placeholder="DELETE FROM ..." />
-            <marker date="1449630427386" expanded="true" signature="18094:18182" placeholder="SELECT E.id ..episodes..." />
-            <marker date="1449630427386" expanded="true" signature="19390:19470" placeholder="INSERT INTO ..." />
-            <marker date="1449630427386" expanded="true" signature="19496:19526" placeholder="UPDATE visit..." />
+            <marker date="1449636097962" expanded="true" signature="2828:2847" placeholder="SELECT * FRO..medic..." />
+            <marker date="1449636097962" expanded="true" signature="4161:4308" placeholder="SELECT colle..medic..." />
+            <marker date="1449636097962" expanded="true" signature="5591:5712" placeholder="SELECT colle..medic..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6847" placeholder="SELECT id, d..medic..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6854" placeholder="SELECT id, d..episode..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6855" placeholder="SELECT id, d..episodes..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6876" placeholder="SELECT id, d..episodes..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6899" placeholder="SELECT id, d..episodes..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6907" placeholder="SELECT id, d..episodes..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6918" placeholder="SELECT id, d..episodes..." />
+            <marker date="1449636097962" expanded="true" signature="8001:8076" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449636097962" expanded="true" signature="8798:8867" placeholder="SELECT COUNT..patient..." />
+            <marker date="1449636097962" expanded="true" signature="9596:9696" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449636097962" expanded="true" signature="10435:10498" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449636097962" expanded="true" signature="11290:11450" placeholder="UPDATE medic..." />
+            <marker date="1449636097962" expanded="true" signature="12167:12211" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="12238:12294" placeholder="SELECT idPat..visit..." />
+            <marker date="1449636097962" expanded="true" signature="12320:12355" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="12381:12415" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="12441:12474" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="13968:14152" placeholder="INSERT INTO ..." />
+            <marker date="1449636097962" expanded="true" signature="14942:15130" placeholder="SELECT P.cia..patient..." />
+            <marker date="1449636097962" expanded="true" signature="14942:15136" placeholder="SELECT P.cia..patient..." />
+            <marker date="1449636097962" expanded="true" signature="14942:15150" placeholder="SELECT P.cia..patient..." />
+            <marker date="1449636097962" expanded="true" signature="16349:16421" placeholder="INSERT INTO ..." />
+            <marker date="1449636097962" expanded="true" signature="16451:16506" placeholder="SELECT cias ..patient..." />
+            <marker date="1449636097962" expanded="true" signature="16532:16661" placeholder="INSERT INTO ..." />
+            <marker date="1449636097962" expanded="true" signature="16532:16699" placeholder="INSERT INTO ..." />
+            <marker date="1449636097962" expanded="true" signature="18207:18280" placeholder="SELECT colle..medic..." />
+            <marker date="1449636097962" expanded="true" signature="18929:19011" placeholder="UPDATE medic..." />
+            <marker date="1449636097962" expanded="true" signature="19037:19067" placeholder="UPDATE visit..." />
+            <marker date="1449636097962" expanded="true" signature="19829:19863" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="19889:19926" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="19952:19985" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="20011:20099" placeholder="SELECT E.id ..episodes..." />
+            <marker date="1449636097962" expanded="true" signature="21307:21387" placeholder="INSERT INTO ..." />
+            <marker date="1449636097962" expanded="true" signature="21413:21443" placeholder="UPDATE visit..." />
+            <marker date="1449636097962" expanded="true" signature="21470:21637" placeholder="INSERT INTO ..." />
+            <marker date="1449636097962" expanded="true" signature="21663:21710" placeholder="SELECT idEpi..visit..." />
+            <marker date="1449636097962" expanded="true" signature="23617:23650" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="24025:24098" placeholder="SELECT cias,..patient..." />
+            <marker date="1449636097962" expanded="true" signature="25079:25154" placeholder="UPDATE episo..." />
           </folding>
         </state>
       </provider>
@@ -1227,38 +1307,48 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1449630427386" expanded="true" signature="2790:2809" placeholder="SELECT * FRO..medic..." />
-            <marker date="1449630427386" expanded="true" signature="4123:4270" placeholder="SELECT colle..medic..." />
-            <marker date="1449630427386" expanded="true" signature="5553:5626" placeholder="SELECT colle..medic..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6655" placeholder="SELECT id, d..medic..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6662" placeholder="SELECT id, d..episode..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6663" placeholder="SELECT id, d..episodes..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6684" placeholder="SELECT id, d..episodes..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6707" placeholder="SELECT id, d..episodes..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6715" placeholder="SELECT id, d..episodes..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6726" placeholder="SELECT id, d..episodes..." />
-            <marker date="1449630427386" expanded="true" signature="7809:7884" placeholder="SELECT COUNT..medic..." />
-            <marker date="1449630427386" expanded="true" signature="8606:8675" placeholder="SELECT COUNT..patient..." />
-            <marker date="1449630427386" expanded="true" signature="9404:9504" placeholder="SELECT COUNT..medic..." />
-            <marker date="1449630427386" expanded="true" signature="10243:10306" placeholder="SELECT COUNT..medic..." />
-            <marker date="1449630427386" expanded="true" signature="11098:11258" placeholder="UPDATE medic..." />
-            <marker date="1449630427386" expanded="true" signature="11975:12019" placeholder="DELETE FROM ..." />
-            <marker date="1449630427386" expanded="true" signature="12543:12727" placeholder="INSERT INTO ..." />
-            <marker date="1449630427386" expanded="true" signature="13517:13692" placeholder="SELECT P.cia..patient..." />
-            <marker date="1449630427386" expanded="true" signature="13517:13698" placeholder="SELECT P.cia..patient..." />
-            <marker date="1449630427386" expanded="true" signature="13517:13712" placeholder="SELECT P.cia..patient..." />
-            <marker date="1449630427386" expanded="true" signature="14770:14842" placeholder="INSERT INTO ..." />
-            <marker date="1449630427386" expanded="true" signature="14872:14927" placeholder="SELECT cias ..patient..." />
-            <marker date="1449630427386" expanded="true" signature="14953:15082" placeholder="INSERT INTO ..." />
-            <marker date="1449630427386" expanded="true" signature="14953:15123" placeholder="INSERT INTO ..." />
-            <marker date="1449630427386" expanded="true" signature="16576:16649" placeholder="SELECT colle..medic..." />
-            <marker date="1449630427386" expanded="true" signature="17282:17364" placeholder="UPDATE medic..." />
-            <marker date="1449630427386" expanded="true" signature="17912:17946" placeholder="DELETE FROM ..." />
-            <marker date="1449630427386" expanded="true" signature="17972:18009" placeholder="DELETE FROM ..." />
-            <marker date="1449630427386" expanded="true" signature="18035:18068" placeholder="DELETE FROM ..." />
-            <marker date="1449630427386" expanded="true" signature="18094:18182" placeholder="SELECT E.id ..episodes..." />
-            <marker date="1449630427386" expanded="true" signature="19390:19470" placeholder="INSERT INTO ..." />
-            <marker date="1449630427386" expanded="true" signature="19496:19526" placeholder="UPDATE visit..." />
+            <marker date="1449636097962" expanded="true" signature="2828:2847" placeholder="SELECT * FRO..medic..." />
+            <marker date="1449636097962" expanded="true" signature="4161:4308" placeholder="SELECT colle..medic..." />
+            <marker date="1449636097962" expanded="true" signature="5591:5712" placeholder="SELECT colle..medic..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6847" placeholder="SELECT id, d..medic..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6854" placeholder="SELECT id, d..episode..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6855" placeholder="SELECT id, d..episodes..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6876" placeholder="SELECT id, d..episodes..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6899" placeholder="SELECT id, d..episodes..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6907" placeholder="SELECT id, d..episodes..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6918" placeholder="SELECT id, d..episodes..." />
+            <marker date="1449636097962" expanded="true" signature="8001:8076" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449636097962" expanded="true" signature="8798:8867" placeholder="SELECT COUNT..patient..." />
+            <marker date="1449636097962" expanded="true" signature="9596:9696" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449636097962" expanded="true" signature="10435:10498" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449636097962" expanded="true" signature="11290:11450" placeholder="UPDATE medic..." />
+            <marker date="1449636097962" expanded="true" signature="12167:12211" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="12238:12294" placeholder="SELECT idPat..visit..." />
+            <marker date="1449636097962" expanded="true" signature="12320:12355" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="12381:12415" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="12441:12474" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="13968:14152" placeholder="INSERT INTO ..." />
+            <marker date="1449636097962" expanded="true" signature="14942:15130" placeholder="SELECT P.cia..patient..." />
+            <marker date="1449636097962" expanded="true" signature="14942:15136" placeholder="SELECT P.cia..patient..." />
+            <marker date="1449636097962" expanded="true" signature="14942:15150" placeholder="SELECT P.cia..patient..." />
+            <marker date="1449636097962" expanded="true" signature="16349:16421" placeholder="INSERT INTO ..." />
+            <marker date="1449636097962" expanded="true" signature="16451:16506" placeholder="SELECT cias ..patient..." />
+            <marker date="1449636097962" expanded="true" signature="16532:16661" placeholder="INSERT INTO ..." />
+            <marker date="1449636097962" expanded="true" signature="16532:16699" placeholder="INSERT INTO ..." />
+            <marker date="1449636097962" expanded="true" signature="18207:18280" placeholder="SELECT colle..medic..." />
+            <marker date="1449636097962" expanded="true" signature="18929:19011" placeholder="UPDATE medic..." />
+            <marker date="1449636097962" expanded="true" signature="19037:19067" placeholder="UPDATE visit..." />
+            <marker date="1449636097962" expanded="true" signature="19829:19863" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="19889:19926" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="19952:19985" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="20011:20099" placeholder="SELECT E.id ..episodes..." />
+            <marker date="1449636097962" expanded="true" signature="21307:21387" placeholder="INSERT INTO ..." />
+            <marker date="1449636097962" expanded="true" signature="21413:21443" placeholder="UPDATE visit..." />
+            <marker date="1449636097962" expanded="true" signature="21470:21637" placeholder="INSERT INTO ..." />
+            <marker date="1449636097962" expanded="true" signature="21663:21710" placeholder="SELECT idEpi..visit..." />
+            <marker date="1449636097962" expanded="true" signature="23617:23650" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="24025:24098" placeholder="SELECT cias,..patient..." />
+            <marker date="1449636097962" expanded="true" signature="25079:25154" placeholder="UPDATE episo..." />
           </folding>
         </state>
       </provider>
@@ -1371,16 +1461,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/dam/practic2/View/Window.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="158" column="28" selection-start-line="158" selection-start-column="28" selection-end-line="158" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://D:/Program Files/Java/jdk1.8.0_65/src.zip!/javax/swing/DefaultListSelectionModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.78031635">
@@ -1399,6 +1479,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://D:/Program Files/Java/jdk1.8.0_65/src.zip!/java/security/ProtectionDomain.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="85" column="0" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/dam/practic2/View/Window.form">
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1410,62 +1498,74 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/dam/practic2/Controller/Controller.java">
+    <entry file="file://$PROJECT_DIR$/src/com/dam/practic2/View/Window.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="411" column="45" selection-start-line="411" selection-start-column="32" selection-end-line="411" selection-end-column="45" />
+          <caret line="89" column="10" selection-start-line="89" selection-start-column="10" selection-end-line="89" selection-end-column="10" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://D:/Program Files/Java/jdk1.8.0_65/src.zip!/java/security/ProtectionDomain.java">
+    <entry file="file://$PROJECT_DIR$/src/com/dam/practic2/Controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="85" column="0" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
-          <folding />
+          <caret line="368" column="245" selection-start-line="368" selection-start-column="245" selection-end-line="368" selection-end-column="245" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/dam/practic2/Model/Methods/Methods.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.75043935">
-          <caret line="592" column="49" selection-start-line="592" selection-start-column="49" selection-end-line="592" selection-end-column="49" />
+        <state vertical-scroll-proportion="-4.7557116">
+          <caret line="571" column="62" selection-start-line="571" selection-start-column="62" selection-end-line="571" selection-end-column="62" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1449630427386" expanded="true" signature="2790:2809" placeholder="SELECT * FRO..medic..." />
-            <marker date="1449630427386" expanded="true" signature="4123:4270" placeholder="SELECT colle..medic..." />
-            <marker date="1449630427386" expanded="true" signature="5553:5626" placeholder="SELECT colle..medic..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6655" placeholder="SELECT id, d..medic..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6662" placeholder="SELECT id, d..episode..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6663" placeholder="SELECT id, d..episodes..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6684" placeholder="SELECT id, d..episodes..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6707" placeholder="SELECT id, d..episodes..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6715" placeholder="SELECT id, d..episodes..." />
-            <marker date="1449630427386" expanded="true" signature="6599:6726" placeholder="SELECT id, d..episodes..." />
-            <marker date="1449630427386" expanded="true" signature="7809:7884" placeholder="SELECT COUNT..medic..." />
-            <marker date="1449630427386" expanded="true" signature="8606:8675" placeholder="SELECT COUNT..patient..." />
-            <marker date="1449630427386" expanded="true" signature="9404:9504" placeholder="SELECT COUNT..medic..." />
-            <marker date="1449630427386" expanded="true" signature="10243:10306" placeholder="SELECT COUNT..medic..." />
-            <marker date="1449630427386" expanded="true" signature="11098:11258" placeholder="UPDATE medic..." />
-            <marker date="1449630427386" expanded="true" signature="11975:12019" placeholder="DELETE FROM ..." />
-            <marker date="1449630427386" expanded="true" signature="12543:12727" placeholder="INSERT INTO ..." />
-            <marker date="1449630427386" expanded="true" signature="13517:13692" placeholder="SELECT P.cia..patient..." />
-            <marker date="1449630427386" expanded="true" signature="13517:13698" placeholder="SELECT P.cia..patient..." />
-            <marker date="1449630427386" expanded="true" signature="13517:13712" placeholder="SELECT P.cia..patient..." />
-            <marker date="1449630427386" expanded="true" signature="14770:14842" placeholder="INSERT INTO ..." />
-            <marker date="1449630427386" expanded="true" signature="14872:14927" placeholder="SELECT cias ..patient..." />
-            <marker date="1449630427386" expanded="true" signature="14953:15082" placeholder="INSERT INTO ..." />
-            <marker date="1449630427386" expanded="true" signature="14953:15123" placeholder="INSERT INTO ..." />
-            <marker date="1449630427386" expanded="true" signature="16576:16649" placeholder="SELECT colle..medic..." />
-            <marker date="1449630427386" expanded="true" signature="17282:17364" placeholder="UPDATE medic..." />
-            <marker date="1449630427386" expanded="true" signature="17912:17946" placeholder="DELETE FROM ..." />
-            <marker date="1449630427386" expanded="true" signature="17972:18009" placeholder="DELETE FROM ..." />
-            <marker date="1449630427386" expanded="true" signature="18035:18068" placeholder="DELETE FROM ..." />
-            <marker date="1449630427386" expanded="true" signature="18094:18182" placeholder="SELECT E.id ..episodes..." />
-            <marker date="1449630427386" expanded="true" signature="19390:19470" placeholder="INSERT INTO ..." />
-            <marker date="1449630427386" expanded="true" signature="19496:19526" placeholder="UPDATE visit..." />
+            <marker date="1449636097962" expanded="true" signature="2828:2847" placeholder="SELECT * FRO..medic..." />
+            <marker date="1449636097962" expanded="true" signature="4161:4308" placeholder="SELECT colle..medic..." />
+            <marker date="1449636097962" expanded="true" signature="5591:5712" placeholder="SELECT colle..medic..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6847" placeholder="SELECT id, d..medic..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6854" placeholder="SELECT id, d..episode..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6855" placeholder="SELECT id, d..episodes..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6876" placeholder="SELECT id, d..episodes..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6899" placeholder="SELECT id, d..episodes..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6907" placeholder="SELECT id, d..episodes..." />
+            <marker date="1449636097962" expanded="true" signature="6791:6918" placeholder="SELECT id, d..episodes..." />
+            <marker date="1449636097962" expanded="true" signature="8001:8076" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449636097962" expanded="true" signature="8798:8867" placeholder="SELECT COUNT..patient..." />
+            <marker date="1449636097962" expanded="true" signature="9596:9696" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449636097962" expanded="true" signature="10435:10498" placeholder="SELECT COUNT..medic..." />
+            <marker date="1449636097962" expanded="true" signature="11290:11450" placeholder="UPDATE medic..." />
+            <marker date="1449636097962" expanded="true" signature="12167:12211" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="12238:12294" placeholder="SELECT idPat..visit..." />
+            <marker date="1449636097962" expanded="true" signature="12320:12355" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="12381:12415" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="12441:12474" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="13968:14152" placeholder="INSERT INTO ..." />
+            <marker date="1449636097962" expanded="true" signature="14942:15130" placeholder="SELECT P.cia..patient..." />
+            <marker date="1449636097962" expanded="true" signature="14942:15136" placeholder="SELECT P.cia..patient..." />
+            <marker date="1449636097962" expanded="true" signature="14942:15150" placeholder="SELECT P.cia..patient..." />
+            <marker date="1449636097962" expanded="true" signature="16349:16421" placeholder="INSERT INTO ..." />
+            <marker date="1449636097962" expanded="true" signature="16451:16506" placeholder="SELECT cias ..patient..." />
+            <marker date="1449636097962" expanded="true" signature="16532:16661" placeholder="INSERT INTO ..." />
+            <marker date="1449636097962" expanded="true" signature="16532:16699" placeholder="INSERT INTO ..." />
+            <marker date="1449636097962" expanded="true" signature="18207:18280" placeholder="SELECT colle..medic..." />
+            <marker date="1449636097962" expanded="true" signature="18929:19011" placeholder="UPDATE medic..." />
+            <marker date="1449636097962" expanded="true" signature="19037:19067" placeholder="UPDATE visit..." />
+            <marker date="1449636097962" expanded="true" signature="19829:19863" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="19889:19926" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="19952:19985" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="20011:20099" placeholder="SELECT E.id ..episodes..." />
+            <marker date="1449636097962" expanded="true" signature="21307:21387" placeholder="INSERT INTO ..." />
+            <marker date="1449636097962" expanded="true" signature="21413:21443" placeholder="UPDATE visit..." />
+            <marker date="1449636097962" expanded="true" signature="21470:21637" placeholder="INSERT INTO ..." />
+            <marker date="1449636097962" expanded="true" signature="21663:21710" placeholder="SELECT idEpi..visit..." />
+            <marker date="1449636097962" expanded="true" signature="23617:23650" placeholder="DELETE FROM ..." />
+            <marker date="1449636097962" expanded="true" signature="24025:24098" placeholder="SELECT cias,..patient..." />
+            <marker date="1449636097962" expanded="true" signature="25079:25154" placeholder="UPDATE episo..." />
           </folding>
         </state>
       </provider>
