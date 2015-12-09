@@ -34,19 +34,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Methods.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Methods.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/dam/practic2/Model/Methods/Methods.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.24253076">
-              <caret line="652" column="49" selection-start-line="652" selection-start-column="49" selection-end-line="652" selection-end-column="49" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="185" column="22" selection-start-line="185" selection-start-column="22" selection-end-line="185" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <marker date="1449650288785" expanded="true" signature="2802:2821" placeholder="SELECT * FRO..medic..." />
                 <marker date="1449650288785" expanded="true" signature="4135:4282" placeholder="SELECT colle..medic..." />
-                <marker date="1449650288785" expanded="true" signature="5565:5694" placeholder="SELECT P.cia..." />
-                <marker date="1449650288785" expanded="true" signature="5565:5695" placeholder="SELECT P.cia..patient..." />
-                <marker date="1449650288785" expanded="true" signature="5565:5696" placeholder="SELECT cias,..patient..." />
-                <marker date="1449650288785" expanded="true" signature="5565:5702" placeholder="SELECT P.cia..patient..." />
                 <marker date="1449650288785" expanded="true" signature="5565:5719" placeholder="SELECT P.cia..patient..." />
                 <marker date="1449650288785" expanded="true" signature="6866:6993" placeholder="SELECT id, d..episodes..." />
                 <marker date="1449650288785" expanded="true" signature="8076:8151" placeholder="SELECT COUNT..medic..." />
@@ -72,10 +68,7 @@
                 <marker date="1449650288785" expanded="true" signature="20129:20162" placeholder="DELETE FROM ..." />
                 <marker date="1449650288785" expanded="true" signature="20188:20276" placeholder="SELECT E.id ..episodes..." />
                 <marker date="1449650288785" expanded="true" signature="21484:21564" placeholder="INSERT INTO ..." />
-                <marker date="1449650288785" expanded="true" signature="21590:21620" placeholder="UPDATE visit..." />
                 <marker date="1449650288785" expanded="true" signature="21590:21640" placeholder="UPDATE visit..." />
-                <marker date="1449650288785" expanded="true" signature="21667:21831" placeholder="INSERT INTO ..." />
-                <marker date="1449650288785" expanded="true" signature="21667:21834" placeholder="INSERT INTO ..." />
                 <marker date="1449650288785" expanded="true" signature="21667:21848" placeholder="INSERT INTO ..." />
                 <marker date="1449650288785" expanded="true" signature="21874:21921" placeholder="SELECT idEpi..visit..." />
                 <marker date="1449650288785" expanded="true" signature="24689:24722" placeholder="DELETE FROM ..." />
@@ -86,11 +79,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/dam/practic2/Controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="407" column="0" selection-start-line="407" selection-start-column="0" selection-end-line="407" selection-end-column="0" />
+            <state vertical-scroll-proportion="1.1199294">
+              <caret line="853" column="4" selection-start-line="853" selection-start-column="4" selection-end-line="853" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -177,8 +170,8 @@
         <option value="$PROJECT_DIR$/src/com/dam/practic2/View/Window.java" />
         <option value="$PROJECT_DIR$/src/com/dam/practic2/View/Window.form" />
         <option value="$PROJECT_DIR$/src/com/dam/practic2/aaaa.java" />
-        <option value="$PROJECT_DIR$/src/com/dam/practic2/Controller/Controller.java" />
         <option value="$PROJECT_DIR$/src/com/dam/practic2/Model/Methods/Methods.java" />
+        <option value="$PROJECT_DIR$/src/com/dam/practic2/Controller/Controller.java" />
       </list>
     </option>
   </component>
@@ -410,6 +403,8 @@
     <property name="GenerateAntBuildDialog.outputFileNameProperty" value="practic_1" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="OverrideImplement.combined" value="true" />
+    <property name="OverrideImplement.overriding.sorted" value="false" />
   </component>
   <component name="RunManager" selected="Application.Window">
     <configuration default="false" name="Window" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -674,15 +669,15 @@
       <option name="number" value="Default" />
       <updated>1449417157641</updated>
       <workItem from="1449417142141" duration="5451000" />
-      <workItem from="1449572599063" duration="61327000" />
+      <workItem from="1449572599063" duration="63004000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66778000" />
+    <option name="totallyTimeSpent" value="68455000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -693,10 +688,10 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3538961" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3560606" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26805252" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21108742" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24886535" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -787,10 +782,6 @@
             <element signature="imports" expanded="true" />
             <marker date="1449650288785" expanded="true" signature="2802:2821" placeholder="SELECT * FRO..medic..." />
             <marker date="1449650288785" expanded="true" signature="4135:4282" placeholder="SELECT colle..medic..." />
-            <marker date="1449650288785" expanded="true" signature="5565:5694" placeholder="SELECT P.cia..." />
-            <marker date="1449650288785" expanded="true" signature="5565:5695" placeholder="SELECT P.cia..patient..." />
-            <marker date="1449650288785" expanded="true" signature="5565:5696" placeholder="SELECT cias,..patient..." />
-            <marker date="1449650288785" expanded="true" signature="5565:5702" placeholder="SELECT P.cia..patient..." />
             <marker date="1449650288785" expanded="true" signature="5565:5719" placeholder="SELECT P.cia..patient..." />
             <marker date="1449650288785" expanded="true" signature="6866:6993" placeholder="SELECT id, d..episodes..." />
             <marker date="1449650288785" expanded="true" signature="8076:8151" placeholder="SELECT COUNT..medic..." />
@@ -816,10 +807,7 @@
             <marker date="1449650288785" expanded="true" signature="20129:20162" placeholder="DELETE FROM ..." />
             <marker date="1449650288785" expanded="true" signature="20188:20276" placeholder="SELECT E.id ..episodes..." />
             <marker date="1449650288785" expanded="true" signature="21484:21564" placeholder="INSERT INTO ..." />
-            <marker date="1449650288785" expanded="true" signature="21590:21620" placeholder="UPDATE visit..." />
             <marker date="1449650288785" expanded="true" signature="21590:21640" placeholder="UPDATE visit..." />
-            <marker date="1449650288785" expanded="true" signature="21667:21831" placeholder="INSERT INTO ..." />
-            <marker date="1449650288785" expanded="true" signature="21667:21834" placeholder="INSERT INTO ..." />
             <marker date="1449650288785" expanded="true" signature="21667:21848" placeholder="INSERT INTO ..." />
             <marker date="1449650288785" expanded="true" signature="21874:21921" placeholder="SELECT idEpi..visit..." />
             <marker date="1449650288785" expanded="true" signature="24689:24722" placeholder="DELETE FROM ..." />
@@ -847,10 +835,6 @@
             <element signature="imports" expanded="true" />
             <marker date="1449650288785" expanded="true" signature="2802:2821" placeholder="SELECT * FRO..medic..." />
             <marker date="1449650288785" expanded="true" signature="4135:4282" placeholder="SELECT colle..medic..." />
-            <marker date="1449650288785" expanded="true" signature="5565:5694" placeholder="SELECT P.cia..." />
-            <marker date="1449650288785" expanded="true" signature="5565:5695" placeholder="SELECT P.cia..patient..." />
-            <marker date="1449650288785" expanded="true" signature="5565:5696" placeholder="SELECT cias,..patient..." />
-            <marker date="1449650288785" expanded="true" signature="5565:5702" placeholder="SELECT P.cia..patient..." />
             <marker date="1449650288785" expanded="true" signature="5565:5719" placeholder="SELECT P.cia..patient..." />
             <marker date="1449650288785" expanded="true" signature="6866:6993" placeholder="SELECT id, d..episodes..." />
             <marker date="1449650288785" expanded="true" signature="8076:8151" placeholder="SELECT COUNT..medic..." />
@@ -876,10 +860,7 @@
             <marker date="1449650288785" expanded="true" signature="20129:20162" placeholder="DELETE FROM ..." />
             <marker date="1449650288785" expanded="true" signature="20188:20276" placeholder="SELECT E.id ..episodes..." />
             <marker date="1449650288785" expanded="true" signature="21484:21564" placeholder="INSERT INTO ..." />
-            <marker date="1449650288785" expanded="true" signature="21590:21620" placeholder="UPDATE visit..." />
             <marker date="1449650288785" expanded="true" signature="21590:21640" placeholder="UPDATE visit..." />
-            <marker date="1449650288785" expanded="true" signature="21667:21831" placeholder="INSERT INTO ..." />
-            <marker date="1449650288785" expanded="true" signature="21667:21834" placeholder="INSERT INTO ..." />
             <marker date="1449650288785" expanded="true" signature="21667:21848" placeholder="INSERT INTO ..." />
             <marker date="1449650288785" expanded="true" signature="21874:21921" placeholder="SELECT idEpi..visit..." />
             <marker date="1449650288785" expanded="true" signature="24689:24722" placeholder="DELETE FROM ..." />
@@ -946,10 +927,6 @@
             <element signature="imports" expanded="true" />
             <marker date="1449650288785" expanded="true" signature="2802:2821" placeholder="SELECT * FRO..medic..." />
             <marker date="1449650288785" expanded="true" signature="4135:4282" placeholder="SELECT colle..medic..." />
-            <marker date="1449650288785" expanded="true" signature="5565:5694" placeholder="SELECT P.cia..." />
-            <marker date="1449650288785" expanded="true" signature="5565:5695" placeholder="SELECT P.cia..patient..." />
-            <marker date="1449650288785" expanded="true" signature="5565:5696" placeholder="SELECT cias,..patient..." />
-            <marker date="1449650288785" expanded="true" signature="5565:5702" placeholder="SELECT P.cia..patient..." />
             <marker date="1449650288785" expanded="true" signature="5565:5719" placeholder="SELECT P.cia..patient..." />
             <marker date="1449650288785" expanded="true" signature="6866:6993" placeholder="SELECT id, d..episodes..." />
             <marker date="1449650288785" expanded="true" signature="8076:8151" placeholder="SELECT COUNT..medic..." />
@@ -975,10 +952,7 @@
             <marker date="1449650288785" expanded="true" signature="20129:20162" placeholder="DELETE FROM ..." />
             <marker date="1449650288785" expanded="true" signature="20188:20276" placeholder="SELECT E.id ..episodes..." />
             <marker date="1449650288785" expanded="true" signature="21484:21564" placeholder="INSERT INTO ..." />
-            <marker date="1449650288785" expanded="true" signature="21590:21620" placeholder="UPDATE visit..." />
             <marker date="1449650288785" expanded="true" signature="21590:21640" placeholder="UPDATE visit..." />
-            <marker date="1449650288785" expanded="true" signature="21667:21831" placeholder="INSERT INTO ..." />
-            <marker date="1449650288785" expanded="true" signature="21667:21834" placeholder="INSERT INTO ..." />
             <marker date="1449650288785" expanded="true" signature="21667:21848" placeholder="INSERT INTO ..." />
             <marker date="1449650288785" expanded="true" signature="21874:21921" placeholder="SELECT idEpi..visit..." />
             <marker date="1449650288785" expanded="true" signature="24689:24722" placeholder="DELETE FROM ..." />
@@ -1048,10 +1022,6 @@
             <element signature="imports" expanded="true" />
             <marker date="1449650288785" expanded="true" signature="2802:2821" placeholder="SELECT * FRO..medic..." />
             <marker date="1449650288785" expanded="true" signature="4135:4282" placeholder="SELECT colle..medic..." />
-            <marker date="1449650288785" expanded="true" signature="5565:5694" placeholder="SELECT P.cia..." />
-            <marker date="1449650288785" expanded="true" signature="5565:5695" placeholder="SELECT P.cia..patient..." />
-            <marker date="1449650288785" expanded="true" signature="5565:5696" placeholder="SELECT cias,..patient..." />
-            <marker date="1449650288785" expanded="true" signature="5565:5702" placeholder="SELECT P.cia..patient..." />
             <marker date="1449650288785" expanded="true" signature="5565:5719" placeholder="SELECT P.cia..patient..." />
             <marker date="1449650288785" expanded="true" signature="6866:6993" placeholder="SELECT id, d..episodes..." />
             <marker date="1449650288785" expanded="true" signature="8076:8151" placeholder="SELECT COUNT..medic..." />
@@ -1077,10 +1047,7 @@
             <marker date="1449650288785" expanded="true" signature="20129:20162" placeholder="DELETE FROM ..." />
             <marker date="1449650288785" expanded="true" signature="20188:20276" placeholder="SELECT E.id ..episodes..." />
             <marker date="1449650288785" expanded="true" signature="21484:21564" placeholder="INSERT INTO ..." />
-            <marker date="1449650288785" expanded="true" signature="21590:21620" placeholder="UPDATE visit..." />
             <marker date="1449650288785" expanded="true" signature="21590:21640" placeholder="UPDATE visit..." />
-            <marker date="1449650288785" expanded="true" signature="21667:21831" placeholder="INSERT INTO ..." />
-            <marker date="1449650288785" expanded="true" signature="21667:21834" placeholder="INSERT INTO ..." />
             <marker date="1449650288785" expanded="true" signature="21667:21848" placeholder="INSERT INTO ..." />
             <marker date="1449650288785" expanded="true" signature="21874:21921" placeholder="SELECT idEpi..visit..." />
             <marker date="1449650288785" expanded="true" signature="24689:24722" placeholder="DELETE FROM ..." />
@@ -1123,10 +1090,6 @@
             <element signature="imports" expanded="true" />
             <marker date="1449650288785" expanded="true" signature="2802:2821" placeholder="SELECT * FRO..medic..." />
             <marker date="1449650288785" expanded="true" signature="4135:4282" placeholder="SELECT colle..medic..." />
-            <marker date="1449650288785" expanded="true" signature="5565:5694" placeholder="SELECT P.cia..." />
-            <marker date="1449650288785" expanded="true" signature="5565:5695" placeholder="SELECT P.cia..patient..." />
-            <marker date="1449650288785" expanded="true" signature="5565:5696" placeholder="SELECT cias,..patient..." />
-            <marker date="1449650288785" expanded="true" signature="5565:5702" placeholder="SELECT P.cia..patient..." />
             <marker date="1449650288785" expanded="true" signature="5565:5719" placeholder="SELECT P.cia..patient..." />
             <marker date="1449650288785" expanded="true" signature="6866:6993" placeholder="SELECT id, d..episodes..." />
             <marker date="1449650288785" expanded="true" signature="8076:8151" placeholder="SELECT COUNT..medic..." />
@@ -1152,10 +1115,7 @@
             <marker date="1449650288785" expanded="true" signature="20129:20162" placeholder="DELETE FROM ..." />
             <marker date="1449650288785" expanded="true" signature="20188:20276" placeholder="SELECT E.id ..episodes..." />
             <marker date="1449650288785" expanded="true" signature="21484:21564" placeholder="INSERT INTO ..." />
-            <marker date="1449650288785" expanded="true" signature="21590:21620" placeholder="UPDATE visit..." />
             <marker date="1449650288785" expanded="true" signature="21590:21640" placeholder="UPDATE visit..." />
-            <marker date="1449650288785" expanded="true" signature="21667:21831" placeholder="INSERT INTO ..." />
-            <marker date="1449650288785" expanded="true" signature="21667:21834" placeholder="INSERT INTO ..." />
             <marker date="1449650288785" expanded="true" signature="21667:21848" placeholder="INSERT INTO ..." />
             <marker date="1449650288785" expanded="true" signature="21874:21921" placeholder="SELECT idEpi..visit..." />
             <marker date="1449650288785" expanded="true" signature="24689:24722" placeholder="DELETE FROM ..." />
@@ -1198,10 +1158,6 @@
             <element signature="imports" expanded="true" />
             <marker date="1449650288785" expanded="true" signature="2802:2821" placeholder="SELECT * FRO..medic..." />
             <marker date="1449650288785" expanded="true" signature="4135:4282" placeholder="SELECT colle..medic..." />
-            <marker date="1449650288785" expanded="true" signature="5565:5694" placeholder="SELECT P.cia..." />
-            <marker date="1449650288785" expanded="true" signature="5565:5695" placeholder="SELECT P.cia..patient..." />
-            <marker date="1449650288785" expanded="true" signature="5565:5696" placeholder="SELECT cias,..patient..." />
-            <marker date="1449650288785" expanded="true" signature="5565:5702" placeholder="SELECT P.cia..patient..." />
             <marker date="1449650288785" expanded="true" signature="5565:5719" placeholder="SELECT P.cia..patient..." />
             <marker date="1449650288785" expanded="true" signature="6866:6993" placeholder="SELECT id, d..episodes..." />
             <marker date="1449650288785" expanded="true" signature="8076:8151" placeholder="SELECT COUNT..medic..." />
@@ -1227,10 +1183,7 @@
             <marker date="1449650288785" expanded="true" signature="20129:20162" placeholder="DELETE FROM ..." />
             <marker date="1449650288785" expanded="true" signature="20188:20276" placeholder="SELECT E.id ..episodes..." />
             <marker date="1449650288785" expanded="true" signature="21484:21564" placeholder="INSERT INTO ..." />
-            <marker date="1449650288785" expanded="true" signature="21590:21620" placeholder="UPDATE visit..." />
             <marker date="1449650288785" expanded="true" signature="21590:21640" placeholder="UPDATE visit..." />
-            <marker date="1449650288785" expanded="true" signature="21667:21831" placeholder="INSERT INTO ..." />
-            <marker date="1449650288785" expanded="true" signature="21667:21834" placeholder="INSERT INTO ..." />
             <marker date="1449650288785" expanded="true" signature="21667:21848" placeholder="INSERT INTO ..." />
             <marker date="1449650288785" expanded="true" signature="21874:21921" placeholder="SELECT idEpi..visit..." />
             <marker date="1449650288785" expanded="true" signature="24689:24722" placeholder="DELETE FROM ..." />
@@ -1273,10 +1226,6 @@
             <element signature="imports" expanded="true" />
             <marker date="1449650288785" expanded="true" signature="2802:2821" placeholder="SELECT * FRO..medic..." />
             <marker date="1449650288785" expanded="true" signature="4135:4282" placeholder="SELECT colle..medic..." />
-            <marker date="1449650288785" expanded="true" signature="5565:5694" placeholder="SELECT P.cia..." />
-            <marker date="1449650288785" expanded="true" signature="5565:5695" placeholder="SELECT P.cia..patient..." />
-            <marker date="1449650288785" expanded="true" signature="5565:5696" placeholder="SELECT cias,..patient..." />
-            <marker date="1449650288785" expanded="true" signature="5565:5702" placeholder="SELECT P.cia..patient..." />
             <marker date="1449650288785" expanded="true" signature="5565:5719" placeholder="SELECT P.cia..patient..." />
             <marker date="1449650288785" expanded="true" signature="6866:6993" placeholder="SELECT id, d..episodes..." />
             <marker date="1449650288785" expanded="true" signature="8076:8151" placeholder="SELECT COUNT..medic..." />
@@ -1302,10 +1251,7 @@
             <marker date="1449650288785" expanded="true" signature="20129:20162" placeholder="DELETE FROM ..." />
             <marker date="1449650288785" expanded="true" signature="20188:20276" placeholder="SELECT E.id ..episodes..." />
             <marker date="1449650288785" expanded="true" signature="21484:21564" placeholder="INSERT INTO ..." />
-            <marker date="1449650288785" expanded="true" signature="21590:21620" placeholder="UPDATE visit..." />
             <marker date="1449650288785" expanded="true" signature="21590:21640" placeholder="UPDATE visit..." />
-            <marker date="1449650288785" expanded="true" signature="21667:21831" placeholder="INSERT INTO ..." />
-            <marker date="1449650288785" expanded="true" signature="21667:21834" placeholder="INSERT INTO ..." />
             <marker date="1449650288785" expanded="true" signature="21667:21848" placeholder="INSERT INTO ..." />
             <marker date="1449650288785" expanded="true" signature="21874:21921" placeholder="SELECT idEpi..visit..." />
             <marker date="1449650288785" expanded="true" signature="24689:24722" placeholder="DELETE FROM ..." />
@@ -1449,6 +1395,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://D:/Program Files/Java/jdk1.8.0_65/src.zip!/java/text/DateFormat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3325893">
+          <caret line="360" column="16" selection-start-line="360" selection-start-column="16" selection-end-line="360" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/dam/practic2/View/Window.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1470,36 +1424,14 @@
         <state />
       </provider>
     </entry>
-    <entry file="jar://D:/Program Files/Java/jdk1.8.0_65/src.zip!/java/text/DateFormat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3325893">
-          <caret line="360" column="16" selection-start-line="360" selection-start-column="16" selection-end-line="360" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/dam/practic2/Controller/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="407" column="0" selection-start-line="407" selection-start-column="0" selection-end-line="407" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/dam/practic2/Model/Methods/Methods.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24253076">
-          <caret line="652" column="49" selection-start-line="652" selection-start-column="49" selection-end-line="652" selection-end-column="49" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="185" column="22" selection-start-line="185" selection-start-column="22" selection-end-line="185" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
             <marker date="1449650288785" expanded="true" signature="2802:2821" placeholder="SELECT * FRO..medic..." />
             <marker date="1449650288785" expanded="true" signature="4135:4282" placeholder="SELECT colle..medic..." />
-            <marker date="1449650288785" expanded="true" signature="5565:5694" placeholder="SELECT P.cia..." />
-            <marker date="1449650288785" expanded="true" signature="5565:5695" placeholder="SELECT P.cia..patient..." />
-            <marker date="1449650288785" expanded="true" signature="5565:5696" placeholder="SELECT cias,..patient..." />
-            <marker date="1449650288785" expanded="true" signature="5565:5702" placeholder="SELECT P.cia..patient..." />
             <marker date="1449650288785" expanded="true" signature="5565:5719" placeholder="SELECT P.cia..patient..." />
             <marker date="1449650288785" expanded="true" signature="6866:6993" placeholder="SELECT id, d..episodes..." />
             <marker date="1449650288785" expanded="true" signature="8076:8151" placeholder="SELECT COUNT..medic..." />
@@ -1525,15 +1457,22 @@
             <marker date="1449650288785" expanded="true" signature="20129:20162" placeholder="DELETE FROM ..." />
             <marker date="1449650288785" expanded="true" signature="20188:20276" placeholder="SELECT E.id ..episodes..." />
             <marker date="1449650288785" expanded="true" signature="21484:21564" placeholder="INSERT INTO ..." />
-            <marker date="1449650288785" expanded="true" signature="21590:21620" placeholder="UPDATE visit..." />
             <marker date="1449650288785" expanded="true" signature="21590:21640" placeholder="UPDATE visit..." />
-            <marker date="1449650288785" expanded="true" signature="21667:21831" placeholder="INSERT INTO ..." />
-            <marker date="1449650288785" expanded="true" signature="21667:21834" placeholder="INSERT INTO ..." />
             <marker date="1449650288785" expanded="true" signature="21667:21848" placeholder="INSERT INTO ..." />
             <marker date="1449650288785" expanded="true" signature="21874:21921" placeholder="SELECT idEpi..visit..." />
             <marker date="1449650288785" expanded="true" signature="24689:24722" placeholder="DELETE FROM ..." />
             <marker date="1449650288785" expanded="true" signature="25097:25170" placeholder="SELECT descr..episodes..." />
             <marker date="1449650288785" expanded="true" signature="26151:26226" placeholder="UPDATE episo..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/dam/practic2/Controller/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.1199294">
+          <caret line="853" column="4" selection-start-line="853" selection-start-column="4" selection-end-line="853" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

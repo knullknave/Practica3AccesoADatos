@@ -11,6 +11,8 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.sql.Date;
 
@@ -20,7 +22,7 @@ import java.sql.Date;
  * Esta clase controla lo que le pueda pasar a la ventana. Incorpora modelo MVC (Model, view, controller)
  * En esta clase se controlan todos los eventos del programa así como tratamiento con cada uno de los elementos de la ventana.
  */
-public class Controller implements ActionListener
+public class Controller implements ActionListener, KeyListener
 {
     private Window window;
     private Methods methods;
@@ -77,6 +79,11 @@ public class Controller implements ActionListener
         this.window.menuItem6.addActionListener(this);
         this.window.menuItem7.addActionListener(this);
         this.window.menuItem8.addActionListener(this);
+
+        this.window.tfSearchM.addKeyListener(this);
+        this.window.tfSearchP.addKeyListener(this);
+        this.window.tfSearchP2.addKeyListener(this);
+        this.window.tfSearchE.addKeyListener(this);
 
         ColumnMedicTable = new DefaultTableModel();
         window.tableMedic.setModel(ColumnMedicTable);
@@ -249,6 +256,51 @@ public class Controller implements ActionListener
             for (int i = 0;i < list.size(); i++)
             {
                 ColumnEpisodeTable.addRow(list.get(i));
+            }
+        }
+    }
+
+    public void loadMedic(String search)
+    {
+        ArrayList<Object[]> list = methods.SelectAllMedic();
+
+        if (list != null)
+        {
+            ColumnMedicTable.setNumRows(0);
+            for (int i = 0;i < list.size(); i++)
+            {
+                if (String.valueOf(list.get(i)[0]).contains(search) || String.valueOf(list.get(i)[1]).contains(search) || String.valueOf(list.get(i)[2]).contains(search) || String.valueOf(list.get(i)[3]).contains(search) || String.valueOf(list.get(i)[4]).contains(search) || String.valueOf(list.get(i)[5]).contains(search) || String.valueOf(list.get(i)[6]).contains(search) || String.valueOf(list.get(i)[7]).contains(search))
+                    ColumnMedicTable.addRow(list.get(i));
+            }
+        }
+    }
+
+    public void loadPatient(String search)
+    {
+        ArrayList<Object[]> list = methods.selectAllPatient();
+
+        if (list != null)
+        {
+            ColumnPatientTable.setNumRows(0);
+            for (int i = 0;i < list.size(); i++)
+            {
+                if (String.valueOf(list.get(i)[0]).contains(search) || String.valueOf(list.get(i)[1]).contains(search) || String.valueOf(list.get(i)[2]).contains(search) || String.valueOf(list.get(i)[4]).contains(search) || String.valueOf(list.get(i)[6]).contains(search))
+                    ColumnPatientTable.addRow(list.get(i));
+            }
+        }
+    }
+
+    public void loadEpisodes(String search)
+    {
+        ArrayList<Object[]> list = methods.selectAllEpisodes(idPatient2);
+
+        if (list != null)
+        {
+            ColumnEpisodeTable.setNumRows(0);
+            for (int i = 0;i < list.size(); i++)
+            {
+                if (String.valueOf(list.get(i)[0]).contains(search) || String.valueOf(list.get(i)[1]).contains(search) || String.valueOf(list.get(i)[4]).contains(search))
+                    ColumnEpisodeTable.addRow(list.get(i));
             }
         }
     }
@@ -760,5 +812,46 @@ public class Controller implements ActionListener
                     break;
             }
         }
+    }
+    /**
+     * Este metodo recoge el evento de cuando dejas de pulsar una tecla, lo cual permite que la busqueda sea efectiva
+     * @param e
+     */
+    @Override
+    public void keyReleased(KeyEvent e)
+    {
+        String search1 = this.window.tfSearchM.getText();
+        String search2 = this.window.tfSearchP.getText();
+        String search3 = this.window.tfSearchP2.getText();
+        String search4 = this.window.tfSearchE.getText();
+
+        if(search1.equals(""))
+            loadMedic();
+        else
+            loadMedic(search1);
+        if(search2.equals(""))
+            loadPatient();
+        else
+            loadPatient(search2);
+        if(search3.equals(""))
+            loadPatient();
+        else
+            loadPatient(search3);
+        if(search4.equals(""))
+            loadEpisodes();
+        else
+            loadEpisodes(search4);
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e)
+    {
+
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e)
+    {
+
     }
 }
