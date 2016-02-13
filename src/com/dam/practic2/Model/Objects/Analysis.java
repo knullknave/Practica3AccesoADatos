@@ -1,76 +1,57 @@
 package com.dam.practic2.Model.Objects;
 
-import java.io.Serializable;
+import javax.persistence.*;
 import java.util.Date;
 
-/**
- * Esta clase contiene el objeto Analysis
- */
-public class Analysis implements Serializable
+@Entity
+@Table(name="analysis")
+public class Analysis
 {
-    private static final long serialVersionUID = 1L;
-    private int idA;
-    private String report;
-    private String hospital;
-    private Date receptionDate;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id")
+    private int id;
+    @Column(name="analysisDate")
     private Date analysisDate;
+    @Column(name="analysisType")
     private String analysisType;
+    @Column(name="report")
+    private String report;
+    @Column(name="reportDate")
     private Date reportDate;
-    private int idPatient;
 
     public Analysis()
     {
 
     }
 
-    public void setIdA(int id)
+    public Analysis(int id, Date analysisDate, Date reportDate, String analysisType, String report)
     {
-        this.idA = id;
-    }
-
-    public int getIdA()
-    {
-        return this.idA;
-    }
-
-    public void setIdPatient(int id)
-    {
-        this.idPatient = id;
-    }
-
-    public int getIdPatient()
-    {
-        return this.idPatient;
-    }
-
-    public String getReport()
-    {
-        return report;
-    }
-
-    public void setReport(String report)
-    {
+        this.id = id;
+        this.analysisDate = analysisDate;
         this.report = report;
+        this.reportDate = reportDate;
+        this.analysisType = analysisType;
     }
 
-    public String getHospital()
+    public Date getReportDate()
     {
-        return hospital;
+        return reportDate;
     }
 
-    public void setHospital(String hospital)
+    public void setReportDate(Date reportDate)
     {
-        this.hospital = hospital;
+        this.reportDate = reportDate;
     }
 
-    public Date getReceptionDate()
+    public int getId()
     {
-        return receptionDate;
+        return id;
     }
 
-    public void setReceptionDate(Date receptionDate)
+    public void setId(int id)
     {
-        this.receptionDate = receptionDate;
+        this.id = id;
     }
 
     public Date getAnalysisDate()
@@ -93,18 +74,13 @@ public class Analysis implements Serializable
         this.analysisType = analysisType;
     }
 
-    public Date getReportDate()
+    public String getReport()
     {
-        return reportDate;
+        return report;
     }
 
-    public void setReportDate(Date reportDate)
+    public void setReport(String report)
     {
-        this.reportDate = reportDate;
-    }
-
-    public String toString()
-    {
-        return this.hospital + ", "  + this.reportDate + ", " + this.getAnalysisDate();
+        this.report = report;
     }
 }

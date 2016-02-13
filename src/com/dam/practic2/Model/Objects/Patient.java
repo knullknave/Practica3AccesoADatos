@@ -1,46 +1,100 @@
 package com.dam.practic2.Model.Objects;
 
-import java.io.Serializable;
+
+import javax.persistence.*;
 import java.util.Date;
 
-/**
- * Esta clase contiene el objeto Patient
- */
-public class Patient implements Serializable
+@Entity
+@Table(name = "patient")
+public class Patient
 {
-    private static final long serialVersionUID = 1L;
-    private int idP;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="cias")
+    private int cias;
+    @Column(name="patientUser")
+    private String patientUser;
+    @Column(name="patientPassword")
+    private String patientPassword;
+    @Column(name="name")
     private String name;
+    @Column(name="surname")
     private String surname;
+    @Column(name="sex")
+    private char sex;
+    @Column(name="adress")
+    private String adress;
+    @Column(name="birthDate")
     private Date birthDate;
-    private String address;
-    private History history;
-    private int idMed;
+    @Column(name="telephone")
+    private String telephone;
+    @Column(name="bloodType")
+    private String bloodType;
 
     public Patient()
     {
-        this.history = new History();
-        this.history.setIdPatient(this.idP);
+
     }
 
-    public void setIdP(int id)
+    public Patient(int cias, String patientUser, String patientPassword, String name, String surname, String adress, char sex, Date birthDate, String telephone, String bloodType)
     {
-        this.idP = id;
+        this.cias = cias;
+        this.patientPassword = patientPassword;
+        this.patientUser =  patientUser;
+        this.name = name;
+        this.surname = surname;
+        this.adress = adress;
+        this.sex = sex;
+        this.birthDate = birthDate;
+        this.telephone = telephone;
+        this.bloodType = bloodType;
     }
 
-    public int getIdP()
+    public Patient(String name, String surname, Date birthDate, String adress)
     {
-        return this.idP;
+        this.name = name;
+        this.surname = surname;
+        this.adress = adress;
+        this.birthDate = birthDate;
     }
 
-    public void setIdMed(int id)
+    public Patient(int cias, String name, String surname, Date birthDate, String adress)
     {
-        this.idMed = id;
+        this.cias = cias;
+        this.name = name;
+        this.surname = surname;
+        this.adress = adress;
+        this.birthDate = birthDate;
     }
 
-    public int getIdMed()
+    public int getCias()
     {
-        return this.idMed;
+        return cias;
+    }
+
+    public void setCias(int cias)
+    {
+        this.cias = cias;
+    }
+
+    public String getPatientUser()
+    {
+        return patientUser;
+    }
+
+    public void setPatientUser(String patientUser)
+    {
+        this.patientUser = patientUser;
+    }
+
+    public String getPatientPassword()
+    {
+        return patientPassword;
+    }
+
+    public void setPatientPassword(String patientPassword)
+    {
+        this.patientPassword = patientPassword;
     }
 
     public String getName()
@@ -63,6 +117,26 @@ public class Patient implements Serializable
         this.surname = surname;
     }
 
+    public char getSex()
+    {
+        return sex;
+    }
+
+    public void setSex(char sex)
+    {
+        this.sex = sex;
+    }
+
+    public String getAdress()
+    {
+        return adress;
+    }
+
+    public void setAdress(String adress)
+    {
+        this.adress = adress;
+    }
+
     public Date getBirthDate()
     {
         return birthDate;
@@ -73,28 +147,23 @@ public class Patient implements Serializable
         this.birthDate = birthDate;
     }
 
-    public String getAddress()
+    public String getTelephone()
     {
-        return address;
+        return telephone;
     }
 
-    public void setAddress(String address)
+    public void setTelephone(String telephone)
     {
-        this.address = address;
+        this.telephone = telephone;
     }
 
-    public History getHistory()
+    public String getBloodType()
     {
-        return history;
+        return bloodType;
     }
 
-    public void setHistory(History history)
+    public void setBloodType(String bloodType)
     {
-        this.history = history;
-    }
-
-    public String toString()
-    {
-        return "Name: " + this.name + " " + this.surname + ", CIAS: " + this.history.getCiasNumber();
+        this.bloodType = bloodType;
     }
 }

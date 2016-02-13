@@ -1,9 +1,13 @@
 package com.dam.practic2.Controller;
 
 import com.dam.practic2.Model.Methods.Methods;
+import com.dam.practic2.Model.Objects.Episode;
+import com.dam.practic2.Model.Objects.Medic;
+import com.dam.practic2.Model.Objects.Patient;
 import com.dam.practic2.View.JConnection;
 import com.dam.practic2.View.Window;
 import com.toedter.calendar.JDateChooser;
+import javafx.beans.value.ObservableObjectValue;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
@@ -34,13 +38,12 @@ public class Controller extends SwingWorker<Void, Void> implements ActionListene
     private DefaultTableModel ColumnAnalysisTable;
     private DefaultTableModel ColumnRadiographyTable;
     private DefaultTableModel ColumnPharmacotherapyTable;
+    private DefaultListModel listaBusqueda;
     public int idMedic;
     public int idPatient;
     public int idPatient2;
     public int idEpisode;
-    public int idVisit;
     public boolean pause;
-    //TODO CREAR EL RESTO DE ID'S
 
     /**
      * Este es el constructor de la clase. Aqui se implementan todos los listener de la ventana
@@ -50,6 +53,9 @@ public class Controller extends SwingWorker<Void, Void> implements ActionListene
     {
         this.window = w;
         this.methods = new Methods(Controller.this);
+
+        listaBusqueda = new DefaultListModel();
+        this.window.listSearchFinal.setModel(listaBusqueda);
 
         this.window.jbNewP.addActionListener(this);
         this.window.jbModP.addActionListener(this);
@@ -81,6 +87,7 @@ public class Controller extends SwingWorker<Void, Void> implements ActionListene
         this.window.tfSearchP.addKeyListener(this);
         this.window.tfSearchP2.addKeyListener(this);
         this.window.tfSearchE.addKeyListener(this);
+        this.window.tfSearchFinal.addKeyListener(this);
 
         ColumnMedicTable = new DefaultTableModel();
         window.tableMedic.setModel(ColumnMedicTable);
@@ -129,14 +136,13 @@ public class Controller extends SwingWorker<Void, Void> implements ActionListene
                 if (window.tablePatient1.isRowSelected(window.tablePatient1.getSelectedRow()))
                 {
                     idPatient = Integer.parseInt(window.tablePatient1.getValueAt(window.tablePatient1.getSelectedRow(), 0).toString());
-                    idVisit = Integer.parseInt(window.tablePatient1.getValueAt(window.tablePatient1.getSelectedRow(), 6).toString());
 
-                    Object[] datos = methods.selectPatient(idPatient);
-                    window.tfName.setText(String.valueOf(datos[1]));
-                    window.tfSurname.setText(String.valueOf(datos[2]));
-                    window.jdateChooserP.setDate(Date.valueOf(datos[3].toString()));
-                    window.tfAddress.setText(String.valueOf(datos[4]));
-                    window.jdateChooserP2.setDate(Date.valueOf(datos[5].toString()));
+                    Patient datos = methods.selectPatient(idPatient);
+                    window.tfName.setText(String.valueOf(datos.getName()));
+                    window.tfSurname.setText(String.valueOf(datos.getSurname()));
+                    window.tfAddress.setText(String.valueOf(datos.getAdress()));
+                    //TODO ME DA ERROR
+                    window.jdateChooserP.setDate(datos.getBirthDate());
 
                     window.jbModP.setEnabled(true);
                     window.jbDelP.setEnabled(true);
@@ -146,7 +152,6 @@ public class Controller extends SwingWorker<Void, Void> implements ActionListene
                     window.tfSurname.setEnabled(true);
                     window.jdateChooserP.setEnabled(true);
                     window.tfAddress.setEnabled(true);
-                    window.jdateChooserP2.setEnabled(true);
                 }
             }
         });
@@ -191,7 +196,7 @@ public class Controller extends SwingWorker<Void, Void> implements ActionListene
         {
             ColumnMedicTable.addColumn(M[i]);
         }
-        String[] P = {"Id Patient", "Name", "Surname", "birthDate", "Address", "V. Date", "V. Id"};
+        String[] P = {"Id Patient", "Name", "Surname", "birthDate", "Address"};
         for(int i=0; i<P.length; i++)
         {
             ColumnPatientTable.addColumn(P[i]);
@@ -221,116 +226,164 @@ public class Controller extends SwingWorker<Void, Void> implements ActionListene
 
     public void loadMedic()
     {
-        ArrayList<Object[]> list = methods.SelectAllMedic();
+        ArrayList<Medic> list = methods.SelectAllMedic();
 
         if (list != null)
         {
             ColumnMedicTable.setNumRows(0);
             for (int i = 0;i < list.size(); i++)
             {
-                ColumnMedicTable.addRow(list.get(i));
+                Object[] objects = new Object[9];
+                objects[0] = list.get(i).getId();
+                objects[1] = list.get(i).getName();
+                objects[2] = list.get(i).getSurname();
+                objects[3] = list.get(i).getAddress();
+                objects[4] = list.get(i).getMedicalCentre();
+                objects[5] = list.get(i).getEmail();
+                objects[6] = list.get(i).getMedicalSpeciality();
+                objects[7] = list.get(i).getTelephone();
+                objects[8] = list.get(i).getBirthDate();
+                ColumnMedicTable.addRow(objects);
             }
         }
     }
 
     public void loadPatient()
     {
-        ArrayList<Object[]> list = methods.selectAllPatient();
+        ArrayList<Patient> list = methods.selectAllPatient();
 
         if (list != null)
         {
             ColumnPatientTable.setNumRows(0);
             for (int i = 0;i < list.size(); i++)
             {
-                ColumnPatientTable.addRow(list.get(i));
+                Object[] objects = new Object[5];
+                objects[0] = list.get(i).getCias();
+                objects[1] = list.get(i).getName();
+                objects[2] = list.get(i).getSurname();
+                objects[3] = list.get(i).getBirthDate();
+                objects[4] = list.get(i).getAdress();
+
+                ColumnPatientTable.addRow(objects);
             }
         }
     }
 
     public void loadPatient2()
     {
-        ArrayList<Object[]> list = methods.selectAllPatient();
+        ArrayList<Patient> list = methods.selectAllPatient();
 
         if (list != null)
         {
             ColumnPatient2Table.setNumRows(0);
             for (int i = 0;i < list.size(); i++)
             {
-                ColumnPatient2Table.addRow(list.get(i));
+                Object[] objects = new Object[5];
+                objects[0] = list.get(i).getCias();
+                objects[1] = list.get(i).getName();
+                objects[2] = list.get(i).getSurname();
+                objects[3] = list.get(i).getBirthDate();
+                objects[4] = list.get(i).getAdress();
+
+                ColumnPatient2Table.addRow(objects);
             }
         }
     }
 
     public void loadEpisodes()
     {
-        ArrayList<Object[]> list = methods.selectAllEpisodes(idPatient2);
+        ArrayList<Episode> list = methods.selectAllEpisodes(idPatient2);
 
         if (list != null)
         {
             ColumnEpisodeTable.setNumRows(0);
             for (int i = 0;i < list.size(); i++)
             {
-                ColumnEpisodeTable.addRow(list.get(i));
+                Object[] objects = new Object[5];
+                objects[0] = list.get(i).getId();
+                objects[1] = list.get(i).getDescription();
+                objects[2] = list.get(i).getStartDate();
+                objects[3] = list.get(i).getEndDate();
+                objects[4] = list.get(i).getEvolution();
+                ColumnEpisodeTable.addRow(objects);
             }
         }
     }
 
     public void loadMedic(String search)
     {
-        ArrayList<Object[]> list = methods.SelectAllMedic();
+        ArrayList<Medic> list = methods.SelectAllMedic();
 
         if (list != null)
         {
             ColumnMedicTable.setNumRows(0);
             for (int i = 0;i < list.size(); i++)
             {
-                if (String.valueOf(list.get(i)[0]).contains(search) || String.valueOf(list.get(i)[1]).contains(search) || String.valueOf(list.get(i)[2]).contains(search) || String.valueOf(list.get(i)[3]).contains(search) || String.valueOf(list.get(i)[4]).contains(search) || String.valueOf(list.get(i)[5]).contains(search) || String.valueOf(list.get(i)[6]).contains(search) || String.valueOf(list.get(i)[7]).contains(search))
-                    ColumnMedicTable.addRow(list.get(i));
+                if (String.valueOf(list.get(i).getId()).contains(search) || String.valueOf(list.get(i).getName()).contains(search) || String.valueOf(list.get(i).getSurname()).contains(search) || String.valueOf(list.get(i).getAddress()).contains(search) || String.valueOf(list.get(i).getMedicalCentre()).contains(search) || String.valueOf(list.get(i).getEmail()).contains(search) || String.valueOf(list.get(i).getMedicalSpeciality()).contains(search) || String.valueOf(list.get(i).getTelephone()).contains(search))
+                {
+                    Object[] objects = new Object[9];
+                    objects[0] = list.get(i).getId();
+                    objects[1] = list.get(i).getName();
+                    objects[2] = list.get(i).getSurname();
+                    objects[3] = list.get(i).getAddress();
+                    objects[4] = list.get(i).getMedicalCentre();
+                    objects[5] = list.get(i).getEmail();
+                    objects[6] = list.get(i).getMedicalSpeciality();
+                    objects[7] = list.get(i).getTelephone();
+                    objects[8] = list.get(i).getBirthDate();
+                    ColumnMedicTable.addRow(objects);
+                }
             }
         }
     }
 
     public void loadPatient(String search)
     {
-        ArrayList<Object[]> list = methods.selectAllPatient();
+        methods.listaPacientes(search);
+    }
+
+    public void loadPatient2(String search)
+    {
+        ArrayList<Patient> list = methods.selectAllPatient();
 
         if (list != null)
         {
             ColumnPatientTable.setNumRows(0);
             for (int i = 0;i < list.size(); i++)
             {
-                if (String.valueOf(list.get(i)[0]).contains(search) || String.valueOf(list.get(i)[1]).contains(search) || String.valueOf(list.get(i)[2]).contains(search) || String.valueOf(list.get(i)[4]).contains(search) || String.valueOf(list.get(i)[6]).contains(search))
-                    ColumnPatientTable.addRow(list.get(i));
-            }
-        }
-    }
+                if (String.valueOf(list.get(i).getCias()).contains(search) || String.valueOf(list.get(i).getName()).contains(search) || String.valueOf(list.get(i).getSurname()).contains(search) || String.valueOf(list.get(i).getBirthDate()).contains(search) || String.valueOf(list.get(i).getAdress()).contains(search))
+                {
+                    Object[] objects = new Object[5];
+                    objects[0] = list.get(i).getCias();
+                    objects[1] = list.get(i).getName();
+                    objects[2] = list.get(i).getSurname();
+                    objects[3] = list.get(i).getBirthDate();
+                    objects[4] = list.get(i).getAdress();
 
-    public void loadPatient2(String search)
-    {
-        ArrayList<Object[]> list = methods.selectAllPatient();
-
-        if (list != null)
-        {
-            ColumnPatient2Table.setNumRows(0);
-            for (int i = 0;i < list.size(); i++)
-            {
-                if (String.valueOf(list.get(i)[0]).contains(search) || String.valueOf(list.get(i)[1]).contains(search) || String.valueOf(list.get(i)[2]).contains(search) || String.valueOf(list.get(i)[4]).contains(search) || String.valueOf(list.get(i)[6]).contains(search))
-                    ColumnPatient2Table.addRow(list.get(i));
+                    ColumnPatient2Table.addRow(objects);
+                }
             }
         }
     }
 
     public void loadEpisodes(String search)
     {
-        ArrayList<Object[]> list = methods.selectAllEpisodes(idPatient2);
+        ArrayList<Episode> list = methods.selectAllEpisodes(idPatient2);
 
         if (list != null)
         {
             ColumnEpisodeTable.setNumRows(0);
             for (int i = 0;i < list.size(); i++)
             {
-                if (String.valueOf(list.get(i)[0]).contains(search) || String.valueOf(list.get(i)[1]).contains(search) || String.valueOf(list.get(i)[4]).contains(search))
-                    ColumnEpisodeTable.addRow(list.get(i));
+                if (String.valueOf(list.get(i).getDescription()).contains(search) || String.valueOf(list.get(i).getEvolution()).contains(search) || String.valueOf(list.get(i).getId()).contains(search))
+                {
+                    Object[] objects = new Object[4];
+                    objects[0] = list.get(i).getDescription();
+                    objects[1] = list.get(i).getStartDate();
+                    objects[2] = list.get(i).getEndDate();
+                    objects[3] = list.get(i).getEvolution();
+                    ColumnEpisodeTable.addRow(objects);
+                }
             }
         }
     }
@@ -354,7 +407,6 @@ public class Controller extends SwingWorker<Void, Void> implements ActionListene
         window.tfSurname.setEnabled(false);
         window.tfAddress.setEnabled(false);
         window.jdateChooserP.setEnabled(false);
-        window.jdateChooserP2.setEnabled(false);
         ColumnMedicTable.setNumRows(0);
 
         window.jbModP.setEnabled(false);
@@ -373,14 +425,12 @@ public class Controller extends SwingWorker<Void, Void> implements ActionListene
         window.tfSurname.setEnabled(true);
         window.tfAddress.setEnabled(true);
         window.jdateChooserP.setEnabled(true);
-        window.jdateChooserP2.setEnabled(true);
         window.jbSaveP.setEnabled(true);
 
         window.tfName.setText("");
         window.tfSurname.setText("");
         window.tfAddress.setText("");
         window.jdateChooserP.setDate(null);
-        window.jdateChooserP2.setDate(null);
 
         window.jbNewP.setEnabled(false);
         window.jbSaveP.setEnabled(true);
@@ -397,13 +447,11 @@ public class Controller extends SwingWorker<Void, Void> implements ActionListene
         window.tfSurname.setEnabled(false);
         window.tfAddress.setEnabled(false);
         window.jdateChooserP.setEnabled(false);
-        window.jdateChooserP2.setEnabled(false);
 
         window.tfName.setText("");
         window.tfSurname.setText("");
         window.tfAddress.setText("");
         window.jdateChooserP.setDate(null);
-        window.jdateChooserP2.setDate(null);
 
         window.jbNewP.setEnabled(true);
         window.jbSaveP.setEnabled(false);
@@ -448,23 +496,18 @@ public class Controller extends SwingWorker<Void, Void> implements ActionListene
                     newPatient();
                     break;
                 case "Modify Patient":
-                    if(String.valueOf(methods.getModificaciones()[1]).equals("0"))
-                    {
+
                         if(window.tfName.getText().equals("") || window.tfSurname.getText().equals("") || window.tfAddress.getText().equals(""))
                         {
                             JOptionPane.showMessageDialog(null, "Please, fill each field", "Error", JOptionPane.ERROR_MESSAGE);
                         }
                         else
                         {
-                            methods.updatePatient(idPatient, window.tfName.getText(), window.tfSurname.getText(), new Date(window.jdateChooserP.getDate().getTime()), window.tfAddress.getText(), new Date(window.jdateChooserP2.getDate().getTime()));
+                            methods.updatePatient(idPatient, window.tfName.getText(), window.tfSurname.getText(), new Date(window.jdateChooserP.getDate().getTime()), window.tfAddress.getText());
                             loadPatient();
                             loadPatient2();
                         }
-                    }
-                    else
-                    {
-                        JOptionPane.showMessageDialog(null, "You can not do that now", "Error", JOptionPane.ERROR_MESSAGE);
-                    }
+
                     window.jbModP.setEnabled(false);
                     window.jbDelP.setEnabled(false);
                     window.jbCancel.setEnabled(false);
@@ -473,9 +516,7 @@ public class Controller extends SwingWorker<Void, Void> implements ActionListene
                     window.tfSurname.setEnabled(false);
                     window.tfSurname.setText("");
                     window.jdateChooserP.setEnabled(false);
-                    window.jdateChooserP2.setEnabled(false);
                     window.jdateChooserP.setDate(null);
-                    window.jdateChooserP2.setDate(null);
                     window.tfAddress.setEnabled(false);
                     window.tfAddress.setText("");
                     window.tablePatient1.clearSelection();
@@ -496,7 +537,7 @@ public class Controller extends SwingWorker<Void, Void> implements ActionListene
                         }
                         else
                         {
-                            methods.insertPatient(window.tfName.getText(), window.tfSurname.getText(), new Date(window.jdateChooserP.getDate().getTime()), window.tfAddress.getText(), new Date(window.jdateChooserP2.getDate().getTime()));
+                            methods.insertPatient(window.tfName.getText(), window.tfSurname.getText(), new Date(window.jdateChooserP.getDate().getTime()), window.tfAddress.getText());
                             loadPatient();
                             loadPatient2();
                         }
@@ -504,19 +545,13 @@ public class Controller extends SwingWorker<Void, Void> implements ActionListene
                     endNewPatient();
                     break;
                 case "Delete Patient":
-                    if(String.valueOf(methods.getModificaciones()[1]).equals("0"))
+
+                    int resutl = JOptionPane.showConfirmDialog(null, "Do you want to delete it?", "Are you sure?", JOptionPane.YES_NO_CANCEL_OPTION);
+                    if(resutl == JOptionPane.YES_OPTION)
                     {
-                        int resutl = JOptionPane.showConfirmDialog(null, "Do you want to delete it?", "Are you sure?", JOptionPane.YES_NO_CANCEL_OPTION);
-                        if(resutl == JOptionPane.YES_OPTION)
-                        {
-                            methods.deletePatient(idPatient);
-                            loadPatient();
-                            loadPatient2();
-                        }
-                    }
-                    else
-                    {
-                        JOptionPane.showMessageDialog(null, "You can not do that now", "Error", JOptionPane.ERROR_MESSAGE);
+                        methods.deletePatient(idPatient);
+                        loadPatient();
+                        loadPatient2();
                     }
 
                     window.jbModP.setEnabled(false);
@@ -527,16 +562,13 @@ public class Controller extends SwingWorker<Void, Void> implements ActionListene
                     window.tfSurname.setEnabled(false);
                     window.tfSurname.setText("");
                     window.jdateChooserP.setEnabled(false);
-                    window.jdateChooserP2.setEnabled(false);
                     window.jdateChooserP.setDate(null);
-                    window.jdateChooserP2.setDate(null);
                     window.tfAddress.setEnabled(false);
                     window.tfAddress.setText("");
                     window.tablePatient1.clearSelection();
                     break;
                 case "Modify Medic":
-                    if(String.valueOf(methods.getModificaciones()[0]).equals("0"))
-                    {
+
                         JTextField fieldUser = new JTextField();
                         JTextField fieldPassword = new JTextField();
                         Object[] check = {"User", fieldUser, "Password", fieldPassword};
@@ -565,24 +597,24 @@ public class Controller extends SwingWorker<Void, Void> implements ActionListene
                                     JOptionPane.showMessageDialog(null, "Successul", "Successful", JOptionPane.INFORMATION_MESSAGE);
                                     sw1 = 1;
 
-                                    Object[] datos = methods.selectMedic(idMedic);
+                                    Medic datos = methods.selectMedic(idMedic);
 
                                     JTextField field2 = new JTextField();
-                                    field2.setText(datos[1].toString());
+                                    field2.setText(datos.getName().toString());
                                     JTextField field3 = new JTextField();
-                                    field3.setText(datos[2].toString());
+                                    field3.setText(datos.getSurname().toString());
                                     JTextField field4 = new JTextField();
-                                    field4.setText(datos[3].toString());
+                                    field4.setText(datos.getAddress().toString());
                                     JTextField field5 = new JTextField();
-                                    field5.setText(datos[4].toString());
+                                    field5.setText(datos.getMedicalCentre().toString());
                                     JTextField field6 = new JTextField();
-                                    field6.setText(datos[5].toString());
+                                    field6.setText(datos.getEmail().toString());
                                     JTextField field7 = new JTextField();
-                                    field7.setText(datos[6].toString());
+                                    field7.setText(datos.getMedicalSpeciality().toString());
                                     JTextField field8 = new JTextField();
-                                    field8.setText(datos[7].toString());
+                                    field8.setText(datos.getTelephone().toString());
                                     JDateChooser field9 = new JDateChooser();
-                                    field9.setDate((Date)datos[8]);
+                                    field9.setDate((java.util.Date)datos.getBirthDate());
 
 
                                     int sw = 0;
@@ -617,20 +649,14 @@ public class Controller extends SwingWorker<Void, Void> implements ActionListene
                                 }
                             }
                         }
-                    }
-                    else
-                    {
-                        JOptionPane.showMessageDialog(null, "You can not do that now", "Error", JOptionPane.ERROR_MESSAGE);
-                    }
+
                     break;
                 case "Delete Medic":
-                    if(String.valueOf(methods.getModificaciones()[0]).equals("0"))
-                    {
-                        JTextField fieldUser = new JTextField();
-                        JTextField fieldPassword = new JTextField();
+                        fieldUser = new JTextField();
+                        fieldPassword = new JTextField();
                         Object[] check2 = {"User", fieldUser, "Password", fieldPassword};
-                        int op = JOptionPane.showConfirmDialog(null, check2, "Enter all your values", JOptionPane.OK_CANCEL_OPTION);
-                        int sw1 = 0;
+                        op = JOptionPane.showConfirmDialog(null, check2, "Enter all your values", JOptionPane.OK_CANCEL_OPTION);
+                        sw1 = 0;
 
                         if(op == JOptionPane.CANCEL_OPTION || op == JOptionPane.CLOSED_OPTION)
                         {
@@ -665,11 +691,7 @@ public class Controller extends SwingWorker<Void, Void> implements ActionListene
                                 }
                             }
                         }
-                    }
-                    else
-                    {
-                        JOptionPane.showMessageDialog(null, "You can not do that now", "Error", JOptionPane.ERROR_MESSAGE);
-                    }
+
                     break;
                 case "ENTER":
                     if(!window.tfUser.getText().equals("") || !window.tfPassword.getText().equals(""))
@@ -778,22 +800,23 @@ public class Controller extends SwingWorker<Void, Void> implements ActionListene
                     window.jbDelE.setEnabled(false);
                     break;
                 case "Modify Episodes":
-                    if(String.valueOf(methods.getModificaciones()[3]).equals("0"))
-                    {
+
                         window.jbModE.setEnabled(false);
                         window.jbDelE.setEnabled(false);
                         window.tableEpisodes.clearSelection();
 
-                        Object[] datos = methods.selectEpisode(idEpisode);
+                        Episode datos = methods.selectEpisode(idEpisode);
+                        datos.setStartDate((java.util.Date) datos.getStartDate());
+                        datos.setEndDate((java.util.Date)datos.getEndDate());
 
                         field1 = new JTextField();
-                        field1.setText(datos[0].toString());
+                        field1.setText(datos.getDescription());
                         fieldd2 = new JDateChooser();
-                        fieldd2.setDate(Date.valueOf(datos[1].toString()));
+                        fieldd2.setDate(datos.getStartDate());
                         fieldd3 = new JDateChooser();
-                        fieldd3.setDate(Date.valueOf(datos[2].toString()));
+                        fieldd3.setDate(datos.getEndDate());
                         field4 = new JTextField();
-                        field4.setText(datos[3].toString());
+                        field4.setText(datos.getEvolution().toString());
 
                         sw = 0;
                         option = 0;
@@ -820,16 +843,11 @@ public class Controller extends SwingWorker<Void, Void> implements ActionListene
                                 loadPatient2();
                             }
                         }
-                    }
-                    else
-                    {
-                        JOptionPane.showMessageDialog(null, "You can not do that now", "Error", JOptionPane.ERROR_MESSAGE);
-                    }
+
                     break;
                 case "Delete Episodes":
-                    if(String.valueOf(methods.getModificaciones()[3]).equals("0"))
-                    {
-                        int resutl = JOptionPane.showConfirmDialog(null, "Do you want to delete it?", "Are you sure?", JOptionPane.YES_NO_CANCEL_OPTION);
+
+                        resutl = JOptionPane.showConfirmDialog(null, "Do you want to delete it?", "Are you sure?", JOptionPane.YES_NO_CANCEL_OPTION);
                         if(resutl == JOptionPane.YES_OPTION)
                         {
                             methods.deleteEpisode(idEpisode);
@@ -837,12 +855,6 @@ public class Controller extends SwingWorker<Void, Void> implements ActionListene
                             loadPatient();
                             loadPatient2();
                         }
-                    }
-                    else
-                    {
-                        JOptionPane.showMessageDialog(null, "You can not do that now", "Error", JOptionPane.ERROR_MESSAGE);
-                    }
-
                     window.jbModE.setEnabled(false);
                     window.jbDelE.setEnabled(false);
                     window.tableEpisodes.clearSelection();
@@ -874,6 +886,30 @@ public class Controller extends SwingWorker<Void, Void> implements ActionListene
             }
         }
     }
+
+    public void listameTODO(String search)
+    {
+        listaBusqueda.removeAllElements();
+        ArrayList<Object[]> lista = (ArrayList<Object[]>) methods.listaDefinitva(search);
+
+        for(int i=0; i<lista.size(); i++)
+        {
+            listaBusqueda.addElement(lista.get(i)[0] + ", " + lista.get(i)[1]);
+        }
+    }
+
+    public void listameTODO()
+    {
+        listaBusqueda.removeAllElements();
+        ArrayList<Object[]> lista = (ArrayList<Object[]>) methods.listaDefinitva();
+
+        for(int i=0; i<lista.size(); i++)
+        {
+            listaBusqueda.addElement(lista.get(i)[0] + ", " + lista.get(i)[1]);
+        }
+
+    }
+
     /**
      * Este metodo recoge el evento de cuando dejas de pulsar una tecla, lo cual permite que la busqueda sea efectiva
      * @param e
@@ -885,6 +921,7 @@ public class Controller extends SwingWorker<Void, Void> implements ActionListene
         String search2 = this.window.tfSearchP.getText();
         String search3 = this.window.tfSearchP2.getText();
         String search4 = this.window.tfSearchE.getText();
+        String search5 = this.window.tfSearchFinal.getText();
 
         if(search1.equals(""))
             loadMedic();
@@ -902,17 +939,33 @@ public class Controller extends SwingWorker<Void, Void> implements ActionListene
             loadEpisodes();
         else
             loadEpisodes(search4);
+        if(search5.equals(""))
+            listameTODO();
+        else
+            listameTODO(search5);
+
     }
 
     @Override
     public void keyTyped(KeyEvent e)
     {
+        String search5 = this.window.tfSearchFinal.getText();
 
+        if(search5.equals(""))
+            listameTODO();
+        else
+            listameTODO(search5);
     }
 
     @Override
     public void keyPressed(KeyEvent e)
     {
+        String search5 = this.window.tfSearchFinal.getText();
+
+        if(search5.equals(""))
+            listameTODO();
+        else
+            listameTODO(search5);
 
     }
 

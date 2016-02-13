@@ -6,8 +6,8 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8mb4 */;
 
-CREATE DATABASE IF NOT EXISTS `medicdb` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `medicdb`;
+CREATE DATABASE IF NOT EXISTS `medicos3` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `medicos3`;
 
 CREATE TABLE `analysis` (
   `id` int(10) UNSIGNED NOT NULL,
@@ -42,7 +42,7 @@ CREATE TABLE `episodes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `medic` (
-  `collegiateNumber` int(10) UNSIGNED NOT NULL,
+  id int(10) UNSIGNED NOT NULL,
   `userName` varchar(20) NOT NULL,
   `userPasword` varchar(16) NOT NULL,
   `name` varchar(20) NOT NULL,
@@ -62,13 +62,6 @@ CREATE TABLE `medicament` (
   `formatt` varchar(50) NOT NULL,
   `laboratory` varchar(50) NOT NULL,
   `prize` float NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-CREATE TABLE `modificaciones` (
-  `modM` int(10) DEFAULT '0',
-  `modP` int(10) DEFAULT '0',
-  `modV` int(10) DEFAULT '0',
-  `modEp` int(10) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `patient` (
@@ -109,8 +102,8 @@ CREATE TABLE `radiography` (
   `controlDone` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-CREATE TABLE `visit` (
-  `idVisit` int(10) UNSIGNED NOT NULL,
+CREATE TABLE `history` (
+  `idHistory` int(10) UNSIGNED NOT NULL,
   `receptionDate` date DEFAULT NULL,
   `visitDate` date DEFAULT NULL,
   `medicalCentre` varchar(100) DEFAULT NULL,
@@ -120,8 +113,6 @@ CREATE TABLE `visit` (
   `idPatient` int(10) UNSIGNED DEFAULT NULL,
   `idPharmacotherapy` int(10) UNSIGNED DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-INSERT INTO modificaciones(modM, modP, modV, modEp) VALUES(0,0,0,0);
 
 ALTER TABLE `analysis`
   ADD PRIMARY KEY (`id`);
@@ -137,7 +128,7 @@ ALTER TABLE `episodes`
   ADD PRIMARY KEY (`id`);
 
 ALTER TABLE `medic`
-  ADD PRIMARY KEY (`collegiateNumber`);
+  ADD PRIMARY KEY (id);
 
 ALTER TABLE `medicament`
   ADD PRIMARY KEY (`id`);
@@ -155,8 +146,8 @@ ALTER TABLE `pharmacotherapymedicament`
 ALTER TABLE `radiography`
   ADD PRIMARY KEY (`id`);
 
-ALTER TABLE `visit`
-  ADD PRIMARY KEY (`idVisit`),
+ALTER TABLE `history`
+  ADD PRIMARY KEY (`idHistory`),
   ADD KEY `idAnalysis` (`idAnalysis`),
   ADD KEY `idEpisode` (`idEpisode`),
   ADD KEY `idMedic` (`idMedic`),
@@ -171,7 +162,7 @@ ALTER TABLE `disease`
 ALTER TABLE `episodes`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 ALTER TABLE `medic`
-  MODIFY `collegiateNumber` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+  MODIFY id int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 ALTER TABLE `medicament`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 ALTER TABLE `patient`
@@ -180,8 +171,8 @@ ALTER TABLE `pharmacotherapy`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 ALTER TABLE `radiography`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
-ALTER TABLE `visit`
-  MODIFY `idVisit` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+ALTER TABLE `history`
+  MODIFY `idHistory` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
 ALTER TABLE `episodedisease`
   ADD CONSTRAINT `episodedisease_ibfk_1` FOREIGN KEY (`idEpisode`) REFERENCES `episodes` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -194,5 +185,3 @@ ALTER TABLE `pharmacotherapymedicament`
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
-GRANT SELECT, INSERT ON *.* TO 'user'@'%localhost' IDENTIFIED BY PASSWORD '*A4B6157319038724E3560894F7F932C8886EBFCF';

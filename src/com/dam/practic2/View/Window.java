@@ -87,6 +87,8 @@ public class Window
     public JTable tableRadiography;
     public JTable tablePatient5;
     public JTable tablePharmacotherapy;
+    public JTextField tfSearchFinal;
+    public JList listSearchFinal;
     public JDateChooser jdateChooserP2;
 
     public static JMenuBar menuBar;
@@ -140,7 +142,8 @@ public class Window
         frame.setVisible(true);
     }
 
-    private void createUIComponents() {
+    private void createUIComponents()
+    {
         // TODO: place custom component creation code here
     }
 }

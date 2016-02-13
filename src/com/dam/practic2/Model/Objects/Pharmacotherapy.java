@@ -1,48 +1,73 @@
 package com.dam.practic2.Model.Objects;
 
-import java.io.Serializable;
+import javax.persistence.*;
 import java.util.Date;
 
-/**
- * Esta clase contiene el objeto Pharmacotherapy
- */
-public class Pharmacotherapy implements Serializable
+@Entity
+@Table(name="Pharmacotherapy")
+public class Pharmacotherapy
 {
-    private static final long serialVersionUID = 1L;
-    private int idPh;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id")
+    private int id;
+    @Column(name="descript")
+    private String descript;
+    @Column(name="dosage")
+    private String dosage;
+    @Column(name="startDate")
     private Date startDate;
+    @Column(name="endDate")
     private Date endDate;
-    private String therapyType;
-    private String dosage; // posologia
-    private String description;
+    @Column(name="initialWeight")
     private float initialWeight;
+    @Column(name="finalWeight")
     private float finalWeight;
-    private String medicines;
-    private int idPatient;
 
     public Pharmacotherapy()
     {
 
     }
 
-    public void setIdPh(int id)
+    public Pharmacotherapy(int id, String descript, String dosage, Date startDate, Date endDate, float initialWeight, float finalWeight)
     {
-        this.idPh = id;
+        this.id = id;
+        this.descript = descript;
+        this.dosage = dosage;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.initialWeight = initialWeight;
+        this.finalWeight = finalWeight;
     }
 
-    public int getIdPh()
+    public int getId()
     {
-        return this.idPh;
+        return id;
     }
 
-    public void setIdPatient(int id)
+    public void setId(int id)
     {
-        this.idPatient = id;
+        this.id = id;
     }
 
-    public int getIdPatient()
+    public String getDescript()
     {
-        return this.idPatient;
+        return descript;
+    }
+
+    public void setDescript(String descript)
+    {
+        this.descript = descript;
+    }
+
+    public String getDosage()
+    {
+        return dosage;
+    }
+
+    public void setDosage(String dosage)
+    {
+        this.dosage = dosage;
     }
 
     public Date getStartDate()
@@ -65,36 +90,6 @@ public class Pharmacotherapy implements Serializable
         this.endDate = endDate;
     }
 
-    public String getTherapyType()
-    {
-        return therapyType;
-    }
-
-    public void setTherapyType(String therapyType)
-    {
-        this.therapyType = therapyType;
-    }
-
-    public String getDosage()
-    {
-        return dosage;
-    }
-
-    public void setDosage(String dosage)
-    {
-        this.dosage = dosage;
-    }
-
-    public String getDescription()
-    {
-        return description;
-    }
-
-    public void setDescription(String description)
-    {
-        this.description = description;
-    }
-
     public float getInitialWeight()
     {
         return initialWeight;
@@ -113,20 +108,5 @@ public class Pharmacotherapy implements Serializable
     public void setFinalWeight(float finalWeight)
     {
         this.finalWeight = finalWeight;
-    }
-
-    public String getMedicines()
-    {
-        return medicines;
-    }
-
-    public void setMedicines(String medicines)
-    {
-        this.medicines = medicines;
-    }
-
-    public String toString()
-    {
-        return this.therapyType + ", " + this.dosage + ", " + this.startDate + ", " + this.endDate;
     }
 }

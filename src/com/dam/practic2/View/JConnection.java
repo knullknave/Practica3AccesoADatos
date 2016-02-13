@@ -76,8 +76,8 @@ public class JConnection extends JDialog
 			 */
             Class.forName("com.mysql.jdbc.Driver").newInstance();
             conexion = DriverManager.getConnection("jdbc:mysql://" + servidor + ":3306" + "/MedicDB", usuario, contrasena);
-            m.writeConfigureFile(servidor, usuario, contrasena);
-            m.conexion = conexion;
+
+           // m.conexion = conexion;
         }
         catch (ClassNotFoundException cnfe)
         {
@@ -111,8 +111,8 @@ public class JConnection extends JDialog
         {
             if(conexion == null)
             {
-                m.conexion.close();
-                m.conexion = null;
+             //   m.conexion.close();
+             //   m.conexion = null;
             }
             else
             {

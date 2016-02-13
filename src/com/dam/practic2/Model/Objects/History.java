@@ -1,86 +1,143 @@
 package com.dam.practic2.Model.Objects;
 
-import java.io.Serializable;
-import java.util.ArrayList;
+import javax.persistence.*;
+import java.util.Date;
 
-/**
- * Esta clase contiene el objeto History
- */
-public class History implements Serializable
+@Entity
+@Table(name="history")
+public class History
 {
-    private static final long serialVersionUID = 1L;
-    private String ciasNumber;
-    private ArrayList<Episodes>episodeList;
-    private ArrayList<Analysis> analysisList;
-    private ArrayList<Radiography> radiographyList;
-    private ArrayList<Pharmacotherapy> pharmacotherapyList;
-    private int idPatient;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="idHistory")
+    private int idHistory;
+    @Column(name="receptionDate")
+    private Date receptionDate;
+    @Column(name="visitDate")
+    private Date visitDate;
+    @Column(name="medicalCentre")
+    private String medicalCentre;
+
+    @ManyToOne
+    @JoinColumn(name="idAnalysis")
+    private Analysis analysis;
+
+    @ManyToOne
+    @JoinColumn(name="idEpisode")
+    private Episode episode;
+
+    @ManyToOne
+    @JoinColumn(name="idPatient")
+    private Patient patient;
+
+    @ManyToOne
+    @JoinColumn(name="idMedic")
+    private Medic medic;
+
+    @ManyToOne
+    @JoinColumn(name="idPharmacotherapy")
+    private Pharmacotherapy pharmacotherapy;
 
     public History()
     {
-        this.episodeList = new ArrayList<Episodes>();
-        this.analysisList = new ArrayList<Analysis>();
-        this.radiographyList = new ArrayList<Radiography>();
-        this.pharmacotherapyList = new ArrayList<Pharmacotherapy>();
+
     }
 
-    public void setIdPatient(int id)
+    public History(int idHistory, Date receptionDate, Date visitDate, String medicalCentre)
     {
-        this.idPatient = id;
+        this.idHistory = idHistory;
+        this.receptionDate = receptionDate;
+        this.visitDate = visitDate;
+        this.medicalCentre = medicalCentre;
     }
 
-    public int getIdPatient()
+    public int getIdHistory()
     {
-        return this.idPatient;
+        return idHistory;
     }
 
-    public String getCiasNumber()
+    public void setIdHistory(int idHistory)
     {
-        return ciasNumber;
+        this.idHistory = idHistory;
     }
 
-    public void setCiasNumber(String ciasNumber)
+    public Date getReceptionDate()
     {
-        this.ciasNumber = ciasNumber;
+        return receptionDate;
     }
 
-    public ArrayList<Episodes> getEpisodeList()
+    public void setReceptionDate(Date receptionDate)
     {
-        return episodeList;
+        this.receptionDate = receptionDate;
     }
 
-    public void setEpisodeList(ArrayList<Episodes> episodeList)
+    public Date getVisitDate()
     {
-        this.episodeList = episodeList;
+        return visitDate;
     }
 
-    public ArrayList<Analysis> getAnalysisList()
+    public void setVisitDate(Date visitDate)
     {
-        return analysisList;
+        this.visitDate = visitDate;
     }
 
-    public void setAnalysisList(ArrayList<Analysis> analysisList)
+    public String getMedicalCentre()
     {
-        this.analysisList = analysisList;
+        return medicalCentre;
     }
 
-    public ArrayList<Radiography> getRadiographyList()
+    public void setMedicalCentre(String medicalCentre)
     {
-        return radiographyList;
+        this.medicalCentre = medicalCentre;
     }
 
-    public void setRadiographyList(ArrayList<Radiography> radiographyList)
+    public Analysis getAnalysis()
     {
-        this.radiographyList = radiographyList;
+        return analysis;
     }
 
-    public ArrayList<Pharmacotherapy> getPharmacotherapyList()
+    public void setAnalysis(Analysis analysis)
     {
-        return pharmacotherapyList;
+        this.analysis = analysis;
     }
 
-    public void setPharmacotherapyList(ArrayList<Pharmacotherapy> pharmacotherapyList)
+    public Episode getEpisode()
     {
-        this.pharmacotherapyList = pharmacotherapyList;
+        return episode;
+    }
+
+    public void setEpisode(Episode episode)
+    {
+        this.episode = episode;
+    }
+
+    public Patient getPatient()
+    {
+        return patient;
+    }
+
+    public void setPatient(Patient patient)
+    {
+        this.patient = patient;
+    }
+
+    public Medic getMedic()
+    {
+        return medic;
+    }
+
+    public void setMedic(Medic medic)
+    {
+        this.medic = medic;
+    }
+
+    public Pharmacotherapy getPharmacotherapy()
+    {
+        return pharmacotherapy;
+    }
+
+    public void setPharmacotherapy(Pharmacotherapy pharmacotherapy)
+    {
+        this.pharmacotherapy = pharmacotherapy;
     }
 }
