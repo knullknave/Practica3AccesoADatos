@@ -21,11 +21,11 @@ CREATE TABLE `disease` (
   `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(30) NOT NULL,
   `descr` varchar(255) NOT NULL,
-  `evolution` varchar(255) DEFAULT NULL,
+  `evolution` varchar(255) NULL,
   `treatment` varchar(255) NOT NULL,
-  `prevention` varchar(255) DEFAULT NULL,
-  `diseaseType` varchar(100) NOT NULL,
-  `pathogenesis` varchar(255) DEFAULT NULL
+  `prevention` varchar(255) NULL,
+  `diseaseType` varchar(100) NULL,
+  `pathogenesis` varchar(255) NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 CREATE TABLE `episodedisease` (

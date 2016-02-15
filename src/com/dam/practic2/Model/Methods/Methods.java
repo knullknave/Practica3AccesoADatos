@@ -1,10 +1,7 @@
 package com.dam.practic2.Model.Methods;
 
 import com.dam.practic2.Controller.Controller;
-import com.dam.practic2.Model.Objects.Episode;
-import com.dam.practic2.Model.Objects.History;
-import com.dam.practic2.Model.Objects.Medic;
-import com.dam.practic2.Model.Objects.Patient;
+import com.dam.practic2.Model.Objects.*;
 import com.dam.practic2.View.JConnection;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -111,6 +108,87 @@ public class Methods
                 listaEpisodios.add((Episode) query.uniqueResult());
             }
         }
+
+        return listaEpisodios;
+    }
+
+    public void modifyDisease(String f1, String f2, String f3, int idD)
+    {
+        Query query = session.createQuery("FROM Disease WHERE id=:idD");
+        query.setParameter("idD", idD);
+        Disease d = (Disease) query.uniqueResult();
+        d.setDescr(f2);
+        d.setName(f1);
+        d.setTreatment(f3);
+
+        session.beginTransaction();
+        session.update(d);
+        session.getTransaction().commit();
+    }
+
+    public Disease getDisease(int idD)
+    {
+        Query query = session.createQuery("FROM Disease WHERE id=:idD");
+        query.setParameter("idD", idD);
+        Disease d = (Disease) query.uniqueResult();
+
+        return d;
+    }
+
+    public void insertDisease(String t1, String t2, String t3, int idE)
+    {
+        Query query = session.createQuery("FROM Episode WHERE id=:idE");
+        query.setParameter("idE", idE);
+
+        Episode ep = (Episode) query.uniqueResult();
+        Disease d = new Disease(t1, t2, t3);
+        ep.getListaEnfermedades().add(d);
+
+        //session = sessionFactory.openSession();
+        session.beginTransaction();
+        session.save(d);
+        session.getTransaction().commit();
+
+        session.beginTransaction();
+        session.update(ep);
+        session.getTransaction().commit();
+    }
+
+    public void eliminarDisease(int idDisease)
+    {
+        Query query = session.createQuery("FROM Disease WHERE id=:idD");
+        query.setParameter("idD", idDisease);
+        Disease disease = (Disease) query.uniqueResult();
+
+        //session = sessionFactory.openSession();
+        session.beginTransaction();
+        session.delete(disease);
+        session.getTransaction().commit();
+    }
+
+    public ArrayList<Disease> selectAllDiseases(int idE)
+    {
+        ArrayList<Disease> objetos = new ArrayList<>();
+        Query  query = session.createQuery("FROM Disease");
+
+        ArrayList<Disease> lista = (ArrayList<Disease>) query.list();
+        for(int i=0; i<lista.size(); i++)
+        {
+            for(int j=0; j<lista.get(i).getListaEpisodios().size(); j++)
+            {
+                if (lista.get(i).getListaEpisodios().get(j).getId() == idE)
+                {
+                    objetos.add(lista.get(i));
+                }
+            }
+        }
+        return objetos;
+    }
+
+    public  ArrayList<Episode> selectAllEpisodes2()
+    {
+        Query query = session.createQuery("FROM Episode");
+        ArrayList<Episode> listaEpisodios = (ArrayList<Episode>) query.list();
 
         return listaEpisodios;
     }
@@ -414,7 +492,7 @@ public class Methods
         query.setParameter("d", d);
         query.setParameter("e", e);
         Episode ep = (Episode) query.uniqueResult();
-        System.out.println("EPISODIO: " + ep.getId() + " ," + ep.getDescription());
+        System.out.println("EPISODIO: " + ep.getId() + " ," + ep.getDescript());
 
         query = session.createQuery("FROM Patient WHERE cias=:id");
         query.setParameter("id", idP);

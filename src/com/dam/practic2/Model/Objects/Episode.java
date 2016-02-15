@@ -1,7 +1,7 @@
 package com.dam.practic2.Model.Objects;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.util.*;
 
 @Entity
 @Table(name="episodes")
@@ -19,6 +19,10 @@ public class Episode
     private Date endDate;
     @Column(name="evolution")
     private String evolution;
+
+    @ManyToMany(cascade = {CascadeType.DETACH})
+    @JoinTable(name="episodedisease", joinColumns = {@JoinColumn(name="idEpisode")}, inverseJoinColumns = {@JoinColumn(name="idDisease")})
+    List<Disease> listaEnfermedades = new ArrayList<>();
 
     public Episode()
     {
@@ -53,16 +57,6 @@ public class Episode
         this.id = id;
     }
 
-    public String getDescription()
-    {
-        return descript;
-    }
-
-    public void setDescription(String description)
-    {
-        this.descript = description;
-    }
-
     public Date getStartDate()
     {
         return startDate;
@@ -91,5 +85,25 @@ public class Episode
     public void setEvolution(String evolution)
     {
         this.evolution = evolution;
+    }
+
+    public String getDescript()
+    {
+        return descript;
+    }
+
+    public void setDescript(String descript)
+    {
+        this.descript = descript;
+    }
+
+    public List<Disease> getListaEnfermedades()
+    {
+        return listaEnfermedades;
+    }
+
+    public void setListaEnfermedades(List<Disease> listaEnfermedades)
+    {
+        this.listaEnfermedades = listaEnfermedades;
     }
 }

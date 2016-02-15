@@ -4,7 +4,10 @@ import com.dam.practic2.Controller.Controller;
 import com.toedter.calendar.JDateChooser;
 
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 
 /**
@@ -89,6 +92,11 @@ public class Window
     public JTable tablePharmacotherapy;
     public JTextField tfSearchFinal;
     public JList listSearchFinal;
+    public JList listaEpisodios;
+    public JList listaEnfermedades;
+    public JButton anadirEnfermedadButton;
+    public JButton eliminarEnfermedadButton;
+    public JButton modificarEnfermedadButton;
     public JDateChooser jdateChooserP2;
 
     public static JMenuBar menuBar;
@@ -127,6 +135,7 @@ public class Window
         menuItem6.setMnemonic(KeyEvent.VK_D);
 
         Controller c = new Controller(Window.this);
+
     }
 
     public static void main(String[] args)
