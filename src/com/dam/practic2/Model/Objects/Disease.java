@@ -1,36 +1,20 @@
 package com.dam.practic2.Model.Objects;
 
-import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-@Entity
-@Table(name="disease")
 public class Disease
 {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
     private int id;
-    @Column(name="name")
     private String name;
-    @Column(name="descr")
     private String descr;
-    @Column(name="evolution")
     private String evolution;
-    @Column(name="treatment")
     private String treatment;
-    @Column(name="prevention")
     private String prevention;
-    @Column(name="diseaseType")
     private String diseaseType;
-    @Column(name="pathogenesis")
     private String pathogenesis;
-
-    @ManyToMany(cascade = {CascadeType.DETACH}, mappedBy = "listaEnfermedades")
-    List<Episode> listaEpisodios = new ArrayList<>();
 
     public Disease(String name, String descr, String treatment)
     {
@@ -130,15 +114,5 @@ public class Disease
     public void setPathogenesis(String pathogenesis)
     {
         this.pathogenesis = pathogenesis;
-    }
-
-    public List<Episode> getListaEpisodios()
-    {
-        return listaEpisodios;
-    }
-
-    public void setListaEpisodios(List<Episode> listaEpisodios)
-    {
-        this.listaEpisodios = listaEpisodios;
     }
 }

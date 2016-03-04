@@ -1,27 +1,15 @@
 package com.dam.practic2.Model.Objects;
 
-import javax.persistence.*;
 import java.util.Date;
 
-@Entity
-@Table(name="Pharmacotherapy")
 public class Pharmacotherapy
 {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
     private int id;
-    @Column(name="descript")
     private String descript;
-    @Column(name="dosage")
     private String dosage;
-    @Column(name="startDate")
     private Date startDate;
-    @Column(name="endDate")
     private Date endDate;
-    @Column(name="initialWeight")
     private float initialWeight;
-    @Column(name="finalWeight")
     private float finalWeight;
 
     public Pharmacotherapy()

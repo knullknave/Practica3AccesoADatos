@@ -1,23 +1,13 @@
 package com.dam.practic2.Model.Objects;
 
-import javax.persistence.*;
 import java.util.Date;
 
-@Entity
-@Table(name="analysis")
 public class Analysis
 {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
     private int id;
-    @Column(name="analysisDate")
     private Date analysisDate;
-    @Column(name="analysisType")
     private String analysisType;
-    @Column(name="report")
     private String report;
-    @Column(name="reportDate")
     private Date reportDate;
 
     public Analysis()

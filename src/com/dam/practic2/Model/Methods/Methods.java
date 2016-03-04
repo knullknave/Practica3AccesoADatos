@@ -2,21 +2,16 @@ package com.dam.practic2.Model.Methods;
 
 import com.dam.practic2.Controller.Controller;
 import com.dam.practic2.Model.Objects.*;
-import com.dam.practic2.View.JConnection;
-import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.service.ServiceRegistry;
-import org.hibernate.service.ServiceRegistryBuilder;
+import com.mongodb.MongoClient;
+import com.mongodb.client.FindIterable;
+import com.mongodb.client.MongoDatabase;
+import org.bson.Document;
 
-import javax.swing.*;
-import java.io.*;
-import java.sql.*;
-import java.text.SimpleDateFormat;
 import java.util.*;
 import java.sql.Date;
 
+import static com.dam.practic2.Model.Methods.Constants.*;
+//TODO FALLA ELIMINAR
 /**
  * @author Daniel Cano Mainar
  * @version 1.0 10/11/2015
@@ -31,8 +26,9 @@ public class Methods
 {
     private Controller controller;
     public int medicConnected;
-    private SessionFactory sessionFactory;
-    private Session session;
+    private MongoClient mongoClient;
+    private MongoDatabase db;
+    private Util u;
 
     /**
      * @param c Objeto del tipo Controller donde se procesan todas las peticiones de la ventana
@@ -46,161 +42,157 @@ public class Methods
     public Methods(Controller c)
     {
         this.controller = c;
-        createSession();
+        u = new Util();
+        connect();
     }
 
-    public void createSession()
+    public void connect()
     {
-        Configuration configuration = new Configuration();
-        configuration.configure();
-        ServiceRegistry serviceRegistry = new ServiceRegistryBuilder().applySettings(
-                configuration.getProperties()).buildServiceRegistry();
-        sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+        mongoClient = new MongoClient();
+        db = mongoClient.getDatabase(DATABASE);
     }
 
-    public void conect()
+    public void disconnect()
     {
-        session = sessionFactory.openSession();
+        mongoClient.close();
     }
 
-    public ArrayList<Medic> SelectAllMedic()
+    public List<Medic> SelectAllMedic()
     {
-        conect();
-        Query query = session.createQuery("FROM Medic");
-        ArrayList<Medic> listaMedicos= (ArrayList<Medic>) query.list();
+        FindIterable<Document> findIterable = db.getCollection(Medic.COLECCION).find();
 
-        return listaMedicos;
+        List<Medic> medicos = new ArrayList<Medic>();
+        Medic m = null;
+        Iterator<Document> iter = findIterable.iterator();
+
+        while(iter.hasNext())
+        {
+            Document document = iter.next();
+            m = new Medic();
+            m.setId(Integer.parseInt(document.getString("codigo")));
+            m.setUserName(document.getString("user"));
+            m.setUserPasword(document.getString("pass"));
+            m.setName(document.getString("name"));
+            m.setSurname(document.getString("surname"));
+            m.setAddress(document.getString("address"));
+            m.setMedicalCentre(document.getString("centre"));
+            m.setEmail(document.getString("email"));
+            m.setMedicalSpeciality(document.getString("spec"));
+            m.setTelephone(document.getString("phone"));
+            m.setBirthDate(u.parseFecha(document.getString("birth")));
+
+            medicos.add(m);
+        }
+
+        return medicos;
 
     }
 
     public Medic selectMedic(int idM)
     {
-        Query query = session.createQuery("FROM Medic WHERE id=:idM");
-        query.setParameter("idM", idM);
+        FindIterable<Document> findIterable = db.getCollection(Medic.COLECCION).find(new Document("codigo", String.valueOf(idM)));
+        Document document = findIterable.first();
 
-        Medic medic = (Medic) query.uniqueResult();
+        Medic m = new Medic();
 
-        return medic;
+        m.setId(Integer.parseInt(document.getString("codigo")));
+        m.setUserName(document.getString("user"));
+        m.setUserPasword(document.getString("pass"));
+        m.setName(document.getString("name"));
+        m.setSurname(document.getString("surname"));
+        m.setAddress(document.getString("address"));
+        m.setMedicalCentre(document.getString("centre"));
+        m.setEmail(document.getString("email"));
+        m.setMedicalSpeciality(document.getString("spec"));
+        m.setTelephone(document.getString("phone"));
+        m.setBirthDate(u.parseFecha(document.getString("birth")));
+
+
+        return m;
     }
 
     public Patient selectPatient(int idP)
     {
-        Query query = session.createQuery("FROM Patient WHERE cias=:idP");
-        query.setParameter("idP", idP);
-        Patient p = (Patient) query.uniqueResult();
+        FindIterable<Document> findIterable = db.getCollection(Patient.COLECCION).find(new Document("codigo", String.valueOf(idP)));
+        Document document = findIterable.first();
+
+        Patient p = new Patient();
+
+        p.setCias(Integer.parseInt(document.getString("codigo")));
+        p.setName(document.getString("name"));
+        p.setSurname(document.getString("surname"));
+        p.setAddress(document.getString("address"));
+        p.setBirthDate(u.parseFecha(document.getString("birth")));
+        p.setIdMedic(Integer.parseInt(document.getString("idMedic")));
 
         return p;
     }
 
-    public  ArrayList<Episode> selectAllEpisodes(int idP)
+    public List<Patient> selectAllPatient(int idM)
     {
-        Query query = session.createQuery("FROM History h WHERE h.patient.cias=:idP");
-        query.setParameter("idP", idP);
-        ArrayList<History> listaHistorias = (ArrayList<History>) query.list();
-        ArrayList<Episode> listaEpisodios = new ArrayList<>();
+        FindIterable<Document> findIterable = db.getCollection(Patient.COLECCION).find(new Document("idMedic", String.valueOf(idM)));
+        Iterator<Document> iter = findIterable.iterator();
 
-        for(int i=0;i<listaHistorias.size(); i++)
+        List<Patient> listaPacientes = new ArrayList<>();
+        Patient p = null;
+
+        while(iter.hasNext())
         {
-            if(listaHistorias.get(i).getEpisode() != null)
-            {
-                query = session.createQuery("FROM Episode WHERE id=:id");
-                query.setParameter("id", listaHistorias.get(i).getEpisode().getId());
-                listaEpisodios.add((Episode) query.uniqueResult());
-            }
+            Document document = iter.next();
+            p = new Patient();
+            p.setCias(Integer.parseInt(document.getString("codigo")));
+            p.setName(document.getString("name"));
+            p.setSurname(document.getString("surname"));
+            p.setAddress(document.getString("address"));
+            p.setBirthDate(u.parseFecha(document.getString("birth")));
+            p.setIdMedic(Integer.parseInt(document.getString("idMedic")));
+
+            listaPacientes.add(p);
         }
-
-        return listaEpisodios;
+        return listaPacientes;
     }
 
-    public void modifyDisease(String f1, String f2, String f3, int idD)
+    public  List<Episode> selectAllEpisodes(int idP)
     {
-        Query query = session.createQuery("FROM Disease WHERE id=:idD");
-        query.setParameter("idD", idD);
-        Disease d = (Disease) query.uniqueResult();
-        d.setDescr(f2);
-        d.setName(f1);
-        d.setTreatment(f3);
+        FindIterable<Document> findIterable = db.getCollection(Episode.COLECCION).find(new Document("idPatient", String.valueOf(idP)));
+        Iterator<Document> iter = findIterable.iterator();
 
-        session.beginTransaction();
-        session.update(d);
-        session.getTransaction().commit();
-    }
+        List<Episode> listaEpisodios = new ArrayList<>();
+        Episode e = null;
 
-    public Disease getDisease(int idD)
-    {
-        Query query = session.createQuery("FROM Disease WHERE id=:idD");
-        query.setParameter("idD", idD);
-        Disease d = (Disease) query.uniqueResult();
-
-        return d;
-    }
-
-    public void insertDisease(String t1, String t2, String t3, int idE)
-    {
-        Query query = session.createQuery("FROM Episode WHERE id=:idE");
-        query.setParameter("idE", idE);
-
-        Episode ep = (Episode) query.uniqueResult();
-        Disease d = new Disease(t1, t2, t3);
-        ep.getListaEnfermedades().add(d);
-
-        //session = sessionFactory.openSession();
-        session.beginTransaction();
-        session.save(d);
-        session.getTransaction().commit();
-
-        session.beginTransaction();
-        session.update(ep);
-        session.getTransaction().commit();
-    }
-
-    public void eliminarDisease(int idDisease)
-    {
-        Query query = session.createQuery("FROM Disease WHERE id=:idD");
-        query.setParameter("idD", idDisease);
-        Disease disease = (Disease) query.uniqueResult();
-
-        //session = sessionFactory.openSession();
-        session.beginTransaction();
-        session.delete(disease);
-        session.getTransaction().commit();
-    }
-
-    public ArrayList<Disease> selectAllDiseases(int idE)
-    {
-        ArrayList<Disease> objetos = new ArrayList<>();
-        Query  query = session.createQuery("FROM Disease");
-
-        ArrayList<Disease> lista = (ArrayList<Disease>) query.list();
-        for(int i=0; i<lista.size(); i++)
+        while (iter.hasNext())
         {
-            for(int j=0; j<lista.get(i).getListaEpisodios().size(); j++)
-            {
-                if (lista.get(i).getListaEpisodios().get(j).getId() == idE)
-                {
-                    objetos.add(lista.get(i));
-                }
-            }
+            Document document = iter.next();
+            e = new Episode();
+            e.setId(Integer.parseInt(document.getString("codigo")));
+            e.setDescript(document.getString("description"));
+            e.setStartDate(u.parseFecha(document.getString("start")));
+            e.setEndDate(u.parseFecha(document.getString("end")));
+            e.setEvolution(document.getString("evolution"));
+            e.setIdPatient(Integer.parseInt(document.getString("idPatient")));
+
+            listaEpisodios.add(e);
         }
-        return objetos;
-    }
-
-    public  ArrayList<Episode> selectAllEpisodes2()
-    {
-        Query query = session.createQuery("FROM Episode");
-        ArrayList<Episode> listaEpisodios = (ArrayList<Episode>) query.list();
-
         return listaEpisodios;
     }
 
     public boolean existsMedic(String u, String p)
     {
-        Query query = session.createQuery("SELECT COUNT(*) FROM Medic WHERE userName=:u AND userPasword=:p");
-        query.setParameter("u", u);
-        query.setParameter("p", p);
+        Document document = new Document("$or", Arrays.asList(
+                new Document("user", u),
+                new Document("pass", p)));
 
-        int id = ((Long) query.uniqueResult()).intValue();
-        if(id == 0)
+        FindIterable<Document> findIterable = db.getCollection(Medic.COLECCION).find(document);
+
+        Iterator<Document> iter = findIterable.iterator();
+        int i = 0;
+        while (iter.hasNext())
+        {
+            iter.next();
+            i++;
+        }
+
+        if(i == 0)
             return false;
         else
             return true;
@@ -208,12 +200,21 @@ public class Methods
 
     public boolean existsPatient(String name, String surname)
     {
-        Query query = session.createQuery("SELECT COUNT(*) FROM Patient WHERE name=:u AND surname=:p");
-        query.setParameter("u", name);
-        query.setParameter("p", surname);
+        Document document = new Document("$or", Arrays.asList(
+                new Document("name", name),
+                new Document("surname", surname)));
 
-        int id = ((Long) query.uniqueResult()).intValue();
-        if(id == 0)
+        FindIterable<Document> findIterable = db.getCollection(Patient.COLECCION).find(document);
+
+        Iterator<Document> iter = findIterable.iterator();
+        int i = 0;
+        while (iter.hasNext())
+        {
+            iter.next();
+            i++;
+        }
+
+        if(i == 0)
             return false;
         else
             return true;
@@ -221,13 +222,22 @@ public class Methods
 
     public boolean existsMedic2(String u, String p, int idM)
     {
-        Query query = session.createQuery("SELECT COUNT(*) FROM Medic WHERE userName=:u AND userPasword=:p AND id=:id");
-        query.setParameter("u", u);
-        query.setParameter("p", p);
-        query.setParameter("id", idM);
+        Document document = new Document("$or", Arrays.asList(
+                new Document("user", u),
+                new Document("pass", p),
+                new Document("codigo", idM)));
 
-        int id = ((Long) query.uniqueResult()).intValue();
-        if(id == 0)
+        FindIterable<Document> findIterable = db.getCollection(Medic.COLECCION).find(document);
+
+        Iterator<Document> iter = findIterable.iterator();
+        int i = 0;
+        while (iter.hasNext())
+        {
+            iter.next();
+            i++;
+        }
+
+        if(i == 0)
             return false;
         else
             return true;
@@ -235,315 +245,238 @@ public class Methods
 
     public boolean existsMedic3(int idM)
     {
-        Query query = session.createQuery("SELECT COUNT(*) FROM Medic WHERE id=:id");
-        query.setParameter("id", idM);
+        FindIterable<Document> findIterable = db.getCollection(Medic.COLECCION).find(new Document("codigo", String.valueOf(idM)));
 
-        int id = ((Long) query.uniqueResult()).intValue();
-        if(id == 0)
+        Iterator<Document> iter = findIterable.iterator();
+        int i = 0;
+        while (iter.hasNext())
+        {
+            iter.next();
+            i++;
+        }
+
+        if(i == 0)
             return false;
         else
             return true;
     }
 
-    public void updateMedic(String name, String surname, String adress, String medCentre, String email, String medSpeciality, String telephone, java.sql.Date birth, int idM)
+    public int getCollegiateNumber(String user, String pass)
     {
-        Query query = session.createQuery("FROM Medic WHERE id=:idM");
-        query.setParameter("idM", idM);
-        Medic m2 = (Medic) query.uniqueResult();
-        Medic m = new Medic(idM, name, surname, adress, medCentre, email, medSpeciality, telephone, birth);
-        m.setUserName(m2.getUserName());
-        m.setUserPasword(m2.getUserPasword());
-        session = sessionFactory.openSession();
-        session.beginTransaction();
-        session.update(m);
-        session.getTransaction().commit();
-        //session.close();
+        Document document = new Document("$or", Arrays.asList(
+                new Document("user", user),
+                new Document("pass", pass)));
+
+        FindIterable<Document> findIterable = db.getCollection(Medic.COLECCION).find(document);
+
+        Document doc = findIterable.first();
+
+        return Integer.parseInt(doc.getString("codigo"));
     }
 
-    public void deleteMedic(int idM)
+    public List<Medic> listarMedicos(String search)
     {
-        Query query = session.createQuery("FROM History h WHERE h.medic.id=:idM");
-        query.setParameter("idM", idM);
-        History h = (History) query.uniqueResult();
-        Episode episode = null;
-        Patient p = null;
-        if(h != null)
+        List<Medic> listaMedicos = SelectAllMedic();
+        List<Medic> listaFiltrada = new ArrayList<>();
+
+        for(int i=0; i<listaMedicos.size(); i++)
         {
-            query = session.createQuery("FROM Patient WHERE id=:idM");
-            query.setParameter("idM", h.getPatient().getCias());
-            p = (Patient) query.uniqueResult();
-            if(h.getEpisode() != null)
+            Medic m = listaMedicos.get(i);
+            if(m.getName().contains(search) || m.getSurname().contains(search) || m.getAddress().contains(search) || m.getMedicalCentre().contains(search) || m.getMedicalSpeciality().contains(search) || m.getEmail().contains(search))
             {
-                query = session.createQuery("FROM Episode WHERE id=:idM");
-                query.setParameter("idM", h.getEpisode().getId());
-                episode = (Episode) query.uniqueResult();
+                listaFiltrada.add(m);
             }
         }
+        return listaFiltrada;
+    }
 
-        query = session.createQuery("FROM Medic WHERE id=:idM");
-        query.setParameter("idM", idM);
-        Medic m = (Medic) query.uniqueResult();
+    public List<Patient> listaPacientes(String search)
+    {
+        List<Patient> listaPacientes = selectAllPatient(medicConnected);
+        List<Patient> listaFiltrada = new ArrayList<>();
+        for(int i=0; i<listaPacientes.size(); i++)
+        {
+            Patient p = listaPacientes.get(i);
+            if(p.getName().contains(search) || p.getSurname().contains(search) || p.getAddress().contains(search))
+            {
+                listaFiltrada.add(p);
+            }
+        }
+        return listaFiltrada;
+    }
 
-        session = sessionFactory.openSession();
-        session.beginTransaction();
-        if(episode != null)
-            session.delete(episode);
-        if(p != null)
-            session.delete(p);
-        if(h != null)
-            session.delete(h);
-        session.delete(m);
-        session.getTransaction().commit();
-        //session.close();
+    public Episode selectEpisode(int idE)
+    {
+        FindIterable<Document> findIterable = db.getCollection(Episode.COLECCION).find(new Document("codigo", String.valueOf(idE)));
+        Document document = findIterable.first();
+
+        Episode e = new Episode();
+
+        e.setId(Integer.parseInt(document.getString("codigo")));
+        e.setDescript(document.getString("description"));
+        e.setStartDate(u.parseFecha(document.getString("start")));
+        e.setEndDate(u.parseFecha(document.getString("end")));
+        e.setEvolution(document.getString("evolution"));
+        e.setIdPatient(Integer.parseInt(document.getString("idPatient")));
+
+        return e;
     }
 
     public void insertMedic(String uName, String uPass, String name, String surname, String adress, String medCentre, String email, String medSpeciality, String telephone, java.sql.Date birth)
     {
         Medic m = new Medic(uName, uPass, name, surname, adress, medCentre, email, medSpeciality, telephone, birth);
-
-        session = sessionFactory.openSession();
-        session.beginTransaction();
-        session.save(m);
-        session.getTransaction().commit();
-        //session.close();
+        int lastId = getLastIdMedic();
+        Document document = new Document()
+                .append("codigo", String.valueOf(lastId))
+                .append("user", m.getUserName())
+                .append("pass", m.getUserPasword())
+                .append("name", m.getName())
+                .append("surname", m.getSurname())
+                .append("address", m.getAddress())
+                .append("centre", m.getMedicalCentre())
+                .append("email", m.getEmail())
+                .append("spec", m.getMedicalSpeciality())
+                .append("phone", m.getTelephone())
+                .append("birth", u.formatFecha(m.getBirthDate()));
+        db.getCollection(Medic.COLECCION).insertOne(document);
     }
 
-    public ArrayList<Patient> selectAllPatient()
+    public void updateMedic(String name, String surname, String adress, String medCentre, String email, String medSpeciality, String telephone, java.sql.Date birth, int idM)
     {
-        Query query = session.createQuery("FROM History h WHERE h.medic.id=:medic GROUP BY h.patient.cias");
-        query.setParameter("medic", medicConnected);
-        ArrayList<History> listaHistorias = (ArrayList<History>) query.list();
+        db.getCollection(Medic.COLECCION).replaceOne(new Document("codigo", String.valueOf(idM)),
+                new Document()
+                        .append("codigo", String.valueOf(idM))
+                        .append("name", name)
+                        .append("surname", surname)
+                        .append("address", adress)
+                        .append("centre", medCentre)
+                        .append("email", email)
+                        .append("spec", medSpeciality)
+                        .append("phone", telephone)
+                        .append("birth", u.formatFecha(birth)));
+    }
 
-        ArrayList<Patient> listaFiltradaPacientes = new ArrayList<>();
+    public void deleteMedic(int idM)
+    {
+        List<Patient> listaPacientes = selectAllPatient(idM);
 
-        for(int i=0; i<listaHistorias.size(); i++)
+        for(int i=0; i<listaPacientes.size(); i++)
         {
-            query = session.createQuery("FROM Patient WHERE cias=:cias");
-            query.setParameter("cias", listaHistorias.get(i).getPatient().getCias());
-            listaFiltradaPacientes.add((Patient) query.uniqueResult());
+            int idP = listaPacientes.get(i).getCias();
+            db.getCollection(Episode.COLECCION).deleteMany(new Document("idPatient", String.valueOf(idP)));
+            db.getCollection(Patient.COLECCION).deleteOne(new Document("codigo", String.valueOf(idP)));
         }
 
-        return listaFiltradaPacientes;
+        db.getCollection(Medic.COLECCION).deleteOne(new Document("codigo", String.valueOf(idM)));
     }
 
     public void insertPatient(String name, String surname, java.sql.Date birth, String adress)
     {
         Patient p = new Patient(name, surname, birth, adress);
-
-        session = sessionFactory.openSession();
-        session.beginTransaction();
-        session.save(p);
-
-
-        Query query = session.createQuery("FROM Patient WHERE name=:name AND surname=:surname");
-        query.setParameter("name", name);
-        query.setParameter("surname", surname);
-
-        Patient p2 = (Patient) query.uniqueResult();
-
-        query = session.createQuery("FROM Medic WHERE id=:idMedic");
-        query.setParameter("idMedic", this.medicConnected);
-        Medic m = (Medic) query.uniqueResult();
-
-        History h = new History();
-        h.setPatient(p2);
-        h.setMedic(m);
-
-        session.save(p);
-        session.save(h);
-
-        session.getTransaction().commit();
-        //session.close();
-    }
-
-    public int getCollegiateNumber(String user, String pass)
-    {
-        Query query = session.createQuery("FROM Medic WHERE userName=:userName AND userPasword=:userPasword");
-        query.setParameter("userName", user);
-        query.setParameter("userPasword", pass);
-        return ((Medic)query.uniqueResult()).getId();
+        int lastId = getLastIdPatient();
+        Document document = new Document()
+                .append("codigo", String.valueOf(lastId))
+                .append("name", p.getName())
+                .append("surname", p.getSurname())
+                .append("address", p.getAddress())
+                .append("birth", u.formatFecha(p.getBirthDate()))
+                .append("idMedic", String.valueOf(medicConnected));
+        db.getCollection(Patient.COLECCION).insertOne(document);
     }
 
     public void updatePatient(int idP, String name, String surname, Date birth, String adress)
     {
         Patient p = new Patient(idP, name, surname, birth, adress);
-        session = sessionFactory.openSession();
-        session.beginTransaction();
-        session.update(p);
-        session.getTransaction().commit();
-        //session.close();
-    }
 
-    public ArrayList<Object[]> listaDefinitva(String search)
-    {
-        ArrayList<Object[]> listado = new ArrayList<>();
-
-        Query query = session.createQuery("FROM Medic");
-        ArrayList<Medic> listaMedicos = (ArrayList<Medic>) query.list();
-        query = session.createQuery("FROM Patient");
-        ArrayList<Patient> listaPacientes = (ArrayList<Patient>) query.list();
-
-        for(int i=0; i<listaMedicos.size(); i++)
-        {
-            if(listaMedicos.get(i).getName().equals(search) || listaMedicos.get(i).getSurname().equals(search))
-            {
-                Object[] objects = new Object[2];
-                objects[0] = listaMedicos.get(i).getName();
-                objects[1] = listaMedicos.get(i).getSurname();
-                listado.add(objects);
-            }
-        }
-
-        for(int i=0; i<listaPacientes.size(); i++)
-        {
-            if(listaPacientes.get(i).getName().equals(search) || listaPacientes.get(i).getSurname().equals(search))
-            {
-                Object[] objects = new Object[2];
-                objects[0] = listaPacientes.get(i).getName();
-                objects[1] = listaPacientes.get(i).getSurname();
-                listado.add(objects);
-            }
-        }
-
-        return listado;
-    }
-
-    public ArrayList<Object[]> listaDefinitva()
-    {
-        ArrayList<Object[]> listado = new ArrayList<>();
-
-        Query query = session.createQuery("FROM Medic");
-        ArrayList<Medic> listaMedicos = (ArrayList<Medic>) query.list();
-        query = session.createQuery("FROM Patient");
-        ArrayList<Patient> listaPacientes = (ArrayList<Patient>) query.list();
-
-        for(int i=0; i<listaMedicos.size(); i++)
-        {
-
-            Object[] objects = new Object[2];
-            objects[0] = listaMedicos.get(i).getName();
-            objects[1] = listaMedicos.get(i).getSurname();
-            listado.add(objects);
-
-        }
-
-        for(int i=0; i<listaPacientes.size(); i++)
-        {
-
-             Object[] objects = new Object[2];
-             objects[0] = listaPacientes.get(i).getName();
-             objects[1] = listaPacientes.get(i).getSurname();
-             listado.add(objects);
-
-        }
-
-        return listado;
-    }
-
-    public ArrayList<Medic> listarMedicos(String search)
-    {
-        Query query = session.createQuery("FROM Medic WHERE name=:search OR surname=:search OR id=:search OR medicalSpeciality=:search");
-        ArrayList<Medic> lista = (ArrayList<Medic>) query.list();
-
-        return lista;
-    }
-
-    public ArrayList<Patient> listaPacientes(String search)
-    {
-        Query query = session.createQuery("FROM Patient WHERE name=:search OR surname=:search OR cias=:search OR adress=:search");
-        query.setParameter("search", search);
-        ArrayList<Patient> lista = (ArrayList<Patient>) query.list();
-
-        return lista;
+        db.getCollection(Patient.COLECCION).replaceOne(new Document("codigo", String.valueOf(idP)),
+                new Document()
+                        .append("codigo", String.valueOf(idP))
+                        .append("name", p.getName())
+                        .append("surname", p.getSurname())
+                        .append("address", p.getAddress())
+                        .append("birth", u.formatFecha(p.getBirthDate())));
     }
 
     public void deletePatient(int idP)
     {
-        Query query = session.createQuery("FROM Patient WHERE cias=:cias");
-        query.setParameter("cias", idP);
-        Patient p = (Patient) query.uniqueResult();
-
-        query = session.createQuery("FROM History h WHERE h.patient.cias=:cias");
-        query.setParameter("cias", idP);
-        History h = (History) query.uniqueResult();
-
-        query = session.createQuery("FROM Episode WHERE id=:id");
-        query.setParameter("id", h.getEpisode());
-        Episode e = (Episode) query.uniqueResult();
-
-        session = sessionFactory.openSession();
-        session.beginTransaction();
-        if(e != null)
-            session.delete(e);
-        session.delete(h);
-        session.delete(p);
-        session.getTransaction().commit();
-        //session.close();
+        db.getCollection(Episode.COLECCION).deleteMany(new Document("idPatient", String.valueOf(idP)));
+        db.getCollection(Patient.COLECCION).deleteOne(new Document("codigo", String.valueOf(idP)));
     }
 
     public void insertEpisode(String d, java.sql.Date sD, java.sql.Date eD, String e, int idP)
     {
         Episode e1 = new Episode(d, sD, eD, e);
-        session.beginTransaction();
-        session.save(e1);
-        session.getTransaction().commit();
-
-        Query query = session.createQuery("FROM Episode WHERE descript=:d AND evolution=:e");
-        query.setParameter("d", d);
-        query.setParameter("e", e);
-        Episode ep = (Episode) query.uniqueResult();
-        System.out.println("EPISODIO: " + ep.getId() + " ," + ep.getDescript());
-
-        query = session.createQuery("FROM Patient WHERE cias=:id");
-        query.setParameter("id", idP);
-        Patient p = (Patient) query.uniqueResult();
-
-        query = session.createQuery("FROM Medic WHERE id=:id");
-        query.setParameter("id", medicConnected);
-        Medic m = (Medic) query.uniqueResult();
-
-        History h = new History();
-        h.setEpisode(ep);
-        h.setMedic(m);
-        h.setPatient(p);
-
-
-        session.beginTransaction();
-        session.save(h);
-        session.getTransaction().commit();
-    }
-
-    public void deleteEpisode(int idE)
-    {
-        Query query = session.createQuery("FROM History h WHERE h.episode.id=:id");
-        query.setParameter("id", idE);
-        History h = (History) query.uniqueResult();
-
-        query = session.createQuery("FROM Episode WHERE id=:idE");
-        query.setParameter("idE", idE);
-        Episode e = (Episode) query.uniqueResult();
-
-        session = sessionFactory.openSession();
-        session.beginTransaction();
-        session.delete(e);
-        session.delete(h);
-        session.getTransaction().commit();
-    }
-
-    public Episode selectEpisode(int idE)
-    {
-        Query query =  session.createQuery("FROM Episode WHERE id=:idE");
-        query.setParameter("idE", idE);
-        return (Episode) query.uniqueResult();
+        int lastId = getLastIdEpisode();
+        Document document = new Document()
+                .append("codigo", String.valueOf(lastId))
+                .append("description", e1.getDescript())
+                .append("start", u.formatFecha(e1.getStartDate()))
+                .append("end", u.formatFecha(e1.getEndDate()))
+                .append("evolution", e1.getEvolution())
+                .append("idPatient", String.valueOf(idP));
+        db.getCollection(Episode.COLECCION).insertOne(document);
     }
 
     public void updateEpisode(int idE, String desc, Date sD, Date eD, String evol)
     {
         Episode e = new Episode(idE, desc, sD, eD, evol);
-        session = sessionFactory.openSession();
-        session.beginTransaction();
-        session.update(e);
-        session.getTransaction().commit();
-        //session.close();
+
+        db.getCollection(Episode.COLECCION).replaceOne(new Document("codigo", String.valueOf(idE)),
+                new Document()
+                        .append("codigo", String.valueOf(idE))
+                        .append("description", e.getDescript())
+                        .append("start", u.formatFecha(e.getStartDate()))
+                        .append("end", u.formatFecha(e.getEndDate()))
+                        .append("evolution", e.getEvolution()));
+    }
+
+    public void deleteEpisode(int idE)
+    {
+        db.getCollection(Episode.COLECCION).deleteMany(new Document("codigo", String.valueOf(idE)));
+    }
+
+    public int getLastIdMedic()
+    {
+        long i = db.getCollection(Medic.COLECCION).count();
+        if((int)(long)i > 0)
+        {
+            FindIterable<Document> findIterable = db.getCollection(Medic.COLECCION).find().sort(new Document("codigo", -1));
+            Document doc = findIterable.first();
+            return Integer.valueOf(doc.getString("codigo")) + 1;
+        }
+        else
+        {
+            return 1;
+        }
+    }
+
+    public int getLastIdPatient()
+    {
+        long i = db.getCollection(Patient.COLECCION).count();
+        if((int)(long)i > 0)
+        {
+            FindIterable<Document> findIterable = db.getCollection(Patient.COLECCION).find().sort(new Document("codigo", -1));
+            Document doc = findIterable.first();
+            return Integer.valueOf(doc.getString("codigo")) + 1;
+        }
+        else
+        {
+            return 1;
+        }
+    }
+
+    public int getLastIdEpisode()
+    {
+        long i = db.getCollection(Episode.COLECCION).count();
+        if((int)(long)i > 0)
+        {
+            FindIterable<Document> findIterable = db.getCollection(Episode.COLECCION).find().sort(new Document("codigo", -1));
+            Document doc = findIterable.first();
+            return Integer.valueOf(doc.getString("codigo")) + 1;
+        }
+        else
+        {
+            return 1;
+        }
     }
 }

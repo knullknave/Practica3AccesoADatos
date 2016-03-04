@@ -90,14 +90,6 @@ public class Window
     public JTable tableRadiography;
     public JTable tablePatient5;
     public JTable tablePharmacotherapy;
-    public JTextField tfSearchFinal;
-    public JList listSearchFinal;
-    public JList listaEpisodios;
-    public JList listaEnfermedades;
-    public JButton anadirEnfermedadButton;
-    public JButton eliminarEnfermedadButton;
-    public JButton modificarEnfermedadButton;
-    public JDateChooser jdateChooserP2;
 
     public static JMenuBar menuBar;
     public static JMenu menu;

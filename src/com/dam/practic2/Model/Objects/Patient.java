@@ -1,35 +1,23 @@
 package com.dam.practic2.Model.Objects;
 
-
-import javax.persistence.*;
 import java.util.Date;
 
-@Entity
-@Table(name = "patient")
 public class Patient
 {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="cias")
+    public static String COLECCION = "Patient";
+
+    //codigo
     private int cias;
-    @Column(name="patientUser")
-    private String patientUser;
-    @Column(name="patientPassword")
-    private String patientPassword;
-    @Column(name="name")
+    //name
     private String name;
-    @Column(name="surname")
+    //surname
     private String surname;
-    @Column(name="sex")
-    private char sex;
-    @Column(name="adress")
-    private String adress;
-    @Column(name="birthDate")
+    //address
+    private String address;
+    //birth
     private Date birthDate;
-    @Column(name="telephone")
-    private String telephone;
-    @Column(name="bloodType")
-    private String bloodType;
+    //idMedic
+    private int idMedic;
 
     public Patient()
     {
@@ -39,22 +27,17 @@ public class Patient
     public Patient(int cias, String patientUser, String patientPassword, String name, String surname, String adress, char sex, Date birthDate, String telephone, String bloodType)
     {
         this.cias = cias;
-        this.patientPassword = patientPassword;
-        this.patientUser =  patientUser;
         this.name = name;
         this.surname = surname;
-        this.adress = adress;
-        this.sex = sex;
+        this.address = adress;
         this.birthDate = birthDate;
-        this.telephone = telephone;
-        this.bloodType = bloodType;
     }
 
     public Patient(String name, String surname, Date birthDate, String adress)
     {
         this.name = name;
         this.surname = surname;
-        this.adress = adress;
+        this.address = adress;
         this.birthDate = birthDate;
     }
 
@@ -63,7 +46,7 @@ public class Patient
         this.cias = cias;
         this.name = name;
         this.surname = surname;
-        this.adress = adress;
+        this.address = adress;
         this.birthDate = birthDate;
     }
 
@@ -75,26 +58,6 @@ public class Patient
     public void setCias(int cias)
     {
         this.cias = cias;
-    }
-
-    public String getPatientUser()
-    {
-        return patientUser;
-    }
-
-    public void setPatientUser(String patientUser)
-    {
-        this.patientUser = patientUser;
-    }
-
-    public String getPatientPassword()
-    {
-        return patientPassword;
-    }
-
-    public void setPatientPassword(String patientPassword)
-    {
-        this.patientPassword = patientPassword;
     }
 
     public String getName()
@@ -117,26 +80,6 @@ public class Patient
         this.surname = surname;
     }
 
-    public char getSex()
-    {
-        return sex;
-    }
-
-    public void setSex(char sex)
-    {
-        this.sex = sex;
-    }
-
-    public String getAdress()
-    {
-        return adress;
-    }
-
-    public void setAdress(String adress)
-    {
-        this.adress = adress;
-    }
-
     public Date getBirthDate()
     {
         return birthDate;
@@ -147,23 +90,36 @@ public class Patient
         this.birthDate = birthDate;
     }
 
-    public String getTelephone()
+    public String getAddress()
     {
-        return telephone;
+        return address;
     }
 
-    public void setTelephone(String telephone)
+    public void setAddress(String address)
     {
-        this.telephone = telephone;
+        this.address = address;
     }
 
-    public String getBloodType()
+    public int getIdMedic()
     {
-        return bloodType;
+        return idMedic;
     }
 
-    public void setBloodType(String bloodType)
+    public void setIdMedic(int idMedic)
     {
-        this.bloodType = bloodType;
+        this.idMedic = idMedic;
+    }
+
+    @Override
+    public String toString()
+    {
+        return "Patient{" +
+                "cias=" + cias +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", address='" + address + '\'' +
+                ", birthDate=" + birthDate +
+                ", idMedic=" + idMedic +
+                '}';
     }
 }

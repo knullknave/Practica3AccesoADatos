@@ -1,28 +1,23 @@
 package com.dam.practic2.Model.Objects;
 
-import javax.persistence.*;
 import java.util.*;
 
-@Entity
-@Table(name="episodes")
 public class Episode
 {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
-    private int id;
-    @Column(name="descript")
-    private String descript;
-    @Column(name="startDate")
-    private Date startDate;
-    @Column(name="endDate")
-    private Date endDate;
-    @Column(name="evolution")
-    private String evolution;
+    public static String COLECCION = "Episode";
 
-    @ManyToMany(cascade = {CascadeType.DETACH})
-    @JoinTable(name="episodedisease", joinColumns = {@JoinColumn(name="idEpisode")}, inverseJoinColumns = {@JoinColumn(name="idDisease")})
-    List<Disease> listaEnfermedades = new ArrayList<>();
+    //codigo
+    private int id;
+    //description
+    private String descript;
+    //start
+    private Date startDate;
+    //end
+    private Date endDate;
+    //evolution
+    private String evolution;
+    //idPatient
+    private int idPatient;
 
     public Episode()
     {
@@ -97,13 +92,13 @@ public class Episode
         this.descript = descript;
     }
 
-    public List<Disease> getListaEnfermedades()
+    public int getIdPatient()
     {
-        return listaEnfermedades;
+        return idPatient;
     }
 
-    public void setListaEnfermedades(List<Disease> listaEnfermedades)
+    public void setIdPatient(int idPatient)
     {
-        this.listaEnfermedades = listaEnfermedades;
+        this.idPatient = idPatient;
     }
 }

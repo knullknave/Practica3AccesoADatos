@@ -1,36 +1,32 @@
 package com.dam.practic2.Model.Objects;
 
-
-import javax.persistence.*;
 import java.util.Date;
 
-@Entity
-@Table(name = "medic")
 public class Medic
 {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
+    public static String COLECCION = "Medic";
+
+    //codigo
     private int id;
-    @Column(name="userName")
+    //user
     private String userName;
-    @Column(name="userPasword")
+    //pass
     private String userPasword;
-    @Column(name="name")
+    //name
     private String name;
-    @Column(name="surname")
+    //surname
     private String surname;
-    @Column(name="adress")
+    //address
     private String address;
-    @Column(name="medicalCentre")
+    //centre
     private String medicalCentre;
-    @Column(name="email")
+    //email
     private String email;
-    @Column(name="medicalSpeciality")
+    //spec
     private String medicalSpeciality;
-    @Column(name="telephone")
+    //phone
     private String telephone;
-    @Column(name="birthDate")
+    //birth
     private Date birthDate;
 
     public Medic()
